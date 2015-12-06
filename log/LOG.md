@@ -25,3 +25,20 @@
 
     * Organize the available IPython notebook, put under `notebook` folder
         - `redMapperRaDec.ipynb`: Make RA, DEC plot of redMapper clusters
+        - `convolveMask.ipynb`: Test segmentation in SEP and convolve mask
+
+
+## 2015-12-06
+
+### Improve batchPrep.py; batchSky.py; batchSbp.py
+
+### Allow coaddCutoutSky.py, coaddCutoutSbp.py, and their batch-mode scripts to allow external masks
+
+### Start with ds9Reg2Mask.py
+
+### Organize coaddCutoutPrep.py
+    - Clean up
+    - Add segmentation map
+    - Accept external region files
+
+### Fix the direction of the image by add origin='lower'
