@@ -12,6 +12,70 @@
 
 ----
 
+## Organize the IPython notebook:
+    * Organize the available IPython notebook, put under `notebook` folder
+        - `redMapperRaDec.ipynb`: Make RA, DEC plot of redMapper clusters
+        - `convolveMask.ipynb`: Test segmentation in SEP and convolve mask
+        - `hscFilterRedshift.ipynb`: Redshift v.s. effective wavelength of HSC filters.
+        - `speczFrac.ipynb`: Redshift completeness of SDSS+GAMA survey
+            * Input: `hsc_gama_galaxies2.fits`
+        - `wideMatch.ipynb`: Filter the input catalog using a Accept and Rejection mask
+            * Input: acpMask and rejMask in `.wkb` format
+            * Input: Any SDSS or GAMA fits catalog
+        - `frameSearch.ipynb`: Find the single frames that overlap with a region
+            * Input: HSC single frame catalog from the database
+                    - `..gama_compare/database_dr15a/hsc_dr15a_wide_frame.fits`
+        - `coaddSrcCat.ipynb`: Given cutout images, visualize the cModel results.
+            * Now you can do this using `coaddShowCModel.py` to do this.
+        - `gamaMag2Flux.ipynb`: Convert between HSC flux and magnitude, can use `maggies` as unit
+            * Also correct galactic extinction.
+            * Input: `gama_compare/hsc_gama_dr15a_matched.fits`
+            * Output: `gama_compare/hsc_gama_dr15a_matched_short.fits`
+            * Output: `gama_compare/hsc_gama_dr15a_matched_flux_use.fits`
+        - `gamaCompare.ipynb`: Compare the RA, DEC distributions, and photometry between SDSS/GAMA and HSC photometry:
+            * Inputs:
+              ``` python
+              g09_wkb = 'ssp385_wide_g09_tract_all.wkb'
+              g09_hsc = 'hsc_gama_g09_hsc_match.fits'
+              g09_match = 'hsc_gama_dr15a_g09_matched.fits'
+              g09_not_match = 'hsc_gama_dr15a_g09_not_matched.fits'
+              g09_red = 'redmapper/hsc_redmapper_g09.fits'
+
+              g15_wkb = 'ssp385_wide_g15_tract_all.wkb'
+              g15_hsc = 'hsc_gama_g15_hsc_match.fits'
+              g15_match = 'hsc_gama_dr15a_g15_matched.fits'
+              g15_not_match = 'hsc_gama_dr15a_g15_not_matched.fits'
+              g15_red = 'redmapper/hsc_redmapper_g15.fits'
+
+              w12_wkb = 'ssp385_wide_w12_tract_all.wkb'
+              w12_hsc = 'hsc_gama_w12_hsc_match.fits'
+              w12_match = 'hsc_gama_dr15a_w12_matched.fits'
+              w12_not_match = 'hsc_gama_dr15a_w12_not_matched.fits'
+              w12_red = 'redmapper/hsc_redmapper_w12.fits'
+
+              gama_match = 'hsc_gama_dr15a_matched.fits'
+              gama_nomatch = 'hsc_gama_dr15a_not_matched.fits'
+              ```
+        - `gamaSEDMass.ipynb`: Summarize the HSC iSEDFit stellar mass results
+            * Inputs:
+              ``` python
+              sed_model = 'a_fsps_miles_chab'
+              #sed_model = 'b_bc03_stelib_chab'
+
+              z1Fits = 'sed/hsc_sed_z1' + sed_model + '_match.fits'
+              z2Fits = 'sed/hsc_sed_z2' + sed_model + '_match.fits'
+              z3Fits = 'sed/hsc_sed_z3' + sed_model + '_match.fits'
+              ```
+            * Including:
+                1. The reshift-mass distributions;
+                2. Mass comparisons between HSC, SDSS, and GAMA
+                3. Stellar mass distributions
+                4. Stellar mass "functions"
+        - `xmm_massive.ipynb`:
+            * The notebook that summarize the results before the 2015-08
+              Princeton collaboration meeting.
+
+
 ## 2015-12-05
 
     * `redMapperRaDec.ipynb`:
@@ -22,10 +86,7 @@
             3. BCG's luminosity fraction compared to the sum of the 2nd to 6th brightest galaxies (`bcgFrac5`)
             4. BCG's luminosity fraction compared to all the identified members (except the BCG) (`bcgFracA`)
             * **NOTE**: In all 5 bands, there are non-BCG galaxies with `P_CEN_1`
-
-    * Organize the available IPython notebook, put under `notebook` folder
-        - `redMapperRaDec.ipynb`: Make RA, DEC plot of redMapper clusters
-        - `convolveMask.ipynb`: Test segmentation in SEP and convolve mask
+    * `hscFilterRedshift.ipynb`: Update the redshift-filter plot.
 
 
 ## 2015-12-06
@@ -167,6 +228,38 @@ batchSbp.py redBCG hsc_redmapper_cluster_z[1/2/3/4/5/6]_1509.fits \
     -i 'ID_CLUSTER' -r default -f HSC-I --plmask --step 0.1
 ```
 
+#### Failed ones:
+
+* 24 failed cases:
+
+```
+WARNING:root:### Can not find INPUT BINARY for : redBCG_33_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_1846_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_5197_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_6497_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_7572_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_8441_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_9724_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_10793_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_11330_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_15726_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_15947_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_16054_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_16643_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_21087_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_21677_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_22120_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_23868_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_24930_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_25765_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_28129_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_29826_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_36194_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_48732_HSC-R_full
+WARNING:root:### Can not find INPUT BINARY for : redBCG_73887_HSC-R_full
+```
+
+
 * I-band Force SBP
     - Should be much faster, so use the master catalog
 
@@ -186,16 +279,16 @@ batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-I \
     - Only use `HSC-G` as example
 
 ``` bash
-## default rerun
+## default rerun: G, R, Z, Y finished
 batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-G \
     -i 'ID_CLUSTER' -r default --plmask \
     -mf HSC-I -rf HSC-I -rr default -rm 3
-## largeR1 rerun
+## largeR1 rerun: G, R, Z, Y finished
 batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-G \
     -i 'ID_CLUSTER' -r largeR1 --plmask \
     -mf HSC-I -rf HSC-I -rr default -rm 3
-## smallR1 rerun
-batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-G \
+## smallR1 rerun: G, R, Z finished; Y running
+batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-Y \
     -i 'ID_CLUSTER' -r smallR1 --plmask \
     -mf HSC-I -rf HSC-I -rr default -rm 3
 ```
@@ -209,12 +302,38 @@ batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-G \
 
 ``` bash
 ## default rerun
-batchSbp.py nonBCG massive_nonBCG_test_2.fits --id 'ISEDFIT_ID' \
+batchSbp.py nonBCG massive_nonBCG_test_[1-4].fits --id 'ISEDFIT_ID' \
     --plmask --step 0.1 -r default -f HSC-I
 ```
+
+* I-band Force SBP
+    - Should be much faster, so use the master catalog
+
+``` bash
+## largeR1 rerun : 1, 2, 3, 4 finished
+batchForceSbp.py nonBCG massive_nonBCG_test_1.fits HSC-I \
+    -i 'ISEDFIT_ID' -r largeR1 --plmask \
+    -mf HSC-I -rf HSC-I -rr default -rm 3
+```
+
+* Force SBP for other bands
+    - Should be much faster, so use the master catalog
+    - Only use `HSC-G` as example
+
+``` bash
+## largeR1 rerun :
+## G 1, 2 finished; 3, 4 running
+## R 1, 2, 3, 4 running
+## Z 1 running
+batchForceSbp.py nonBCG massive_nonBCG_test_1.fits HSC-G \
+    -i 'ISEDFIT_ID' -r default --plmask \
+    -mf HSC-I -rf HSC-I -rr default -rm 3
+```
+
+-----
 
 ### Issues:
 
 * The corrected SBP and CoG is still need to be tested
-* Sometime `zscale` resacaling can fail, leave a black image on the output figure. (e.g. redBCG_15251) 
+* Sometime `zscale` resacaling can fail, leave a black image on the output figure. (e.g. redBCG_15251)
 * The PA correction is still not perfect (e.g. redBCG_1053)
