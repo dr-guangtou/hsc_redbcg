@@ -211,8 +211,8 @@ batchSky.py nonBCG massive_nonBCG_test_${PBS_ARRAYID}.fits -i 'ISEDFIT_ID' \
 
 
 * Rsync backup:
-  1. `redmapper` and `nonbcg` to W520:`/home/hs/astro2/hsc/master/`
-  2. `redmapper` and `nonbcg` to MBP:`/Users/songhuang/astro3/hscs/`
+  1. `redmapper` and `nonbcg` to W520:`/home/hs/astro2/hsc/master/` [DONE]
+  2. `redmapper` and `nonbcg` to MBP:`/Users/songhuang/astro3/hscs/` [DONE]
 
 
 ### redMapper:
@@ -287,7 +287,7 @@ batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-G \
 batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-G \
     -i 'ID_CLUSTER' -r largeR1 --plmask \
     -mf HSC-I -rf HSC-I -rr default -rm 3
-## smallR1 rerun: G, R, Z finished; Y running
+## smallR1 rerun: G, R, Z, Y finished
 batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-Y \
     -i 'ID_CLUSTER' -r smallR1 --plmask \
     -mf HSC-I -rf HSC-I -rr default -rm 3
@@ -322,12 +322,39 @@ batchForceSbp.py nonBCG massive_nonBCG_test_1.fits HSC-I \
 
 ``` bash
 ## largeR1 rerun :
-## G 1, 2 finished; 3, 4 running
-## R 1, 2, 3, 4 running
-## Z 1 running
+## G 1, 2, 3, 4 finished;
+## R 1, 2, 3, 4 finished;
+## Z 1, 2, 3, finished;
 batchForceSbp.py nonBCG massive_nonBCG_test_1.fits HSC-G \
     -i 'ISEDFIT_ID' -r default --plmask \
     -mf HSC-I -rf HSC-I -rr default -rm 3
+```
+
+### Failed cases:
+    * 21 failed ones
+
+``` bash
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5875_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5755_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_4748_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5761_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5518_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_4877_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5770_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5016_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_4817_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5230_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5233_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5876_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5418_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5270_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5096_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5678_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5556_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5666_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_4745_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_4713_HSC-I_full
+WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 ```
 
 -----
