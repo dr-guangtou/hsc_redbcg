@@ -357,6 +357,25 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_4713_HSC-I_full
 WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 ```
 
+## 2015-12-11
+
+### New GAMA Massive Galaxy Sample
+
+    * Based on `hsc_sed_z2a_fsps_miles_chab_match.fits`: 0.2 < z < 0.4
+    * `MSTAR >= 11.2`: **5029** Galaxies.
+    * Save the table to `gama_z0.2_0.4_m11.2.fits` under `gama_compare/nonbcg` (11 Mb)
+
+    * There was an old `non-cluster` catalog for `0.1 < z < 0.4` GAMA galaxies.
+        - `MSTAR >= 11.2 && Z >= 0.25 && Z <= 0.40` --> **3747** galaxies.
+        - Save to `gama_z0.25_0.4_m11.2.fits` under `gama_compare/nonbcg` (7.9 Mb)
+        - Backup to `~/hsc_redbcg/data` in Dropbox
+
+    * Write a small scripts to split the table.
+        - `fitsSplitTable.py` --> `..../hscUtils/`
+    * Split the input `gama_z0.25_0.4_m11.2.fits` into 8 tables, each with ~500 galaxies.
+
+    * Clean up `coaddBatchCutout.py`
+
 -----
 
 ### Issues:
