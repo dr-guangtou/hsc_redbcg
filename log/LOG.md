@@ -373,8 +373,31 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * Write a small scripts to split the table.
         - `fitsSplitTable.py` --> `..../hscUtils/`
     * Split the input `gama_z0.25_0.4_m11.2.fits` into 8 tables, each with ~500 galaxies.
+        - Upload them to Master.
 
-    * Clean up `coaddBatchCutout.py`
+    * Clean up `coaddBatchCutout.py`, `coaddImageCutout.py`, `batchCut.py`;
+    * Clean up `coaddColorImage.py`, `batchColor.py`, `hscUtils.py`
+
+## 2015-12-12
+
+### Start to generate cutout for `gama1` sample
+
+    * Under `/lustre/Subaru/SSP/rerun/song/gama/`
+    * `nonbcg_151212_1.submit` --> gama_cut_HSC-I
+    * `nonbcg_151212_2.submit` --> gama_cut_HSC-G
+
+
+## 2015-12-15
+
+### GAMA01 sample:
+
+### 1-D Surface Brightness Profile:
+
+    ``` bash
+    batchSbp.py nonBCG gama_z0.25_0.4_m11.2_nonbcg_1.fits -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse
+    ```
+
+
 
 -----
 
