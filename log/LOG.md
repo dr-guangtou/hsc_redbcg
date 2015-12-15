@@ -391,11 +391,67 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
 ### GAMA01 sample:
 
-### 1-D Surface Brightness Profile:
+* The sample is cut and prepared as usual;
+* Instead of generating 3 separated reruns; we generate 2 additional masks in `HSC-I/default` rerun.
+* Sky backgrounds are also estimated in the usual way.
 
-    ``` bash
-    batchSbp.py nonBCG gama_z0.25_0.4_m11.2_nonbcg_1.fits -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse
+#### 1-D Surface Brightness Profile:
+
     ```
+    # Finished
+    batchSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_1.fits -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_2.fits -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_3.fits -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_4.fits -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_5.fits -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_6.fits -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_7.fits -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_8.fits -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse
+    ```
+
+    * **3583** galaxies with useful profiles.
+
+#### 1-D Force Photometry:
+
+* Update `batchForceSbp.py` with forced runs using `msksmall.fits` and `msklarge.fits`
+
+    - HSC-G:
+    ```
+    # Running
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_1.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_2.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_3.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_4.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_5.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_6.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_7.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_8.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    ```
+
+    - HSC-R:
+
+### GAMA2 Sample:
+
+    * There was an old `non-cluster` catalog for `0.1 < z < 0.4` GAMA galaxies.
+        - `MSTAR >= 11.2 && Z >= 0.1 && Z <= 0.25` --> **1700** galaxies.
+        - Save to `gama_z0.10_0.25_m11.2.fits` under `gama_compare/nonbcg` (3.6 Mb)
+        - Backup to `~/hsc_redbcg/data` in Dropbox
+
+    * Upload the sample to Master, under `/data3a/work/song/gama2`:
+        - New screen: `gama2`
+
+    * Start to generate cutouts:
+        - `HSC-I`: `nonbcg_151215_1.submit`
+        - `HSC-G`: `nonbcg_151215_2.submit`
+        - `HSC-R`: `nonbcg_151215_3.submit`
 
 
 
