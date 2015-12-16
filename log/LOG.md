@@ -515,8 +515,35 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     ```
 
     * 1-D profiles in G and R-band
+         
+    - HSC-G band 
     ```
     # Running
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_3.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+
+    # Waiting: 
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-G -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    ```
+
+    - HSC-R band 
+    ```
+    # Running
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-R -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_3.fits HSC-R -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits HSC-R -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
+
+    # Waiting: 
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-R -i 'ISEDFIT_ID' \
+        -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
     ```
 
 
