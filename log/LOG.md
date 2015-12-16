@@ -471,6 +471,9 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
     ```
 
+    * Backup the `gama01`: 
+        - Thinkpad: `astro2/hsc/master` -- Finished 
+
 ### GAMA2 Sample:
 
     * There was an old `non-cluster` catalog for `0.1 < z < 0.4` GAMA galaxies.
@@ -502,11 +505,12 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     # Running
     batchSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_1.fits -i 'ISEDFIT_ID' \
         -r default -f HSC-I --plmask --multiEllipse
+    # Finished
+    batchSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
     batchSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits -i 'ISEDFIT_ID' \
         -r default -f HSC-I --plmask --multiEllipse
     batchSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_3.fits -i 'ISEDFIT_ID' \
-        -r default -f HSC-I --plmask --multiEllipse
-    batchSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits -i 'ISEDFIT_ID' \
         -r default -f HSC-I --plmask --multiEllipse
     ```
 
@@ -522,12 +526,49 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     
     * `/data3a/work/song/redmapper`: Delete all the `smallR1` and `largeR1` reruns
     * New preparation with multiMask option: 
-        - `red_151216_1.submit` -- `red_prep_I_new` -- Running
-
+        - `red_151216_1.submit` -- `red_prep_I_new` -- Done 
     ``` 
     batchPrep.py redBCG hsc_redmapper_cluster_z${PBS_ARRAYID}_1509.fits \
         -i 'ID_CLUSTER' -r default -f HSC-I --multiMask
     ```
+
+    * New 1-D profiles in I-band: 
+    ``` 
+    # Finished 
+    batchSbp.py redBCG hsc_redmapper_cluster_z1_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py redBCG hsc_redmapper_cluster_z2_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py redBCG hsc_redmapper_cluster_z3_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py redBCG hsc_redmapper_cluster_z4_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py redBCG hsc_redmapper_cluster_z5_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py redBCG hsc_redmapper_cluster_z6_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse
+    ```
+
+    * New 1-D profiles in other bands:
+    ```
+    # Done 
+    batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-G \
+        -i 'ID_CLUSTER' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-R \
+        -i 'ID_CLUSTER' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-Z \
+        -i 'ID_CLUSTER' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-Y \
+        -i 'ID_CLUSTER' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    ```
+
+    * Backup: 
+        - Thinkpad: `astro2/hsc/master`: `rsync -avz --delete` -- Finished
+        - Mac: `astro3/hscs/`: `rsync -avz --delete` -- Finished
 
 -----
 
