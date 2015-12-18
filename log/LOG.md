@@ -389,13 +389,13 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * `nonbcg_151212_2.submit` --> `gama_cut_HSC-G`
     * `nonbcg_151212_3.submit` --> `gama_cut_HSC-R`
 
-#### Prepare the cutouts: 
+#### Prepare the cutouts:
     * Now only generating 1-rerun, but with 3 different masks
     * `nonbcg_151213_1.submit` --> `gama_prep_HSC-I`
     * `nonbcg_151213_2.submit` --> `gama_prep_HSC-G`
     * `nonbcg_151213_3.submit` --> `gama_prep_HSC-R`
 
-#### Estimate sky background: 
+#### Estimate sky background:
     * `nonbcg_151214_1.submit` --> `gama_sky_HSC-I`
     * `nonbcg_151214_2.submit` --> `gama_sky_HSC-G`
     * `nonbcg_151214_3.submit` --> `gama_sky_HSC-R`
@@ -431,7 +431,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     - HSC-G:
     ```
-    # Finished 
+    # Finished
     batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_1.fits HSC-G -i 'ISEDFIT_ID' \
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_2.fits HSC-G -i 'ISEDFIT_ID' \
@@ -471,8 +471,8 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
     ```
 
-    * Backup the `gama01`: 
-        - Thinkpad: `astro2/hsc/master` -- Finished 
+    * Backup the `gama01`:
+        - Thinkpad: `astro2/hsc/master` -- Finished
 
 ### GAMA2 Sample:
 
@@ -491,21 +491,20 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * Start to prep cutouts:
         - `HSC-I`: `nonbcg_151216_1.submit` -- Finished  
-        - `HSC-G`: `nonbcg_151216_2.submit` -- Finished 
-        - `HSC-R`: `nonbcg_151216_3.submit` -- Finished 
+        - `HSC-G`: `nonbcg_151216_2.submit` -- Finished
+        - `HSC-R`: `nonbcg_151216_3.submit` -- Finished
 
-    * Start to estimate sky: 
-        - `HSC-I`: `nonbcg_151216_4.submit` -- Finished 
-        - `HSC-G`: `nonbcg_151216_5.submit` -- Finished 
-        - `HSC-R`: `nonbcg_151216_6.submit` -- Finished 
+    * Start to estimate sky:
+        - `HSC-I`: `nonbcg_151216_4.submit` -- Finished
+        - `HSC-G`: `nonbcg_151216_5.submit` -- Finished
+        - `HSC-R`: `nonbcg_151216_6.submit` -- Finished
 
-    * 1-D profiles in I-band: 
+    * 1-D profiles in I-band:
 
     ```
-    # Running
+    # Finished
     batchSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_1.fits -i 'ISEDFIT_ID' \
         -r default -f HSC-I --plmask --multiEllipse
-    # Finished
     batchSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits -i 'ISEDFIT_ID' \
         -r default -f HSC-I --plmask --multiEllipse
     batchSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits -i 'ISEDFIT_ID' \
@@ -515,53 +514,51 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     ```
 
     * 1-D profiles in G and R-band
-         
-    - HSC-G band 
+
+    - HSC-G band
     ```
-    # Running
+    # Finished
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-G -i 'ISEDFIT_ID' \
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_3.fits HSC-G -i 'ISEDFIT_ID' \
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits HSC-G -i 'ISEDFIT_ID' \
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
-
-    # Waiting: 
+    # Running
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-G -i 'ISEDFIT_ID' \
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
     ```
 
-    - HSC-R band 
+    - HSC-R band
     ```
-    # Running
+    # Finished
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-R -i 'ISEDFIT_ID' \
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_3.fits HSC-R -i 'ISEDFIT_ID' \
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits HSC-R -i 'ISEDFIT_ID' \
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
-
-    # Waiting: 
+    # Running
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-R -i 'ISEDFIT_ID' \
         -r default -mf HSC-I -rf HSC-I -rr default -rm 3 --multiMask --plmask
     ```
 
 
 ### Re-reducing the redMapper data
-    * Sky background should be the same 
-    * Preparation is different, we don't need the multi-rerun now. 
-    
+    * Sky background should be the same
+    * Preparation is different, we don't need the multi-rerun now.
+
     * `/data3a/work/song/redmapper`: Delete all the `smallR1` and `largeR1` reruns
-    * New preparation with multiMask option: 
-        - `red_151216_1.submit` -- `red_prep_I_new` -- Done 
-    ``` 
+    * New preparation with multiMask option:
+        - `red_151216_1.submit` -- `red_prep_I_new` -- Done
+    ```
     batchPrep.py redBCG hsc_redmapper_cluster_z${PBS_ARRAYID}_1509.fits \
         -i 'ID_CLUSTER' -r default -f HSC-I --multiMask
     ```
 
-    * New 1-D profiles in I-band: 
-    ``` 
-    # Finished 
+    * New 1-D profiles in I-band:
+    ```
+    # Finished
     batchSbp.py redBCG hsc_redmapper_cluster_z1_1509.fits \
         -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse
     batchSbp.py redBCG hsc_redmapper_cluster_z2_1509.fits \
@@ -578,7 +575,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * New 1-D profiles in other bands:
     ```
-    # Done 
+    # Done
     batchForceSbp.py redBCG hsc_redmapper_cluster_1509.fits HSC-G \
         -i 'ID_CLUSTER' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
@@ -593,9 +590,35 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         --multiMask --plmask
     ```
 
-    * Backup: 
+    * Backup:
         - Thinkpad: `astro2/hsc/master`: `rsync -avz --delete` -- Finished
         - Mac: `astro3/hscs/`: `rsync -avz --delete` -- Finished
+
+----
+
+# 2015-12-18
+
+    * Summarize the current results, and update figures; Discussion with Alexie.  
+
+## TODO List:
+
+    * Check whether the `fluxscale` aperture correction has been applied to GAMA stellar mass
+        - `log10 M*,total = <logmstar> + log10(<fluxscale>) - 2 log10(h/0.7)`
+        - `M_X,total = <absmag_X> - 2.5 log10(<fluxscale>) + 5 log10(h/0.7)`
+    * On the figures, the mean and median statistics should have error bars.  
+
+    * SED fitting for all BCGs, and cluster members.
+        - Have a scripts to automatically prepare the iSEDFit ready catalog.
+        - Different iSEDFit model grids; Mostly adjust the dust extinction prior
+    * Complete the GAMA sample down to 10^11.0; see if the number is managable.
+        - `0.1 < z < 0.4` and `11.0 < logM* < 11.2`: **4178** (Roughly Ok...)
+        - Delete the `nonbcg` data on Master
+        - Save as `gama_z0.1_0.4_m11.0_11.2_nonbcg.fits`
+
+    * Find a way to remove the uncertain SBP, especially for the BCGs
+
+    * SED Fitting results --> Should include KCorrect results.
+
 
 -----
 
