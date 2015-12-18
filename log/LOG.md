@@ -600,6 +600,29 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * Summarize the current results, and update figures; Discussion with Alexie.  
 
+
+## GAMA 3 Datasets: 0.1 < z < 0.4 & 11.0 < logM < 11.2
+    * Complete the GAMA sample down to 10^11.0; see if the number is reasonable.
+        - `0.2 < z < 0.4` and `11.0 < logM* < 11.2`: **2717** (Roughly Ok...)
+        - Delete the `nonbcg` data on Master
+        - Save as `gama_z0.2_0.4_m11.0_11.2_nonbcg.fits`
+        - Split it into 6 smaller chunks, upload to Maser under `/data3a/work/song/gama3`
+
+### Generate cutout:
+
+    * HSC-I band: `nonbcg_151218_1.submit` : 39801@Master
+        ``` bash
+        batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
+        gama_z0.1_0.4_m11.0_11.2_nonbcg_${PBS_ARRAYID}.fits -f HSC-I \
+        --src --makeDir --noColor --prefix gama \
+        --id ISEDFIT_ID --ra RA --dec DEC --redshift Z
+        ```
+    * HSC-G band: `nonbcg_151218_2.submit` : 39802@Master
+    * HSC-R band: `nonbcg_151218_3.submit` : 39803@Master
+
+
+
+
 ## TODO List:
 
     * Check whether the `fluxscale` aperture correction has been applied to GAMA stellar mass
@@ -610,10 +633,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * SED fitting for all BCGs, and cluster members.
         - Have a scripts to automatically prepare the iSEDFit ready catalog.
         - Different iSEDFit model grids; Mostly adjust the dust extinction prior
-    * Complete the GAMA sample down to 10^11.0; see if the number is managable.
-        - `0.1 < z < 0.4` and `11.0 < logM* < 11.2`: **4178** (Roughly Ok...)
-        - Delete the `nonbcg` data on Master
-        - Save as `gama_z0.1_0.4_m11.0_11.2_nonbcg.fits`
+
 
     * Find a way to remove the uncertain SBP, especially for the BCGs
 
