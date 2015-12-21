@@ -619,9 +619,87 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         ```
     * HSC-G band: `nonbcg_151218_2.submit` : 39802@Master
     * HSC-R band: `nonbcg_151218_3.submit` : 39803@Master
+    * The size of dataset is **416** GB
+
+
+---- 
+
+# 2015-12-21
+
+## GAMA 3 Dataset: 0.2 < z < 0.4 & 11.0 < logM < 11.2 
+
+### Prepare the data: 
+
+    * HSC-I band: `nonbcg_151221_1.submit` : 40915@Master 
+        ``` bash 
+        batchPrep.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_${PBS_ARRAYID}.fits -i \ 
+            'ISEDFIT_ID' -r default --multiMask -f HSC-I
+        ```
+        - Finished, failed for GAMA_4010
+
+### Sky Estimate: 
+
+    * HSC-I band: `nonbcg_151221_2.submit` : 41048@Master 
+        ``` bash 
+        batchSky.py gama gama_z0.1_0.25_m11.2_nonbcg_${PBS_ARRAYID}.fits \ 
+            -i 'ISEDFIT_ID' -r default -f HSC-I
+        ```
+        - Finished
+    * HSC-G band: `nonbcg_151221_3.submit` : 41050@Master  
+        ``` bash 
+        batchSky.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_${PBS_ARRAYID}.fits \
+            -i 'ISEDFIT_ID' -r default -f HSC-G -mf HSC-I
+        ```
+    * HSC-R band: `nonbcg_151221_4.submit` : 41051@Master 
+    * There is a small bug of `batchSky.py`, fixed it, and redo the G and R-band Sky
+        - `nonbcg_151221_4.submit` : HSC-G
+        - `nonbcg_151221_5.submit` : HSC-R
+
+### I-band SBP: 
+
+    ``` bash 
+    batchSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_1.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_2.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_3.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_4.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_5.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_6.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
+    ```
+
+
+## SED Fitting For BCGs and Cluster Members
+
+    * Have a code to convert magnitudes into fluxes: `fitsMag2Flux.py`
+    * Flux catalog for all available BCGs: 
+        - `hsc_redmapper_bcg_wide15a_3arcsec_match_flux_cmodel.fits`
+        - Separate into 3 redshift bins: 
+            1. 0.1 < z < 0.2 : `hsc_bcg_sed_z1.fits` 
+            2. 0.2 < z < 0.4 : `hsc_bcg_sed_z2.fits` 
+            3. 0.4 < z < 0.6 : `hsc_bcg_sed_z3.fits` 
+    * Flux catalog for their members (**Includes BCGs**):
+        - `hsc_redmapper_mem_wide15a_2arcsec_match_flux_cmodel.fits`
+        - Separate into 3 redshift bins: 
+            1. 0.1 < z < 0.2 : `hsc_mem_sed_z1.fits` 
+            2. 0.2 < z < 0.4 : `hsc_mem_sed_z2.fits` 
+            3. 0.4 < z < 0.6 : `hsc_mem_sed_z3.fits` 
+        - **UPDATES**, start a IPython notebook to remove the BCGs, update the ID, 
+            and `P_CEN_MEM` value of the members: 
+            * `hsc_redmapper_mem_wide15a_2arcsec_match_flux_cmodel_new.fits`
+    * Uploads these catalogs to ROSE
+        - Make sure the redshifts are monotonic 
+
+    * SED Fitting: 
+        - `hsc_bcg_sed_z1a`: 
 
 
 
+----
 
 ## TODO List:
 
