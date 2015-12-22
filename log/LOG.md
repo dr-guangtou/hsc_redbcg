@@ -654,10 +654,12 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * There is a small bug of `batchSky.py`, fixed it, and redo the G and R-band Sky
         - `nonbcg_151221_4.submit` : HSC-G
         - `nonbcg_151221_5.submit` : HSC-R
+        - Finished
 
 ### I-band SBP: 
 
     ``` bash 
+    # Finished:
     batchSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_1.fits -i 'ISEDFIT_ID' \
         -r default -f HSC-I --plmask --multiEllipse
     batchSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_2.fits -i 'ISEDFIT_ID' \
@@ -670,6 +672,55 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         -r default -f HSC-I --plmask --multiEllipse
     batchSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_6.fits -i 'ISEDFIT_ID' \
         -r default -f HSC-I --plmask --multiEllipse
+    ```
+
+### Other Bands: 
+
+    * HSC-G band: 
+    ```bash 
+    # Running:
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_3.fits HSC-G \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    # Finished
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_1.fits HSC-G \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_2.fits HSC-G \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_4.fits HSC-G \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_5.fits HSC-G \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_6.fits HSC-G \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    ```
+
+    * HSC-R band: 
+    ```bash 
+    # Finished
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_1.fits HSC-R \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_2.fits HSC-R \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_3.fits HSC-R \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_4.fits HSC-R \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_5.fits HSC-R \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_6.fits HSC-R \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
     ```
 
 
@@ -694,9 +745,109 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * Uploads these catalogs to ROSE
         - Make sure the redshifts are monotonic 
 
-    * SED Fitting: 
-        - `hsc_bcg_sed_z1a`: 
+----
 
+# 2015-12-22
+
+## SED Fitting For BCGs and Cluster Members
+    
+    * Generate SED catalogs using just the cModel magnitude error:
+        1. 0.1 < z < 0.2 : `hsc_bcg_sed_z1_old.fits` 
+        2. 0.2 < z < 0.4 : `hsc_bcg_sed_z2_old.fits` 
+        3. 0.4 < z < 0.6 : `hsc_bcg_sed_z3_old.fits` 
+        4. 0.1 < z < 0.2 : `hsc_mem_sed_z1_old.fits` 
+        5. 0.2 < z < 0.4 : `hsc_mem_sed_z2_old.fits` 
+        6. 0.4 < z < 0.6 : `hsc_mem_sed_z3_old.fits` 
+
+    * A few things to adjust: 
+        - Reduce `ndraw` number in the parameter file: `ndraw=1000` is enough.
+        - Use `outprefix` to separate results for different datasets
+        - Reduce the `galchunk` number to 1000
+
+    * After a few tests, it is noticed that: 
+        - The `ndraw` number does not affect the best estimates results
+        - The invariance value of the flux has lttle effect on the final stellar mass 
+        - The new version and old version have different MSTAR due to the difference of
+          their fluxes (The old version did not correct Galactic extinction!!)
+
+    * Matches between Old and New BCG catalogs in GAMA fields: 
+        - New catalog: `hsc_redmapper_bcg_wide15a_2arcsec_match.fits`
+        - Old catalog: `hsc_redmapper_cluster_gama_1509_mass.fits`
+        - If matching using HSC `ID`, there are 12 clusters are not recovered; 
+        - While matching using `RA_BCG` and `DEC_BCG`, all clusters can be recovered!
+
+    * **Generate New GAMA Flux Catalog**: 
+        - `hsc_gama_dr15a_matched_flux_use.fits` under `gama_compare/gama_sed`
+        - Separate into 3 redshift bins: 
+            1. 0.03 < z < 0.2: `hsc_gama_sed_z1.fits`, **19739** galaxies 
+            2. 0.2  < z < 0.4: `hsc_gama_sed_z2.fits`, **12869** galaxies 
+            2. 0.4  < z < 0.7: `hsc_gama_sed_z3.fits`, **6417** galaxies 
+        - Clear the SED fitting folders on ROSE - Done 
+        - Upload new catalogs to ROSE - Done 
+    
+    * Update the redshift information for BCGs and Members: 
+        - For BCGs, first merge the catalog with the GAMA ones
+        - GAMA catalog: `hsc_redmapper_cluster_gama_1509_mass.fits`
+        - Only use the columns related to GAMA and the `z_use` column. 
+        - 0.2 arcsec matches using `RA_BCG` and `DEC_BCG` recover all. 
+        - Save it to `hsc_redmapper_bcg_wide15a_3arcsec_match_zUse.fits`
+        - Update the IPython notebook to update the redshift information: 
+            * z_use > z_spec > z_lambda
+            * Overwrite the original table 
+        - `fitsMag2Flux.py hsc_redmapper_bcg_wide15a_3arcsec_match_zUse.fits --redCol z_use`
+            * `hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_flux_cmodel.fits`
+        - Separate the BCG catalog into 3 redshift bins as usual:
+            * 0.0 < z < 0.2: `hsc_bcg_sed_z1.fits`, **20**
+            * 0.2 < z < 0.4: `hsc_bcg_sed_z2.fits`, **153**
+            * 0.4 < z < 0.6: `hsc_bcg_sed_z3.fits`, **92**
+        - For members, firt merge the `hsc_gama_dr15a_matched.fits` catalog with the
+          member catalog:
+            * 0.2 arcsec matches using the HSC RA, Dec results in **1813** matches. 
+            * Organize it, save to `hsc_redmapper_mem_wide15a_2arcsec_match_zUse.fits`
+        - Update the IPython notebook, also update the redshift information. 
+            * Only keep the ones with `abs(z_use - z_use_bcg) <= 0.08 & (modelmag_r_mem -
+              modelmag_r_bcg) <= 2.0`
+            * This leaves **7930** member galaxies in the sample. 
+            * Update the catalog: `hsc_redmapper_mem_wide15a_2arcsec_match_zUse.fits`
+        - `fitsMag2Flux.py hsc_redmapper_mem_wide15a_2arcsec_match_zUse.fits --redCol z_use`
+            * `hsc_redmapper_mem_wide15a_2arcsec_match_zUse_flux_cmodel.fits`
+        -  Go back to the IPython notebook, update `P_CEN_MEM` and `ID_MEM`, then select
+           the ones with `P_MEM >= 0.2`: 
+            * Leaves **6515** galaxies in the sample
+            * `hsc_redmapper_mem_wide15a_2arcsec_match_zUse_flux_cmodel_new.fits`
+        - Separate the Members catalog into 3 redshift bins: 
+            * 0.0 < z < 0.2: `hsc_mem_sed_z1.fits`, **452**
+            * 0.2 < z < 0.4: `hsc_mem_sed_z2.fits`, **3403**
+            * 0.4 < z < 0.6: `hsc_mem_sed_z3.fits`, **2657**
+        - Upload the BCG and MEM catalogs to ROSE - Done 
+            
+
+    * On ROSE, separate the grid making part of the code: 
+        - z1a: `make_grid_z1a.pro` - Done 
+        - z1b: `make_grid_z1b.pro` - Done 
+        - z1c: `make_grid_z1c.pro` - Done 
+        - z2a: `make_grid_z2a.pro` - Done 
+        - z2b: `make_grid_z2b.pro` - Done 
+        - z2c: `make_grid_z2c.pro` - Done 
+        - z3a: `make_grid_z3a.pro` - Done 
+        - z3b: `make_grid_z3b.pro` - Done 
+        - z3c: `make_grid_z3c.pro` - Done 
+
+    * Model z1a: 
+        - Copy FITS data from sample - Done 
+        - BCGs: 
+            1. `hsc_bcg_sed_z1.pro` - Done 
+            2. `run_bcg_z1.pro` - Done 
+            3. Run ...
+
+
+    * Model z1a: 
+        - `hsc_bcg_sed_z1a_old`: `hsc_bcg_sed_z1_old.pro` - Finished
+        - `hsc_bcg_sed_z1a`: `hsc_bcg_sed_z1.pro` - Finished
+        - `hsc_mem_sed_z1a`: `hsc_mem_sed_z1.pro` - 
+
+
+        - `hsc_sed_z1a`: 
 
 
 ----
@@ -716,6 +867,9 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * Find a way to remove the uncertain SBP, especially for the BCGs
 
     * SED Fitting results --> Should include KCorrect results.
+
+    * After getting the new SED fitting results, should compare with the old mass limit
+      sample, and find the missing ones for a new dataset: `gama5`
 
 
 -----
