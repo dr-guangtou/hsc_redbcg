@@ -621,7 +621,6 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * HSC-R band: `nonbcg_151218_3.submit` : 39803@Master
     * The size of dataset is **416** GB
 
-
 ---- 
 
 # 2015-12-21
@@ -678,15 +677,14 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * HSC-G band: 
     ```bash 
-    # Running:
-    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_3.fits HSC-G \
-        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
-        --multiMask --plmask
     # Finished
     batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_1.fits HSC-G \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
     batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_2.fits HSC-G \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
+        --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_3.fits HSC-G \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
     batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_4.fits HSC-G \
@@ -748,6 +746,33 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 ----
 
 # 2015-12-22
+
+## Summarize the 1-D profiles (Updates): 
+
+    * Under `/data3a/work/song/gama3` - Finished
+    ``` bash 
+    coaddCutoutSbpSummary.py gama_z0.2_0.4_m11.0_11.2_nonbcg.fits gama \
+        --id ISEDFIT_ID --verbose
+    ```
+    
+    * Under `/data3a/work/song/gama2` - Finished
+    ``` bash 
+    coaddCutoutSbpSummary.py gama_z0.1_0.25_m11.2_nonbcg.fits gama \
+        --id ISEDFIT_ID --verbose
+    ```
+
+    * Under `/data3a/work/song/redmapper` - Finished
+        - **NOTICED that there is no MSTAR in this table yet**
+    ``` bash 
+    coaddCutoutSbpSummary.py hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_flux_cmodel.fits \
+        redBCG --id ID_CLUSTER --zCol z_use --verbose
+    ```
+
+    * Under `/lustre/Subaru/SSP/rerun/song/gama1` - Running
+    ``` bash 
+    coaddCutoutSbpSummary.py gama_z0.25_0.4_m11.2_nonbcg.fits gama \
+        --id ISEDFIT_ID --verbose
+    ```
 
 ## SED Fitting For BCGs and Cluster Members
     
@@ -836,19 +861,52 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * Model z1a: 
         - Copy FITS data from sample - Done 
         - BCGs: 
-            1. `hsc_bcg_sed_z1.pro` - Done 
-            2. `run_bcg_z1.pro` - Done 
+            1. `hsc_bcg_sed_z1a.pro` - Done 
+            2. `run_bcg_z1a.pro` - Done 
+            3. Run - Finished 
+        - Mems: 
+            1. `hsc_mem_sed_z1a.pro` - Done 
+            2. `run_mem_z1a.pro` - Done 
+            3. Run - Finished
+        - GAMA: 
+            1. `hsc_gama_sed_z1a.pro` - Done 
+            2. `run_gama_z1a.pro` - Done 
             3. Run ...
 
+    * Model z2a: 
+        - Copy FITS data from sample - Done  
+        - BCGs: 
+            1. `hsc_bcg_sed_z2a.pro` - Done 
+            2. `run_bcg_z2a.pro` - Done 
+            3. Run - Finished
+        - Mems: 
+            1. `hsc_mem_sed_z2a.pro` - Done 
+            2. `run_mem_z2a.pro` - Done
+            3. Run ...
+        - GAMA: 
+            1. `hsc_gama_sed_z2a.pro` - 
+            2. `run_gama_z2a.pro` - 
+            3. Run ... 
 
-    * Model z1a: 
-        - `hsc_bcg_sed_z1a_old`: `hsc_bcg_sed_z1_old.pro` - Finished
-        - `hsc_bcg_sed_z1a`: `hsc_bcg_sed_z1.pro` - Finished
-        - `hsc_mem_sed_z1a`: `hsc_mem_sed_z1.pro` - 
+    * Model z3a: 
+        - Copy FITS data from sample - Done  
+        - BCGs: 
+            1. `hsc_bcg_sed_z3a.pro` - Done 
+            2. `run_bcg_z3a.pro` - Done 
+            3. Run - Finished
+        - Mems: 
+            1. `hsc_mem_sed_z3a.pro` - Done
+            2. `run_mem_z3a.pro` - Done 
+            3. Run ...
+        - GAMA: 
+            1. `hsc_gama_sed_z3a.pro` - Done  
+            2. `run_gama_z3a.pro` - Done
+            3. Run ... 
 
-
-        - `hsc_sed_z1a`: 
-
+    * Merge the catalogs for BCGs using model1a: 
+        - Also combined the KCORRECT catalogs 
+        - `hsc_bcg_mass_model1a.fits`
+        - **NOTICED that there are cases where ISEDFIT failed**
 
 ----
 
