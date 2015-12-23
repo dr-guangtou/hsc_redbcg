@@ -762,9 +762,8 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     ```
 
     * Under `/data3a/work/song/redmapper` - Finished
-        - **NOTICED that there is no MSTAR in this table yet**
     ``` bash 
-    coaddCutoutSbpSummary.py hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_flux_cmodel.fits \
+    coaddCutoutSbpSummary.py hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits \
         redBCG --id ID_CLUSTER --zCol z_use --verbose
     ```
 
@@ -907,6 +906,15 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         - Also combined the KCORRECT catalogs 
         - `hsc_bcg_mass_model1a.fits`
         - **NOTICED that there are cases where ISEDFIT failed**
+        - Match with `hsc_redmapper_bcg_wide15a_3arcsec_match_zUse.fits`
+            * `MSTAR >= 10.0` --> Leaves **262** BCGs
+            * Save to `hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits`
+            * Upload to MASTER - Done
+
+----
+
+# 2015-12-23
+
 
 ----
 
@@ -924,10 +932,8 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * Find a way to remove the uncertain SBP, especially for the BCGs
 
-    * SED Fitting results --> Should include KCorrect results.
-
     * After getting the new SED fitting results, should compare with the old mass limit
-      sample, and find the missing ones for a new dataset: `gama5`
+      sample, and find the missing ones for a new dataset: `gama4`
 
 
 -----
