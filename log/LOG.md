@@ -927,6 +927,10 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
             1. `hsc_mem_sed_z1c.pro` - Done
             2. `run_mem_z1c.pro` - Done
             3. Run - Finished
+        - GAMA:
+            1. `hsc_gama_sed_z1c.pro` - Done
+            2. `run_gama_z1c.pro` - Done
+            3. Run ..
 
     * Model z2c:
         - Copy FITS data from sample - Done
@@ -938,6 +942,10 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
             1. `hsc_mem_sed_z2c.pro` - Done
             2. `run_mem_z2c.pro` - Done
             3. Run - Finished
+        - GAMA:
+            1. `hsc_gama_sed_z2c.pro` - Done
+            2. `run_gama_z2c.pro` - Done
+            3. Run ..
 
     * Model z3c:
         - Copy FITS data from sample - Done
@@ -949,39 +957,45 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
             1. `hsc_mem_sed_z3c.pro` - Done
             2. `run_mem_z3c.pro` - Done
             3. Run - Finished
+        - GAMA:
+            1. `hsc_gama_sed_z3c.pro` - Done
+            2. `run_gama_z3c.pro` - Done
+            3. Run ..
 
     * Model z1b:
         - Copy FITS data from sample - Done
         - BCGs:
             1. `hsc_bcg_sed_z1b.pro` - Done
             2. `run_bcg_z1b.pro` - Done
-            3. Run ..
+            3. Run - Finished
         - Mems:
             1. `hsc_mem_sed_z1b.pro` - Done
             2. `run_mem_z1b.pro` - Done
-            3. Run ..
+            3. Run - Finished
 
     * Model z2b:
         - Copy FITS data from sample - Done
         - BCGs:
             1. `hsc_bcg_sed_z2b.pro` - Done
             2. `run_bcg_z2b.pro` - Done
-            3. Run ..
+            3. Run - Finished
         - Mems:
             1. `hsc_mem_sed_z2b.pro` - Done
             2. `run_mem_z2b.pro` - Done
-            3. Run ..
+            3. Run - Finished
 
     * Model z3b:
         - Copy FITS data from sample - Done
         - BCGs:
-            1. `hsc_bcg_sed_z3b.pro` -
-            2. `run_bcg_z3b.pro` -
-            3. Run -
+            1. `hsc_bcg_sed_z3b.pro` - Done
+            2. `run_bcg_z3b.pro` - Done
+            3. Run - Finished
         - Mems:
-            1. `hsc_mem_sed_z3b.pro` -
-            2. `run_mem_z3b.pro` -
-            3. Run -
+            1. `hsc_mem_sed_z3b.pro` - Done
+            2. `run_mem_z3b.pro` - Done
+            3. Run - Finished
+
+     * Copy the BCG and Member results for `model b` and `model c` to Mac
 
 ## redMapper Member Galaxy Photometry:
 
