@@ -1043,11 +1043,46 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
 ### Prepare for Photometry:
 
-    * HSC-I band: `redmem_151224_1.submit` :
+    * HSC-I band: `redmem_151224_1.submit` 
         ``` bash
         batchPrep.py redMem redmapper_z0.2_0.4_m11.0_member_${PBS_ARRAYID}.fits \
             -i 'ISEDFIT_ID' -r default --multiMask -f HSC-I
         ```
+        - Finished with no problem 
+
+### Estimate the Sky Background 
+    
+    * HSC-I band: `redmem_151224_2.submit`  
+        ``` bash 
+        batchSky.py redMem redmapper_z0.2_0.4_m11.0_member_${PBS_ARRAYID}.fits \ 
+            -i 'ISEDFIT_ID' -r default -f HSC-I
+        ```
+
+    * HSC-G band: `redmem_151224_3.submit`
+        ``` bash 
+        batchSky.py redMem redmapper_z0.2_0.4_m11.0_member_${PBS_ARRAYID}.fits \ 
+            -i 'ISEDFIT_ID' -r default -f HSC-G -mf HSC-I
+        ```
+
+    * HSC-R band: `redmem_151224_4.submit`
+        ``` bash 
+        batchSky.py redMem redmapper_z0.2_0.4_m11.0_member_${PBS_ARRAYID}.fits \ 
+            -i 'ISEDFIT_ID' -r default -f HSC-R -mf HSC-I
+        ```
+
+### I-band SBP:
+
+    ``` bash
+    # Running 
+    batchSbp.py redMem redmapper_z0.2_0.4_m11.0_member_1.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py redMem redmapper_z0.2_0.4_m11.0_member_2.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py redMem redmapper_z0.2_0.4_m11.0_member_3.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
+    batchSbp.py redMem redmapper_z0.2_0.4_m11.0_member_4.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse
+    ```
 
 ## Organize GAMA and redMapper SBP:
 
