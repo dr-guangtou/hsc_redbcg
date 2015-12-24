@@ -930,7 +930,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         - GAMA:
             1. `hsc_gama_sed_z1c.pro` - Done
             2. `run_gama_z1c.pro` - Done
-            3. Run ..
+            3. Run - Finished
 
     * Model z2c:
         - Copy FITS data from sample - Done
@@ -945,7 +945,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         - GAMA:
             1. `hsc_gama_sed_z2c.pro` - Done
             2. `run_gama_z2c.pro` - Done
-            3. Run ..
+            3. Run - Finished
 
     * Model z3c:
         - Copy FITS data from sample - Done
@@ -960,7 +960,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         - GAMA:
             1. `hsc_gama_sed_z3c.pro` - Done
             2. `run_gama_z3c.pro` - Done
-            3. Run ..
+            3. Run - Finished
 
     * Model z1b:
         - Copy FITS data from sample - Done
@@ -972,6 +972,10 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
             1. `hsc_mem_sed_z1b.pro` - Done
             2. `run_mem_z1b.pro` - Done
             3. Run - Finished
+        - GAMA:
+            1. `hsc_gama_sed_z1b.pro` - Done
+            2. `run_gama_z1b.pro` - Done
+            3. Run ...
 
     * Model z2b:
         - Copy FITS data from sample - Done
@@ -983,6 +987,10 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
             1. `hsc_mem_sed_z2b.pro` - Done
             2. `run_mem_z2b.pro` - Done
             3. Run - Finished
+        - GAMA:
+            1. `hsc_gama_sed_z2b.pro` - Done
+            2. `run_gama_z2b.pro` - Done
+            3. Run ...
 
     * Model z3b:
         - Copy FITS data from sample - Done
@@ -994,8 +1002,13 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
             1. `hsc_mem_sed_z3b.pro` - Done
             2. `run_mem_z3b.pro` - Done
             3. Run - Finished
+        - GAMA:
+            1. `hsc_gama_sed_z3b.pro` - Done
+            2. `run_gama_z3b.pro` - Done
+            3. Run ...
 
      * Copy the BCG and Member results for `model b` and `model c` to Mac
+     * Copy the GAMA results for `model c` to Mac
 
 ## redMapper Member Galaxy Photometry:
 
@@ -1022,8 +1035,19 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
             --src --makeDir --noColor --prefix redMem \
             --id ISEDFIT_ID --ra RA --dec DEC --redshift Z
         ```
+        - Finished with **1669** galaxies
     * HSC-G band: `redmem_151223_2.submit` : @41689[].master Running
+        - Finished with **1669** galaxies
     * HSC-R band: `redmem_151223_3.submit` : @41690[].master Running
+        - Finished with **1669** galaxies
+
+### Prepare for Photometry:
+
+    * HSC-I band: `redmem_151224_1.submit` :
+        ``` bash
+        batchPrep.py redMem redmapper_z0.2_0.4_m11.0_member_${PBS_ARRAYID}.fits \
+            -i 'ISEDFIT_ID' -r default --multiMask -f HSC-I
+        ```
 
 ## Organize GAMA and redMapper SBP:
 
