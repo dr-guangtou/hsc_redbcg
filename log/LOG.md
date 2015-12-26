@@ -1120,13 +1120,19 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         --multiMask --plmask
     ```
 
+### Summarize the SBP profiles:
+
+    * Under `/data3a/work/song/redmem` - Running
+    ``` bash
+    coaddCutoutSbpSummary.py redmapper_z0.2_0.4_m11.0_member.fits redMem \
+        --id ISEDFIT_ID --verbose
+    ```
+
 ## Organize GAMA and redMapper SBP:
 
     * Learn how to match two samples on various parameters:
     * Learn the behaviours of `scipy.interp1d`
-
-
-
+        - Set `bounds_error=False` will avoid having errors when the radius is larger than the common one.  And, should use a finer grid to ensure the interpolation is accurate.
 
 ----
 
