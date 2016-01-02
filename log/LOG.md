@@ -975,7 +975,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         - GAMA:
             1. `hsc_gama_sed_z1b.pro` - Done
             2. `run_gama_z1b.pro` - Done
-            3. Run ...
+            3. Run - Finished
 
     * Model z2b:
         - Copy FITS data from sample - Done
@@ -990,7 +990,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         - GAMA:
             1. `hsc_gama_sed_z2b.pro` - Done
             2. `run_gama_z2b.pro` - Done
-            3. Run ...
+            3. Run - Finished
 
     * Model z3b:
         - Copy FITS data from sample - Done
@@ -1005,7 +1005,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         - GAMA:
             1. `hsc_gama_sed_z3b.pro` - Done
             2. `run_gama_z3b.pro` - Done
-            3. Run ...
+            3. Run - Finished
 
      * Copy the BCG and Member results for `model b` and `model c` to Mac
      * Copy the GAMA results for `model c` to Mac
@@ -1133,6 +1133,65 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * Learn how to match two samples on various parameters:
     * Learn the behaviours of `scipy.interp1d`
         - Set `bounds_error=False` will avoid having errors when the radius is larger than the common one.  And, should use a finer grid to ensure the interpolation is accurate.
+
+----
+
+# 2016-01-02
+
+## HSC-Z band SBP for GAMA and redMem galaxies:
+
+### GAMA1:
+
+    * Under `/lustre/Subaru/SSP/rerun/song/gama1`
+    * Edit: `nonbcg_160102_1.submit`
+    ```
+    batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
+        gama_z0.25_0.4_m11.2_nonbcg_${PBS_ARRAYID}.fits -f HSC-Z \
+        --src --makeDir --noColor --prefix gama \
+        --id ISEDFIT_ID --ra RA --dec DEC --redshift Z
+    ```
+    * Submit job...running:
+      - 42666[].master
+
+### GAMA2:
+
+    * Under `/data3a/work/song/gama2`
+    * Edit: `gama2_160102_1.submit`
+    ```
+    batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
+        gama_z0.1_0.25_m11.2_nonbcg_${PBS_ARRAYID}.fits -f HSC-Z \
+        --src --makeDir --noColor --prefix gama \
+        --id ISEDFIT_ID --ra RA --dec DEC --redshift Z
+    ```
+    * Submit job...running:
+      - 42670[].master
+
+### GAMA3:
+
+    * Under `/data3a/work/song/gama3`
+    * Edit: `gama3_160102_1.submit`
+    ```
+    batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
+        gama_z0.2_0.4_m11.0_11.2_nonbcg_${PBS_ARRAYID}.fits -f HSC-Z \
+        --src --makeDir --noColor --prefix gama \
+        --id ISEDFIT_ID --ra RA --dec DEC --redshift Z
+    ```
+    * Submit job...running:
+      - 42671[].master
+
+### redMem:
+
+    * Under `/data3a/work/song/redmem`
+    * Edit: `redmem_160102_1.submit`
+    ```
+    batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
+        redmapper_z0.2_0.4_m11.0_member_${PBS_ARRAYID}.fits -f HSC-Z \
+        --src --makeDir --noColor --prefix redMem \
+        --id ISEDFIT_ID --ra RA --dec DEC --redshift Z  
+    ```
+    * Submit job...running:
+      - 42672[].master
+
 
 ----
 
