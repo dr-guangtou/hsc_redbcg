@@ -1143,6 +1143,8 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 ### GAMA1:
 
     * Under `/lustre/Subaru/SSP/rerun/song/gama1`
+
+#### Preparation:
     * Edit: `nonbcg_160102_1.submit`
     ```
     batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
@@ -1150,12 +1152,56 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         --src --makeDir --noColor --prefix gama \
         --id ISEDFIT_ID --ra RA --dec DEC --redshift Z
     ```
-    * Submit job...running:
+    * Submit job...finished:
       - 42666[].master
+
+#### Sky: 
+    * Edit: `gama1_160102_2.submit`
+    ```
+    batchSky.py gama gama_z0.25_0.4_m11.2_nonbcg_${PBS_ARRAYID}.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-Z -mf HSC-I
+    ```
+    * Submit job...finished:
+      - 42700[].master
+
+#### Forced SBP:
+
+    * Run from shell: **8 chunks** in total
+    ```
+    # Finished
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_1.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    # Running
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_2.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask 
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_3.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_4.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_5.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_6.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    # Waiting
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_7.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_8.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    ```
 
 ### GAMA2:
 
     * Under `/data3a/work/song/gama2`
+
+#### Preparation:
     * Edit: `gama2_160102_1.submit`
     ```
     batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
@@ -1163,12 +1209,44 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         --src --makeDir --noColor --prefix gama \
         --id ISEDFIT_ID --ra RA --dec DEC --redshift Z
     ```
-    * Submit job...running:
+    * Submit job...finished:
       - 42670[].master
 
-### GAMA3:
+#### Sky: 
+    * Edit: `gama2_160102_2.submit`
+    ```
+    batchSky.py gama gama_z0.1_0.25_m11.2_nonbcg_${PBS_ARRAYID}.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-Z -mf HSC-I
+    ```
+    * Submit job...running:
+      - 42699[].master
 
+#### Forced SBP:
+
+    * Run from shell: **4 chunks** in total
+    ```
+    # Finished:
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_1.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    # Running:
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask 
+    # Waiting: 
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_3.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    ```
+
+
+### GAMA3:
     * Under `/data3a/work/song/gama3`
+
+#### Preparation:
     * Edit: `gama3_160102_1.submit`
     ```
     batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
@@ -1176,12 +1254,50 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         --src --makeDir --noColor --prefix gama \
         --id ISEDFIT_ID --ra RA --dec DEC --redshift Z
     ```
-    * Submit job...running:
+    * Submit job...finished:
       - 42671[].master
 
-### redMem:
+#### Sky: 
+    * Edit: `gama3_160102_2.submit`
+    ```
+    batchSky.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_${PBS_ARRAYID}.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-Z -mf HSC-I
+    ```
+    * Submit job...finished
+        - 42698[].master
 
+#### Forced SBP:
+
+    * Run from shell: **6 chunks** in total
+    ```
+    # Finished
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_1.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    # Running:
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_2.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    # Waiting:
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_3.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_4.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_5.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_6.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
+    ```
+
+
+### redMem:
     * Under `/data3a/work/song/redmem`
+
+#### Preparation:
     * Edit: `redmem_160102_1.submit`
     ```
     batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
@@ -1189,8 +1305,35 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         --src --makeDir --noColor --prefix redMem \
         --id ISEDFIT_ID --ra RA --dec DEC --redshift Z  
     ```
-    * Submit job...running:
-      - 42672[].master
+    * Submit job...Finished:
+      - 42678[].master
+
+#### Sky: 
+    * Edit: `redmem_160102_2.submit`
+    ```
+    batchSky.py redMem redmapper_z0.2_0.4_m11.0_member_${PBS_ARRAYID}.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-Z -mf HSC-I
+    ```
+    * Submit job...Finished
+
+#### Forced SBP:
+
+    * Run from shell: **4 chunks** in total
+    ```
+    # Finished
+    batchForceSbp.py redMem redmapper_z0.2_0.4_m11.0_member_1.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        --multiMask --plmask
+    batchForceSbp.py redMem redmapper_z0.2_0.4_m11.0_member_2.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        --multiMask --plmask
+    batchForceSbp.py redMem redmapper_z0.2_0.4_m11.0_member_3.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        --multiMask --plmask
+    batchForceSbp.py redMem redmapper_z0.2_0.4_m11.0_member_4.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        --multiMask --plmask
+    ```
 
 
 ----
