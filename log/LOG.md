@@ -1172,7 +1172,6 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_1.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
-    # Running
     batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_2.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask 
@@ -1188,7 +1187,6 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_6.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
-    # Waiting
     batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_7.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
@@ -1229,15 +1227,13 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_1.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
-    # Running:
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask 
-    # Waiting: 
-    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_3.fits HSC-Z \
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
-    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits HSC-Z \
+    batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_3.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
     ```
@@ -1274,11 +1270,12 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_1.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
-    # Running:
     batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_2.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
-    # Waiting:
+    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_6.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
+        -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_3.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
@@ -1286,9 +1283,6 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_5.fits HSC-Z \
-        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
-        -rm 3 --multiMask --plmask
-    batchForceSbp.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_6.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
     ```
