@@ -1172,7 +1172,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_1.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
-    batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_2.fits HSC-Z \
+    batchForceSbp.py gama gama_z025_0.4_m11.2_nonbcg_2.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask 
     batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_3.fits HSC-Z \
@@ -1328,6 +1328,65 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
         --multiMask --plmask
     ```
+
+----
+
+# 2016-01-04
+
+
+## Stellar mass from SED fitting:
+
+    * Copy the `model b` SED fitting results for GAMA galaxies to Mac. 
+
+### There is a problem: 
+
+    * SED fitting results from different redshift bins can have the same ISEDFIT number
+        - After combining the catalog, should make an `INDEX` column
+        - Or can simply match using RA, DEC, as they should have exactly same value. 
+    * This does not affect `GAMA1`, `GAMA2`, `redMem`,`GAMA3` for now....
+        - **BUT should keep this in mind for later**
+
+### Combined catalogs: 
+
+    * `hsc_bcg_mass_model1a.fits` and `hsc_mem_mass_model1a.fits` are available 
+
+    * Stellar mass catalog for each dataset
+        * Steps: 
+            1. Rename the `ISEDFIT_ID` columns in all K-correct catalogs to `ISEDFIT_ID_2`
+            2. Unselect `Z`, `MAGGIES`, and `IVARMAGGIES` columns in all K-correct catalogs
+            3. Match between the SED and K-correct catalogs for three redshift bins. 
+            4. Concatenate the merged catalogs for three redshift bins 
+            5. Unselect `ISEDFIT_ID_2` column; And make a `INDEX` column
+            6. Rename the catalog; Sort up using `Z` column
+    
+        1. BCG: `model b: bc03_stelib_chab_calzetti` 
+            - `hsc_bcg_mass_model1b.fits`:  Done
+        2. BCG: `model c: fsps_v2.4_miles_chab_calzetti` 
+            - `hsc_bcg_mass_model1c.fits`:  Done
+        3. GAMA: `model a: fsps_v2.4_miles_chab_calzetti` 
+            - `hsc_gama_mass_model1a.fits`:  Done
+        4. GAMA: `model b: bc03_stelib_chab_calzetti`
+            - `hsc_gama_mass_model1b.fits`:  Done
+        5. GAMA: `model c: fsps_v2.4_miles_chab_calzetti` 
+            - `hsc_gama_mass_model1c.fits`:  Done
+        6. redMem: `model b: bc03_stelib_chab_calzetti` 
+            - `hsc_mem_mass_model1b.fits`:  Done 
+        7. redMem: `model c: fsps_v2.4_miles_chab_calzetti` 
+            - `hsc_mem_mass_model1c.fits`:  Done
+
+    * Using `model a` as reference, create a table to compare stellar mass estimates 
+        - Modify the `model b` catalog, only keep useful columns, and add a suffix `_b`
+        - Modify the `model c` catalog, only keep useful columns, and add a suffix `_c`
+        - Match with `model a` catalog using RA, DEC
+
+        1. BCG: `hsc_bcg_mass_compare.fits`: Done
+        2. MEM: `hsc_mem_mass_compare.fits`: Done
+        3. GAMA: `hsc_gama_mass_compare.fits`: Done
+
+    * In summary: 
+        1. The BC03 model has systematically smaller stellar mass 
+        2. A fraction of massive galaxies have smaller mass in `model c` compared to
+           `model a`
 
 
 ----
