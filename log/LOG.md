@@ -1388,6 +1388,19 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         2. A fraction of massive galaxies have smaller mass in `model c` compared to
            `model a`
 
+----
+
+# 2016-01-06
+
+    * Update the `coaddCutoutSbpSummary.py` to include more interpolated profiles. 
+
+## Organize the catalogs: 
+
+### Mass comparison
+
+    1. `hsc_bcg_mass_compare.fits` 
+    2. `hsc_gama_mass_compare.fits`
+    3. `hsc_mem_mass_compare.fits`
 
 ----
 
