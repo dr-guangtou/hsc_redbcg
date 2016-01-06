@@ -1394,7 +1394,34 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * Update the `coaddCutoutSbpSummary.py` to include more interpolated profiles. 
 
+## Re-reducing the SBP of redMapper BCGs
+
+    * Use the new SED fitting results to include more BCGs 
+        - `hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits`
+
+    * Commands: 
+    ```
+    # Running
+    batchSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse
+    # Waiting
+    batchForceSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits HSC-G \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        --multiMask --plmask
+    batchForceSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits HSC-R \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        --multiMask --plmask
+    batchForceSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits HSC-Z \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        --multiMask --plmask
+    batchForceSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits HSC-Y \
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        --multiMask --plmask
+    ```
+
 ## Organize the catalogs: 
+
+    * On Master: rsync `gama1` from `lustre/Subaru/SSP/rerun/song` to `/data3a/work/song`
 
 ### Mass comparison
 
