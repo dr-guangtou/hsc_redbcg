@@ -1401,21 +1401,20 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * Commands: 
     ```
-    # Running
+    # Finished
     batchSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits \
         -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse
-    # Waiting
     batchForceSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits HSC-G \
-        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        -i 'ID_CLUSTER' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
     batchForceSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits HSC-R \
-        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        -i 'ID_CLUSTER' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
     batchForceSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits HSC-Z \
-        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        -i 'ID_CLUSTER' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
     batchForceSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits HSC-Y \
-        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        -i 'ID_CLUSTER' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
     ```
 
