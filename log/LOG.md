@@ -1418,15 +1418,149 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         --multiMask --plmask
     ```
 
+----
+
+# 2016-01-07
+
 ## Organize the catalogs: 
 
+    * Rename `~/work/hscs/gama_compare` to `~/work/hscs/gama_massive`
     * On Master: rsync `gama1` from `lustre/Subaru/SSP/rerun/song` to `/data3a/work/song`
+    * On W520: start rsync recent updates of all reruns. 
+
+### Collecting input catalog for different reruns: 
+
+    - Put all catalogs for sample into `massive_sample` folder, copy to Mac 
+        * `~/work/hscs/gama_compare/gama_sed`
+    - These catalogs are:
+        * `redBCG`: `redmapper_bcg_hscmatch.fits` **265** 
+            - Make `ID_USE`: `"redbcg_" + toString(ID_CLUSTER)`
+            - Keep everything
+        * `redMem`: `redmapper_z0.2_0.4_m11.0_member.fits` **1670** 
+            - Make `ID_USE`: `"redmem_" + toString(ISEDFIT_ID)`
+            - Deselect the ISEDFIT related columns
+        * `gama1`:  `gama_z0.25_0.4_m11.2_nonbcg.fits` **3747** 
+            - Make `ID_USE`: `"gama1_" + toString(ISEDFIT_ID)`
+            - Deselect the ISEDFIT related columns
+        * `gama2`:  `gama_z0.1_0.25_m11.2_nonbcg.fits` **1700**
+            - Make `ID_USE`: `"gama2_" + toString(ISEDFIT_ID)`
+            - Deselect the ISEDFIT related columns
+        * `gama3`:  `gama_z0.2_0.4_m11.0_11.2_nonbcg.fits` **2718**
+            - Make `ID_USE`: `"gama3_" + toString(ISEDFIT_ID)`
+            - Deselect the ISEDFIT related columns
 
 ### Mass comparison
 
-    1. `hsc_bcg_mass_compare.fits` 
-    2. `hsc_gama_mass_compare.fits`
-    3. `hsc_mem_mass_compare.fits`
+    1. `hsc_bcg_mass_compare.fits`: **265** Galaxies  
+        - Replace the N-elements arrays with N-columns - Done  
+        - Match to `redmapper_bcg_hscmatch.fits`
+        - Save to `redmapper_bcg_hscmatch_mass.fits`
+        - **3** BCGs have strangely low MSTAR: **1846, 2347, 21677**
+        - **2** BCGs don't have SED fitting results: **8441, 29792**
+            * Exclude them from the sample for now!
+            * Save to `redmapper_bcg_hscmatch_mass_use.fits` **260**
+    2. `hsc_mem_mass_compare.fits`
+        - Replace the N-elements arrays with N-columns - Done
+        - Match to `redmapper_z0.2_0.4_m11.0_member.fits`
+        - Save to `redmapper_mem_hscmatch_mass.fits`
+    3. `hsc_gama_mass_compare.fits`
+        - Replace the N-elements arrays with N-columns - Done
+        - Match to `gama_z0.25_0.4_m11.2_nonbcg.fits`
+            * Save to `gama1_mass.fits`
+        - Match to `gama_z0.1_0.25_m11.2_nonbcg.fits`
+            * Save to `gama2_mass.fits`
+        - Match to `gama_z0.2_0.4_m11.0_11.2_nonbcg.fits`
+            * Save to `gama3_mass.fits`
+        - Merge the three GAMA catalogs into a single one: 
+            * Save to `gama_massive_mass_160107.fits`
+
+### Missing objects based on the new SED fitting results: 
+
+    * In the new GAMA SED fitting results: `hsc_gama_mass_compare.fits`
+        - `Z >= 0.1 && Z <= 0.55 && MSTAR >= 11.0` --> **13495** galaxies 
+        - Save to `gama_z0.1_0.55_m11.0_hscmatch_mass.fits`
+        - Match to `gama_massive_mass_160107.fits`, save the missing ones 
+            * There are **5980** galaxies
+            * Among them, there are **2888** galaxies with `Z >= 0.2 && Z <= 0.5`
+            * Match these galaxies with the input catalog
+            * Save to `gama4_mass.fits`
+
+    * Transfer the new sample catalogs to `/home/song/work/massive_sample/` on `Master`
+
+
+## Organizing the available SBPs on Master: 
+
+    * **WARNING**: It appears that sometimes the forceSbp leaves problematic SBPs
+        - e.g. '21302'
+
+### 1. `redmapper`: `redbcg`
+
+    ``` bash 
+    coaddCutoutSbpSummary.py redmapper_bcg_hscmatch_mass_use.fits redBCG \
+        --id ID_CLUSTER --sample redbcg --suffix modA_muI1 \
+        --sumFolder sbp_modA_muI1 --verbose --plot \
+        --logm MSTAR --sbpRef lumI1
+    ```
+        - LOG file: `sbp_modA_muI1.log`
+        - Finished
+        - **243** profiles
+        - Problematic ones:
+            * Not available: **48732, 73887, 11330, 5197, 36194, 29826, 23868, 10793,
+              6497, 22120, 21087, 16054, 24930, 9724, 2014**
+            * Multimask fail: **2667, 28725, 54313, 24624, 14671, 7557, 6470, 3292, 21390**
+                - Leave these profiles to `trouble`
+                - Still have **234** profiles
+        - Copy related data to `~/work/hscs/gama_massive/sbp/redbcg`
+
+    * Using the `_full_img_ellip_default_3.png` and `_full_ellip_default_compare.png` to vet the BCGs. 
+        - Problematci ones: **14039x, 51588x**
+        - Contaminated one (?): **10982, 13402x, 15786x, 20008, 21537x, 24214x, 24732x, 25561x,
+          29828x, 31536, 33239x, 38310, 40835x, 47746x, 5442, 7574x, 8954x**
+        - Disk galaxy: **1236, 16474, 20190x, 2799**: 
+        - The "x" ones are put to `trouble`
+        - Leaves **219** SBPs
+        
+### 2. `redmapper`: `redmem`
+
+    ``` bash 
+    coaddCutoutSbpSummary.py redmapper_mem_hscmatch_mass.fits redMem \
+        --id ISEDFIT_ID --sample redbcg --suffix modA_muI1 \
+        --sumFolder sbp_modA_muI1 --verbose --plot \
+        --logm MSTAR --sbpRef lumI1
+    ```
+        - Finished 
+        - **1578** profiles
+        - Copy related data to `~/work/hscs/gama_massive/sbp/redbcg`
+
+### 3. `gama2` 
+
+    ``` bash 
+    coaddCutoutSbpSummary.py gama2_mass.fits gama \
+        --id ISEDFIT_ID --sample gama2 --suffix modA_muI1 \
+        --sumFolder sbp_modA_muI1 --verbose --plot \
+        --logm MSTAR --sbpRef lumI1
+    ```
+        - Running ...
+
+### 4. `gama3` 
+
+    ``` bash 
+    coaddCutoutSbpSummary.py gama3_mass.fits gama \
+        --id ISEDFIT_ID --sample gama3 --suffix modA_muI1 \
+        --sumFolder sbp_modA_muI1 --verbose --plot \
+        --logm MSTAR --sbpRef lumI1
+    ```
+        - Running ...
+
+### 5. `gama1` 
+
+    ``` bash 
+    coaddCutoutSbpSummary.py gama1_mass.fits gama \
+        --id ISEDFIT_ID --sample gama1 --suffix modA_muI1 \
+        --sumFolder sbp_modA_muI1 --verbose --plot \
+        --logm MSTAR --sbpRef lumI1
+    ```
+        - Running ...
 
 ----
 
