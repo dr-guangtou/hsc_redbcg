@@ -1425,6 +1425,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 ## Organize the catalogs: 
 
     * Rename `~/work/hscs/gama_compare` to `~/work/hscs/gama_massive`
+    * Rsync backup `gama_compare` folder to `~/astro3/hscs/gama_massive`
     * On Master: rsync `gama1` from `lustre/Subaru/SSP/rerun/song` to `/data3a/work/song`
     * On W520: start rsync recent updates of all reruns. 
 
@@ -1530,7 +1531,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     ```
         - Finished 
         - **1578** profiles
-        - Copy related data to `~/work/hscs/gama_massive/sbp/redbcg`
+        - Copy related data to `~/work/hscs/gama_massive/sbp/redmem`
 
 ### 3. `gama2` 
 
@@ -1540,7 +1541,9 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         --sumFolder sbp_modA_muI1 --verbose --plot \
         --logm MSTAR --sbpRef lumI1
     ```
-        - Running ...
+        - Finished
+        - **1537** profiles
+        - Copy related data to `~/work/hscs/gama_massive/sbp/gama2`
 
 ### 4. `gama3` 
 
@@ -1550,7 +1553,9 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         --sumFolder sbp_modA_muI1 --verbose --plot \
         --logm MSTAR --sbpRef lumI1
     ```
-        - Running ...
+        - Finished
+        - **2526** profiles 
+        - Copy related data to `~/work/hscs/gama_massive/sbp/gama2`
 
 ### 5. `gama1` 
 
@@ -1560,7 +1565,9 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         --sumFolder sbp_modA_muI1 --verbose --plot \
         --logm MSTAR --sbpRef lumI1
     ```
-        - Running ...
+        - Finished 
+        - **3583** profiles
+        - Copy related data to `~/work/hscs/gama_massive/sbp/gama1`
 
 ----
 
