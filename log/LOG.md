@@ -1571,6 +1571,55 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
 ----
 
+# 2016-01-08
+
+## Data volume: 
+
+    * GAMA1 : **792** GB 
+    * GAMA2 : **694** GB 
+    * GAMA3 : **635** GB 
+    * redBCG : **84** GB 
+    * redMEM : **302** GB
+
+## Organizing catalogs and SBPs: 
+
+    * Merging the 3 GAMA datasets together: `/Users/songhuang/work/hscs/gama_massive/sbp`
+        - Catalog: `gama_massive_160107_sbpsum_modA_muI1.fits`
+        - Data: under `sbp_modA_muI1`
+
+    * Organize BCG catalog
+        - Match: `redmapper_bcg_hscmatch_mass_use_sbpsum_modA_muI1.fits` with 
+                 `hsc_redmapper_cluster_gama_1509_mass.fits` for GAMA information
+                 (`fluxscale_gama`) 
+            * Keep every rows; Save to `redbcg_mass.fits`
+            * Save the **219** useful ones with SBPs; Save to `redbcg_mass_use.fits`
+
+    * Understand the iSEDFit K-correction
+        - For both GAMA and redBCG sample, the `SYNTH_ABSMAG_I` and `ABSMAG_I` have very
+          good consistency; It is true for other band too.
+        - From Kcorrect document: 
+            ```
+            These K-correction and photometric redshift routines will also return absolute
+            magnitudes (and inverse variances of the same). To do so it assumes Ωm = 0.3
+            and ΩΛ = 0.7 (though these can be set differently on input). **Absolute
+            magnitudes are reported minus 5log10(h)** (where Ho = h*100 km/s/Mpc), with h=1
+            (ie, to use H0=72 km/s/Mpc one has add 5log10(.72) to the output of the code). 
+            ```
+
+----
+
+# 2016-01-08
+
+    * GALFIT related code: 
+        - `batchGalfit.py`
+        - `coaddCutoutGalfitSimple.py`
+
+    * Prepare figures for the collaboration meeting: 
+        - See: ``
+
+
+----
+
 ## TODO List:
 
     * Check whether the `fluxscale` aperture correction has been applied to GAMA stellar mass
