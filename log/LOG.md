@@ -1608,15 +1608,33 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
 ----
 
-# 2016-01-08
+# 2016-01-09
 
     * GALFIT related code: 
         - `batchGalfit.py`
         - `coaddCutoutGalfitSimple.py`
+        - Test it on local data: 
+            ``` bash 
+            batchGalfit.py redBCG bcg_test.fits --id ID --verbose --ser2Comp --ser3Comp \
+                --skyGrad --useF1 --run1 --root '../'
+            ```
+        - Test it on Master:
 
     * Prepare figures for the collaboration meeting: 
-        - See: ``
+        - See: `/Users/songhuang/Dropbox/work/submit/hsc_redbcg/note/massiveSbp_160107.ipynb`
 
+----
+
+# 2016-01-10
+
+    * GALFIT Run on Master 
+        - redBCG: 1Ser+2Ser+3Ser, noF1, deleteAfter: `running`
+        - redMem: 1Ser+2Ser, noF1, deleteAfter: `running`
+        - GAMA1: 1Ser+2Ser, noF1, deleteAfter: `running`
+        - GAMA2: 1Ser+2Ser, noF1, deleteAfter: `running`
+        - GAMA3: 1Ser+2Ser, noF1, deleteAfter: `running`
+
+    * `massiveSbp_160107.ipynb`
 
 ----
 
