@@ -1636,6 +1636,46 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * `massiveSbp_160107.ipynb`
 
+## Luminosity subsamples: 
+    
+    * For `gama`, `mem`, `bcg` datasets: 
+        - `L1a`: lum_100; modelC,  0.2 < z < 0.4; 11.1 < logL < 11.3
+        - `L1b`: lum_120; modelC,  0.2 < z < 0.4; 11.1 < logL < 11.3
+        - `L2a`: lum_100; modelC,  0.2 < z < 0.4; 11.3 < logL < 11.5
+        - `L2b`: lum_120; modelC,  0.2 < z < 0.4; 11.3 < logL < 11.5
+        - `L3a`: lum_100; modelC,  0.2 < z < 0.4; 11.5 < logL < 11.7
+        - `L3b`: lum_120; modelC,  0.2 < z < 0.4; 11.5 < logL < 11.7
+        - `CL1a`: lum_10, modelC,  0.2 < z < 0.4; 10.8 < logLC < 11.0
+        - `CL1b`: lum_10, modelA,  0.2 < z < 0.4; 10.8 < logLC < 11.0
+        - `CL2a`: lum_10, modelC,  0.2 < z < 0.4; 11.0 < logLC < 11.2
+        - `CL2b`: lum_10, modelA,  0.2 < z < 0.4; 11.0 < logLC < 11.2
+
+    * For BCGs, there are subsamples with '_pcen' suffix that also has 
+      `P_CEN_1 > 0.8`
+
+## Stellar Mass subsamples: 
+    
+    * For `gama`, `mem`, `bcg` datasets: 
+        - `M1a`: lum_100; modelC,  0.2 < z < 0.4; 11.4 < logM < 11.6
+        - `M1b`: lum_120; modelC,  0.2 < z < 0.4; 11.4 < logM < 11.6
+        - `M1c`: lum_100; modelA,  0.2 < z < 0.4; 11.4 < logM < 11.6
+        - `M2a`: lum_100; modelC,  0.2 < z < 0.4; 11.6 < logM < 11.8
+        - `M2b`: lum_120; modelC,  0.2 < z < 0.4; 11.6 < logM < 11.8
+        - `M2c`: lum_100; modelA,  0.2 < z < 0.4; 11.6 < logM < 11.8
+        - `M3a`: lum_100; modelC,  0.2 < z < 0.4; 11.8 < logM < 12.1
+        - `M3b`: lum_120; modelC,  0.2 < z < 0.4; 11.8 < logM < 12.1
+        - `M3c`: lum_100; modelA,  0.2 < z < 0.4; 11.8 < logM < 12.1
+
+        - `CM1a`: lum_10; modelC,  0.2 < z < 0.4; 10.9 < logM < 11.1
+        - `CM1b`: lum_10; modelA,  0.2 < z < 0.4; 10.9 < logM < 11.1
+        - `CM2a`: lum_10; modelC,  0.2 < z < 0.4; 11.1 < logM < 11.3
+        - `CM2b`: lum_10; modelA,  0.2 < z < 0.4; 11.1 < logM < 11.3
+        - `CM3a`: lum_10; modelC,  0.2 < z < 0.4; 11.3 < logM < 11.5
+        - `CM3b`: lum_10; modelA,  0.2 < z < 0.4; 11.3 < logM < 11.5
+
+    * For BCGs, there are subsamples with '_pcen' suffix that also has 
+      `P_CEN_1 > 0.8`
+
 ----
 
 ## TODO List:
