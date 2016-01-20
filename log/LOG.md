@@ -1678,6 +1678,40 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
 ----
 
+# 2016-01-20
+
+    * Save all the sub-samples from the above IPython notebook into individual FITS files
+
+## Generating **gri** color pictures for GAMA galaxies: 
+
+    - Using fixed size to save space: **700x700**
+        * `gama1_gri.submit`  - Running
+        * `gama2_gri.submit`  - Running 
+        * `gama3_gri.submit`  - Running
+
+## GAMA 4: `0.2 < z < 0.5`; logM > 11.0 in the new SED fitting results
+
+### Generating Cutouts: 
+
+    - Change the `coaddImageCutout.py` a little bit; And change `batchCut.py` to be able 
+        to use `--noSrc` to stop generating source catalog for cutout:
+        ``` bash 
+        batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
+            sample/gama4_mass_${PBS_ARRAYID}.fits -f HSC-I \
+            --makeDir --noColor --noSrc --prefix gama4 \
+            --id ISEDFIT_ID --ra RA --dec DEC --redshift Z
+        ```
+
+    - Under `/lustre/Subaru/SSP/rerun/song/gama4`
+        * `HSC-I`: `gama4_160120_1.submit` -- Running 
+        * `HSC-R`: `gama4_160120_2.submit` -- Running 
+        * `HSC-G`: `gama4_160120_3.submit` -- Running 
+        * `HSC-Z`: `gama4_160120_4.submit` -- Running 
+
+
+
+----
+
 ## TODO List:
 
     * Check whether the `fluxscale` aperture correction has been applied to GAMA stellar mass
