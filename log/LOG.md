@@ -1144,7 +1144,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * Under `/lustre/Subaru/SSP/rerun/song/gama1`
 
-#### Preparation:
+#### Generate Cutout:
     * Edit: `nonbcg_160102_1.submit`
     ```
     batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
@@ -1685,9 +1685,9 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 ## Generating **gri** color pictures for GAMA galaxies: 
 
     - Using fixed size to save space: **700x700**
-        * `gama1_gri.submit`  - Running
-        * `gama2_gri.submit`  - Running 
-        * `gama3_gri.submit`  - Running
+        * `gama1_gri.submit`  - Finished
+        * `gama2_gri.submit`  - Finished 
+        * `gama3_gri.submit`  - Finished 
 
 ## GAMA 4: `0.2 < z < 0.5`; logM > 11.0 in the new SED fitting results
 
@@ -1703,12 +1703,187 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         ```
 
     - Under `/lustre/Subaru/SSP/rerun/song/gama4`
-        * `HSC-I`: `gama4_160120_1.submit` -- Running 
-        * `HSC-R`: `gama4_160120_2.submit` -- Running 
-        * `HSC-G`: `gama4_160120_3.submit` -- Running 
-        * `HSC-Z`: `gama4_160120_4.submit` -- Running 
+        * `HSC-I`: `gama4_160120_1.submit` -- Finished 
+        * `HSC-R`: `gama4_160120_2.submit` -- Finished 
+        * `HSC-G`: `gama4_160120_3.submit` -- Finished 
+        * `HSC-Z`: `gama4_160120_4.submit` -- Finished 
+
+### Generating Color Images: 
+
+    - Using fixed size to save space: **700x700**
+        * `gama4_gri.submit`  - Finished
+
+### Prepare for Photometry:
+
+    * Change the default setting a little bit
+        - Make the mask more conservative
+
+    * HSC-I band: `redmem_151224_1.submit`
+        ``` bash
+        batchPrep.py gama4 gama4_mass_${PBS_ARRAYID}.fits -i 'ISEDFIT_ID' \
+            -r default --multiMask -f HSC-I
+        ```
+            - Finished 
+
+----
+
+# 2016-01-21
+
+* Sample selection for Alexie: Above/Below median profiles 
+    - In `getAverageProfile.ipynb`
+* Have a basic function to get something like R50, R90 from 1-D profile ready 
+
+### New redMem sample! 
+
+    * The old redMem catalog: `redmapper_mem_hscmatch_mass_sbpsum_modA_muI1.fits` 
+      contains BCGs....Ahhh 
+    * Match with the BCG catalog (`redbcg_mass_use_dom.fits`) using 0.4 arcsec radius 
+      results in 128 matches.  Remove them, and save the new redMem catalog...
+        - `redmapper_mem_new_mass_sbpsum_modA_muI1.fits`
+
+### Update the mask preparation code: `coaddCutoutPrep.py`
+
+    * Using 4 galaxies from GAMA4 sample as examples: **1002, 1008, 10071, 10092**
+
+    * Right now, the mask cover the objects at larger radius pretty well, but sometimes 
+      still misses nearby objects due to: 
+
+----
+
+# 2016-01-22
+
+### After updating the masking code, rerun the cutout preparation of all samples: 
+
+    1. `redbcg` - Finished 
+    2. `redmem` - Finished 
+    3. `gama1` - Finished 
+    4. `gama2` - Running 
+    5. `gama3` - Finished 
+    6. `gama4` - Finished
 
 
+### Sky: 
+
+    * Update the `coaddCutoutSky.py` and `batchSky.py` to use SEP to subtract 
+      the sky
+
+    1. `redbcg`:
+        - `HSC-I`: Finished 
+        - `HSC-G`: Finished
+        - `HSC-R`: Finished
+        - `HSC-Z`: Finished
+        - `HSC-Y`: Finished
+
+    2. `redmem`:
+        - `HSC-I`: Finished 
+        - `HSC-G`: Finished
+        - `HSC-R`: Finished
+        - `HSC-Z`: Finished
+
+    3. `gama1`:
+        - `HSC-I`: Problem
+        - `HSC-G`: Finished
+        - `HSC-R`: Finished
+        - `HSC-Z`: Finished
+
+    4. `gama2`:
+        - `HSC-I`: Finished
+        - `HSC-G`: Finished
+        - `HSC-R`: Finished
+        - `HSC-Z`: Finished
+
+    5. `gama3`:
+        - `HSC-I`: Running
+        - `HSC-G`: Running
+        - `HSC-R`: Running
+        - `HSC-Z`: Running
+
+    6. `gama4`:
+        - `HSC-I`: Running
+        - `HSC-G`: Running
+        - `HSC-R`: Running
+        - `HSC-Z`: Running
+
+----
+
+# 2016-01-24 - 25
+
+* Prepare Alexie postamps - Done
+
+## Bug fix: 
+
+    * Clean the old reruns: Done 
+    * Delete old rerun folders: `default`
+    * Delete source catalogs
+
+### GAMA4: 
+
+    * `ISEDFIT_ID` should not be used....sometimes 2 objects share the same ISEDFIT_ID
+    * Should use `INDEX`
+
+    * Restart the process
+        - Delete old data; Change the qsub files
+    * Regenerate the cutout images: 
+        - `HSC-I`: Finished
+        - `HSC-G`: Finished
+        - `HSC-R`: Finished
+        - `HSC-Z`: Finished
+
+### coaddCutoutPrep.py 
+
+    * Makes `mskAll` slightly more aggressive
+    * Only pass the finite pixels to `zscale` in `hscUtils`
+
+    * Failed for GAMA2-8427; 
+        - Increase `sep.set_extract_pixstack(500000)` - Done
+        - 8427 is strongly contaminated by a saturated star, so not useful
+            * Such object will waste more time...
+            * But the mask does not look very bad
+    
+    * GAMA3-2940; 4010; 552; 7744
+        - 2940: Completely contaminated by bright star; but working now
+        - 4010: No apparent problem
+            * Should use `np.nanargmin()` to decide the central object, and 
+              make sure the properties of the central galaxy is at least finite..
+            * Working now...
+        - 552: Image is not fully covered
+        - 7744: Image is not fully covered
+            * Both are suffered by `object deblending overflow`
+            * Because the NaN pixels have been replaced as 0, and SEP can not 
+              deblend large region with weird pixe distribution.  
+            * Stop replace NaN pixels, only set a flag when there are many NaN 
+              pixels.
+    
+    * Should combine with bad mask - Done
+
+### coaddCutoutSky.py
+    
+    * Problem with gama1-HSC-I and gama4 
+
+### Re-do the preparation: 
+
+#### Delete old reruns: default, largeR1, smallR1 
+
+    * `redmapper` - Done ; Also removed the source catalogs 
+
+    * `redmem` - Done ; Also removed the source catalogs 
+        - Update the catalog, removed **147** BCGs in the member catalog 
+        - Still saved as `redmapper_z0.2_0.4_m11.0_member.fits`
+        - Separated into **6** chunks
+
+    * `gama1` - Done; Also removed the source catalogs
+
+    * `gama2` - Done; Also removed the source catalogs
+
+    * `gama3` - ; Also removed the source catalogs
+
+#### Rerun: 
+
+    * `redmapper`: `redbcg_prep_I.submit` - Finished
+    * `redmem`: `redmem_prep_I.submit` - Running
+    * `gama1`: `gama1_prep_new` - Running
+    * `gama2`: `gama2_prep_new` - Running
+    * `gama4`: `gama4_prep_new` - Running
 
 ----
 
