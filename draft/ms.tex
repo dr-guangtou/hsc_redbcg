@@ -1,0 +1,200 @@
+% Version 0; preprint format; Written by SH
+
+\documentclass[preprint]{aastex}
+\usepackage{emulateapj5}
+\usepackage{apjfonts}
+\usepackage{amssymb, amsmath}
+\usepackage{graphicx}
+\usepackage{CJK}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\bibliographystyle{apj}
+
+\input psfig.tex
+
+%%%%%%%%%%%%: User Defined Commands %%%%%%%%%%%%
+
+\newdimen\digitwidth    % These five lines change the meaning of
+\setbox1=\hbox{0}       % " in the same way, so that it leaves as
+\digitwidth=\wd1        % much space as a digit. (Note: All digits
+\catcode`"=\active      % are the same width).
+
+% Luis's Definitions
+\def\arcsec{{\prime\prime}}
+\def\arcmin{{\prime}}
+\def\degree{{\circ}}
+\def"{\kern\digitwidth}
+\def\h{\hskip -3 mm}
+\def\aa{{A\&A}}
+\def\aas{{ A\&AS}}
+\def\aj{{AJ}}
+\def\al{$\alpha$}
+\def\bet{$\beta$}
+\def\amin{$^\prime$}
+\def\annrev{{ARA\&A}}
+\def\apj{{ApJ}}
+\def\apjs{{ApJS}}
+\def\asec{$^{\prime\prime}$}
+\def\deg{$^{\circ}$}
+\def\ddeg{{\rlap.}$^{\circ}$}
+\def\dsec{{\rlap.}$^{\prime\prime}$}
+\def\cc{cm$^{-3}$}
+\def\etal{{\ et al.~}}
+\def\flamb{erg s$^{-1}$ cm$^{-2}$ \AA$^{-1}$}
+\def\flux{erg s$^{-1}$ cm$^{-2}$}
+\def\fnu{erg s$^{-1}$ cm$^{-2}$ Hz$^{-1}$}
+\def\hst{{\it HST}}
+\def\kms{km s$^{-1}$}
+\def\lamb{$\lambda$}
+\def\lax{{$\mathrel{\hbox{\rlap{\hbox{\lower4pt\hbox{$\sim$}}}\hbox{$<$}}}$}}
+\def\gax{{$\mathrel{\hbox{\rlap{\hbox{\lower4pt\hbox{$\sim$}}}\hbox{$>$}}}$}}
+\def\simlt{\lower.5ex\hbox{$\; \buildrel < \over \sim \;$}}
+\def\simgt{\lower.5ex\hbox{$\; \buildrel > \over \sim \;$}}
+\def\micron{{$\mu$m}}
+\def\mnras{{MNRAS}}
+\def\nat{{Nature}}
+\def\pasp{{PASP}}
+\def\perang{\AA$^{-1}$}
+\def\peryr{yr$^{-1}$}
+\def\pp{\parshape 2 0truein 6.1truein .3truein 5.5truein}
+\def\reference{\noindent\pp}
+\def\refindent{\par\noindent\parskip=2pt\hangindent=3pc\hangafter=1 }
+\def\sb{mag~arcsec$^{-2}$}
+\def\solum{$L_\odot$}
+\def\solmass{$M_\odot$}
+\def\sigs{$\sigma_*$}
+\newcommand{\lt}{<}
+\newcommand{\gt}{>}
+
+%Song Huang's definition 
+\def\galfit{{\tt GALFIT}}
+\def\ser{{S\'{e}rsic\ }}
+
+%%%%%%%%%%%%: Header and Version %%%%%%%%%%%%
+
+\slugcomment{Draft version 0}
+\shorttitle{ENVIRONMENT DEPENDENCE OF MASS-SIZE RELATION}
+\shortauthors{HUANG ET AL.}
+
+\begin{document}
+
+\begin{CJK*}{UTF8}{gbsn}
+
+%%%%%%%%%%%%: Title and Affiliations %%%%%%%%%%%%
+
+\title{The Environmental Dependence of Structures for Massive Galaxies
+from the Hyper-Suprime Camera Survey}
+
+\author{Song Huang (黄崧)\altaffilmark{1} Alexie Leauthaud\altaffilmark{1}, 
+Kevin Bundy\altaffilmark{1}, and You}
+\date{}                                          
+
+\altaffiltext{1}{Kavli Institute for the Physics and Mathematics of the
+Universe, Todai Institutes for Advanced Study, the University of Tokyo (Kavli
+IPMU, WPI), Kashiwa 277-8583, Japan}
+
+%%%%%%%%%%%%: Abstract and Keywords %%%%%%%%%%%%
+
+\begin{abstract}
+
+  Many recent observations and numerical simulations suggest that nearby
+  massive, early-type galaxies are formed through a ``two-phase'' process.  In
+  the proposed second phase, the extended stellar envelope was accumulated
+  through many dry mergers. (XX TODO)
+
+\end{abstract}
+\keywords{galaxies: elliptical and lenticular, cD --- galaxies: formation --- 
+          galaxies: photometry --- galaxies: structure --- galaxies: surveys}
+
+\maketitle
+
+%%%%%%%%%%%%: Main Text %%%%%%%%%%%%
+
+\section{Introduction}
+
+\section{Sample and Data Reduction}
+
+\section{Results}
+
+\section{Discussion}
+
+\section{Summary}
+
+%%%%%%%%%%: Acknowledge %%%%%%%%%%
+  
+\acknowledgements 
+  
+  1. Acknowledgements for HSC 
+  2. Acknowledgements for Kevin and Alexie's funding 
+  3. Acknowledgements for the Python libraries
+   
+  Funding for SDSS-III has been provided by the Alfred P. Sloan Foundation, the
+  Participating Institutions, the National Science Foundation, and the U.S.
+  Department of Energy. The SDSS-III web site is http://www.sdss3.org.  SDSS-III
+  is managed by the Astrophysical Research Consortium for the Participating
+  Institutions of the SDSS-III Collaboration including the University of
+  Arizona, the Brazilian Participation Group, Brookhaven National Laboratory,
+  University of Cambridge, University of Florida, the French Participation
+  Group, the German Participation Group, the Instituto de Astrofisica de
+  Canarias, the Michigan State/Notre Dame/JINA Participation Group, Johns
+  Hopkins University, Lawrence Berkeley National Laboratory, Max Planck
+  Institute for Astrophysics, New Mexico State University, New York University,
+  Ohio State University, Pennsylvania State University, University of
+  Portsmouth, Princeton University, the Spanish Participation Group, University
+  of Tokyo, University of Utah, Vanderbilt University, University of Virginia,
+  University of Washington, and Yale University.
+
+%%%%%%%%%%: Bibligraphic Section %%%%%%%%%%
+
+%\begin{thebibliography}{}
+
+  %\bibitem[Arnold et al.(2011)]{2011ApJ...736L..26A} Arnold, J.~A., Romanowsky,
+    %A.~J., Brodie, J.~P., et al.\ 2011, \apjl, 736, LL26 
+    
+%\end{thebibliography}{}
+
+\bibliography{redbcg}
+
+%%%%%%%%%%: Appendix Section %%%%%%%%%%%%
+
+\appendix
+
+\section{A. Atlas of 1-D Profiles} 
+
+%%%%%%%%%%%%: Figures Section %%%%%%%%%%%%
+
+% Fig. 1
+\clearpage
+\figurenum{1}
+\begin{figure}
+    \centering 
+    \includegraphics[width=16.5cm]{fig/fig1.png}
+    \caption{
+   Cartoons that illustrate the basic idea of the proposed method for the
+   estimation of average merger mass ratio.  The style is adopted from Faber\etal (2007).
+   The upper panels show the basic
+   picture of the ``two-phase'' formation scenario. The lower panel describes
+   a general picture for the evolution of massive galaxies on the
+   $M_{\ast}$-color plane.  After massive ETGs were quenched, they quickly
+   moved to the red-sequence, and gradually evolved along it as they are
+   becoming redder due to the aging of stellar population, and more massive due
+   to the accumulation of extended stellar envelope through many minor (dry)
+   mergers.  Since the stellar content of smaller system should have lower
+   metallicity, the outer envelope naturally has a bluer color compared to inner
+   region.  And, such color difference reflects the average mass ratio of all
+   mergers that contribute to the second phase of evolution.  Larger color
+   difference means more stellar material came from smaller galaxies, hence
+   makes minor merger more important.  
+   }
+   \label{figure:1}
+\end{figure}
+
+%%%%%%%%%%%%: End of the File %%%%%%%%%%%%
+
+\end{CJK*}
+
+\clearpage 
+
+%%%%%%%%%%%: Possible Tables %%%%%%%%%%%%%
+%\input{table1.tex}
+
+\end{document}
