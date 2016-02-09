@@ -1155,7 +1155,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * Submit job...finished:
       - 42666[].master
 
-#### Sky: 
+#### Sky:
     * Edit: `gama1_160102_2.submit`
     ```
     batchSky.py gama gama_z0.25_0.4_m11.2_nonbcg_${PBS_ARRAYID}.fits \
@@ -1174,7 +1174,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z025_0.4_m11.2_nonbcg_2.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
-        -rm 3 --multiMask --plmask 
+        -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z0.25_0.4_m11.2_nonbcg_3.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
@@ -1210,7 +1210,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * Submit job...finished:
       - 42670[].master
 
-#### Sky: 
+#### Sky:
     * Edit: `gama2_160102_2.submit`
     ```
     batchSky.py gama gama_z0.1_0.25_m11.2_nonbcg_${PBS_ARRAYID}.fits \
@@ -1229,7 +1229,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_2.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
-        -rm 3 --multiMask --plmask 
+        -rm 3 --multiMask --plmask
     batchForceSbp.py gama gama_z0.1_0.25_m11.2_nonbcg_4.fits HSC-Z \
         -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default \
         -rm 3 --multiMask --plmask
@@ -1253,7 +1253,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * Submit job...finished:
       - 42671[].master
 
-#### Sky: 
+#### Sky:
     * Edit: `gama3_160102_2.submit`
     ```
     batchSky.py gama gama_z0.2_0.4_m11.0_11.2_nonbcg_${PBS_ARRAYID}.fits \
@@ -1302,7 +1302,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * Submit job...Finished:
       - 42678[].master
 
-#### Sky: 
+#### Sky:
     * Edit: `redmem_160102_2.submit`
     ```
     batchSky.py redMem redmapper_z0.2_0.4_m11.0_member_${PBS_ARRAYID}.fits \
@@ -1316,16 +1316,16 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     ```
     # Finished
     batchForceSbp.py redMem redmapper_z0.2_0.4_m11.0_member_1.fits HSC-Z \
-        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
     batchForceSbp.py redMem redmapper_z0.2_0.4_m11.0_member_2.fits HSC-Z \
-        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
     batchForceSbp.py redMem redmapper_z0.2_0.4_m11.0_member_3.fits HSC-Z \
-        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
     batchForceSbp.py redMem redmapper_z0.2_0.4_m11.0_member_4.fits HSC-Z \
-        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \ 
+        -i 'ISEDFIT_ID' -r default -mf HSC-I -rf HSC-I -rr default -rm 3 \
         --multiMask --plmask
     ```
 
@@ -1336,45 +1336,45 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
 ## Stellar mass from SED fitting:
 
-    * Copy the `model b` SED fitting results for GAMA galaxies to Mac. 
+    * Copy the `model b` SED fitting results for GAMA galaxies to Mac.
 
-### There is a problem: 
+### There is a problem:
 
     * SED fitting results from different redshift bins can have the same ISEDFIT number
         - After combining the catalog, should make an `INDEX` column
-        - Or can simply match using RA, DEC, as they should have exactly same value. 
+        - Or can simply match using RA, DEC, as they should have exactly same value.
     * This does not affect `GAMA1`, `GAMA2`, `redMem`,`GAMA3` for now....
         - **BUT should keep this in mind for later**
 
-### Combined catalogs: 
+### Combined catalogs:
 
-    * `hsc_bcg_mass_model1a.fits` and `hsc_mem_mass_model1a.fits` are available 
+    * `hsc_bcg_mass_model1a.fits` and `hsc_mem_mass_model1a.fits` are available
 
     * Stellar mass catalog for each dataset
-        * Steps: 
+        * Steps:
             1. Rename the `ISEDFIT_ID` columns in all K-correct catalogs to `ISEDFIT_ID_2`
             2. Unselect `Z`, `MAGGIES`, and `IVARMAGGIES` columns in all K-correct catalogs
-            3. Match between the SED and K-correct catalogs for three redshift bins. 
-            4. Concatenate the merged catalogs for three redshift bins 
+            3. Match between the SED and K-correct catalogs for three redshift bins.
+            4. Concatenate the merged catalogs for three redshift bins
             5. Unselect `ISEDFIT_ID_2` column; And make a `INDEX` column
             6. Rename the catalog; Sort up using `Z` column
-    
-        1. BCG: `model b: bc03_stelib_chab_calzetti` 
+
+        1. BCG: `model b: bc03_stelib_chab_calzetti`
             - `hsc_bcg_mass_model1b.fits`:  Done
-        2. BCG: `model c: fsps_v2.4_miles_chab_calzetti` 
+        2. BCG: `model c: fsps_v2.4_miles_chab_calzetti`
             - `hsc_bcg_mass_model1c.fits`:  Done
-        3. GAMA: `model a: fsps_v2.4_miles_chab_calzetti` 
+        3. GAMA: `model a: fsps_v2.4_miles_chab_calzetti`
             - `hsc_gama_mass_model1a.fits`:  Done
         4. GAMA: `model b: bc03_stelib_chab_calzetti`
             - `hsc_gama_mass_model1b.fits`:  Done
-        5. GAMA: `model c: fsps_v2.4_miles_chab_calzetti` 
+        5. GAMA: `model c: fsps_v2.4_miles_chab_calzetti`
             - `hsc_gama_mass_model1c.fits`:  Done
-        6. redMem: `model b: bc03_stelib_chab_calzetti` 
-            - `hsc_mem_mass_model1b.fits`:  Done 
-        7. redMem: `model c: fsps_v2.4_miles_chab_calzetti` 
+        6. redMem: `model b: bc03_stelib_chab_calzetti`
+            - `hsc_mem_mass_model1b.fits`:  Done
+        7. redMem: `model c: fsps_v2.4_miles_chab_calzetti`
             - `hsc_mem_mass_model1c.fits`:  Done
 
-    * Using `model a` as reference, create a table to compare stellar mass estimates 
+    * Using `model a` as reference, create a table to compare stellar mass estimates
         - Modify the `model b` catalog, only keep useful columns, and add a suffix `_b`
         - Modify the `model c` catalog, only keep useful columns, and add a suffix `_c`
         - Match with `model a` catalog using RA, DEC
@@ -1383,8 +1383,8 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         2. MEM: `hsc_mem_mass_compare.fits`: Done
         3. GAMA: `hsc_gama_mass_compare.fits`: Done
 
-    * In summary: 
-        1. The BC03 model has systematically smaller stellar mass 
+    * In summary:
+        1. The BC03 model has systematically smaller stellar mass
         2. A fraction of massive galaxies have smaller mass in `model c` compared to
            `model a`
 
@@ -1392,14 +1392,14 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
 # 2016-01-06
 
-    * Update the `coaddCutoutSbpSummary.py` to include more interpolated profiles. 
+    * Update the `coaddCutoutSbpSummary.py` to include more interpolated profiles.
 
 ## Re-reducing the SBP of redMapper BCGs
 
-    * Use the new SED fitting results to include more BCGs 
+    * Use the new SED fitting results to include more BCGs
         - `hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits`
 
-    * Commands: 
+    * Commands:
     ```
     # Finished
     batchSbp.py redBCG hsc_redmapper_bcg_wide15a_3arcsec_match_zUse_mass1a.fits \
@@ -1422,25 +1422,25 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
 # 2016-01-07
 
-## Organize the catalogs: 
+## Organize the catalogs:
 
     * Rename `~/work/hscs/gama_compare` to `~/work/hscs/gama_massive`
     * Rsync backup `gama_compare` folder to `~/astro3/hscs/gama_massive`
     * On Master: rsync `gama1` from `lustre/Subaru/SSP/rerun/song` to `/data3a/work/song`
-    * On W520: start rsync recent updates of all reruns. 
+    * On W520: start rsync recent updates of all reruns.
 
-### Collecting input catalog for different reruns: 
+### Collecting input catalog for different reruns:
 
-    - Put all catalogs for sample into `massive_sample` folder, copy to Mac 
+    - Put all catalogs for sample into `massive_sample` folder, copy to Mac
         * `~/work/hscs/gama_compare/gama_sed`
     - These catalogs are:
-        * `redBCG`: `redmapper_bcg_hscmatch.fits` **265** 
+        * `redBCG`: `redmapper_bcg_hscmatch.fits` **265**
             - Make `ID_USE`: `"redbcg_" + toString(ID_CLUSTER)`
             - Keep everything
-        * `redMem`: `redmapper_z0.2_0.4_m11.0_member.fits` **1670** 
+        * `redMem`: `redmapper_z0.2_0.4_m11.0_member.fits` **1670**
             - Make `ID_USE`: `"redmem_" + toString(ISEDFIT_ID)`
             - Deselect the ISEDFIT related columns
-        * `gama1`:  `gama_z0.25_0.4_m11.2_nonbcg.fits` **3747** 
+        * `gama1`:  `gama_z0.25_0.4_m11.2_nonbcg.fits` **3747**
             - Make `ID_USE`: `"gama1_" + toString(ISEDFIT_ID)`
             - Deselect the ISEDFIT related columns
         * `gama2`:  `gama_z0.1_0.25_m11.2_nonbcg.fits` **1700**
@@ -1472,15 +1472,15 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
             * Save to `gama2_mass.fits`
         - Match to `gama_z0.2_0.4_m11.0_11.2_nonbcg.fits`
             * Save to `gama3_mass.fits`
-        - Merge the three GAMA catalogs into a single one: 
+        - Merge the three GAMA catalogs into a single one:
             * Save to `gama_massive_mass_160107.fits`
 
-### Missing objects based on the new SED fitting results: 
+### Missing objects based on the new SED fitting results:
 
     * In the new GAMA SED fitting results: `hsc_gama_mass_compare.fits`
-        - `Z >= 0.1 && Z <= 0.55 && MSTAR >= 11.0` --> **13495** galaxies 
+        - `Z >= 0.1 && Z <= 0.55 && MSTAR >= 11.0` --> **13495** galaxies
         - Save to `gama_z0.1_0.55_m11.0_hscmatch_mass.fits`
-        - Match to `gama_massive_mass_160107.fits`, save the missing ones 
+        - Match to `gama_massive_mass_160107.fits`, save the missing ones
             * There are **5980** galaxies
             * Among them, there are **2888** galaxies with `Z >= 0.2 && Z <= 0.5`
             * Match these galaxies with the input catalog
@@ -1489,14 +1489,14 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
     * Transfer the new sample catalogs to `/home/song/work/massive_sample/` on `Master`
 
 
-## Organizing the available SBPs on Master: 
+## Organizing the available SBPs on Master:
 
     * **WARNING**: It appears that sometimes the forceSbp leaves problematic SBPs
         - e.g. '21302'
 
 ### 1. `redmapper`: `redbcg`
 
-    ``` bash 
+    ``` bash
     coaddCutoutSbpSummary.py redmapper_bcg_hscmatch_mass_use.fits redBCG \
         --id ID_CLUSTER --sample redbcg --suffix modA_muI1 \
         --sumFolder sbp_modA_muI1 --verbose --plot \
@@ -1513,29 +1513,29 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
                 - Still have **234** profiles
         - Copy related data to `~/work/hscs/gama_massive/sbp/redbcg`
 
-    * Using the `_full_img_ellip_default_3.png` and `_full_ellip_default_compare.png` to vet the BCGs. 
+    * Using the `_full_img_ellip_default_3.png` and `_full_ellip_default_compare.png` to vet the BCGs.
         - Problematci ones: **14039x, 51588x**
         - Contaminated one (?): **10982, 13402x, 15786x, 20008, 21537x, 24214x, 24732x, 25561x,
           29828x, 31536, 33239x, 38310, 40835x, 47746x, 5442, 7574x, 8954x**
-        - Disk galaxy: **1236, 16474, 20190x, 2799**: 
+        - Disk galaxy: **1236, 16474, 20190x, 2799**:
         - The "x" ones are put to `trouble`
         - Leaves **219** SBPs
-        
+
 ### 2. `redmapper`: `redmem`
 
-    ``` bash 
+    ``` bash
     coaddCutoutSbpSummary.py redmapper_mem_hscmatch_mass.fits redMem \
         --id ISEDFIT_ID --sample redbcg --suffix modA_muI1 \
         --sumFolder sbp_modA_muI1 --verbose --plot \
         --logm MSTAR --sbpRef lumI1
     ```
-        - Finished 
+        - Finished
         - **1578** profiles
         - Copy related data to `~/work/hscs/gama_massive/sbp/redmem`
 
-### 3. `gama2` 
+### 3. `gama2`
 
-    ``` bash 
+    ``` bash
     coaddCutoutSbpSummary.py gama2_mass.fits gama \
         --id ISEDFIT_ID --sample gama2 --suffix modA_muI1 \
         --sumFolder sbp_modA_muI1 --verbose --plot \
@@ -1545,27 +1545,27 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         - **1537** profiles
         - Copy related data to `~/work/hscs/gama_massive/sbp/gama2`
 
-### 4. `gama3` 
+### 4. `gama3`
 
-    ``` bash 
+    ``` bash
     coaddCutoutSbpSummary.py gama3_mass.fits gama \
         --id ISEDFIT_ID --sample gama3 --suffix modA_muI1 \
         --sumFolder sbp_modA_muI1 --verbose --plot \
         --logm MSTAR --sbpRef lumI1
     ```
         - Finished
-        - **2526** profiles 
+        - **2526** profiles
         - Copy related data to `~/work/hscs/gama_massive/sbp/gama2`
 
-### 5. `gama1` 
+### 5. `gama1`
 
-    ``` bash 
+    ``` bash
     coaddCutoutSbpSummary.py gama1_mass.fits gama \
         --id ISEDFIT_ID --sample gama1 --suffix modA_muI1 \
         --sumFolder sbp_modA_muI1 --verbose --plot \
         --logm MSTAR --sbpRef lumI1
     ```
-        - Finished 
+        - Finished
         - **3583** profiles
         - Copy related data to `~/work/hscs/gama_massive/sbp/gama1`
 
@@ -1573,61 +1573,61 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
 # 2016-01-08
 
-## Data volume: 
+## Data volume:
 
-    * GAMA1 : **792** GB 
-    * GAMA2 : **694** GB 
-    * GAMA3 : **635** GB 
-    * redBCG : **84** GB 
+    * GAMA1 : **792** GB
+    * GAMA2 : **694** GB
+    * GAMA3 : **635** GB
+    * redBCG : **84** GB
     * redMEM : **302** GB
 
-## Organizing catalogs and SBPs: 
+## Organizing catalogs and SBPs:
 
     * Merging the 3 GAMA datasets together: `/Users/songhuang/work/hscs/gama_massive/sbp`
         - Catalog: `gama_massive_160107_sbpsum_modA_muI1.fits`
         - Data: under `sbp_modA_muI1`
 
     * Organize BCG catalog
-        - Match: `redmapper_bcg_hscmatch_mass_use_sbpsum_modA_muI1.fits` with 
+        - Match: `redmapper_bcg_hscmatch_mass_use_sbpsum_modA_muI1.fits` with
                  `hsc_redmapper_cluster_gama_1509_mass.fits` for GAMA information
-                 (`fluxscale_gama`) 
+                 (`fluxscale_gama`)
             * Keep every rows; Save to `redbcg_mass.fits`
             * Save the **219** useful ones with SBPs; Save to `redbcg_mass_use.fits`
 
     * Understand the iSEDFit K-correction
         - For both GAMA and redBCG sample, the `SYNTH_ABSMAG_I` and `ABSMAG_I` have very
           good consistency; It is true for other band too.
-        - From Kcorrect document: 
+        - From Kcorrect document:
             ```
             These K-correction and photometric redshift routines will also return absolute
             magnitudes (and inverse variances of the same). To do so it assumes Ωm = 0.3
             and ΩΛ = 0.7 (though these can be set differently on input). **Absolute
             magnitudes are reported minus 5log10(h)** (where Ho = h*100 km/s/Mpc), with h=1
-            (ie, to use H0=72 km/s/Mpc one has add 5log10(.72) to the output of the code). 
+            (ie, to use H0=72 km/s/Mpc one has add 5log10(.72) to the output of the code).
             ```
 
 ----
 
 # 2016-01-09
 
-    * GALFIT related code: 
+    * GALFIT related code:
         - `batchGalfit.py`
         - `coaddCutoutGalfitSimple.py`
-        - Test it on local data: 
-            ``` bash 
+        - Test it on local data:
+            ``` bash
             batchGalfit.py redBCG bcg_test.fits --id ID --verbose --ser2Comp --ser3Comp \
                 --skyGrad --useF1 --run1 --root '../'
             ```
         - Test it on Master:
 
-    * Prepare figures for the collaboration meeting: 
+    * Prepare figures for the collaboration meeting:
         - See: `/Users/songhuang/Dropbox/work/submit/hsc_redbcg/note/massiveSbp_160107.ipynb`
 
 ----
 
 # 2016-01-10
 
-    * GALFIT Run on Master 
+    * GALFIT Run on Master
         - redBCG: 1Ser+2Ser+3Ser, noF1, deleteAfter: `running`
         - redMem: 1Ser+2Ser, noF1, deleteAfter: `running`
         - GAMA1: 1Ser+2Ser, noF1, deleteAfter: `running`
@@ -1636,9 +1636,9 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * `massiveSbp_160107.ipynb`
 
-## Luminosity subsamples: 
-    
-    * For `gama`, `mem`, `bcg` datasets: 
+## Luminosity subsamples:
+
+    * For `gama`, `mem`, `bcg` datasets:
         - `L1a`: lum_100; modelC,  0.2 < z < 0.4; 11.1 < logL < 11.3
         - `L1b`: lum_120; modelC,  0.2 < z < 0.4; 11.1 < logL < 11.3
         - `L2a`: lum_100; modelC,  0.2 < z < 0.4; 11.3 < logL < 11.5
@@ -1650,12 +1650,12 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         - `CL2a`: lum_10, modelC,  0.2 < z < 0.4; 11.0 < logLC < 11.2
         - `CL2b`: lum_10, modelA,  0.2 < z < 0.4; 11.0 < logLC < 11.2
 
-    * For BCGs, there are subsamples with '_pcen' suffix that also has 
+    * For BCGs, there are subsamples with '_pcen' suffix that also has
       `P_CEN_1 > 0.8`
 
-## Stellar Mass subsamples: 
-    
-    * For `gama`, `mem`, `bcg` datasets: 
+## Stellar Mass subsamples:
+
+    * For `gama`, `mem`, `bcg` datasets:
         - `M1a`: lum_100; modelC,  0.2 < z < 0.4; 11.4 < logM < 11.6
         - `M1b`: lum_120; modelC,  0.2 < z < 0.4; 11.4 < logM < 11.6
         - `M1c`: lum_100; modelA,  0.2 < z < 0.4; 11.4 < logM < 11.6
@@ -1673,7 +1673,7 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         - `CM3a`: lum_10; modelC,  0.2 < z < 0.4; 11.3 < logM < 11.5
         - `CM3b`: lum_10; modelA,  0.2 < z < 0.4; 11.3 < logM < 11.5
 
-    * For BCGs, there are subsamples with '_pcen' suffix that also has 
+    * For BCGs, there are subsamples with '_pcen' suffix that also has
       `P_CEN_1 > 0.8`
 
 ----
@@ -1682,20 +1682,20 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * Save all the sub-samples from the above IPython notebook into individual FITS files
 
-## Generating **gri** color pictures for GAMA galaxies: 
+## Generating **gri** color pictures for GAMA galaxies:
 
     - Using fixed size to save space: **700x700**
         * `gama1_gri.submit`  - Finished
-        * `gama2_gri.submit`  - Finished 
-        * `gama3_gri.submit`  - Finished 
+        * `gama2_gri.submit`  - Finished
+        * `gama3_gri.submit`  - Finished
 
 ## GAMA 4: `0.2 < z < 0.5`; logM > 11.0 in the new SED fitting results
 
-### Generating Cutouts: 
+### Generating Cutouts:
 
-    - Change the `coaddImageCutout.py` a little bit; And change `batchCut.py` to be able 
+    - Change the `coaddImageCutout.py` a little bit; And change `batchCut.py` to be able
         to use `--noSrc` to stop generating source catalog for cutout:
-        ``` bash 
+        ``` bash
         batchCut.py /lustre/Subaru/SSP/rerun/yasuda/SSP3.8.5_20150725 \
             sample/gama4_mass_${PBS_ARRAYID}.fits -f HSC-I \
             --makeDir --noColor --noSrc --prefix gama4 \
@@ -1703,12 +1703,12 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         ```
 
     - Under `/lustre/Subaru/SSP/rerun/song/gama4`
-        * `HSC-I`: `gama4_160120_1.submit` -- Finished 
-        * `HSC-R`: `gama4_160120_2.submit` -- Finished 
-        * `HSC-G`: `gama4_160120_3.submit` -- Finished 
-        * `HSC-Z`: `gama4_160120_4.submit` -- Finished 
+        * `HSC-I`: `gama4_160120_1.submit` -- Finished
+        * `HSC-R`: `gama4_160120_2.submit` -- Finished
+        * `HSC-G`: `gama4_160120_3.submit` -- Finished
+        * `HSC-Z`: `gama4_160120_4.submit` -- Finished
 
-### Generating Color Images: 
+### Generating Color Images:
 
     - Using fixed size to save space: **700x700**
         * `gama4_gri.submit`  - Finished
@@ -1723,21 +1723,21 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
         batchPrep.py gama4 gama4_mass_${PBS_ARRAYID}.fits -i 'ISEDFIT_ID' \
             -r default --multiMask -f HSC-I
         ```
-            - Finished 
+            - Finished
 
 ----
 
 # 2016-01-21
 
-* Sample selection for Alexie: Above/Below median profiles 
+* Sample selection for Alexie: Above/Below median profiles
     - In `getAverageProfile.ipynb`
-* Have a basic function to get something like R50, R90 from 1-D profile ready 
+* Have a basic function to get something like R50, R90 from 1-D profile ready
 
-### New redMem sample! 
+### New redMem sample!
 
-    * The old redMem catalog: `redmapper_mem_hscmatch_mass_sbpsum_modA_muI1.fits` 
-      contains BCGs....Ahhh 
-    * Match with the BCG catalog (`redbcg_mass_use_dom.fits`) using 0.4 arcsec radius 
+    * The old redMem catalog: `redmapper_mem_hscmatch_mass_sbpsum_modA_muI1.fits`
+      contains BCGs....Ahhh
+    * Match with the BCG catalog (`redbcg_mass_use_dom.fits`) using 0.4 arcsec radius
       results in 128 matches.  Remove them, and save the new redMem catalog...
         - `redmapper_mem_new_mass_sbpsum_modA_muI1.fits`
 
@@ -1745,37 +1745,37 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
     * Using 4 galaxies from GAMA4 sample as examples: **1002, 1008, 10071, 10092**
 
-    * Right now, the mask cover the objects at larger radius pretty well, but sometimes 
-      still misses nearby objects due to: 
+    * Right now, the mask cover the objects at larger radius pretty well, but sometimes
+      still misses nearby objects due to:
 
 ----
 
 # 2016-01-22
 
-### After updating the masking code, rerun the cutout preparation of all samples: 
+### After updating the masking code, rerun the cutout preparation of all samples:
 
-    1. `redbcg` - Finished 
-    2. `redmem` - Finished 
-    3. `gama1` - Finished 
-    4. `gama2` - Running 
-    5. `gama3` - Finished 
+    1. `redbcg` - Finished
+    2. `redmem` - Finished
+    3. `gama1` - Finished
+    4. `gama2` - Running
+    5. `gama3` - Finished
     6. `gama4` - Finished
 
 
-### Sky: 
+### Sky:
 
-    * Update the `coaddCutoutSky.py` and `batchSky.py` to use SEP to subtract 
+    * Update the `coaddCutoutSky.py` and `batchSky.py` to use SEP to subtract
       the sky
 
     1. `redbcg`:
-        - `HSC-I`: Finished 
+        - `HSC-I`: Finished
         - `HSC-G`: Finished
         - `HSC-R`: Finished
         - `HSC-Z`: Finished
         - `HSC-Y`: Finished
 
     2. `redmem`:
-        - `HSC-I`: Finished 
+        - `HSC-I`: Finished
         - `HSC-G`: Finished
         - `HSC-R`: Finished
         - `HSC-Z`: Finished
@@ -1810,80 +1810,464 @@ WARNING:root:### Can not find INPUT BINARY for : nonBCG_5675_HSC-I_full
 
 * Prepare Alexie postamps - Done
 
-## Bug fix: 
+## Bug fix:
 
-    * Clean the old reruns: Done 
+    * Clean the old reruns: Done
     * Delete old rerun folders: `default`
     * Delete source catalogs
 
-### GAMA4: 
+### GAMA4:
 
     * `ISEDFIT_ID` should not be used....sometimes 2 objects share the same ISEDFIT_ID
     * Should use `INDEX`
 
     * Restart the process
         - Delete old data; Change the qsub files
-    * Regenerate the cutout images: 
+    * Regenerate the cutout images:
         - `HSC-I`: Finished
         - `HSC-G`: Finished
         - `HSC-R`: Finished
         - `HSC-Z`: Finished
 
-### coaddCutoutPrep.py 
+### coaddCutoutPrep.py
 
     * Makes `mskAll` slightly more aggressive
     * Only pass the finite pixels to `zscale` in `hscUtils`
 
-    * Failed for GAMA2-8427; 
+    * Failed for GAMA2-8427;
         - Increase `sep.set_extract_pixstack(500000)` - Done
         - 8427 is strongly contaminated by a saturated star, so not useful
             * Such object will waste more time...
             * But the mask does not look very bad
-    
+
     * GAMA3-2940; 4010; 552; 7744
         - 2940: Completely contaminated by bright star; but working now
         - 4010: No apparent problem
-            * Should use `np.nanargmin()` to decide the central object, and 
+            * Should use `np.nanargmin()` to decide the central object, and
               make sure the properties of the central galaxy is at least finite..
             * Working now...
         - 552: Image is not fully covered
         - 7744: Image is not fully covered
             * Both are suffered by `object deblending overflow`
-            * Because the NaN pixels have been replaced as 0, and SEP can not 
+            * Because the NaN pixels have been replaced as 0, and SEP can not
               deblend large region with weird pixe distribution.  
-            * Stop replace NaN pixels, only set a flag when there are many NaN 
+            * Stop replace NaN pixels, only set a flag when there are many NaN
               pixels.
-    
+
     * Should combine with bad mask - Done
 
 ### coaddCutoutSky.py
-    
-    * Problem with gama1-HSC-I and gama4 
 
-### Re-do the preparation: 
+    * Problem with gama1-HSC-I and gama4
 
-#### Delete old reruns: default, largeR1, smallR1 
+### Re-do the preparation:
 
-    * `redmapper` - Done ; Also removed the source catalogs 
+#### Delete old reruns: default, largeR1, smallR1
 
-    * `redmem` - Done ; Also removed the source catalogs 
-        - Update the catalog, removed **147** BCGs in the member catalog 
+    * `redmapper` - Done ; Also removed the source catalogs
+    * `redmem` - Done ; Also removed the source catalogs
+        - Update the catalog, removed **147** BCGs in the member catalog
         - Still saved as `redmapper_z0.2_0.4_m11.0_member.fits`
         - Separated into **6** chunks
-
     * `gama1` - Done; Also removed the source catalogs
-
     * `gama2` - Done; Also removed the source catalogs
-
     * `gama3` - ; Also removed the source catalogs
 
-#### Rerun: 
+#### Rerun:
 
-    * `redmapper`: `redbcg_prep_I.submit` - Finished
-    * `redmem`: `redmem_prep_I.submit` - Running
-    * `gama1`: `gama1_prep_new` - Running
-    * `gama2`: `gama2_prep_new` - Running
-    * `gama4`: `gama4_prep_new` - Running
+    * `redmapper`: `redbcg_prep_I.submit` - Finished; Ok
+    * `redmem`: `redmem_prep_I.submit` - Finished; Ok
+    * `gama1`: `gama1_prep_I.submit` - Finished; Ok
+    * `gama2`: `gama2_prep_I.submit` - Finished; Ok
+    * `gama3`: `gama3_prep_I.submit` - Finished; Ok
+    * `gama4`: `gama4_prep_I.submit` - Finished; Ok
+
+### Remove all old .pl files
+
+    * `redmapper`: Done
+    * `redmem`: Done
+    * `gama1`: Done
+    * `gama2`: Done
+    * `gama3`: Done
+
+### New sky estimation:
+
+    * `redmapper`:
+        - `HSC-I`: Finished; Ok
+        - `HSC-G`: Finished; Ok
+        - `HSC-R`: Finished; Ok
+        - `HSC-Z`: Finished; Ok
+        - `HSC-Y`: Finished; Ok
+
+    * `redmem`:
+        - `HSC-I`: Finished; Ok
+        - `HSC-G`: Finished; Ok
+        - `HSC-R`: Finished; Ok
+        - `HSC-Z`: Finished; Ok
+
+    * `gama1`:
+        - `HSC-I`: Finished; Ok  
+        - `HSC-G`: Finished; Ok
+        - `HSC-R`: Finished; Ok
+        - `HSC-Z`: Finished; Ok
+
+    * `gama2`:
+        - `HSC-I`: Finished; Ok  
+        - `HSC-G`: Finished; Ok
+        - `HSC-R`: Finished; Ok
+        - `HSC-Z`: Finished; Ok
+
+    * `gama3`:
+        - `HSC-I`: Finished; Ok
+        - `HSC-G`: Finished; Ok
+        - `HSC-R`: Finished; Ok
+        - `HSC-Z`: Finished; Ok
+
+    * `gama4`:
+        - `HSC-I`: Finished; Ok  
+        - `HSC-G`: Finished; Ok
+        - `HSC-R`: Finished; Ok
+        - `HSC-Z`: Finished; Ok
+
+----
+
+# 2016-01-27
+
+## New SBP runs
+
+### redmapper BCG
+
+#### imgsub
+
+* HSC-I
+
+    ```
+    # Running:
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_z1_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_z2_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_z3_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_z4_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_z5_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_z6_1509.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub
+    ```
+
+* Failed cases: **11**; **6** seem to be hopeless
+
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_15293_HSC-I_full in HSC-I
+    * Contaminated by bright star; Ok to fail
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_18232_HSC-I_full in HSC-I
+    * Contaminated by bright star; Ok to fail
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_4690_HSC-I_full in HSC-I
+    * Very complex center, interacting with more than one galaxy; low P_CEN_1
+    * Ok to fail  
+    * At z = 0.384
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_8441_HSC-I_full in HSC-I
+    * Complex center; and Bad data; Ok to fail
+    * At z = 0.358
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_24732_HSC-I_full in HSC-I
+    * Interacting disk galaxy; May not be real BCG; Ok to fail
+    * At z = 0.420
+
+
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_51588_HSC-I_full in HSC-I
+    * Over-masked; Should deal later
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_18515_HSC-I_full in HSC-I
+    * Affected by bright star and nearby bright galaxy; Can be improved
+    * At z = 0.262
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_18939_HSC-I_full in HSC-I
+    * Over-masked a little bit; Can be improed
+    * At z = 0.348
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_15293_HSC-I_full in HSC-I
+    * Contaminated by bright star; and complex center; Can be improved
+    * At z = 0.464
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_2799_HSC-I_full in HSC-I
+    * Very complex central, many satellites; Can be improved
+    * At z = 0.138
+  - WARNING:root:### The 1-D SBP is FAILED for redBCG_26777_HSC-I_full in HSC-I
+    * On going merger; Overmasked; Deal later
+    * At z = 0.328
+
+
+
+-------
+
+# 2016-02-08
+
+## New SBP runs
+
+### redmapper BCG
+
+#### imgsub
+
+* HSC-I
+
+    ```
+    # Finished:
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_1509_1.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_1509_2.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_1509_3.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    ```
+
+* HSC-G/R/Z/Y 
+
+    - `run_force.sh`
+    ``` bash
+    # Finished
+    runForce () {
+    local index=$1
+    batchForceSbp.py redBCG sample/hsc_redmapper_cluster_1509.fits HSC-"$index" \
+        -i 'ID_CLUSTER' -r default --plmask \
+        -mf HSC-I -rf HSC-I -rr default -rm 3 --imgSub
+    }
+    sample="G R Z Y"
+
+    for ind in $sample; do
+        runForce "$ind" &
+    done
+    wait
+    ```
+
+#### img
+
+* HSC-I
+
+    ```
+    # Finished:
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_1509_1.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --maxTry 6
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_1509_2.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --maxTry 6
+    batchSbp.py redBCG sample/hsc_redmapper_cluster_1509_3.fits \
+        -i 'ID_CLUSTER' -r default -f HSC-I --plmask --multiEllipse \
+        --maxTry 6
+    ```
+
+* HSC-G/R/Z/Y 
+
+    ```
+    # Finished
+    batchForceSbp.py redBCG sample/hsc_redmapper_cluster_1509.fits HSC-G \
+        -i 'ID_CLUSTER' -r default --plmask \
+        -mf HSC-I -rf HSC-I -rr default -rm 3
+    batchForceSbp.py redBCG sample/hsc_redmapper_cluster_1509.fits HSC-R \
+        -i 'ID_CLUSTER' -r default --plmask \
+        -mf HSC-I -rf HSC-I -rr default -rm 3
+    batchForceSbp.py redBCG sample/hsc_redmapper_cluster_1509.fits HSC-Z \
+        -i 'ID_CLUSTER' -r default --plmask \
+        -mf HSC-I -rf HSC-I -rr default -rm 3
+    # Finished
+    batchForceSbp.py redBCG sample/hsc_redmapper_cluster_1509.fits HSC-Y \
+        -i 'ID_CLUSTER' -r default --plmask \
+        -mf HSC-I -rf HSC-I -rr default -rm 3
+    ```
+
+### GAMA 1
+
+#### imgsub
+
+* HSC-I
+
+    ```
+    # Finished:
+    batchSbp.py gama sample/gama_z0.25_0.4_m11.2_nonbcg_1.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.25_0.4_m11.2_nonbcg_2.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.25_0.4_m11.2_nonbcg_3.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.25_0.4_m11.2_nonbcg_4.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.25_0.4_m11.2_nonbcg_5.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.25_0.4_m11.2_nonbcg_6.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.25_0.4_m11.2_nonbcg_7.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.25_0.4_m11.2_nonbcg_8.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    ```
+
+* HSC-G/R/Z
+
+    ```
+    # Running
+    run_force.sh
+    ```
+
+
+### GAMA 2
+
+#### imgsub
+
+* HSC-I
+
+    ```
+    # Finished:
+    batchSbp.py gama sample/gama_z0.1_0.25_m11.2_nonbcg_1.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.1_0.25_m11.2_nonbcg_2.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.1_0.25_m11.2_nonbcg_3.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.1_0.25_m11.2_nonbcg_4.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    ```
+
+* HSC-G/R/Z
+
+    ```
+    # Running
+    run_force.sh
+    ```
+
+### GAMA 3
+
+#### imgsub
+
+* HSC-I
+
+    ```
+    # Finished
+    batchSbp.py gama sample/gama_z0.2_0.4_m11.0_11.2_nonbcg_1.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.2_0.4_m11.0_11.2_nonbcg_2.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.2_0.4_m11.0_11.2_nonbcg_3.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.2_0.4_m11.0_11.2_nonbcg_4.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.2_0.4_m11.0_11.2_nonbcg_5.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama sample/gama_z0.2_0.4_m11.0_11.2_nonbcg_6.fits \
+        -i 'ISEDFIT_ID' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    ```
+
+* HSC-G/R/Z
+
+    ```
+    # Running
+    run_force.sh
+    ```
+
+### GAMA 4
+
+#### imgsub
+
+* HSC-I
+
+    ```
+    # Running:
+    batchSbp.py gama4 sample/gama4_mass_1.fits \
+        -i 'INDEX' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama4 sample/gama4_mass_2.fits \
+        -i 'INDEX' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama4 sample/gama4_mass_3.fits \
+        -i 'INDEX' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama4 sample/gama4_mass_4.fits \
+        -i 'INDEX' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama4 sample/gama4_mass_5.fits \
+        -i 'INDEX' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama4 sample/gama4_mass_6.fits \
+        -i 'INDEX' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama4 sample/gama4_mass_7.fits \
+        -i 'INDEX' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    batchSbp.py gama4 sample/gama4_mass_8.fits \
+        -i 'INDEX' -r default -f HSC-I --plmask --multiEllipse \
+        --imgSub --maxTry 6
+    ```
+
+* HSC-G/R/Z
+
+### redMem
+
+#### imgsub
+
+* HSC-I
+
+    ```
+    # Running:
+    batchSbp.py redMem redmapper_z0.2_0.4_m11.0_member_1.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse \
+        --maxTry 6 --imgSub
+    batchSbp.py redMem redmapper_z0.2_0.4_m11.0_member_2.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse \
+        --maxTry 6 --imgSub
+    batchSbp.py redMem redmapper_z0.2_0.4_m11.0_member_3.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse \
+        --maxTry 6 --imgSub
+    batchSbp.py redMem redmapper_z0.2_0.4_m11.0_member_4.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse \
+        --maxTry 6 --imgSub
+    batchSbp.py redMem redmapper_z0.2_0.4_m11.0_member_5.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse \
+        --maxTry 6 --imgSub
+    batchSbp.py redMem redmapper_z0.2_0.4_m11.0_member_6.fits -i 'ISEDFIT_ID' \
+        -r default -f HSC-I --plmask --multiEllipse \
+        --maxTry 6 --imgSub
+    ```
+
+* HSC-G/R/Z
+
+
+## Summary: 
+
+### redBCG 
+
+#### imgSub
+
+    ``` bash
+    coaddCutoutSbpSummary.py sample/redmapper_bcg_hscmatch_mass_use.fits redBCG \
+        --id ID_CLUSTER --sample redbcg --suffix modC_muI1 \
+        --sumFolder sbp_modC_muI1 --verbose --plot \
+        --logm MSTAR_c --logmerr MSTAR_ERR_c --sbpRef lumI1 \
+        --imgSub
+    ```
+
 
 ----
 
