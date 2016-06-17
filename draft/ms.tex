@@ -1,28 +1,26 @@
 % Version 0; preprint format; Written by SH
 
 \documentclass[preprint]{aastex}
+
+% Packages
 \usepackage{emulateapj5}
 \usepackage{apjfonts}
 \usepackage{amssymb, amsmath}
 \usepackage{graphicx}
 \usepackage{CJK}
+\usepackage[usenames]{color}
+
+% Figure extention
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 \bibliographystyle{apj}
-
 \input psfig.tex
 
 %%%%%%%%%%%%: User Defined Commands %%%%%%%%%%%%
 
-\newdimen\digitwidth    % These five lines change the meaning of
-\setbox1=\hbox{0}       % " in the same way, so that it leaves as
-\digitwidth=\wd1        % much space as a digit. (Note: All digits
-\catcode`"=\active      % are the same width).
-
-% Luis's Definitions
+% Song Huang's definition 
 \def\arcsec{{\prime\prime}}
 \def\arcmin{{\prime}}
 \def\degree{{\circ}}
-\def"{\kern\digitwidth}
 \def\h{\hskip -3 mm}
 \def\aa{{A\&A}}
 \def\aas{{ A\&AS}}
@@ -64,14 +62,25 @@
 \def\sigs{$\sigma_*$}
 \newcommand{\lt}{<}
 \newcommand{\gt}{>}
-
-%Song Huang's definition 
 \def\galfit{{\tt GALFIT}}
 \def\ser{{S\'{e}rsic\ }}
+\def\redm{\texttt{redMaPPer}}
+\def\redbcg{$\Lambda \ge 30$}
+\def\nonbcg{$\Lambda < 30$}
+
+% Commenting:
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO: #1}}}
+\newcommand{\plan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\addref}[1]{\textcolor{red}{REF}}
+\newcommand{\comment}[2]{\textcolor{blue}{\textbf{[Comment (#1): #2]}}}
+\newcommand{\song}[1]{\textcolor{magenta}{\textbf{[Song: #1]}}}
+\newcommand{\alexie}[1]{\textcolor{blue}{\textbf{[Alexie: #1]}}}
+\newcommand{\kevin}[1]{\textcolor{green}{\textbf{[Kevin: #1]}}}
 
 %%%%%%%%%%%%: Header and Version %%%%%%%%%%%%
 
 \slugcomment{Draft version 0}
+\email{song.huang@ipmu.jp}
 \shorttitle{ENVIRONMENT DEPENDENCE OF MASS-SIZE RELATION}
 \shortauthors{HUANG ET AL.}
 
@@ -82,25 +91,41 @@
 %%%%%%%%%%%%: Title and Affiliations %%%%%%%%%%%%
 
 \title{The Environmental Dependence of Structures for Massive Galaxies
-from the Hyper-Suprime Camera Survey}
+from the Hyper Suprime-Cam Survey}
 
-\author{Song Huang (黄崧)\altaffilmark{1} Alexie Leauthaud\altaffilmark{1}, 
-Kevin Bundy\altaffilmark{1}, and You}
+\author{Song Huang (黄崧)\altaffilmark{1} 
+        Alexie Leauthaud\altaffilmark{1}, 
+        Kevin Bundy\altaffilmark{1},
+        Michael Strauss\altaffilmark{2},
+        Yen-Ting Lin\altaffilmark{3},
+        Rachel Mandelbaum\altaffilmark{4}
+        }
 \date{}                                          
 
-\altaffiltext{1}{Kavli Institute for the Physics and Mathematics of the
-Universe, Todai Institutes for Advanced Study, the University of Tokyo (Kavli
-IPMU, WPI), Kashiwa 277-8583, Japan}
+\altaffiltext{1}{Kavli Institute for the Physics and Mathematics of the 
+    Universe, The University of Tokyo Institutes for Advanced Study, 
+    the University of Tokyo (Kavli IPMU, WPI), Kashiwa 277-8583, Japan}
+\altaffiltext{2}{Princeton University Observatory, 
+    Peyton Hall, Princeton, NJ 08544, USA}
+\altaffiltext{3}{Institute of Astronomy and Astrophysics, Academia Sinica, 
+    P.O.~Box 23-141, Taipei 10617, Taiwan}
+\altaffiltext{4}{Carnegie-Mellon University \todo{correct affiliation here}}
 
 %%%%%%%%%%%%: Abstract and Keywords %%%%%%%%%%%%
 
 \begin{abstract}
-
-  Many recent observations and numerical simulations suggest that nearby
-  massive, early-type galaxies are formed through a ``two-phase'' process.  In
-  the proposed second phase, the extended stellar envelope was accumulated
-  through many dry mergers. (XX TODO)
-
+    \todo{Place holder; This is the abstract for talk}\\
+    Under the most popular formation scenario, the structures of massive central galaxies
+    depend on environment at fixed stellar mass due to different assembly histories shaped
+    by their host halos. Yet, clear evidence of such effect is still lacking. Using deep,
+    multi-band images for a large sample of massive galaxies at 0.2 < z < 0.5 from the
+    Hyper Suprime-Cam (HSC) survey, we discover subtle, but systematic structural
+    difference for massive galaxies in low and high mass haloes. The differences are
+    consistent with richer merger history in more massive halos. We show that the average
+    profiles of mass, shape, and color, along with relations among masses within different
+    radius (as proxy of mass assembled at different time) can help us gain more insights
+    of their assembly history, and the weak lensing analysis enabled by HSC survey further
+    helps us connect the differences we find to the average halo properties.
 \end{abstract}
 \keywords{galaxies: elliptical and lenticular, cD --- galaxies: formation --- 
           galaxies: photometry --- galaxies: structure --- galaxies: surveys}
@@ -109,23 +134,266 @@ IPMU, WPI), Kashiwa 277-8583, Japan}
 
 %%%%%%%%%%%%: Main Text %%%%%%%%%%%%
 
+%% ------------------------------------------------------------------------------------ %% 
 \section{Introduction}
 
-\section{Sample and Data Reduction}
+    \plan{Scientific Background}
+    \begin{itemize}
+        \item \plan{Massive galaxies are important cosmic probe and unique labs to study 
+            galaxy evolution.} 
+        \item \plan{Briefly explain why massive early-type galaxies are important through 
+            the difficulties of stellar-halo mass relation and stellar mass function at the 
+            high-mass end.}
+        \item \plan{Brief summary of the current understanding of thieir cosmic assembly 
+            history.}
+        \item \plan{Explain why we should care about the environment, and why we expect to 
+            see some environemtnal dependence in the structure and other properties of
+            massive galaxies.}
+        \item \plan{Brief review of the current observations.  It is still not clear 
+            whether there is a clear environmental dependence.}
+    \end{itemize}
+
+    \plan{Observational difficulties (a.k.a Why we need HSC)}
+    \begin{itemize}
+        \item \plan{Explain why it is important to study the mass distribution of 
+            massive galaxies out to large physical radius; and, given their unique light 
+            profiles, why it is more difficult to study them compared to late-type 
+            galaxies.}
+        \item \plan{Very brief summary of past observational efforts, and why they are not 
+            good enough (Not enough number of really massive galaxy; Shallow images; 
+            Background subtraction issue; and stacking analysis can be dangerous as while)}
+    \end{itemize}
+    
+    \plan{Basica idea of this work}
+    \begin{itemize}
+        \item \plan{Here we take advantages of the ambitious Hyper-Suprime camera 
+            survey....}
+    \end{itemize}
+
+    The paper is organized as follows. Section~2 gives a brief overview of the HSC
+    observation and data reduction.  We will also summarize the process of sample
+    selection.  In Section~3, we will describe the method for deriving the stellar mass 
+    surface density profile.  The main results are summarized in Section~4.  Section~5 
+    provides discussions of the assumptions used in this work, the potentially interesting
+    physical implications, and several future improvements, ending with a sumary in
+    Section~6.
+
+    Within this work, we assume $H_0$ = 70~km~s$^{-1}$ Mpc$^{-1}$, ${\Omega}_m=0.3$, and
+    ${\Omega}_{\Lambda}=0.7$.
+    
+%% ------------------------------------------------------------------------------------ %% 
+
+\section{Observations and Sample Selection}
+
+\subsection{The Hyper Suprime-Cam Survey}
+
+    \todo{Brief introduction, see the same section in other people's work} \\
+
+    This work makes use of the internal data release \texttt{S15B}, which covers $\sim 100$
+    square of degree of sky in all 5-band to the required depth of \texttt{WIDE} survey.  
+
+    \todo{The following part is borrowed from Chan's work; Need to re-write}\\
+    HSC is the new prime-focus camera on the 8.2-m Subaru telescope located at Mauna Kea, 
+    Hawaii.  The field of view (FOV) is 1.5 deg in diameter (\addref: Miyazaki\etal 2012) 
+    which is ten times larger than the FOV of Suprime-Cam (\addref: Miyazaki\etal 2002). 
+    The HSC Subaru Strategic Program (SSP) survey consists of three layers with different 
+    depths: wide, deep and ultra-deep. The wide survey will cover $\sim1400$ deg$^2$ to 
+    $r\sim26$ mag in {\it grizY} broad bands. 
+
+    The data are processed with \texttt{hscPipe 4.0.1}, a derivative of the Large Synoptic 
+    Survey Telescope (LSST) pipeline (\addref: Ivezic\etal 2008, Axelrod\etal 2010), 
+    modified for use with Suprime-Cam and Hyper Suprime-Cam.  The photometric calibration 
+    is based on data obtained from the Panoramic Survey Telescope and Rapid Response 
+    System (Pan-STARRS) 1 imaging survey (\addref: Schlafly\etal 2012, Tonry\etal 2012, 
+    Magnier\etal 2013).  
+
+    The pixel scale of the reduced images in the data releases is 0.168$\arcsec$.
+
+    \plan{\textbf{Fig.1}: Comparison of SDSS and HSC color image}
+    
+\subsection{Candidates of massive galaxies}
+
+    \plan{Selection of the \texttt{PHOTO} sample}
+    \begin{itemize}
+        \item \plan{\texttt{PRIMARY} detection: In the inner region of the \texttt{Tract}
+            and \textt{Patch}; has no \texttt{CHILD}.}
+        \item \plan{Require the galaxy to be detected in all 5-band}
+        \item \plan{For $i$-band detection, we require the object is covered by at least 
+            4 \texttt{Visit}.}
+        \item \plan{Has useful \texttt{cModel} photometry in all 5-band}
+        \item \plan{$i$-band \texttt{cModel} magnitude brigther than 21.0 mag (justify this 
+            later}
+        \item \plan{Has to be extended object.}
+        \item \plan{Has reliable central position and shape using SDSS algorithm}
+        \item \plan{Typical quality cuts in $griz$-band.}
+    \end{itemize}
+    
+    \plan{Selection of the \texttt{SPECZ} sample}
+    \begin{itemize}
+        \item \plan{Brief summary of the HSC spec-z catalog.}
+        \item \plan{Internal catalog match results in 121998 galaxies}
+        \item \plan{Brief break down of the spec-z sample; Most of the spectroscopic 
+            redshift come from SDSS/BOSS and GAMA survey}
+        \item \plan{Only keep objects at $z < 0.6$} \todo{Justify this later}
+    \end{itemize}
+
+\subsection{Central galaxies of $\Lambda > 20$ haloes using the \redm clusters}
+
+    To select the central galaxies of cluster-level dark matter haloes, we make use of the 
+    \redm cluster catalog \footnote{See: http://risa.stanford.edu/redmapper/}. 
+    
+    \plan{Match to the \redm catalog}
+    \begin{itemize}
+        \item \plan{For this work, we use the \redm catalog based on SDSS DR8 
+            photometry.} \todo{Need some explanation}
+        \item \plan{Match with the \texttt{PHOTO} sample using a 1.0$\arcsec$
+            matching radius, results in 704 clusters. (Justify this matching radius)}
+        \item \plan{Select the \redm clusters at $z < 0.6$.}
+        \item \plan{There is a small population of central galaxies from \redm that
+            are within the HSC footprint, but does not have matched photometry, 
+            briefly explain them}
+    \end{itemize}
+
+\subsection{Galaxies in $\Lambda < 20$ haloes}
+
+    \begin{itemize}
+        \item \plan{Remove the galaxy that is close to any \redm cluster}
+        \item \plan{Remove the galaxy that is close to any bright star} 
+            \todo{Justify why we do not do this to the \redm central sample}
+    \end{itemize}
+    
+%% ------------------------------------------------------------------------------------ %% 
+
+\section{Data Reduction}
+
+\subsection{1-D surface brightness profile}
+
+    \plan{Basica ideas}
+    \begin{itemize}
+        \item \plan{Briefly explain that 1-D surface brightness profile is a very old 
+            fashion, but robust and straightforward way to describe the light or mass 
+            distribution of a galaxy.  Although it is not exactly ``model-independent'', 
+            it indeed has the advantages of not easily affected by complex substrctures 
+            within the galaxy comparing with the more popular 2-D modelling method. }
+        \item \plan{Due to the uniquely extended nature of the light distributions of 
+            these massive ETGs, it is still unclear which is the most appropriate 2-D 
+            model for them (Can not be well described by 1-\ser model). }
+    \end{itemize}
+    
+    \plan{Step by step description}
+    \begin{itemize}
+        \item \plan{Generation of cutout image in multiple bands}: \\
+            \begin{enumerate}
+                \item \plan{Choice of image size: make sure that the cutout covers out 
+                    to at least 500 kpc from the center of the galaxy.}
+                \item \plan{Also generate the bad pixel masks, and the reconstructed 
+                    PSF model for the galaxy center.}
+            \end{enumerate}
+        \item \plan{Generation of object masks}: \\
+            \begin{enumerate}
+                \item \plan{Briefly explain why we need to our own photometry instead 
+                    of just using the cModel results from the HSC pipeline.}
+                \item \plan{We need two kinds of masks: mask of all objects that will 
+                    be used to measure the sky value; mask of objects expect for the 
+                    central galaxy we want to derive surface brightness profile.  
+                    Briefly describe their requirements.}
+                \item \plan{Object detection using \texttt{SEP} Python library.}
+            \end{enumerate}
+        \item \textbf{Re-measurement and correction of sky background}:
+    \end{itemize}
+    
+\subsection{Average mass-to-light ratio}
+
+    \begin{itemize}
+        \item \plan{Briefly explain the method to convert surface brightness profiles 
+            into mass density profile, focusing on the key assumptions.}
+        \item \plan{Describe the SED fitting process.}    
+        \item \plan{Briefly discuss the impact of choices of SSP model, IMF, priors of 
+            parameters for SED fitting}
+    \end{itemize}
+
+\subsection{Basic properties of the sample}
+
+    \begin{itemize}
+        \item \plan{Compare stellar mass from integration of 1-D profile and the 
+            \texttt{cModel} photometry}
+        \item \plan{Stellar mass, redshift, K-corrected color distributions.}
+        \item \plan{Red sequence properties}    
+        \item \plan{Potential ``contaminations'' from disc galaxies}
+    \end{itemize}
+    
+    \todo{Justify why we can assume most very massive galaxies in \nonbcg haloes are
+        central galaxies}
+
+%% ------------------------------------------------------------------------------------ %% 
 
 \section{Results}
 
+\subsection{Impact of deep photometry on the luminosity and stellar mass function}
+
+\subsection{Comparison of stellar mass density profiles}
+
+    \plan{Brief summary of the process of sample matching}
+
+\subsubsection{Using stellar mass derived from the GAMA survey}
+
+\subsubsection{Using stellar mass within 10 kpc aperture}
+
+\subsubsection{Using stellar mass within 100 kpc aperture}
+
+\subsection{Relations between stellar mass within different physical apertures}
+
+\subsection{$M_{\ast}-R_{\mathrm{50}}$ relation}
+
+%% ------------------------------------------------------------------------------------ %% 
+
 \section{Discussion}
+
+\subsection{Implications on assembly history of massive galaxies}
+
+    \plan{Comparison of mass profiles with previous studies at high redsfhit}
+
+\subsection{Ellipticity profiles}
+
+\subsection{The impact of $M/L$ gradient}
+
+\subsection{Massive satellites of the $\Lambda > 20$ haloes}
+\song{TBD: optional}
+
+\subsection{Connection and difference with the Intra-Cluster Light}
+
+\subsection{Future improvements}
+
+    \begin{enumerate}
+        \item \plan{Improvements of HSC data reduction: better sky modelling; 
+            \texttt{redMaPPer} clusters using HSC photometry.}
+        \item \plan{Comparison with 2-D image modelling method.}
+        \item \plan{``Correct'' the PSF smeearing effect at the center with the help of 
+            residual correct 2-D model.}
+    \end{enumerate}
+
+%% ------------------------------------------------------------------------------------ %% 
 
 \section{Summary}
 
-%%%%%%%%%%: Acknowledge %%%%%%%%%%
+
+%% ------------------------------------------------------------------------------------ %% 
   
-\acknowledgements 
+\acknowledgements
   
-  1. Acknowledgements for HSC 
-  2. Acknowledgements for Kevin and Alexie's funding 
-  3. Acknowledgements for the Python libraries
+  The Hyper Suprime-Cam (HSC) collaboration includes the astronomical
+  communities of Japan and Taiwan, and Princeton University.  The HSC
+  instrumentation and software were developed by the National
+  Astronomical Observatory of Japan (NAOJ), the Kavli Institute for the
+  Physics and Mathematics of the Universe (Kavli IPMU), the University
+  of Tokyo, the High Energy Accelerator Research Organization (KEK), the
+  Academia Sinica Institute for Astronomy and Astrophysics in Taiwan
+  (ASIAA), and Princeton University.  Funding was contributed by the FIRST 
+  program from Japanese Cabinet Office, the Ministry of Education, Culture, 
+  Sports, Science and Technology (MEXT), the Japan Society for the 
+  Promotion of Science (JSPS),  Japan Science and Technology Agency 
+  (JST),  the Toray Science  Foundation, NAOJ, Kavli IPMU, KEK, ASIAA,  
+  and Princeton University.
    
   Funding for SDSS-III has been provided by the Alfred P. Sloan Foundation, the
   Participating Institutions, the National Science Foundation, and the U.S.
@@ -142,6 +410,12 @@ IPMU, WPI), Kashiwa 277-8583, Japan}
   Portsmouth, Princeton University, the Spanish Participation Group, University
   of Tokyo, University of Utah, Vanderbilt University, University of Virginia,
   University of Washington, and Yale University.
+  
+  \todo{Full acknowledgement}\\
+  \begin{itemize}
+      \item Acknowledgements for Kevin and Alexie's funding 
+      \item Acknowledgements for the Python libraries
+  \end{itemize}
 
 %%%%%%%%%%: Bibligraphic Section %%%%%%%%%%
 
@@ -152,13 +426,16 @@ IPMU, WPI), Kashiwa 277-8583, Japan}
     
 %\end{thebibliography}{}
 
-\bibliography{redbcg}
+\bibliography{hsc_massive.bbl}
+\bibliographystyle{apj}
 
 %%%%%%%%%%: Appendix Section %%%%%%%%%%%%
 
 \appendix
 
-\section{A. Atlas of 1-D Profiles} 
+\section{A. Extraction of 1-D surface brightness profile} 
+
+\section{B. Derive average mass-to-light ratio using \texttt{iSEDFit}} 
 
 %%%%%%%%%%%%: Figures Section %%%%%%%%%%%%
 
@@ -167,25 +444,49 @@ IPMU, WPI), Kashiwa 277-8583, Japan}
 \figurenum{1}
 \begin{figure}
     \centering 
-    \includegraphics[width=16.5cm]{fig/fig1.png}
-    \caption{
-   Cartoons that illustrate the basic idea of the proposed method for the
-   estimation of average merger mass ratio.  The style is adopted from Faber\etal (2007).
-   The upper panels show the basic
-   picture of the ``two-phase'' formation scenario. The lower panel describes
-   a general picture for the evolution of massive galaxies on the
-   $M_{\ast}$-color plane.  After massive ETGs were quenched, they quickly
-   moved to the red-sequence, and gradually evolved along it as they are
-   becoming redder due to the aging of stellar population, and more massive due
-   to the accumulation of extended stellar envelope through many minor (dry)
-   mergers.  Since the stellar content of smaller system should have lower
-   metallicity, the outer envelope naturally has a bluer color compared to inner
-   region.  And, such color difference reflects the average mass ratio of all
-   mergers that contribute to the second phase of evolution.  Larger color
-   difference means more stellar material came from smaller galaxies, hence
-   makes minor merger more important.  
-   }
-   \label{figure:1}
+    \includegraphics[width=15.5cm]{fig/fig1.png}
+    \caption{Figure.1\todo{Caption}}
+    \label{figure:1}
+\end{figure}
+
+% Fig. 2
+\clearpage
+\figurenum{2}
+\begin{figure}
+    \centering 
+    \includegraphics[width=13.5cm]{fig/massive_s15b_g15_sample.png}
+    \caption{Figure.2\todo{Caption}}
+    \label{figure:2}
+\end{figure}
+
+% Fig. 3
+\clearpage
+\figurenum{3}
+\begin{figure}
+    \centering 
+    \includegraphics[width=13.5cm]{fig/massive_s15b_zuse_hist1.png}
+    \caption{Figure.3\todo{Caption}}
+    \label{figure:3}
+\end{figure}
+
+% Fig. 4
+\clearpage
+\figurenum{4}
+\begin{figure}
+    \centering 
+    \includegraphics[width=15.5cm]{fig/redbcg_1_HSC-I_full_imgsub_ellip_default_sum.png}
+    \caption{Figure.4\todo{Caption}}
+    \label{figure:4}
+\end{figure}
+
+% Fig. 5
+\clearpage
+\figurenum{5}
+\begin{figure}
+    \centering 
+    \includegraphics[width=14.0cm]{fig/redbcg_1_HSC-I_full_imgsub_ellip_default_compare.png}
+    \caption{Figure.5\todo{Caption}}
+    \label{figure:5}
 \end{figure}
 
 %%%%%%%%%%%%: End of the File %%%%%%%%%%%%
