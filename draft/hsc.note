@@ -1,0 +1,9 @@
+The hscPipe system is the standard pipeline developed for reduction and analysis of the
+HSC Subaru Strategic Program (SSP) 1. We ran version 3.10.2 to reduce the F2 data. hscPipe
+de-biases the images by evaluating a bias level from the overscan region. Trimming,
+flat-fielding, cosmic ray rejection, and an astrometric solution based on a 5th order of
+polynomial fit to the SDSS DR9 cat- alog follow the initial de-biasing. After reducing all
+of the individual chips, hscPipe improves the mosaicking solution by fitting a 9th order
+polynomial to the combination of all of the chips in a grid of overlapping 1.7×1.7 deg2 square degree subregions of the F2 imaging data. In the HSC reduction system these subregions are called tracts.
+
+With the resulting accurate CCD positions and flux scaling, hscPipe warps the individual images and stacks them by taking the arithmetic mean and rejecting de- viant pixels. 
