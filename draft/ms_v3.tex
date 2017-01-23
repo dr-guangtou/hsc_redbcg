@@ -134,12 +134,6 @@
 
 %%%%%%%%%%%%: Title and Affiliations %%%%%%%%%%%%
 
-%\title{The Environment and Structure of Massive Central Galaxies
-%       using the Subaru Hyper Suprime-Cam Survey}
-
-%\title{Environmental Dependence of the Structures of Massive Central 
-%       Galaxies at $0.3 < z < 0.5$}
-
 \title{A Detection of the Environmental Dependence of the Stellar Halos of 
        Massive Central Galaxies}
 
@@ -197,8 +191,11 @@
     the assembly history of massive galaxies.  
 
 \end{abstract}
-\keywords{galaxies: elliptical and lenticular, cD --- galaxies: formation --- 
-          galaxies: photometry --- galaxies: structure --- galaxies: surveys}
+\keywords{galaxies: elliptical and lenticular, cD --- 
+          galaxies: formation --- 
+          galaxies: photometry --- 
+          galaxies: structure --- 
+          galaxies: surveys}
 
 \maketitle
 
@@ -240,6 +237,50 @@
 \section{Introduction}
     \label{sec:intro}
     
+    Massive galaxies are important cosmic probes and unique laboratories to study the 
+    theory of galaxy formation and evolution. 
+    In the nearby universe, massive galaxies are dominated by early-type, quiescent 
+    galaxies (\addref{}). 
+    Under the $\Lambda$-CDM cosmology, they are the end products of the hierarchical
+    structural growth along with their host dark matter halos (\addref{})
+    They should start to form very early on in the highest peaks of density field 
+    (\addref{}), and are very likely the descendants of the extreme star-forming galaxies
+    (e.g. sub-millimeter galaxies, \addref{}) and luminous QSOs (\addref{}) detected at 
+    very high redshift. 
+    Nowadays, the hierarchical growth scenario under the $\Lambda$-CDM cosmology can 
+    already predict important statistical properties of galaxies that are in reasonable
+    consistent with observations, like the stellar mass-halo mass relation 
+    (SMHM, e.g. \addref{}) and the stellar mass function (SMF, e.g. \addref{}) 
+    at different redshift. 
+    However, these statistics still have large uncertainties and potential problems at 
+    the high mass end (e.g. \addref{}) that reflect limitations in both theoretical and 
+    observational sides. 
+    Therefore, it is fundamentally important for us to understand the star formation, mass 
+    assembly, and structural evolution history of these massive galaxies. 
+
+    Thanks to the advances in observations at higher redshift and numerical simulation 
+    with more realistic physics, we now realize that these massive, early-type galaxies 
+    must have experienced dramatic structural and dynamical transformation in the last 
+    $\sim$ 10 Gyrs.
+    More and more convincing observations at high redshift point out that the 
+    progenitors of $z=0$ massive elliptical galaxies today are quite different 
+    in structural properties (e.g. \citealt{Bezanson2009}, \citealt{vanDokkum2010}).  
+    Collectively, they need to increase their ``size'' ($R_{\mathrm{e}}$) by a factor 
+    of 2 to 4 (e.g. \citealt{Newman2012}, \citealt{vdWel2014}), perhaps decrease the 
+    central stellar velocity dispersion a little (e.g. \citealt{vandeSande2011}, 
+    \citealt{Belli2014}) without changing their inner \mden{} profiles too much 
+    (e.g. \citealt{Szomoru2012}, \citealt{Patel2013}) and  in the last 8-10 Gyrs.  
+    With the help from better simulations, the promising ``two-phase'' formation 
+    scenario seems to be able to deal with these challenges well (e.g. 
+    \citealt{Oser2010}, \citealt{Oser2012}).
+    However, it raises additional questions.
+    As the massive central galaxies in more massive halos should have different mass 
+    assembly history, experience more (minor) mergers than the ones in smaller halos, 
+    we expect to see certain structural properties depend on ``environment''. 
+    Interestingly, although hints of such dependence have been noticed at high redshift 
+    (e.g. \citealt{Papovich2012}, \citealt{Delaye2014}), no clear evidence has been found 
+    at low redshift (e.g. \citealt{Nair2010}, \citealt{HCompany13}).     
+    
     \plan{Scientific Background}
     \begin{itemize}
         \item \plan{Massive galaxies are important cosmic probe and unique labs to study 
@@ -267,36 +308,7 @@
             Background subtraction issue; and stacking analysis can be dangerous as while)}
     \end{itemize}
     
-    \update{
-    In the past decade, the mass assembly history and structural evolution of massive 
-    ETGs remain an active topic.  
-    More convincing evidence from observations of massive galaxies at high redshift 
-    suggest that the progenitors of massive elliptical galaxies today are quite different 
-    in structural properties (e.g. \citealt{Bezanson2009}, \citealt{vanDokkum2010}).  
-    Collectively, they need to increase their ``size'' ($R_{\mathrm{e}}$) by a factor 
-    of 2 to 4 (e.g. \citealt{Newman2012}, \citealt{vdWel2014}), perhaps decrease the 
-    central stellar velocity dispersion a little (e.g. \citealt{vandeSande2011}, 
-    \citealt{Belli2014}) without changing their inner \mden{} profiles too much 
-    (e.g. \citealt{Szomoru2012}, \citealt{Patel2013}) and  in the last 8-10 Gyrs.  
-    With the help from better simulations, the promising ``two-phase'' formation 
-    scenario seems to be able to deal with these challenges well (e.g. 
-    \citealt{Oser2010}, \citealt{Oser2012}).
-    However, it raises additional questions.
-    As the massive central galaxies in more massive halos should have different mass 
-    assembly history, experience more (minor) mergers than the ones in smaller halos, 
-    we expect to see certain structural properties depend on ``environment''. 
-    Interestingly, although hints of such dependence have been noticed at high redshift 
-    (e.g. \citealt{Papovich2012}, \citealt{Delaye2014}), no clear evidence has been found 
-    at low redshift (e.g. \citealt{Nair2010}, \citealt{HCompany13}). 
-    }
-    
-    \plan{Basic idea of this work}
-    \begin{itemize}
-        \item \plan{Here we take advantages of the ambitious Hyper-Suprime camera 
-            survey\ldots}
-    \end{itemize}
-        
-    \update{Here, we take advantage of the excellent image quality of the HSC survey, and 
+    Here, we take advantage of the excellent image quality of the HSC survey, and 
     investigate the potential environmental dependence of structure for massive galaxies 
     vial comparing the surface \mstar{} density profiles and structural scaling relations 
     between massive central galaxies in different environments. 
@@ -306,14 +318,14 @@
     distributions of massive galaxies out to very large radius. 
     With the help of a cluster catalog, we select a large sample of massive central 
     galaxies in halos that are more or less massive than \logmh{}$\sim 14.0$ at 
-    $0.3 < z < 0.5$ from the available $\sim 100$ square degree of HSC data.}
+    $0.3 < z < 0.5$ from the available $\sim 100$ square degree of HSC data.
     
-    \update{Due to the difficulty in appropriately modeling the \mstar{} distributions of 
+    Due to the difficulty in appropriately modeling the \mstar{} distributions of 
     massive galaxies out to their very outskirts, we focus on \mstar{} within two different 
-    physical apertures in this work:}
+    physical apertures in this work:
     
     \begin{itemize}
-        \item \update{\mstar{} within 10 kpc, \minn{}: according to the ``two-phase'' 
+        \item \mstar{} within 10 kpc, \minn{}: according to the ``two-phase'' 
             scenario, the ``in-situ'' star-formation quickly built up the inner, dense 
             core of massive ETGs.  
             Based on recent observations and simulations (e.g.~\citealt{vanDokkum2010}; 
@@ -327,18 +339,18 @@
             Under the adopted cosmology, $1.0^{\arcsec}$ in radius equals 4.4 and 6.1 kpc 
             at redshift 0.3 and 0.5.  
             We can reliably measure \minn{} without being bothered by smearing effect
-            of seeing.}
-        \item \update{\mstar{} within 100 kpc, \mtot{}: for massive galaxies in this work, 
+            of seeing.
+        \item \mstar{} within 100 kpc, \mtot{}: for massive galaxies in this work, 
             100 kpc aperture reaches to 5-10 $\times R_{\mathrm{e}}$ and very low 
             \mden{} region, hence can be treated as proxy of the ``total'' \mstar{}. 
             Limited by the accuracy of background subtraction, the \mden{} profile 
             of outer region can not be reliably recovered for massive galaxies across 
             our redshift range. 
             Although not perfect, \mtot{} is still a much better tracer of total 
-            \mstar{} than the model-dependent ones using shallower images.}
+            \mstar{} than the model-dependent ones using shallower images.
     \end{itemize}
     
-    \update{Massive central galaxies in this work show an intriguing diversity on the 
+    Massive central galaxies in this work show an intriguing diversity on the 
     plane defined by these two metrics.  
     We preview this using Fig.\ref{fig:m100_m10_color}, which shows a subsample of 
     massive galaxies at $z\sim 0.4$ that share very similar value of \minn{}, but show 
@@ -348,7 +360,7 @@
     environments and outer envelopes that are assembled at later time. 
     It is worth noting that, although a circular aperture is shown on 
     Fig.\ref{fig:m100_m10_color}, we always use elliptical apertures that follow the 
-    average isophotal shape for photometry in this work.}
+    average isophotal shape for photometry in this work.
     And, within our choices of redshift and \mstar{} ranges, we can safely ignore 
     significant mass growth and structural evolution 
     (no star formation, lower merger rate \etal~e.g.\ \citealt{Bellstedt2016},
@@ -369,6 +381,7 @@
     for Galactic extinction using calibrations from \citet{Schlafly11}.
     In this work, we assume $H_0$ = 70~km~s$^{-1}$ Mpc$^{-1}$, ${\Omega}_m=0.3$, 
     and ${\Omega}_{\lambda}=0.7$. 
+    
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
