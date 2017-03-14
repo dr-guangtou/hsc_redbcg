@@ -367,9 +367,9 @@
 \subsection{The Hyper Suprime-Cam Survey}
     \label{ssec:hsc}
 
-    The Subaru Strategic Program (SSP, \addref) makes use of the new prime-focus camera,
-    the Hyper Suprime-Cam (HSC;~\citealt{Miyazaki2012}), on the 8.2-m Subaru telescope at 
-    Mauna Kea. 
+    The Subaru Strategic Program (SSP, \citealt{MiyazakiInPrep}) makes use of the new 
+    prime-focus camera, the Hyper Suprime-Cam (HSC;~\citealt{Miyazaki2012}), on the 
+    8.2-m Subaru telescope at Mauna Kea. 
     The ambitious multi-layer HSC survey takes advantage of the large field of 
     view (FoV;~1.5 deg in diameter) of this camera and will cover $\sim 1400$ deg$^2$ in 5
     broad bands (\textit{g r i z Y}) to a limting depth of $r \sim 26$ mag in the \texttt{WIDE} layer. 
@@ -379,7 +379,7 @@
     (e.g.\ SDSS/BOSS: \citealt{Eisenstein2011}, \citealt{Alam2015}; 
     GAMA: \citealt{Driver2011}, \citealt{Liske2015}).
 
-   The HSC \texttt{WIDE} survey is $3.0$-$4.0$ magnitudes deeper in the $i$-band 
+    The HSC \texttt{WIDE} survey is $3.0$-$4.0$ magnitudes deeper in the $i$-band 
     than SDSS. 
     Combined with the excellent imaging resolution (the median $i$-band seeing is 0.6"), 
     and the wide area, the HSC survey represents a tremendous data set to perform a 
@@ -395,55 +395,80 @@
 %% ------------------------------------------------------------------------------------ %% 
 \subsection{HSC Data Processing}
     \label{sec:pipeline}
-
-The full details of the HSC data processing can be found in \citet{BoschInPrep} and are briefly summarized here. The HSC SSP data are processed with \texttt{hscPipe 4.0.1}, a derivative of the Large 
-    Synoptic Survey Telescope (LSST) pipeline (e.g.\ \citealt{Juric2015}; 
+    
+    The full details of the HSC data processing can be found in \citet{BoschInPrep}
+    and are briefly summarized here. 
+    The HSC SSP data are processed with \texttt{hscPipe 4.0.1}, a derivative of the 
+    Large Synoptic Survey Telescope (LSST) pipeline (e.g.\ \citealt{Juric2015}; 
     \citealt{Axelrod2010}), modified for HSC. 
     \texttt{hscPipe} first performs a number of tasks at the single exposure level 
     (bias subtraction, flat fielding, background modeling, object detection and 
-    measurements). Astrometric and photometric calibration is performed at the single exposure level. \texttt{hscPipe} then warps different exposures on to a common
-    World Coordinate System (WCS) and combines them into coadded images. At this stage, \texttt{hscPipe} updates the images with a better astrometric and 
-    photometric calibration using stars that are common among between exposures. 
+    measurements). 
+    Astrometric and photometric calibrations are performed at the single exposure level. 
+    \texttt{hscPipe} then warps different exposures on to a common World Coordinate 
+    System (WCS) and combines them into coadded images. 
+    At this stage, \texttt{hscPipe} updates the images with a better astrometric and 
+    photometric calibration using stars that are common among exposures. 
     
-    The pixel scale of the combined images is $0.168^{\arcsec}$. Photometric calibration is based on data from the Panoramic Survey Telescope 
+    The pixel scale of the combined images is $0.168^{\arcsec}$. 
+    Photometric calibration is based on data from the Panoramic Survey Telescope 
     and Rapid Response System (Pan-STARRS) 1 imaging survey 
     (\citealt{Schlafly2012}, \citealt{Tonry2012}, \citealt{Magnier2013}). 
     To achieve consistent deblending and photometry across all bands, \texttt{hscPipe} 
-    performs multi-band post-processing at the coadd level. First, \texttt{hscPipe} performs object detection on coadd images
-    in each band independently and for each source records the flux peak and the above-threshold region (referred as 
-    a ``footprint''). Next, ``footprints'' and peaks from different bands are merged together before performing deblending and measurements. Finally, \texttt{hscPipe} selects a ``reference band'' for each object based on the 
-    $S/N$ in different bands (for most galaxies in this work, the reference band is the $i$-band). 
+    performs multi-band post-processing at the coadd level. 
+    First, \texttt{hscPipe} performs object detection on coadd images in each band 
+    independently and records the flux peak and the above-threshold region 
+    (referred as a ``footprint'') for each source. 
+    Next, ``footprints'' and peaks from different bands are merged together before     
+    performing deblending and measurements. 
+    Finally, \texttt{hscPipe} selects a reference band for each object based on the 
+    $S/N$ in different bands (for most galaxies in this work, the reference band is 
+    the $i$-band). 
     After fixing the centroids, shape, and other non-amplitude parameters of each 
     object in this reference catalog, \texttt{hscPipe} perform forced photometry 
-    on the coadd image in each band. This forced photometry approach is optimized to yield accurate galaxy colors. 
-        
+    on the coadd image in each band. 
+    This forced photometry approach is optimized to yield accurate galaxy colors. 
        
-    For each galaxy, \texttt{hscPipe} measures a \cmodel{} magnitude using an approach that is similar to SDSS (\ref{}) (Bosch\etal~in prep.~). However, as opposed to SDSS, the HSC \cmodel{} is based on forced photometry which means that it can be used to accurately measure both the \textit{fluxes and colors of galaxies}. The HSC \cmodel{} algorithm fits the flux distribution of each object using a combination of a de~Vaucouleur and 
-    an exponential component and accounts for the PSF. The performance of this algorithm has been testing using synthetic objects (Huang\etal~in prep.~) and 
-    the results indicate that, generally speaking, the HSC \cmodel{} photometry is 
-    accurate down to $i >25.0$ mag.  
-    However, \cmodel{} currently systematically underestimates the total fluxes of massive ETGs with extended stellar distributions. This problem indicates an intrinsic limitation of \cmodel{} as it is incapable of
-    modeling profiles with extremely extended outskirts, a problem that is exacerbated at the depth of 
-    the HSC survey. In addition, at the depth of the HSC survey, accurate deblending in the vicinity of large ETGs where satellites and background galaxies often blend with the low surface brightness stellar envelope is a challenign problem. The deblending method implemented by the \texttt{hscPipe} currently tends to 
-    ``over-deblend'' the outskirts of bright galaxies and leads to un under-estimation of the the total flux of massive ETGs (more discussion in 
-    Bosch\etal~in prep.~).  For these reasons, our results will be based on custom developed code to measure the luminosities and stellar masses of massive galaxies. We use the HSC \texttt{hscPipe} photometry for two purposes: 1) to perform a first broad sample selection, and 2) for galaxy colors. \alexie{Shouldn't we be using the aperture photometry here ???? Are we doing teh right thing here?? Please check. Need a simple sanity check to show that the resutls are robust. Check using your own color estimates?}.
+    For each galaxy, \texttt{hscPipe} measures a \cmodel{} magnitude using an approach 
+    that is similar to SDSS (\citealt{BoschInPrep}). 
+    However, as opposed to SDSS, the HSC \cmodel{} is based on forced photometry which 
+    means that it can accurately measure both the \textit{fluxes and colors of galaxies}. 
+    The HSC \cmodel{} algorithm fits the flux distribution of each object using a 
+    combination of a de~Vaucouleur and an exponential component and accounts for the PSF. 
+    The performance of this algorithm has been tested using synthetic objects 
+    (\citealt{SynPipeInPrep}), and the results indicate that, generally speaking, 
+    the HSC \cmodel{} photometry is accurate down to $i >25.0$ mag.  
+    However, \cmodel{} currently systematically underestimates the total fluxes of 
+    massive ETGs with extended stellar distributions. 
+    This is caused by an intrinsic limitation of \cmodel{} as it is incapable of
+    modeling profiles with extremely extended outskirts, a problem that is exacerbated 
+    at the depth of the HSC survey. 
+    In addition, at the depth of the HSC survey, accurate deblending in the vicinity of
+    large ETGs where satellites and background galaxies often blend with the low surface 
+    brightness stellar envelope is a challenging problem. 
+    The deblending method implemented by the \texttt{hscPipe} currently tends to 
+    ``over-deblend'' the outskirts of bright galaxies and leads to un 
+    under-estimation of the the total flux of massive ETGs (more discussion in 
+    \citealt{BoschInPrep}).  
+    For these reasons, our results will be based on custom developed code to measure 
+    the luminosities and stellar masses of massive galaxies. 
+    We use the HSC \texttt{hscPipe} photometry for two purposes: 
+    1) to perform a first broad sample selection, and 2) to estimate the average 
+    color of massive galaxies.
     
 %% ------------------------------------------------------------------------------------ %% 
 \subsection{Initial Massive Galaxy Sample}
     \label{ssec:initial}
     
-    \alexie{Try to be more succinct and improve the logical flow in sections 2.3, 2.4, and 2.5. Readers don't care about the process! You should be able to trim these sections.}
-    
-    
-    \alexie{We never say anything about Spirals? Are all galaxies in this selection early types? Are there any extra morphology cuts? We need to mention this somewhere.}
-    
-    \update{
-    We begin by using a broad luminosity cut to select an initial sample of massive galaxies at $z < 0.5$
-    from the HSC photometric catalog.} Based on Leauthaud\etal~(2016), galaxies with \logms{}$\geq 11.5$ have 
-    $i_{\mathrm{SDSS, cModel}} \leq 21.0$ mag. We therefore select our initla smaple to be brighter than  $i_{\mathrm{HSC, cModel}} \leq 21.5$ 
-    \footnote{We neglect the insignificant differences between the response curves of
-    SDSS-$i$ and HSC-$i$ filters} and also limit our sample to regions that have reached the required depth of the \texttt{WIDE} survey in all 
-    five bands. 
+    We begin by using a broad luminosity cut to select an initial sample of massive 
+    galaxies at $z < 0.5$ from the HSC photometric catalog. 
+    Based on Leauthaud\etal~(2016), galaxies with \logms{}$\geq 11.5$ mostly have 
+    $i_{\mathrm{SDSS, cModel}} \leq 21.0$ mag. 
+    We therefore select our initial sample to be brighter than 
+    $i_{\mathrm{HSC, cModel}} \leq 21.5$\footnote{We neglect the insignificant 
+    differences between the response curves of SDSS-$i$ and HSC-$i$ filters} 
+    and also limit our sample to regions that have reached the required depth of 
+    the \texttt{WIDE} survey in $i$-band.
     %% The SQL search is saved as "sample.sql" 
     %% The master catalog used here is "dr1_wide_galaxy_icmodel_21.5.fits"
     %%   The original catalogs contain 2275477 objects
@@ -451,78 +476,102 @@ The full details of the HSC data processing can be found in \citet{BoschInPrep} 
     We further select extended objects with no deblending errors, with well defined 
     centroids, and with \texttt{cModel} magnitudes in all five bands. 
     After removing objects that have pixels affected by saturation, cosmic-rays, or 
-    other optical artefact \footnote{each criterion removes less than 8\% of the entire
-    sample} \alexie{Actually, 8 percent is not small if we want to condsider the number densities. Let's re-evaulate the impact of these cuts for the 16B data with FDFC}. This sample corresponds to 1760845 galaxies and will be referred as \texttt{hscPho}. 
-    
-    
+    other optical artifacts\footnote{each criterion removes less than 8\% of the 
+    entire sample}
+    %% Alexie: Actually, 8 percent is not small if we want to consider the number 
+    %%         densities. Let's re-evaluate the impact of these cuts for the 16B 
+    %%         data with FDFC}. 
+    This sample corresponds to 1760845 galaxies and will be referred as \texttt{hscPho}. 
     %% Saved as "dr1_wide_galaxy_hscPho.fits"      
         
-    We limit our study to the very high mass end where a majority of galaxies have either a  spectroscopic redshift or a robust 
-    red-sequence photo-$z$ from the \redm{} catalog (see Section \ref{ssec:redmapper}).  
-    We match the \texttt{hscPho} sample with a spec-$z$ catalog 
-    compiled by the HSC team\footnote{It is created by matching HSC objects with all publicly available spectroscopic redshifts (e.g.\ SDSS/BOSS; GAMA). The spec-z quality flag from different catalogs 
-    are homogenized into a single flag that indicates whether the redshift is secure (\ref{} Cite a paper from the photo team where this is described?). Only galaxies with secure spec-$z$s are used in this work \alexie{Ned to be precise here. We also use redshifts from redmapper so this statement isn;t quite right}}.  To ensure reasonable 
-    \mstar{}-completeness at the high-\mstar{} end we focus on the redshift range $0.3 \leq z \leq 0.5$. 
+    Here we limit our study to the very high-\mstar{} end where the majority of galaxies 
+    have either a spectroscopic redshift or a robust red-sequence photo-$z$ from the 
+    \redm{} catalog (see Section \ref{ssec:redmapper}).  
+    We match the \texttt{hscPho} sample with a spec-$z$ catalog compiled by the HSC 
+    team\footnote{It is created by matching HSC objects with all publicly available 
+    spectroscopic redshifts (e.g.\ SDSS/BOSS; GAMA). The spec-z quality flag from 
+    different catalogs are homogenized into a single flag that indicates whether the 
+    redshift is secure (\ref{}). 
+    We only consider the ones with secure spec-$z$s during the match}.  
+    To ensure reasonable \mstar{}-completeness at the high-\mstar{} end we focus on
+    the redshift range $0.3 \leq z \leq 0.5$. 
     %% This is catalog: "dr1_specz_use.fits"   
-        
-        
-        \alexie{Please rewrite the section below. It would be better to first say that you further supplements with redmapper redshifts. And then simply quote the overall number at the end after making the redshift cut. Need to work on logical flow of text!}.
-        
-  In addition to the specz-s mentioned above, we also include objects which have a red-sequence photo-$z$ from the \redm{} catalog within the range $0.2 \leq z \leq 0.5$ .........and need to say one sentance about the accuracy of the red sequence redshifts and why this is tolerable for our work
    
-    \rewrite{For objects without external spec-$z$, we match them with the central galaxies 
-    from \redm{} catalog using $2.0^{\arcsec}$ radius. 
+    For objects without external spec-$z$, we match them with the central galaxies 
+    from the \redm{} catalog using $2.0^{\arcsec}$ radius. 
     The matched objects with useful red-sequence photo-$z$ ($z_{\lambda}$) are also 
     included in the final sample of bright galaxies with reliable redshift between 
-    $0.2 \leq z \leq 0.5$
-    (will be referred as \texttt{hscZ}).   From our initial sample, 42696 are at $0.2 \leq z \leq 0.5$.}
-    %% Saved as "dr1_wide_galaxy_icmodel_21.5.fits"
+    $0.3 \leq z \leq 0.5$. 
+    Comparing with spec-$z$, the accuracy of the red-sequence photo-$z$ is sufficient 
+    (typical uncertainty $< 0.05$) for the goal of this work.
+    The \redm{} catalog provides additional 133 unique redshifts for massive galaxies 
+    in our sample.
+    %% Estimated from "dr1_redbcg_hsc_sdss_gama_1arcsec.fits"
         
-    The BOSS and SDSS "legacy" LRG samples provide the majority of spec-$z$ for this work. By comparing with the Stripe 82 Massive Galaxy Catalog
-    (\texttt{S82-MGC}; \citealt{Bundy2015}), \citet{Leauthaud2016} have measured the stellar mass completness of the combined BOSS and SDSS samples. They estimate that the BOSS spec-$z$ is about 80\% complete at \logms{}$\geq 11.6$ at $0.3 < z < 0.5$. The GAMA survey, which partially overlaps with the HSC footprint, supplements our spec-z sample by 14\%. \alexie{and redmapper redshifts add another xx percent.} Based on \citet{Taylor2011} (e.g.\ their Fig.~6), at $z\sim 0.3$, the GAMA 
+    In the end, at $0.3 \leq z \leq 0.5$, we gather a sample of 25286 galaxies with 
+    reliable redshift information (will be referred as \texttt{hscZ}).
+    %% Saved as "dr1_wide_galaxy_icmodel_21.5.fits"
+    Among them, the BOSS and SDSS "legacy" LRG samples provide the majority of 
+    spec-$z$. 
+    By comparing with the Stripe 82 Massive Galaxy Catalog
+    (\texttt{S82-MGC}; \citealt{Bundy2015}), \citet{Leauthaud2016} have measured the
+    \mstar{} completeness of the combined BOSS and SDSS samples. 
+    They estimate that the BOSS spec-$z$ is about 80\% complete at \logms{}$\geq 11.6$ 
+    at $0.3 < z < 0.5$. 
+    The GAMA survey, which partially overlaps with the HSC footprints, supplements 
+    our \texttt{hscZ} sample by 14\%. 
+    Based on \citet{Taylor2011} (e.g.\ their Fig.~6), at $z\sim 0.3$, the GAMA 
     sample is 80\% complete down to $10^{10.8}$\msun; but only 80\% complete to 
-    $10^{12.0}$\msun at $z\sim 0.5$. We can therfore expect our sample to be roughly stellar-mass complete above \logms{}$\geq 11.5$-$11.6$. This question will be addressed more carefully using the overlap region between HSC and the \texttt{S82-MGC} in Section\ref{ssec:s82}.
-
+    $10^{12.0}$\msun at $z\sim 0.5$. 
+    We can therefore expect our sample to be roughly \mstar{}-complete above 
+    \logms{}$\geq 11.5$-$11.6$. 
+    This question will be addressed more carefully using the overlap region between 
+    HSC and the \texttt{S82-MGC} in Section\ref{ssec:s82}.
 
 %% ------------------------------------------------------------------------------------ %%  
 \subsection{\redm{}{} cluster catalog}
     \label{ssec:redmapper}
     
-    Our study focuses on galaxies which are located at the center of
-    their dark matter halos. To limit our sample to central galaxies, we use 
-    \texttt{v5.10} of the \redm{}{} cluster 
-    catalog\footnote{See: http://risa.stanford.edu/redmapper/} 
+    Our study focuses on galaxies which are located at the center of their dark matter 
+    halos. 
+    To limit our sample to central galaxies, we use \texttt{v5.10} of the \redm{}{} 
+    cluster catalog\footnote{See: http://risa.stanford.edu/redmapper/} 
     (e.g.\ \citealt{Rykoff2014}; \citealt{Rozo2015b}). 
-    These authors have developed a well-tested red-sequence cluster finder that has been 
-    run on SDSS DR8 (\citealt{SDSSDR8}) photometric data. 
-    For each cluster, the catalog provides a photometric redshift estimate $z_{\lambda}$, 
-    a richness $\lambda$, and identifies the most likely central
-    galaxy (this is the galaxy with the highest central probability value
-    $P_{\mathrm{Cen}}$). The \redm{}{} catalog also provides a list of member galaxies for each cluster and associated membership probabilities. Details about the performance of the \redm{}~cluster catalog can be found in 
+    These authors have developed a well-tested red-sequence cluster finder that has 
+    been run on SDSS DR8 (\citealt{SDSSDR8}) photometric data. 
+    For each cluster, the catalog provides estimates of photometric redshift 
+    ($z_{\lambda}$) and richness ($\lambda$), and identifies the most likely central
+    galaxy (the galaxy with the highest $P_{\mathrm{Cen}}$ value). 
+    The \redm{}{} catalog also provides a list of member galaxies for each cluster 
+    and associated membership probabilities. 
+    Details about the performance of the \redm{}~cluster catalog can be found in 
     \citet{Rozo2014}, \citet{Rozo2015a}, and \citet{Rozo2015b}. 
     Several studies have published calibrations between the \redm{}~richness estimate, 
     $\lambda$, and halo mass (e.g.\ \citealt{Saro2015}; \citealt{Farahi2016}; 
     \citealt{Simet2016}). 
-    The results of these studies are in good agreement and indicate that clusters 
-    identified by \redm{}~ with $\lambda > 20$ have $\log (M_{200m}/M_{\odot}) \geq 14.0$. 
-    Therefore, the \redm{} catalog helps us group massive central galaxies into samples with different average \mhalo{}. \alexie{Here is looks like you are making a cut on pcen. But what about galaxies that are not in these clusters? You do not have a pcen value! So this phrase needs to be rewritten or moved elsewhere.}\rewrite{To select reliable candidates of central galaxies, we only include the ones 
-    with high probability of being the central galaxy ($P_{\mathrm{CEN}} \geq 0.7$)}.
-       
-    Although the \redm{} catalog provides us a good sample of central galaxies in 
-    massive halos, the typical uncertainty of $\lambda$ estimate is still at the
-    $\sim 5$-10 level.  
-    In addition, due to the depth and resolution of SDSS images, the \redm{} catalog 
-    becomes slightly incomplete at lower richness ($\lambda < 40$) at $z > 0.33$.
-    To reduce the impact of this effect, we will focus on a sample of central galaxies in halos with 
-    $\lambda > 30$. 
-    Based on the calibration of \citet{Simet2016}, the $\lambda \geq 30$ sample should
-    have halo mass ($M_{200m}$) more massive than $10^{14.2} M_{\odot}$. We have checked that none of our results depend on this choice of the $\lambda$ boundary.
+    All these studies consistently found that the \redm{} clusters with $\lambda > 20$ 
+    have $\log (M_{200m}/M_{\odot}) \geq 14.0$.
+    The \redm{} catalog therefore helps us group massive central galaxies into samples 
+    with different average \mhalo{}. 
+    The reliable candidates of central galaxies in the \redm{} clusters 
+    ($P_{\mathrm{CEN}} \geq 0.7$) form a nice sample of massive central galaxies 
+    that live in very massive halos. 
+    
+    Due to the depth and resolution of the SDSS images, the \redm{} catalog 
+    becomes slightly incomplete at lower richness ($\lambda < 40$) at $z > 0.33$. 
+    In addition to that, the typical uncertainty of $\lambda$ estimate ($\sim 5$-10) 
+    can not be ignored. 
+    To ensure the separation in \mhalo{}, here we only focus on the central galaxies of
+    clusters with $\lambda > 30$. 
+    According to \citet{Simet2016}, this $\lambda \geq 30$ sample should have halo mass
+    ($M_{200m}$) more massive than $10^{14.2} M_{\odot}$. 
+    Also, none of the results in this work depend on the choice of the $\lambda$ 
+    limit.
     
     For the massive central galaxies that are not in these cluster-level halos, 
     we unfortunately can not estimate their \mhalo{} individually, but it is safe 
     to assume they should have $\log (M_{200m}/M_{\odot}) < 14.0$.     
  
-    
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
@@ -545,94 +594,95 @@ The full details of the HSC data processing can be found in \citet{BoschInPrep} 
         halos larger than $10^{14}$ M$_{\odot}$ (red lines).}
       \label{fig:smf1}
   \end{figure*}
-  
-%           We compre the \mstar{} volume-density distributions of 
-%      	  \rbcg{} (red) and \nbcg{} (black) galaxies using stellar mass based on 
-%          \mcmodel{} (dash) and \mtot{} (solid) to highlight the increase of \mstar{}
-%          due to different methods.  
-%          Here we also show the volume-density distributions of the \texttt{S82-MGC} 
-%          galaxies (green) to evaluate the \mstar{}-completeness. 
-%          The vertical line highlight \logms{}$=11.6$ before correcting the \mstar{} using
-%          total luminosity from 1-D profile.~~
           
 %% ------------------------------------------------------------------------------------ %%
  
 %% ------------------------------------------------------------------------------------ %% 
 \subsection{Massive Central Galaxies in Low and High Mass Halos}
     \label{ssec:mass_central}
-    
-    \alexie{This section can be synthesized and condensed. Try to be more succinct!}
-    
+        
     Based on recent constraints of $M_{\star}$-$M_{\mathrm{Halo}}$ relation 
-    (e.g.\ \citealt{Leauthaud2012}, \citealt{Behroozi2013}, \citealt{Kravtsov2014}), 
-    the \mhalo{} of \logms{}$ > 11.0$ galaxies has a large scatter at fixed \mstar{}. This means that our sample of massive galaxies spans a wide range of halos masses. We use the \redm{} catalog to separate our sample into two samples with halos masses above and below \logmh{}$<14.0$ \alexie{14.2 no?}.
+    (e.g.\ \citealt{Leauthaud2012}, \citealt{Behroozi2013}, \citealt{Kravtsov2014}),
+    the massive galaxies in our sample live in halos that span a wide range of 
+    \mhalo{}.
+    With the help of the \redm{} catalog, we can broadly separate our sample into two
+    groups with \logmh{}$<14.0$ and \logmh{}$>14.2$.
     
     % We match this sample with the central galaxies of \redm{}~catalogs using a 
     % $1.0^{\arcsec}$ radius, and it results in 704 galaxies.  
     %% Saved as "dr1_redbcg_hsc_sdss_gama_1arcsec.fits"
     
-   We match the \texttt{hscZ} sample with the massive central galaxies of 
-    \redm{} clusters with $\lambda \geq 20$ \alexie{20 or 30... confusing here} and $P_{\mathrm{0.7}} \geq 0.7$ using 
-    $1.0^{\arcsec}$ radius \alexie{mathcing radius not important}.
-    
-     \alexie{confusing paragraph. The remapper redshift accuracy should be moved to the specz section. Why do we care about the number above 0.3? I'd remove those kind of details, they just make the reader confused.}
-     
-    \rewrite{This step finds 375 matched galaxies at $0.2 \leq z \leq 0.5$ 
-    (among them 282 are at $0.3 \leq z \leq 0.5$).  
-    We will refer these \textbf{central galaxies in more massive halos} as \rbcg{} 
-    sample from now on.
-    A small fraction of \redm{} centrals within the HSC footprints are missing  
+    We match the \texttt{hscZ} sample with the massive central galaxies of 
+    \redm{} clusters with $\lambda \geq 30$ and $P_{\mathrm{0.7}} \geq 0.7$,
+    and find 164 matched galaxies at $0.3 \leq z \leq 0.5$.
+    We will refer these \textbf{central galaxies in more massive halos} as the 
+    \rbcg{} sample here.
+    A small fraction of \redm{} centrals within the HSC footprints is missing  
     due to severe contamination from optical artifacts or bright stars.
-    Spec-$z$ is not available for 67 (17.9\%) galaxies in the sample, but their 
-    $z_{\lambda}$ should be very accurate (median $|z_{\lambda} - z_{\mathrm{Spec}}|$ is 
-    about 0.01 for the ones with spec-$z$).
-    The median richness ($\lambda$) of these clusters is $\sim 32$, corresponding to 
-    halo mass of $M_{200m}\sim 1.7\times 10^{14} h^{-1} M_{\odot}$. 
-    Among these central galaxies, 222 are in clusters with $\lambda \geq 30$. 
-    When focusing on this subsample, the median richness is $\sim 41$, corresponding 
-    to halos with $M_{200m} \sim 2.2\times 10^{14} h^{-1} M_{\odot}$. 
-    Meanwhile, only 15\% of \rbcg{} sample lives in clusters with $\lambda \geq 50$
-    ($M_{200m} \sim 3.0\times 10^{14} h^{-1} M_{\odot}$).   
-    Therefore, the current \rbcg{} sample is not dominated by very massive clusters 
-    with \mhalo{}$>10^{15} M_{\odot}$.  }
+    The median $\lambda$ of these clusters is $\sim 41$, corresponding to 
+    halo mass of $M_{200m}\sim 2.2\times 10^{14} h^{-1} M_{\odot}$.
+    Among them, only 44 of \rbcg{} sample live in clusters with $\lambda \geq 50$
+    ($M_{200m} \sim 3.0\times 10^{14} h^{-1} M_{\odot}$), so the \rbcg{} sample is 
+    not dominated by extremely massive clusters with \mhalo{}$>10^{15} M_{\odot}$. 
     %% Saved as "dr1_redbcg_use_sed5b.fits"
     
-    \rewrite{Assuming that the \redm{} catalog correctly identifies all halos with 
-    $M_{200m}\sim 1.0\times 10^{14} h^{-1} M_{\odot}$ in the current footprint,
-    the unmatched massive galaxies from the above step should be dominated by central 
-    galaxies of less massive halos and massive satellites galaxies.  
-    \update{
-    To select a purer sample of massive centrals in $M_{200m}<10^{14} h^{-1} M_{\odot}$
-    halos, we identify and remove all galaxies within a cylinder region around the 
-    the central galaxies in \redm{} catalog.
-    We choose to use the $R_{200m}$ as the radius of the cylinder. 
-    For each cluster, we convert the richness estimates into $M_{200m}$ using the 
-    calibration in \citep{Simet2016}, then estimate the $R_{200m}$ using $M_{200m}$
-    and the mass-concentration relation in \citep{Diemer2015}. 
-    For the thickness of the cylinder, we use twice the uncertainty of the photometric 
-    redshift error of each cluster.  
-    At $0.3 < z < 0.5$, such uncertainty is between 0.015 to 0.025, which are more than 
-    enough to exclude cluster member.}}
-    % TODO: The actual number waits to be updated}
-    
-    %\alexie{This is a rather strange procedure, I think we need to change it (referee and readers will complain!). What we really want to do is to remove any galaxies that have $r<R200$ in projection (from the galaxy with the highest value of Pcen) and remove galaxies within some deltaz of the cluster redshift. The cluster redshift is more well determined than the redshift estiamte of any cluster member. In short, what we are doing here is cutting out a cylindar arond the most likley BCG. The deltaz value can be motivated by the cluster redshift uncertainty from the redmapper papers. The only remaining question is then what radius to use around clusters. To get that number here is what we need to do. 1) Start with Eq 12 and Table 3 in Simet et al. For each cluster, assign a value of M200m (halo mass defined as 200 time background) to each cluster. 3) we then need to estimate the cluster radius R200m (or R200b, same thing). To do this, we need to use a mass-concentration relation. I'm pretty sure there is an easy command to do this in Python using the python package "colossus" by bendikt diemer. Download it and see if youc an get it to work. If it doens't look obvious after 30 min, I can do it on my end using my own code. But good for you to know how to do this. We can simply use the mass-concentration realtion from Benedikts work. 4) Now for every cluster you have R200m. And you define the low halo mass central sample as ones that are not within any cylindar around any cluster. Sorry, I know this might mean re-doing everything.....let's discuss by Skype if this is a major issue.}
-    
-    However, we should note that the \nbcg{} sample at this stage spans a large range
-    in \mstar{}, extending towards \logms{}$<10^{11}$.  
-    Therefore, we should expect contamination from satellites in \logmh{}$< 14.0$ halos
-    at certain degree.  
-    Later, after we update the total \mstar{} of them, we will mainly focus on the 
-    \nbcg{} galaxies at high mass end, especially the ones at \logms{}$ > 11.5$. 
-    Based on observational constraints (e.g. \citealt{vanUitert2016}), we can neglect 
+    To select massive central galaxies in \logmh{}$<14.0$ halos, we identify and 
+    remove all galaxies within a cylinder region around each of the central galaxy of 
+    all \redm{} clusters.
+    We choose to use the $R_{200m}$ as the radius, and twice the uncertainty of the 
+    photometric redshift error as the thickness of the cylinder. 
+    We convert the $\lambda$ into $M_{200m}$ using the calibration in 
+    \citep{Simet2016}, then estimate the $R_{200m}$ with the help of the 
+    mass-concentration relation in \citep{Diemer2015}. 
+    At $0.3 < z < 0.5$, the uncertainty of photo-$z$ is between 0.015 to 0.025, 
+    and is enough to exclude cluster members.
+    After removing galaxies in \redm{} clusters, the rest of the massive galaxies 
+    in our sample should mainly be the central galaxies of halos with \logmh{}$<14.0$,
+    and we will refer these \textbf{central galaxies in less massive halos} as the 
+    \nbcg{} sample.
+    We should note that the \nbcg{} sample at this stage spans a large range in 
+    \mstar{}, and includes contaminations like massive satellites in \logmh{}$< 14.0$ 
+    halos.  
+    Therefore, after we update the total \mstar{} later, we only focus on the 
+    \nbcg{} galaxies at very high-mass end (e.g.~\logms{}$ > 11.5$). 
+    According to recent observation (e.g. \citealt{vanUitert2016}), we can neglect 
     satellite contamination at such high \mstar{} range. 
     %% Saved as "dr1_nonbcg_use_sed5b.fits"
+    % TODO: The actual number waits to be updated}
+    
+    % \alexie{This is a rather strange procedure, I think we need to change it 
+    % (referee and readers will complain!). What we really want to do is to remove any
+    % galaxies that have $r<R200$ in projection (from the galaxy with the highest value 
+    % of Pcen) and remove galaxies within some deltaz of the cluster redshift. 
+    % The cluster redshift is more well determined than the redshift estimate of any 
+    % cluster member. 
+    % In short, what we are doing here is cutting out a cylinder around the most likely 
+    % BCG. The deltaz value can be motivated by the cluster redshift uncertainty from 
+    % the redmapper papers. The only remaining question is then what radius to use around
+    % clusters. To get that number here is what we need to do. 
+    % 1) Start with Eq 12 and Table 3 in Simet et al. For each cluster, assign a value 
+    % of M200m (halo mass defined as 200 time background) to each cluster. 
+    % 3) we then need to estimate the cluster radius R200m (or R200b, same thing). 
+    % To do this, we need to use a mass-concentration relation. 
+    % I'm pretty sure there is an easy command to do this in Python using the python 
+    % package "colossus" by bendikt diemer. 
+    % Download it and see if you an get it to work. If it doesn't look obvious after
+    % 30 min, I can do it on my end using my own code. But good for you to know how to 
+    % do this. We can simply use the mass-concentration relation from Benedikts work. 
+    % 4) Now for every cluster you have R200m. And you define the low halo mass central
+    % sample as ones that are not within any cylindar around any cluster. 
+    % Sorry, I know this might mean re-doing everything.....let's discuss by Skype if 
+    % this is a major issue.}
+
+%% ------------------------------------------------------------------------------------ %% 
 
 \subsection{Summary of Sample Construction}
     \label{ssec:sample}
 
-    Using $\sim 100$ deg$^2$ of HSC data, we select a large sample
-    of massive central galaxies with reliable redshift information, and broadly separate 
-    them into two groups with different \mhalo{}. The following is a summary of our sample construction.
+    Using $\sim 100$ deg$^2$ of HSC data, we select a large sample of massive central 
+    galaxies with reliable redshift information, and broadly separate them into two 
+    groups with different \mhalo{}. 
+    The following is a summary of our sample construction.
     
     \begin{itemize}
         \item \texttt{hscPho} sample: this parent sample consists of bright galaxies 
@@ -643,23 +693,23 @@ The full details of the HSC data processing can be found in \citet{BoschInPrep} 
             spectroscopic redshifts from surveys like SDSS/BOSS and GAMA, or accurate 
             red-sequence photometric redshift in the \redm{} catalog, we come up with 
             a large sample of bright galaxies with reliable redshift information. 
-        \item \rbcg{} sample: we select a sample of 375 galaxies at $0.2 \leq z \leq 0.5$
-            that are identified as central galaxies in $\lambda > 30$ \redm{} clusters. 
-            The most reliable ones ($P_{\mathrm{Cen}} >0.7$) among 
-            them will represent the central galaxies in very massive halos
-            (\logmh{}$\geq 14.0$). 
+        \item \rbcg{} sample: we select a sample of 164 galaxies at 
+            $0.3 \leq z \leq 0.5$ that are reliably identified as the central galaxies 
+            in $\lambda > 30$ \redm{} clusters. 
+            They represent the central galaxies in very massive halos 
+            (\logmh{}$\geq 14.2$). 
         \item \nbcg{} sample: after excluding all the galaxies that are close to any 
             \redm{} clusters in both radial and redshift directions from the 
-            \texttt{hscZ} sample, we have 29973 bright galaxies at $0.2 \leq z \leq 0.5$.
+            \texttt{hscZ} sample, we have 14661 bright galaxies at 
+            $0.3 \leq z \leq 0.5$.
             With the help of \mstar{} estimates via SED fitting (see Section 
             \ref{ssec:isedfit}), we consider the massive ones among them as the 
-            candidates of central galaxies in halos with \logmh{}$<14.0$.  
+            central galaxies in halos with \logmh{}$<14.0$.  
     \end{itemize}
     
-We now proceed to measure the luminosities and stellar mass profiles for all galaxies in this sample.
-    
+    We now proceed to measure the luminosities and stellar mass profiles for 
+    all galaxies in the \rbcg{} and \nbcg{} samples.
 %% ------------------------------------------------------------------------------------ %% 
-
 
 %% ------------------------------------------------------------------------------------ %% 
 \section{Measurements of 1-D Surface Brightness Profile}
@@ -669,20 +719,63 @@ We now proceed to measure the luminosities and stellar mass profiles for all gal
     one-dimensional stellar mass density (\mden{}) profiles, we perform elliptical 
     isophotes fitting using the IRAF \texttt{Ellipse} algorithm (Jedrzejewski 1987).  
     Compared to the popular two-dimensional model fitting method, the isophote fitting
-    approach is insensitive to the choice of a model (one versus two sersics for example), the number of components, 
-    and the initial guesses of free parameters. It is also less affected by uncertainties related to background subtraction. This is particularly important for the massive ellipticals in our sample. Massive ETGs imaged at the depth of HSC are not well modeled by simple models such as the de~Vaucouleurs model or a single \ser component model. These models will fail to simultaneously capture the profile in both the inner and the outter region and these models also cannot account for any radial variations in ellipticity and position angle. In principle, massive galaxies can still be described using more complex 
-    models (e.g \citealt{Huang2013a}; \citealt{Huang2013b}) but these multi model fits are quite sensitive to the background subtraction. For this paper, we opt to for the model independent 1-D approach and we will only study galaxies in the radial range where we are not sensitive to either the PSF ($r<5$ kpc) or the background subtraction ($r>100$ kpc). 
+    approach is insensitive to the choice of model (e.g. de~Vaucouleurs or \ser{} 
+    profile), the number of components, and the initial guesses of free parameters. 
+    It is also less affected by the background subtraction uncertainty, which is 
+    particularly important for the massive ellipticals in our sample.
+    Massive ETGs imaged at the depth of HSC are not well modeled by simple models such 
+    as the de~Vaucouleurs model or a single \ser component model. 
+    These models will fail to simultaneously capture the profile in both the inner and 
+    the outer region and these models also cannot account for any radial variations in 
+    ellipticity and position angle. 
+    In principle, massive galaxies can still be described by more complex 
+    models (e.g \citealt{Huang2013a}; \citealt{Huang2013b}), but they are still 
+    sensitive to background subtraction and initial values of parameters. 
+    For this paper, we opt to for the model-independent 1-D approach and we will only 
+    study galaxies in the radial range where we are not sensitive to either the PSF 
+    ($r<3-5$ kpc) or the background subtraction ($r>100$ kpc). 
         
-    We prepare large $i$-band cut-out images each galaxy in our sample that extend to at least 750 kpc in radius, along with the bad pixel mask, and the 
-    PSF model reconstructed at the central coordinate. These cut-outs include all the visible light of the galaxy while leaving enough space to evaluate the background level. 
-    We choose to use $i$-band images because they have excellent seeing, but also because they trace the stellar distributions of massive 
-    galaxies at $0.3 \leq z \leq 0.5$ reasonably well (the observed i-band corresponds to a rest-frame $g$ or $r$ band), and they suffer less from background uncertainty (because the sky is brighter in z and y). The $z$ and Y-bands will be better tracers of \mden{}, but the sky background in these bands 
-    is much higher and the seeing is not as good as the i-band. 
+    We prepare large $i$-band cut-out images for each galaxy in our sample that extend 
+    to at least 750 kpc in radius, along with the bad pixel mask, and the PSF model 
+    reconstructed at the central coordinate. 
+    These cut-outs include all visible light of the galaxy while leaving enough space 
+    to evaluate the background level. 
+    We choose to use $i$-band images because they trace the stellar distributions of 
+    massive galaxies at $0.3 \leq z \leq 0.5$ reasonably well 
+    (the observed i-band corresponds to a rest-frame $g$ or $r$ band), but also because 
+    they have better seeing and much lower background level than the images 
+    in $z$ and $Y$ bands that are supposed to be better tracers of \mden{}. 
     
-    For each cut-out, we perform \texttt{SExtractor}-like background estimation and object detection using the \texttt{SEP} Python library. Out set up is designed to avoid the ``over-deblending'' problem that exists with \texttt{hscPipe}. We use several different backgrounds and $S/N$ thresholds, to identify the footprints of all objects, even those that are very close to the centers of bright galaxies. We create two masks for the \texttt{Ellipse} procedure. The first mask corresponds to the footprints of neighbouring galaxies. At this stage, we create a fiducial mask as well as a more aggresive mask to test for the impact of masking (see Appendix xxxx). The second mask is designed to measured the background level and masks out both the central (target) galaxy as well as neighbours. After appplying this mask to the cutout, we evalute the background level after smoothing over $6x6$  pixels (see Appendix xxxxx). This yields the global sky values over the cutout as well as the uncertainty in the sky. Based on the global uncertainty in the sky, at the depth of HSC wide, we should in pinciple be able to measure surface brightness profiles to $\sim 30$ \sb. However, in practice, we can only reach $<28.5$ \sb due to the uncertainties in modeling the sky.
-    
-  
-  
+    For each cut-out, we perform \texttt{SExtractor}-like background estimation and 
+    object detection using the \texttt{SEP} Python library. 
+    We design the procedure to avoid the ``over-deblending'' problem that exists in
+    \texttt{hscPipe}. 
+    We use several different backgrounds and $S/N$ thresholds to identify the 
+    footprints of all objects, even those that are very close to the centers of bright 
+    galaxies. 
+    We create two masks for the \texttt{Ellipse} procedure. 
+    The first mask corresponds to the footprints of neighboring galaxies. 
+    At this stage, we create a fiducial mask as well as a more aggressive one to test 
+    the impact of masking (see Appendix \ref{app:A}). 
+    The second mask is designed to measured the background level and masks out both 
+    the central (target) galaxy as well as neighbors. 
+    After applying this mask to the cutout, we evaluate the background level after 
+    smoothing the image over $6x6$ pixels (see Appendix \ref{app:A}). 
+    This yields the global sky level as well as the uncertainty in the sky. 
+    Based on the global uncertainty in the sky, at the depth of HSC \texttt{WIDE}, 
+    we should in principle be able to measure surface brightness profiles to $> 29$ \sb
+    in $i$-band.  
+    However, in practice, we can only reach to $<28.5$ \sb due to the often slightly 
+    over-subtracted background around bright objects as indicated by the negative
+    global background value.
+    In \texttt{hscPipe}, the background on each CCD is modeled with a 
+    Chebyshev-polynomial that is fit to the smoothed image after excluding pixels with 
+    $S/N >5$.
+    This algorithm suffers less than the SDSS version (e.g.\ see \citealt{Blanton2011}),
+    but still often creates artifactual truncation or steeper surface brightness profile
+    for low-$z$ massive galaxy. 
+    We attempt to correct the surface brightness profile for this over-subtraction 
+    with the help of a \texttt{SExtractor} background model (see Appendix \ref{app:A}). 
     
     % Appendix
     %We achieve this via convolving the individual footprint with a Gaussian kernel
@@ -690,21 +783,10 @@ We now proceed to measure the luminosities and stellar mass profiles for all gal
     %making the mask follow the shape of the object.  
     %Meanwhile, we create a more aggressive mask of \emph{all} objects in the same 
     %approach,
-    
-    
-    
-     %median-rebin the remaining pixels using a $6x6$ pixels box, and take 
+   
+    %median-rebin the remaining pixels using a $6x6$ pixels box, and take 
     %the peak value (or mode) of the distribution of these rebinned ``sky'' pixels 
     %as the average background value around these bright galaxies.
-    
-    We find that the global sky values is often slightly negative value indicate that hscpipe typically tends to over-subtract the sky. In \texttt{hscPipe}, the background on each CCD is modeled with a 
-    Chebyshev-polynomial that is fit to the smoothed image after excluding pixels with $S/N >5$.
-    This algorithm suffer less than the SDSS version (e.g.\ see \citealt{Blanton2011}),
-    but still over-subtract background around very bright object. 
-    For our massive galaxies, such over-subtracted background creates artifactual
-    truncation or steeper surface brightness profile. We attempt to correct for sky for the oversubtraction that results from \texttt{hscPipe} using a method described in Appedix xxx. 
-    
-    
     
     % Appendix
     %We therefore provide an ad hoc fix using a \texttt{SExtractor}-style background 
@@ -713,51 +795,59 @@ We now proceed to measure the luminosities and stellar mass profiles for all gal
     %This model can account for the slightly over-subtracted background at very large 
     %scale, shift the distribution of rebinned ``sky'' pixels to 0, and do not affect the 
     %intrinsic flux distribution of our target. 
-    
-    Finally, we run \texttt{Ellipse} on the background-corrected cut-out following a similar methodology as \citep{Li2012}. In short, we start with a free centroid and shape (ellipticty and position angle) for each isophote. We then fix the centroid and then estimate the mean ellipticty and position angles of all isophotes.  Finally, we extract a 1-D surface brightness profile along the major axis using the mean ellipticy and position angle. In practice, we run \texttt{Ellipse} allowing for more sophisticated shapes than a simple ellipse (more ``disky'' or ``boxy'', e.g.\ \citealt{Kormendy2009}). Appendix.\ref{app:A} includes more details about the \texttt{Ellipse} procedure. We correct these surface brightness profiles for Galactic extinction and 
-    cosmological dimming, then integrate them to various radius to get the 
-    luminosity within different physical apertures. Fig.\ref{fig:ellipse} shows an example of the 1-D surface brightness and 
-    ellipticity profile for a massive galaxy at $z\sim0.2$ together with the mask image and a subset of isophotes.  
-        
+
     %The 4th Fourier modes are included to fit the isophote better. 
     %In this way, we can extract the radial changes of the centroid, ellipticity, 
     %position angle, and average isophotal distortions (more ``disky'' or ``boxy'', 
     %e.g.\ \citealt{Kormendy2009}) along with the surface brightness profile.  
+    
+    Finally, we run \texttt{Ellipse} on the background-corrected cut-outs following a 
+    similar methodology as \citep{Li2012}. 
+    In short, we start with free centroid and shape (ellipticity and position angle) for 
+    each isophote, then fix the best-estimated centroid and estimate the mean ellipticity 
+    and position angles of all isophotes.  
+    Finally, we extract a 1-D surface brightness profile along the major axis using the 
+    mean ellipticity and position angle. 
+    In practice, we run \texttt{Ellipse} allowing for more sophisticated shapes than a 
+    simple ellipse (more ``disky'' or ``boxy'', e.g.\ \citealt{Kormendy2009}). 
+    Appendix.\ref{app:A} includes more details about the \texttt{Ellipse} procedure. 
+    We correct these surface brightness profiles for Galactic extinction and cosmological 
+    dimming, then integrate them to various radius to get the luminosity within different 
+    physical apertures. 
+    Fig.\ref{fig:ellipse} shows an example of the 1-D surface brightness and ellipticity 
+    profile for a massive galaxy at $z\sim0.2$ together with the mask image and a subset 
+    of isophotes.  
 
-    We find that our 1-D profiles start begin to show unphsical behaviours (truncation or large fluctuations) at surface brightness levels of about $>28.5$ \sb. We therefore only consider regions above $<28.5$ \sb. 
-    This conservative choice already allows us to measure light profiles out to $\sim 120$ kpc. 
+    We find that some of our 1-D profiles begin to show unphysical behaviors (truncation or 
+    large fluctuations) at surface brightness levels of about $>28.5$ \sb. 
+    We therefore only consider regions above $<28.5$ \sb. 
+    This conservative choice already allows us to measure the individual surface 
+    brightness profile out to $100$ kpc. 
     
-    
-    For physical (e.g.\ late-stage major merger) and unphysical (e.g.\ nearby 
-    foreground galaxy or bright star) reasons, we can not extract reliable 1-D 
-    profiles for small fraction of massive galaxies because their central regions are heavily masked. This is an intrinsic limitation of the 1-D method. 
-    It affects $48/375$ of the\rbcg{} galaxies, and a smaller fraction of \nbcg{} ones. 
-    It is worth noting that this excludes most massive galaxies in major merger 
-    process from the analysis. 
+    For physical (e.g.\ late-stage major merger) and unphysical (e.g.\ nearby foreground 
+    galaxy or bright star) reasons, we can not extract reliable 1-D profiles for a small 
+    fraction of massive galaxies because they are heavily masked out. 
+    This is an intrinsic limitation of the 1-D method. 
+    It affects $18/164$ of the\rbcg{} galaxies, and a smaller fraction of the \nbcg{} 
+    ones. 
+    It is worth noting that this excludes most major-merging massive galaxies. 
     We will come back to them in the future using 2-D modeling method.
-    
-    
-      
- 
-     
-
-    
 %% ------------------------------------------------------------------------------------ %% 
 
+%% ------------------------------------------------------------------------------------ %% 
 \section{Stellar Masses and Stellar Mass Density Profiles}
     \label{sec:mstar}
-    
-    \alexie{Shold the color gradients stuff go here?? (I don't know.)}
-    
+
+%% ------------------------------------------------------------------------------------ %%         
 \subsection{Mass-to-light ratios from SED Fitting}
     \label{ssec:isedfit}
    
-    To convert luminosities into stellar mass, we assume that these massive 
-    galaxies can be well described by an average \m2l{}. 
-    This is a reasonable assumption considering that they are ETGs that are dominated by 
+    To convert luminosities into stellar mass, we assume that these massive galaxies 
+    can be well described by an average \m2l{}. 
+    This is a reasonable assumption considering that they are mostly dominated by 
     old stellar populations and are known to have shallow color gradients. 
-    We will further justify this point by measuring their average color profiles in Section xxxxxx
-    \ref{sec:discussion}.
+    We will further justify this point by measuring their average color profiles in 
+    Section \ref{ssec:ell_color}.
 
     We use the broadband Spectral Energy Distributions (SEDs) fitting 
     (see \citealt{Walcher2011} for a recent review) code 
@@ -765,50 +855,57 @@ We now proceed to measure the luminosities and stellar mass profiles for all gal
     (\citealt{Moustakas13}) to estimate the average \m2l{} and $k$-corrections using
     5-band HSC \cmodel{} fluxes. 
     Although \cmodel{} tends to underestimate the total flux for bright, extended 
-    objects, it still yields an accurate \emph{average} color 
-    of the galaxy as it is based on forced photomery and also takes the PSF convolution into account
-    (e.g.\ Huang\etal~in prep.~). 
+    objects, it can still yield accurate \emph{average} color thanks to the 
+    forced-photometry method that takes the PSF convolution into account
+    (e.g. \citealt{SynPipeInPrep}). 
 
     \texttt{iSEDFit} takes a simplified Bayesian approach. 
     In short, it first generates a large grid of SEDs from synthetic stellar population 
     models by drawing randomly from the prior distributions of relevant parameters 
     (e.g.\ age, metallicity, dust extinction, and star formation history).
     Based on these models, it uses the observed photometry and redshift to compute the 
-    statistical likelihood, and generates the posterior probability distribution (PDF) 
-    functions for each parameter.  
+    statistical likelihood, and generates the posterior probability distribution 
+    functions (PDF) for each parameter.  
     To get the best estimate of a given parameter, \texttt{iSEDFit} ``integrates'' the 
     full PDF over all the other ``nuisance'' parameters.
-    Then, the median value and the 1-$\sigma$ uncertainty are derived based on the marginalized PDF. Please refer to \citet{Moustakas13} for technical details. 
+    Then, the median value and the 1-$\sigma$ uncertainty are derived based on the 
+    marginalized PDF. 
+    Please refer to \citet{Moustakas13} for technical details. 
     
-%% ------------------------------------------------------------------------------------ %% 
     In this work, we derive average \m2l{} using the Flexible Stellar Population 
     Synthesis\footnote{http://scholar.harvard.edu/cconroy/sps-models}
     (FSPS; \texttt{v2.4}; \citealt{FSPS}, \citealt{Conroy2010}) model based on the MILES
     \footnote{http://www.iac.es/proyecto/miles/pages/stellar-libraries/miles-library.php}
-    (\citealt{MILES1}, \citealt{MILES2}) stellar library and assuming a \citet{Chabrier2003} 
-    IMF between 0.1 to 100 \msun. The star formation history (SFH) is assumed to follow a delayed-$\tau$ model with stochastic star bursts (see Appendix xx). This SFH is appropriate for massive galaxies at low redshifts 
+    (\citealt{MILES1}, \citealt{MILES2}) stellar library and assuming a 
+    \citet{Chabrier2003} IMF between 0.1 to 100 \msun. 
+    The star formation history (SFH) is assumed to follow a delayed-$\tau$ model with 
+    stochastic star bursts (see Appendix.\ref{app:B}). 
+    This SFH is appropriate for massive galaxies at low redshifts 
     (e.g.\ \citealt{Kauffmann2003}). 
-    For stellar metallicity, we assume a flat distribution between 0.004 to 0.03 (the highest value allowed by FSPS). We adopt the \citet{Calzetti2000} extinction law with a order two Gamma 
-    distribution of $A_{V}$ between 0 to 2 magnitude. A majority of our galaxies are red and quiescent and our results are 
+    For stellar metallicity, we assume a flat distribution between 0.004 to 0.03 
+    (the highest value allowed by FSPS). 
+    We adopt the \citet{Calzetti2000} extinction law with a order two Gamma distribution 
+    of $A_{V}$ between 0 to 2 magnitude. 
+    A majority of our galaxies are red and quiescent and our results are 
     not very sensitive to parameters related to the SFH or the internal dust extinction. 
     To achieve reasonable sampling across these parameters, we generate 250000 models. 
     
     We construct five band SEDs using the forced-photometry \cmodel{} magnitudes corrected 
-    for Galactic extinction. \cmodel{} only accounts for the statistical error on the flux measurement but does not account for systematic uncertainties in the model-fitting process. It therefore underestimates the flux errors of bright galaxies. Based on tests using synthetic objects, we find that the average accuracy of \cmodel{} for bright galaxy is roughly at the 1\% level. Therefore, we supply \texttt{iSEDFit} with simplified flux errors assuming $S/N = 100$ 
-    for the $riz$ bands, and $S/N = 80$ for the $gY$ bands (on average, images in $gY$ bands are 
-    shallower in depth and/or have higher background noise).  
-    The typical uncertainty of \logms{} is around 0.08-0.10 dex at $M* \sim xxxx$ end. 
+    for Galactic extinction. 
+    \cmodel{} only accounts for the statistical error on the flux measurement but does not 
+    account for systematic uncertainties in the model-fitting process. 
+    It therefore underestimates the flux errors of bright galaxies. 
+    Based on tests using synthetic objects, we find that the average accuracy of \cmodel{} 
+    for bright galaxy is roughly at the 1\% level in the $r$, $i$, $z$ bands, and slightly 
+    worse in the $g$ and Y-band. 
+    Therefore, we supply \texttt{iSEDFit} with simplified flux errors assuming $S/N = 100$ 
+    for the $riz$ bands, and $S/N = 80$ for the $g$Y bands (on average, images in 
+    $gY$ bands are shallower in depth and/or have higher background noise).  
+    The typical uncertainty of \logms{} is around 0.08-0.10 dex at \logms$\sim 11.5$. 
     Please see Appendix.\ref{app:B} for more detailed discussions of the SED fitting
     results.  
-    
-    %In Fig.~3, we show an example of SED fitting result. 
-    %\song{Not sure if we need to show one example, but put one here for now.}
-    
 %% ------------------------------------------------------------------------------------ %% 
    
-
-%% ------------------------------------------------------------------------------------ %% 
-
 %% ------------------------------------------------------------------------------------ %% 
   \begin{figure*}[bt!]
       \centering 
@@ -839,7 +936,6 @@ We now proceed to measure the luminosities and stellar mass profiles for all gal
       \centering 
       \includegraphics[width=\textwidth]{fig/redbcg_prof_1}
       \caption{
-          \update{
           Comparison of the \mden{} profiles for \mtot{}-matched ($11.6<$\logmtot{}$<11.9$) 
           and \minn{}-matched ($11.2<$\logminn{}$<11.6$) samples 
           of \rbcg{} (orange to red) and \nbcg{} (grey to black) galaxies.~~
@@ -861,17 +957,52 @@ We now proceed to measure the luminosities and stellar mass profiles for all gal
           A darker vertical dash-line highlights the 100 kpc radius.~~
           \textbf{Right} shows the results for the \minn{}-matched samples. 
           The format is exactly the same with the left one, except that the darker vertical 
-          dash-line now highlights the 10 kpc radius.}
+          dash-line now highlights the 10 kpc radius.
       }
       \label{fig:prof_1} 
   \end{figure*}
 %% ------------------------------------------------------------------------------------ %% 
 
+%% ------------------------------------------------------------------------------------ %%        
+    \subsection{Stellar Mass Completeness}
+    \label{ssec:complete}
+    
+    With the help of the \texttt{S82-MGC} sample, we briefly discuss the \mstar{} 
+    completeness of this sample. 
+    The \texttt{S82-MGC} sample matches the deeper SDSS photometric data in the 
+    Stripe 82 region (\citealt{Annis2014}) with the near infrared data from the United 
+    Kingdom Infrared Telescope Infrared Deep Sky Survey (UKIDSS; \citealt{Lawrence2007}). 
+    The deeper photometry and better photo-$z$ make the \texttt{S82-MGC} sample complete 
+    to \logms{}$\geq 11.2$ at $z<0.7$ which makes it sufficient to evaluate the 
+    completeness of this sample.
+    There are 20453 \texttt{S82-MGC} galaxies that are also in the \texttt{hscPho} 
+    sample at $0.3 \leq z_{\mathrm{s82}} \leq 0.5$ (referred as \texttt{s82Pho} sample).   
+    We estimate their \mstar{} using the HSC \texttt{cModel} SED in exactly the 
+    same way\footnote{The \mstar{} using HSC photometry shows tight correlation with the 
+    ones based on the \texttt{S82-MGC} SED which includes NIR data from UKIDSS; 
+    \texttt{S82-MGC} also uses \texttt{iSEDFit} with similar assumptions}.  
+    Then we estimate the volume density distributions of the galaxies in \rbcg{}, 
+    \nbcg{}, and \texttt{s82Pho} samples (right panel of Fig.\ref{fig:smf1}) using 
+    rough estimates of the survey areas they occupied \footnote{We estimate the 
+    uncertainties of these distributions via bootstrap resampling}.
+    By comparing the relative shapes of these distributions, we conclude that 
+    our sample of massive galaxies is reasonably complete down to \logms{}$\sim 11.6$
+    at $0.3 \leq z \leq 0.5$. 
+    While the \rbcg{} sample is less affected by completeness thanks to the reliable
+    photo-$z$ from \redm{}, the completeness of the \nbcg{} sample is still limited 
+    by the spec-$z$ samples.
+    Although there is no apparent reason that the incompleteness can bias our 
+    comparison of structure, we will mainly focus on the \rbcg{} and \nbcg{} galaxies 
+    with $11.6 \le$\logmtot{}$\le 11.9$ where their mass distributions overlap the 
+    most and both have good \mstar{} completeness, and will also match the two samples 
+    carefully in \logms{} and redshift distributions.
+    Please see the next section and Appendix.\ref{app:match} for more details.
+%% ------------------------------------------------------------------------------------ %%    
+
+%% ------------------------------------------------------------------------------------ %% 
 \subsection{Stellar Mass Density Profiles and Total Stellar Masses}
     \label{ssec:mtotal}
-    
-    \alexie{Did not make edits}
-    
+        
     Using the best-fit stellar mass from \texttt{iSEDFit} (referred as \mcmodel{}), 
     we estimate the average \m2l{} in $i$-band, then use that \m2l{} to convert the 
     1-D luminosity density profiles into stellar mass density profiles; and 
@@ -880,737 +1011,488 @@ We now proceed to measure the luminosities and stellar mass profiles for all gal
     From now, we use \mtot{} as the new proxy of ``total'' stellar mass of these 
     galaxies.  
     And we also derive the $k$-corrected luminosity and colors from the results.
-    In Appendix.\ref{app:B}, we also show the outputs like the average stellar age, 
-    metallicity, and internal dust extinction all behave reasonably for both 
-    samples, but will not use them for further scientific analysis. 
-    
+    In Appendix.\ref{app:basic}, we briefly summarize the basic statistics of 
+    the \rbcg{} and \nbcg{} samples using the newly derived \mtot{} and \minn{}.
+    We can confirm that both samples follow a similar and very tight ``red-sequence''.
+    We also show the outputs from SED fitting process like the average stellar age, 
+    metallicity, and internal dust extinction in Appendix.\ref{app:B}.
+    Although we do not rely them on scientific analysis, they all behave reasonably for 
+    both samples. 
     As expected, the integration of 1-D profile out to very large radius help 
-    recover more luminosity (stellar mass) compared to the \cmodel{} results. This will shown in Section xx.
- 
-        
+    recover more luminosity (stellar mass) compared to the \cmodel{} results. 
+    We shown in Section \ref{ssec:s82}.
+    
     As mentioned earlier, our assumption of using an average \m2l{} ignores its
     radial variation.   
     It is well known that massive ETGs have negative optical color gradient which 
-    indicates a gradient of \m2l{} (e.g.\ \citealt{LaBarbera2012}; \citealt{DSouza2015}),
-    but the gradient is smooth and shallow out to a few times of the effective 
-    radius (color gradient at the very outskirt is still not well quantified). 
-    And, for the comparison between the \rbcg{} and \nbcg{} samples, 
-    Our results should remain intact as long as there is no significant
-    differences of color gradient between these two samples.
-    We will discuss this more later, but initial results do suggest a smooth color
-    gradient out to very large radius, and there is no systematic difference in 
-    color gradients of the two samples.  
-    Both suggest that the average \m2l{} approach should work reasonably well for
-    our goals.
+    indicates a gradient of \m2l{} (e.g.\ \citealt{LaBarbera2012}; 
+    \citealt{DSouza2015}), but the gradient is shallow and smooth out to a few 
+    times of the effective radius (color gradient at the very outskirt is still 
+    not well quantified). 
+    More importantly, for the comparison between the \rbcg{} and \nbcg{} samples, 
+    our results should remain intact as long as there is no significant
+    differences of average color gradient between these two samples.
+    This is confirmed by our initial results on color gradient, and we will 
+    discuss this more in Section \ref{ssec:ell_color}.
+    Therefore the average \m2l{} approach should work reasonably well for our goals.
     
-    And, we should mention that our approach is in principle very similar to the 
-    one adopted by the GAMA survey (\citealt{Taylor2011}), where they start with 
-    \mstar{} estimated using average \m2l{} from SED fitting results of
-    PSF-matched aperture photometry, and later correct it with better estimate 
-    of total luminosity.  
-    However, the GAMA survey relied on multi-band single-\ser model fitting on 
-    the SDSS images to get total luminosity (\citealt{Kelvin2012}). 
-    It is therefore interesting to compare the \mstar{} (\mgama{} v.s. \mtot{})
-    estimates for galaxies in common, given the differences in data and method. 
-    Please see the Appendix.\ref{app:C} for more details. 
-    In short, we notice systematic differences between the two \mstar{} estimates, 
-    and it is likely that the GAMA models miss fluxes in the stellar halo that 
+    This approach to derive total stellar mass is actually quite similar to the 
+    method adopted by the GAMA survey (\citealt{Taylor2011}).
+    They start with \mstar{} estimated using average \m2l{} from SED fitting 
+    results of PSF-matched aperture photometry, and later correct it with better 
+    estimate of total luminosity from single-\ser model fitting
+    (\citealt{Kelvin2012}). 
+    For galaxies in common with the GAMA survey, we also compare their different 
+    estimates of \mstar{} (\mgama{} v.s. \mtot{}) in Appendix.\ref{app:C},  
+    and notice systematic differences between the two \mstar{} estimates.
+    It is likely that the GAMA models still miss fluxes in the stellar halo that 
     is beyond the depth of SDSS image. 
-    
-    \update{In Appendix.\ref{app:basic}, we summarize the basic statistics of 
-    the \rbcg{} and \nbcg{} samples.  In general:}
-    
-    %\begin{itemize}
-    %    \item \update{The two samples follow the same, tight ``red-sequence'' 
-    %        defined by $k$-corrected colors.}
-    %    \item \update{The redshift distributions are reasonably similar in 
-    %        $0.3 < z < 0.5$, but the difference can still bias the comparison of
-    %        \mden{} profiles.}
-    %    \item \update{Although their \mtot{} overlaps a lot between 
-    %        $11.6 <$\logmtot{}$< 11.9$, the relative distributions within this 
-    %        bin are still very different.}
-    %    \item \update{The distributions of \minn{} overlaps the most between 
-    %        $11.2 <$\logminn{}$< 11.6$, but the relative distributions also 
-    %        show difference within this \minn{} range.}
-    %\end{itemize}
-
-
-    
 %% ------------------------------------------------------------------------------------ %% 
 
+%% ------------------------------------------------------------------------------------ %% 
 \section{Results}
-    \label{sec:result}
+    \label{sec:result} 
     
-    \subsection{Stellar Mass Completeness}
-    
-    Here we refer to the comparison with Stripe 82 and just say that we are complete to xxx.
-    
-    \update{To compare their structural details, we will focus on \rbcg{} and 
-    \nbcg{} galaxies with $11.6 \le$\logmtot{}$\le 11.9$.  
-    Both samples have reasonable completeness in this \mtot{} range
-    (see Fig.\ref{fig:smf1}).
-    In light of the differences in distributions of \mtot{}, \minn{}, and redshift, 
-    we will carefully match these properties between the \rbcg{} and \nbcg{}
-    samples to make sure the comparison is fair and meaningful.  
-    Please see the next section and Appendix.\ref{app:match} for more details.}
-    
-    \subsection{Need a title}
+%% ------------------------------------------------------------------------------------ %%     
+    \subsection{Impact of Photometry on Stellar Mass and Stellar Mass Function}
     \label{ssec:s82}
+    
+    As mentioned above, different methods lead to different estimates of ``total'' 
+    \mstar{} and impacts important statistics like the stellar mass function 
+    (e.g. \addref{}).
+    We highlight this in the left panel of Fig.\ref{fig:smf1} by plotting 
+    the \mtot{} from 1-D analysis with the differences between \mtot{} and \mcmodel{}.
+    Apparently, our careful 1-D approach recovers more flux in massive galaxies 
+    than the \texttt{cModel} method. 
+    More importantly, the average difference steadily increases with \mtot{}. 
+    At \logms$>11.5$, the difference is often larger than 0.2 dex.  
+    This difference relates to the intrinsic limitation of the \texttt{cModel} 
+    method and also reflects the fact that more massive ETGs tend to have more 
+    extended stellar mass distributions (e.g.\ \addref{}). 
+     
+    Such mass-dependent difference will clearly result in difference of the SMF, 
+    especially at the very high-mass end where the slope is quite uncertain under
+    current constraints (e.g. \ \addref{}).
+    Although the careful evaluation of the SMF is beyond the scope of this work, 
+    we still highlight the impacts of different definitions of ``total \mstar{}''
+    on the volume density distributions of both samples (Fig.\ref{fig:smf1}, 
+    right panel).  
+    Generally speaking, the use of \mtot{} from 1-D analysis instead of the
+    \mcmodel{} shifts the distributions toward the higher-mass end, and slightly 
+    modifies the slope.
+    This impact is more obvious for the \rbcg{} samples.
+    For studies about the SMF or other aspects of galaxy evolution based on 
+    \cmodel{}-like photometry or shallower images, these impacts should be 
+    cautiously taken into consideration.
 
-Here we show the luminosty difference and impact on SMF.
-
-We highlight this in the right panel of Fig.\ref{fig:smf1} as we show the 
-    distributions of differences between \mtot{} and \mcmodel{}, and their relations 
-    to the \mtot{}.  
-    For both samples, we see the ``extra mass'' recovered by 1-D photometry 
-    increases with \mtot{}, therefore this improvement impacts the \rbcg{}
-    sample more.  
-    This is basically consistent with the fact that the structure of massive ETGs 
-    depends on its stellar mass in a way that more massive ones tends to be 
-    more extended (e.g.\ \addref).  
-    Apparently, such mass-dependent difference between \mtot{} and \mcmodel{} will 
-    result in difference of the SMF. 
-    \alexie{Discussion!!} As the slope and normalization of SMF at high mass end is very sensitive 
-    to both cosmology and interesting baryonic processes such as AGN feedback
-    (\addref), they are particularly important in constraining the galaxy evolution
-    model, and therefore became the center of some intense arguments (\addref).  
-    Although the jury is still out on this topic, it has become clear that 
-    popular results using SDSS photometry (\addref) underestimate the total 
-    luminosity (stellar mass) of massive ETGs.  
-    However, past works (e.g.\ \addref) often relied on either stacking of 
-    shallow images or the extrapolation of models to investigate this effect. 
-    Using the deep HSC images, we have the potential to answer this question 
-    much better. 
-    Detailed studies of SMF deserves more careful investigations of many 
-    systematic issues (e.g.\ \addref), so we just show the impact of the 
-    ``extra mass'' on the volume density distributions of both samples 
-    (Fig.\ref{fig:smf1}, left panel).  
-    Generally speaking, the stellar mass corrected for total luminosity 
-    shifts the distribution toward the higher mass end, and slightly modify
-    the slope. 
-    People who want to use HSC photometry or other \cmodel{}-like photometry to 
-    study the properties and evolution of SMF should be aware of such effect.
+    % Put to discussion:
+    % As the slope and normalization of SMF at high mass end is very sensitive 
+    % to both cosmology and interesting baryonic processes such as AGN feedback
+    % (\addref), they are particularly important in constraining the galaxy evolution
+    % model, and therefore became the center of some intense arguments (\addref).  
+    % Although the jury is still out on this topic, it has become clear that 
+    % popular results using SDSS photometry (\addref) underestimate the total 
+    % luminosity (stellar mass) of massive ETGs.  
+    % However, past works (e.g.\ \addref) often relied on either stacking of 
+    % shallow images or the extrapolation of models to investigate this effect. 
+    % Using the deep HSC images, we have the potential to answer this question 
+    % much better. 
+%% ------------------------------------------------------------------------------------ %%        
     
-    
-    \rewrite{Given the heterogeneous nature of the redshift resources for these samples, we 
-    further investigate their \mstar{} completeness via comparing with galaxies that are 
-    in common with the \texttt{S82-MGC} sample. 
-    The \texttt{S82-MGC} sample matches the deeper SDSS photometric data in the Stripe 82 
-    region (\citealt{Annis2014}) with the near infrared data from the United Kingdom 
-    Infrared Telescope Infrared Deep Sky Survey (UKIDSS; \citealt{Lawrence2007}). 
-    The deeper photometry and better photo-$z$ make the \texttt{S82-MGC} sample complete 
-    to \logms{}$\geq 11.2$ at $z<0.7$.}  
-    
-    \rewrite{The match between the \texttt{hscPho} sample and the \texttt{S82-MGC} one results in 
-    20453 galaxies at $0.3 \leq z \leq 0.5$ (referred as \texttt{s82Pho} sample).  
-    We estimate their \mstar{} using \texttt{cModel} SED in exactly the same way. 
-    The \mstar{} using HSC photometry shows tight correlation with ones based on the
-    \texttt{S82-MGC} SED (five optical bands from SDSS and NIR data from UKIDSS; and 
-    \texttt{S82-MGC} also used \texttt{iSEDFit} under slightly different assumptions).  
-    Then we estimate the volume densities distributions of galaxies in \rbcg{}, \nbcg{}, 
-    and \texttt{s82Pho} samples (left panel of Fig.\ref{fig:smf1}) using rough estimates 
-    of the survey areas they occupied (since we only care about the relative shapes of 
-    the density distributions). 
-    And, we estimate the uncertanties of these distributions using a 10000 times 
-    bootstrap resampling. 
-    The distribution of \nbcg{} sample starts to deviates from the \texttt{s82Pho} one 
-    below \logms{}$< 11.6$, indicating that the sample starts to become incomplete within
-    $0.3 \leq z \leq 0.5$. 
-    As for the \rbcg{} sample, their mass completeness should be better thanks to the 
-    reliable \redm{} $z_{\lambda}$. 
-    Its behaviour is quite consistent with the mass function of galaxies in massive 
-    halos with a narrow \mhalo{} distribution (\addref).   
-    Later, we will see that the \cmodel{} photometry on average underestimate the 
-    \mstar{} of galaxies with \logms{}$>11.5$ by $-0.1$ dex.
-    Therefore, we conclude that the \nbcg{} becomes not perfectly complete below 
-    \logms{}$< 11.7$.  
-    This is most likely due to the incompleteness of the BOSS spec-$z$ sample. 
-    Although it is unlikely that the incompleteness will bias the results of our 
-    comparisons, we will bear this in mind, and match the two samples carefully in 
-    \logms{} and redshift space before comparing them}.
-    
-    
-    
-    
-    
+%% ------------------------------------------------------------------------------------ %%      
 \subsection{Surface Mass Density Profiles}
     \label{ssec:sbp_compare}
 
-\subsubsection{Mass Dependent Profiles}
+%% ------------------------------------------------------------------------------------ %%      
+\subsubsection{Mass Dependence of \mden{} Profiles}
     \label{sssec:sbp_inter}
-        
-    As discussed earlier, although the mass-size scaling relation has been intensively 
-    discussed when it comes to the topic of environmental dependence of structure, 
-    it may not be the best tool to investigate this problem.    
-    Compared to the simple scaling relation, the detailed stellar mass density profiles 
-    contain much richer structural details that can help us diagnose the role played by 
-    different physical processes, including the environmental effect.  
-    
-    \alexie{dont conceptually separate into two samples at this stage,}
-    
-    \update{
-    Before dive into more details, we first show the average \mden{} of massive galaxies 
-    at $0.3 < z < 0.5$ in three \mtot{} bins after mixing the \rbcg{} and \nbcg{} 
-    samples together\footnote{Knowing that the two samples have different levels of 
-    completeness, here we simply mean to show the general properties of massive galaxies.
-    In the first two \mtot{} bins, the \nbcg{} galaxies dominate the number; while in
-    the highest \mtot{} bin, the two samples have roughly the same size.}.   
-    For \mden{} profiles in each \mtot{} bin, we derive the median profile along with its 
-    uncertainty using bootstrap resampling method (5000 times). 
-    As one can see in the left panel of Fig.\ref{fig:avg_prof}, we can comfortably trace 
-    the \mstar{} distribution of these massive galaxies out to 100 kpc \alexie{or 120??? Make the same numbers everywhere.}
-    \textbf{individually}, which gives us huge advantage in studying the statistical 
-    properties of their outer envelopes. 
-    We can see that the higher \mtot{} shifts the median \mden{} profile up a little bit 
-    in the inner region, but makes the outskirt significantly more prominent. 
-    Most of these very massive galaxies ($\ge 10^{11.4} M_{\odot}$) should be 
-    slow-rotating (e.g.\ \citealt{Cappellari13b}) giant ellipticals with ``boxy'' inner 
-    isophotal shape (e.g.\ \citealt{Kormendy2009}), and slightly flattened \mden{} profile 
-    around the center (e.g.\ \citealt{Lauer07}).
-    But their structures in the outskirt clearly does \textbf{NOT} response to the 
-    increase of ``total'' stellar mass in a self-similar way.}
-        
-    \alexie{Sounds more like Discussion section} In principe, this is consistent with result from HST observations of BCGs at 
-    $0.3 < z <0.9$ (\citealt{Bai2014}) and the claimed positive correlation between 
-    luminosity and \ser index (e.g.\ \citealt{Savorgnan13})\footnote{But it does not mean 
-    such high \ser index model works well for massive ETGs as they fail at the inner-most 
-    region dramatically, and can not explain the radial variation of isophotal shape}; 
-    it is also consistent with the picture that more massive ETGs experienced more recent 
-    (minor) mergers.  
-    
-    %At the same time, such behaviour should make us very cautious about 
-    %any indication of ``environmental dependence of structure'' as it 
-    %may be degenerate with difference caused by stellar mass when the 
-    %two samples are not perfectly matched in mass.  
-    %This is exactly what we see in the median profiles of \rbcg{}
-    %and \nbcg{} in the same mass bins. 
-    %Although the comparison shows that \rbcg{} shows much more 
-    %extended outer envelope than \nbcg{}, the very similar profile
-    %in the inner $\sim 10$ kpc reveals that this is dominated by the 
-    %different mass distributions in two samples. 
+          
+    Comparing to the much discussed scaling relation like the mass-size relation, 
+    the \mden{} profiles contain more structural details that can help us diagnose the 
+    roles of different physical processes, including the environmental effect.  
+    We first mix the \rbcg{} and \nbcg{} together, and show how the average \mden{}
+    profiles of massive galaxies at $0.3 < z < 0.5$ depend on stellar mass using their 
+    median \mden{} profiles\footnote{The median profiles along with their uncertainties 
+    using bootstrap resampling method} in three \mtot{} bins \footnote{Here we ignore a 
+    small population of massive satellite in \redm{} clusters we excluded from our 
+    sample.
+    The sample is clearly not complete in the lowest \mtot{} bin, but its median \mden{}
+    profile is still useful to show the overall trend and to compare with previous 
+    observations}.
+
+    As shown in the left panel of Fig.\ref{fig:avg_prof}, we can comfortably trace 
+    the \mden{} profiles of these massive galaxies out to 100 kpc \textbf{individually}, 
+    which greatly help us study the statistical properties of their outer envelopes. 
+    These median \mden{} profiles have very moderate differences in the inner region, 
+    but show significant differences in the outskirts as more massive galaxies have 
+    much more prominent stellar envelopes.
+    Most of these massive galaxies ($\ge 10^{11.4} M_{\odot}$) are slow-rotating 
+    (e.g.\ \citealt{Cappellari13b}) giant ellipticals with ``boxy'' inner isophotal 
+    shape (e.g.\ \citealt{Kormendy2009}), and slightly flattened \mden{} profile close 
+    to the center (e.g.\ \citealt{Lauer07}).
+    But their structures in the outskirt clearly do \textbf{NOT} response to the 
+    increase of stellar mass in a self-similar way.
+
+    The \mden{} profile of massive galaxy out to such large radius was only available 
+    through image stacking technique (e.g. \citep{Tal2011, DSouza2015}) 
+    that suffers from several systematic issues.
+    Although most \mden{} profiles extend beyond 100 kpc, many of them show signs of 
+    unphysical truncation and fluctuation related to inaccurate sky subtraction.  
+    Therefore, we exclude the profiles outside 100 kpc, even though the median \mden{} 
+    profiles for the two more massive bins behave reasonably out to $\sim 200$ kpc. 
+      
+    %% Todo: Move to discussion  
+    % In principe, this is consistent with result from HST observations of BCGs at 
+    % $0.3 < z <0.9$ (\citealt{Bai2014}) and the claimed positive correlation between 
+    % luminosity and \ser index (e.g.\ \citealt{Savorgnan13})\footnote{But it does not mean 
+    % such high \ser index model works well for massive ETGs as they fail at the inner-most 
+    % region dramatically, and can not explain the radial variation of isophotal shape}; 
+    % it is also consistent with the picture that more massive ETGs experienced more recent 
+    % (minor) mergers.  
     
     In the right panel of Fig.\ref{fig:avg_prof}, we compare these median profiles with 
     a few past works.  
-    \citep{Huang2013a}, derived the median \mden{} profile for a small sample of very nearby 
-    ellipticals from the Carnegie-Irvine Galaxy Survey (CGS, \citealt{CGS1}).
-    Individual profile and total luminosity were derived from three-component 2-D models 
-    that describe both very inner and outer luminosity distributions of these galaxies 
-    accurately. 
-    The average stellar mass of this sample is around $10^{11.3} M_{\odot}$.
-    Due to the proximity of this sample ($< 100$ Mpc), the average profile is unaffected by 
-    seeing within $\sim 1$ kpc.
-    Most galaxies of the CGS sample are not in any cluster.
-    The median profile qualitatively agrees with the median profile in the lowest 
-    \mtot{} bin, especially in the inner region. 
-    Outside the inner 15 kpc, the CGS median profile shows a slightly more prominent 
-    outer envelope.  
-    While this could simply be due to the small size of the CGS sample ($\sim 30$),
-    interestingly, it is also consistent with the expectation if the mild mass growth 
-    from $z\sim 0.4$ to $z=0$ mostly happened in the outskirt.   
-    The CGS images are already slightly deeper than SDSS images in $r$-band,
-    however, the median profile can only reach to $\sim 50$ kpc (with much larger 
-    uncertainty compared to this work) for ETGs within $\sim 100$ Mpc.
-    Such comparison clearly highlights the improvement made by the deep HSC images as 
-    individual profile of $z\sim 0.5$ galaxy is reliable out to at least 100 kpc.  
-    
-%% ------------------------------------------------------------------------------------ %% 
-  \begin{figure*}[t]
-      \centering 
-      \includegraphics[width=\textwidth]{fig/redbcg_prof_2}
-      \caption{\alexie{Remvoe or move to Appendix} Comparisons of the \mden{} profiles for \mtot{}-matched \rbcg{} 
-          (orange-red) and \nbcg{} (grey-black) galaxies in lower (left; [11.5,11.70]) 
-          and higher (right; [11.7, 11.9]) \mtot{} bins. 
-          Other formats are in consistent with the right figure of Fig.\ref{fig:prof_1}.
-          The difference in median profiles is more significant in higher \mtot{} bin.}
-      \label{fig:prof_2}
-  \end{figure*}
-%% ------------------------------------------------------------------------------------ %% 
+    \citep{Huang2013a}, derived the median \mden{} profile for a small sample of very 
+    nearby ellipticals (within 100 Mpc; median \logms{}$\sim 11.3$ based on shallower 
+    images) from the Carnegie-Irvine Galaxy Survey (CGS, \citealt{CGS1}) that are not 
+    affected by seeing until $r < 1$ kpc.
+    This median \mden{} profile qualitatively agrees with the one for the lowest 
+    \mtot{} bin in the inner region, but shows a slightly more prominent outer 
+    envelope at $r > 15$ kpc. 
+    While the small sample size of the CGS sample ($\sim 30$) and differences in the
+    measurements of \mstar{} could explain this difference, it is also interestingly 
+    consistent with mild mass assembly from $z\sim 0.4$ to $z=0$ in the outskirt.   
+    The CGS images are already deeper than SDSS images in $r$-band, but the median 
+    profile still only reaches to $\sim 50$ kpc for $z\sim 0$ massive galaxies.
+    Meanwhile, the deep HSC images can reliably deliver individual \mden{} profiles 
+    for $z\sim 0.4$ galaxy out to at least 100 kpc.  
 
-    \citet{Patel2013} extracted the median \mden{} profile of massive ETGs in a similar 
-    redshift range with this work ($0.25 < z < 0.50$) using the stacked \textit{HST}/ACS
-    images. 
+    \citet{Patel2013} extracted the median \mden{} profile of massive ETGs at 
+    $0.25 < z < 0.50$ using the stacked \textit{HST}/ACS images. 
     These galaxies are selected at a constant cumulative number density that makes them  
     good candidates of progenitors of $z=0$ massive ETGs.  
     The median \mstar{} is $\sim 10^{11.2} M_{\odot}$ according to their estimates.  
-    However, given the shallower depth of the ACS images and the usage of the BC03 model 
-    (each could cause -0.1 dex mass offset compared to this work), this sample should be 
-    comparable to the galaxies in the lowest \mtot{} bin, and the comparison of their 
-    median profiles does reflect that.  
+    However, once the differences in imaging depth and assumptions in SED fitting method
+    are considered, it is reasonable to assume they are comparable to our galaxies in 
+    the lowest \mtot{} bin, and the comparison of \mden{} profiles does confirm that.
     Moreover, the superb resolution of the \textit{HST}/ACS image makes the \mden{} 
-    profile unaffected by PSF even within inner 1 kpc, hence the comparison illustrates 
-    that the HSC profiles within our redshift range are indeed not bothered by 
-    seeing outside the shaded region, and \minn{} should be very reliable.
-    In fact, even \mstar{} within 5 kpc should be available for comparison.  
+    profile unaffected by PSF even within inner 1 kpc.
+    Therefore, the comparison illustrates that the HSC profiles within our redshift
+    range are indeed not bothered by seeing at $r > 3$ kpc, which also ensure the
+    accuracy of the \minn{} estimates.
   
-    Besides these observations, we also compare with the predicted average \mden{} 
-    profile of central galaxies in very massive halos 
-    ($13.5 < \log M_{200,c} < 14.0$) from cosmological simulation (\citealt{Cooper13}). 
-    This is achieved by combining the detailed assembly information of halos from the 
-    dark-matter-only simulation with semi-analytic model and particle-tagging technique 
-    (\citealt{Cooper10}).
-    Although the physical resolution and detailed baryonic processes are not as 
-    ``realistic'' as state-of-art hydro-simulation, it is very efficient in providing 
-    rough stellar mass distributions in a large sample of massive halos. 
-    Without any adjustment, the profile is already quite similar to the median \mden{}
-    profile of galaxies in the $11.6 <$\logmtot{}$< 11.8$ bin within 30-40 kpc. 
-    But the simulation seems to predict too significant envelope at larger radius for 
-    this average halo mass. 
-    Although we will not dig into the detailed causes of such differences, it already 
-    highlights that the comparison between deep \mden{} profiles from observations 
-    and the predicted ones in simulations can be very interesting, especially in the 
-    outskirt that was rarely discussed using previous data. 
+    We also compare with the predicted average \mden{} profile of central galaxies in 
+    massive halos ($13.5 < \log M_{200,c} < 14.0$) from cosmological simulation
+    (\citealt{Cooper13}) using the particle-tagging technique (\citealt{Cooper10}).
+    Despite the poorer resolution, its \mden{} profile is already quite similar to 
+    the median \mden{} profile for the $11.6 <$\logmtot{}$< 11.8$ bin within 40 kpc. 
+    However, comparing with observation, this simulation predicts stellar envelope that
+    is too prominent at this halo mass.
+    Result like this demonstrates that comparisons between observations and simulations
+    using \mden{} profiles have the potential to not only help us make simulation
+    more realistic, but also help us investigate the physical causes of the observed
+    \mstar{} and environmental dependences of structures.
     
-    We summarize the median profiles in Fig.\ref{fig:avg_prof} in Table.~1,
+    We summarize these median profiles in Fig.\ref{fig:avg_prof} in Table.~1,
     and all the above median profiles are available  
     \href{https://github.com/dr-guangtou/hsc_cenHighMh/tree/master/profiles}{here}.
-
 %% ------------------------------------------------------------------------------------ %% 
 
-\subsubsection{Environmental dependence}
+%% ------------------------------------------------------------------------------------ %% 
+\subsubsection{Environmental Dependence of the \mden{} Profiles}
     \label{sssec:sbp_mtot}    
-
-\alexie{Merge the two following into ONE section. AND cut it down by half. Sythetisoize.}
-
-    \update{
-    We show the results of the comparison in Fig.\ref{fig:prof_1} after 
-    carefully matching the \nbcg{} sample with larger size to the \rbcg{} samples 
-    within $0.3 < z < 0.5$ and $11.6 < $\logmtot{}$<11.9$ vial searching for the $N$ 
-    nearest neighbours on the $M_{\star}$-redshift plane using the KDTree algorithm. 
-    The details of the procedure and the evaluation of the matching quality can be 
-    found in Appendix.\ref{app:match} (see Fig.\ref{fig:match}.
-    Here, we choose to use the \mstar{} within 100 kpc as a proxy of the ``total''
-    stellar mass.  
-    This choice reflects the radius range of the \mden{} profile that we can safely 
-    measure in a model independent manner given the current depth of the image and 
-    the accuracy of sky background subtraction.
-    For galaxies with $11.6 < $\logmtot{}$<11.9$, 100 kpc equals to 5-8 times of their 
-    effective radius, hence should enclose most their \mstar{}.
-    %Also, for a small fraction of massive \rbcg{} galaxies that are from rich clusters, 
-    %the intra-group/cluster light (IGL/ICL) could contribute a lot to the observed 
-    %\mden{} profile, and complicate the comparison with the \nbcg{} galaxies.  
-    %We will discuss these issues in more details in Section \ref{sec:discussion}.
-    In summary, given the typical uncertainty of stellar mass, the two samples are well 
-    matched in \mtot{}; and their redshift distributions are broadly consistent with 
-    each other, hence we can perform meaning comparison of their average structures at 
-    ``fixed stellar mass'' (median \logmtot{}$\sim 11.74$).    
-    We also check their distributions of $k$-corrected colors ($g-r$), and confirm 
-    that they have similar color distributions as well.
-    }
     
-    For the 45 \rbcg{} galaxies, we have 229 unique \nbcg{} galaxies in the 
-    matched sample.
-    \update{
-    On the left side of Fig.\ref{fig:prof_1}, we plot the individual \mden{} profile 
-    of \rbcg{} and \nbcg{} galaxies along with the median profiles of both samples.
-    The uncertainties of the median profiles are derived using 5000 times of 
-    bootstrap resampling.
-    The \mden{} profile out to such large radius was only available for large sample of 
-    massive galaxies through image stacking method (e.g. \citep{Tal2011, DSouza2015}) 
-    which suffers from certain systematic issues.}
-    Although the \mden{} profiles of many galaxies extend well beyond the 100 kpc radius, 
-    we notice that some profiles show sign of unphysical truncation that is caused 
-    by inaccurate background subtraction.  
-    Therefore, we will not include profiles outside 100 kpc in the comparison, even 
-    though the median profiles within 200 kpc still behave normally.  
+    Finally, we will look into the environmental dependence of structures in massive 
+    galaxies using the \mden{} profiles of the \rbcg{} and \nbcg{} samples that are 
+    carefully matched in \mstar{} and redshift using KDTree algorithm. 
+    We discuss the details and quality of the matching procedure in 
+    Appendix.\ref{app:match} (see Fig.\ref{fig:match}. 
+    The matched redshift distributions within $0.3 < z < 0.5$ ensures the \mden{} 
+    profiles from both samples are impacted by seeing and background at similar level. 
+    As for the \mstar{}, we choose to match using two physically meaning definitions.
+    
+    \begin{itemize}
+        \item \mtot{} as the proxy of the ``total'' \mstar{} that include the stellar 
+            envelope.  As mentioned earlier, we match the two samples within 
+            $11.6 < $\logmtot{}$<11.9$ (median \logmtot{}$\sim 11.74$).
+            For the 45 \rbcg{} galaxies, we have 229 unique \nbcg{} galaxies in the 
+            matched sample.
+            Within this \mtot{} range, 100 kpc equals to 5-8 times of the effective 
+            radius, so should enclose most their \mstar{}. 
+            In practice, this choice also reflects the radius range that we can safely 
+            measure \mden{} profile given the depth of the image and the accuracy of 
+            background subtraction.
         
-    Once we match the distributions of \mtot{}, the \mden{} profiles of massive 
-    galaxies in the \rbcg{} and \nbcg{} samples \textbf{greatly overlap with each 
-    other over the entire radius range}. 
-    At fixed ``total'' stellar mass, massive central galaxies in more massive 
-    halos do not form a unique population comparing to the ones from less massive 
-    halos in term of their radial \mstar{} distributions. 
-    \update{
-    This partially explains why the previous works have trouble finding any clear 
-    environmental dependence of structure.} 
+        \item \minn{} as the proxy of the \mstar{} of the ``in-situ'' component.
+            This is motivated and supported by recent observations and simulations, 
+            and we will discuss more about this assumption in 
+            Section~\ref{sec:discussion}.
+            We match the two samples within $11.2 < $\logminn{}$ < 11.6$ 
+            (median \logminn{}$\sim 11.36$).
+            For 56 galaxies in this \rbcg{} sample, we achieve excellent matches
+            using 375 \nbcg{} galaxies.
+    \end{itemize}
     
-    At the same time, thanks to the high-quality individual profile from HSC image, 
-    we can also spot interesting differences in the median profiles of the 
-    \mtot{}-matched \rbcg{} and \nbcg{} samples.  
-    In details, it seems that the central galaxies in more massive halos tend to 
-    have slightly flattened inner \mden{} profiles while also possess more significant 
-    outer stellar envelope.   
-    To highlight such subtle structural features, we show the difference between 
-    the two median profiles and its uncertainty in the bottom panel. 
+    We show the comparison of the \mtot{}-matched (\minn{}-matched) samples in the 
+    left (right) panel of Fig.\ref{fig:prof_1}. 
+
+    For the \mtot{}-matched comparison, it is easy to see that the \mden{}
+    profiles of \rbcg{} and \nbcg{} galaxies \textbf{greatly overlap with each 
+    other over the entire radius range}, which partially explains the difficulties in 
+    confirming any environmental dependence of structure in earlier works.
+    Although the central galaxies from more massive halos do not form a unique 
+    population in term of their structures comparing with the ones in less massive
+    halos at similar \mtot{}, we can still spot interesting differences in their 
+    median profiles: the \rbcg{} galaxy on average has slightly more flattened inner 
+    profile and more significant outer stellar envelope than the \nbcg{} one.
+    We highlight these subtle differences in the bottom panel using the difference 
+    between the two median profiles and its uncertainty. 
     Given the noticeable uncertainties of \mtot{} and $\lambda$, along with the 
     small size of the current \rbcg{} sample, we perform statistical test to confirm 
-    the robustness of the result: we mix the $N_{\mathrm{r}}$ \rbcg{} galaxies and 
-    the $N_{\mathrm{n}}$ \mtot{}-matched \nbcg{} ones together, then randomly draw 
-    $N_{\mathrm{r}}$ galaxies with putting-back, compute the difference between the 
-    median profile of this sample and the \nbcg{} sample. 
-    \update{
+    the robustness of the result \footnote{We mix the $N_{\mathrm{r}}$ \rbcg{} 
+    galaxies and the $N_{\mathrm{n}}$ \mtot{}-matched \nbcg{} ones together, then 
+    randomly draw $N_{\mathrm{r}}$ galaxies with putting-back, compute the difference 
+    between the median profile of this sample and the \nbcg{} sample. 
     After repeating this process 2000 times, we can evaluate the possibility that 
     the systematic differences in median \mden{} profiles can be reproduced by random 
-    selection of massive galaxies.
-    Comparing with the statistical distributions of the differential profiles from 
-    this test (grey shaded region), we can now conclude that the structural 
-    differences between \rbcg{} and \nbcg{} samples are significant.}
-    Apparently, the ``transition radius'' where the median profiles of \rbcg{} 
-    and \nbcg{} sample have the same \mden{} is $\sim 15$-20 kpc, which is quite 
-    close to the expected $R_{\mathrm{e}}$ of ETGs at this \mtot{} (please see 
-    next section for details).
-       
-    To further test the robustness of this interesting result, we apply the above 
-    procedures to \mtot{}-matched samples with slightly different definitions.  
-    The results are shown in Fig.\ref{fig:prof_3} in Appendix.\ref{app:robust}: 
-    (a). At higher redshift, the profile is affected more by the seeing at inner 
-    region, and by the imaging depth in the outskirt.  
-    Therefore, we compare the matched \rbcg{} and \nbcg{} samples within 
-    $0.3 \leq z < 0.4$, and the results are very similar.
-    (b). We also make the comparison using a \rbcg{} sample with lower average 
-    halo mass ($\lambda \geq 20$), the results are still stable (middle panel). 
-    We also check whether the structural differences are driven by small fraction 
-    of \rbcg{} galaxies in very massive clusters.  
-    After removing the \rbcg{} galaxies in clusters with $\lambda \geq 40$, the 
-    differences are as significant as above.  
-    (c). As noted before, the \mtot{} is just a proxy of the total stellar mass. 
-    Given the differences we find, at fixed \mtot{}, \rbcg{} galaxy tends to have 
-    slightly more prominent outer envelope outside 100 kpc than the \nbcg{} one. 
-    Hence their real ``total'' stellar mass could also be slightly larger, and 
-    bias the comparison.  
-    Therefore, we make a similar comparison using the maximum \mstar{} from 
-    the integration of the \mden{} profile instead of the \mtot{}.
-    \update{
-    In this case, the differences between the median profiles become slightly 
-    less significant as expected (a fraction of \rbcg{} galaxies become more 
-    massive, and is not included in the \logmtot{}$< 11.9$ mass bin). 
-    But the systematic trends, especially the differences in the low mass density 
-    outskirt are still very robust. 
-    We will further discuss this in Section \ref{sec:discussion}. 
-    Considering the uncertainty of \mden{} profiles outside 100 kpc, the 
-    feasibility of applying the average \m2l{} to stars in the extreme outskirt, 
-    and the contribution of the diffuse stellar components that trace the halo, 
-    we think that our results are stable.}
-    
+    selection of massive galaxies.}
+    In both inner and outer regions, we conclude the systematic differences in 
+    median \mden{} profiles are significant and robust.
+    Interestingly, the median profiles for \rbcg{} and \nbcg{} cross each other 
+    at $\sim 15$-20 kpc, quite close to the expected $R_{\mathrm{e}}$ for ETGs 
+    this massive. 
+    In Appendix.\ref{app:robust}, we further prove the robustness of this 
+    interesting result by showing that it is not affected by the range of redshift,
+    range of richness, and the choice of proxy for ``total'' \mstar{} 
+    (see Fig.\ref{fig:prof_3}). 
+    We also explore the possible \mtot{}-dependence of this structural difference 
+    despite the limitation of \mstar{}-completeness and small sample size
+    (see Fig.\ref{fig:prof_2}) in Appendix.\ref{app:robust}.
+    Although the systematic differences are very similar in different \mtot{} bins, 
+    we do find some hints that suggest the environmental dependence becomes more 
+    significant at the more massive end.  
+    This evidence could have intriguing implication in the assembly history of 
+    massive galaxies, and is worth more investigations with larger and more completed 
+    sample later.  
+
     \textbf{All these tests confirm that we robustly detect subtle, but systematic 
     \mhalo{}-dependence (environmental dependence) of structure in massive, 
-    central galaxies.}
-    \update{
-    Interestingly, the fact the it takes much better data and really cautious 
-    comparison to detect such systematic difference seems to suggest that the role 
-    played by environment in shaping the structure of central galaxies may not be 
-    that crucial in the \mhalo{} and \mstar{} ranges we discussed.}
+    central galaxies} that seems to be consistent with the expectation of more frequent 
+    (minor) mergers in denser environment. 
+    These minor, non-dissipative mergers do not alter the inner \mden{} profiles 
+    a lot, but are efficient in depositing stellar mass onto the outer envelope
+    (e.g. \citealt{Hilz2013}, \citealt{Oogi2013}).
     
-    At the same time, the systematic differences we find, especially the more 
-    extended stellar envelope of massive central galaxy in more massive halos, 
-    seem to be consistent with the expectation of richer (minor) merging history
-    in denser environment. 
-    \update{
-    Predicted by the ``two-phase'' scenario, the non-dissipative mergers, especially 
-    the minor ones, should mainly deposit stellar mass in the outskirts, help 
-    build the stellar halo while do not change the inner \mden{} profiles very 
-    much (e.g. \citealt{Hilz2013}, \citealt{Oogi2013}).}
-
-    We also explore the possible \mtot{} dependence of such difference.  
-    Limited by the small sample we have, we can only afford to separate the 
-    samples into two \mtot{} bins, and extend to slightly lower \mtot{} bound 
-    ($11.5 \leq \log (M_{\star,\ 10\mathrm{kpc}}/M_{\odot}) < 11.7$ and 
-     $11.7 \leq \log (M_{\star,\ 10\mathrm{kpc}}/M_{\odot}) < 11.9$).  
-    After performing the same procedures of sample matching and comparison, 
-    we show the results in Fig.\ref{fig:prof_2}.   
-    Although the smaller sample leads to larger statistical uncertainties, 
-    it is still interesting to see that the structural differences seem to 
-    be more significant in the higher \mtot{} bin.  
-    For the lower \mtot{} bin, the difference in the inner region becomes quite 
-    uncertain, while there is still evidence of difference in the outskirt.  
-    This result also has interesting implications in the assembly history
-    of massive galaxies, and is worth more investigations with larger samples
-    in the near future.  
-
 %% ------------------------------------------------------------------------------------ %% 
 
-\subsubsection{Environmental dependence of \mden{} profiles at fixed \minn{}}
-    \label{sssec:sbp_minn}
+%% ------------------------------------------------------------------------------------ %% 
+    Meanwhile, the subtlety of this environmental dependence for \mtot{}-matched 
+    samples seems to suggest that environment plays a secondary role in shaping 
+    the structure of galaxies, and encourage us to look into this issue with a 
+    different angle. 
+    For instance, for massive galaxies that formed similar amount of stars through 
+    intensive star formation at high redshift, how do their host halos (environments) 
+    affect the following mass assembly history? 
+    We attempt to investigate this question through comparing the \mden{} profiles of 
+    the \minn{}-matched \rbcg{} and \nbcg{} galaxies (right side of 
+    Fig.\ref{fig:prof_1}).
+    Assuming we are now comparing the average structures of massive galaxies that share 
+    similar \mstar{} in the ``in-situ'' component, we see striking differences that 
+    are significant without any statistical test.     
+    The median \mden{} profiles of \rbcg{} and \nbcg{} galaxies are quite similar in 
+    the inner 5-10 kpc, but the \rbcg{} galaxies clearly show much more prominent
+    outer envelope.     
     
-    \alexie{This is not a seperate section.}
-
-    \update{Here, we compare the median \mden{} profiles of \rbcg{} and \nbcg{} galaxies
-    after matching the two samples using \minn{} ($11.2 <$\logminn{}$ < 11.6$) and 
-    redshift ($0.3 < z < 0.5$).
-    We use the same matching procedure as in the previous section, and also put its 
-    evaluation in Appendix.\ref{app:match}.
-    As mentioned in the beginning, here we use \minn{} as the proxy of the 
-    \mstar{} of the ``in-situ'' component. 
-    We will discuss this assumption more in the Section~\ref{sec:discussion}, but 
-    observations and simulations seem to support this claim in general. 
-    In the previous section, we investigate the environmental dependence of structure 
-    using ``total'' \mstar{}; here, we compare the massive galaxies in low- and 
-    high-mass halos that share similar amount of ``in-situ'' component.}
-    
-    \update{
-    As we can see in Fig.\ref{fig:prof_1} and the Appendix.\ref{app:D}, the \minn{} is 
-    not affected by the physical size of PSF out to $z=0.5$.  
-    For the 56 galaxies in this \rbcg{} sample, we achieve excellent matching 
-    result using 375 \nbcg{} galaxies (see Fig.\ref{fig:match}; 
-    median \logminn{}$\sim 11.35$).  
-    Using the same method, we show their individual profiles, and the comparison of 
-    their median \mden{} profiles on the right side of Fig.\ref{fig:prof_1}.}
-    
-    Unlike the \mtot{} matched samples, here we see very striking differences that 
-    are already very significant even without any statistical test.     
-    \update{
-    It is easy to see that, when matched at the same \minn{}, the \mden{} profiles of 
-    \rbcg{} and \nbcg{} galaxies are quite similar in the inner 5-10 kpc.
-    However, outside inner 10-15 kpc, the \rbcg{} galaxies show much more prominent
-    stellar envelope.}     
-    Besides the differences in the median profiles, it is also worth discussing 
-    the distributions of individual \mden{} profiles. 
-    \update{
-    Combining the \rbcg{} and \nbcg{} samples together, we should notice that 
-    the slope of the \mden{} profile inside 10 kpc is quite uniform, and the dynamic 
-    range of the \mden{} values is pretty small. 
-    On the other hand, the outer \mden{} profiles of massive central galaxies 
-    can have a larger range of slopes. 
-    The ones from more massive halos on average have shallower outer \mden{} 
-    profiles, which is in qualitative agreement with recent simulation results 
+    It is also worth noting that \mden{} profiles of massive galaxies have quite uniform
+    slope and small scatter inside 10 kpc.  
+    In contrast, their outer profiles could have a large range of slopes and much 
+    larger scatters than the inner region. 
+    It seems to suggest that the inner and outer parts of massive galaxies are shaped 
+    by distinctive physical processes, and are affected by their environment at 
+    very different level. 
+    Given the highly dissipative nature of the ``in-situ'' phase, the similarity of 
+    inner profiles is consistent with the idea that processes like wet-merger and 
+    star burst often create de~Vaucouleur-like ($n\sim 4$) \mden{} profile
+    (e.g. \citealt{Hopkins2008}).
+    At the same time, the outer envelope of massive galaxies are predicted to be 
+    gradually assembled by non-dissipative mergers, which is a stochastic process and 
+    is more affected by the environment.  
+    Therefore, it is natural to see larger diversity in the outer profiles of 
+    low-$z$ massive galaxies. 
+    On average, massive galaxies in more massive halos show shallower outer \mden{} 
+    profiles, which is in qualitative agreement with recent simulation
     (e.g. \citealt{Pillepich2014}).
-    And, for both \rbcg{} and \nbcg{} samples, we find their outer profiles 
-    clearly have much larger dynamic range of \mden{} values at fixed radius.
-    This interesting diversity is also clearly illustrated by 
-    Fig.\ref{fig:m100_m10_color}, where we show the 3-color images of randomly 
-    selected massive central galaxies that have similar \minn{} 
-    ($11.1 \leq \log (M_{\star,\ 10\mathrm{kpc}}/M_{\odot}) < 11.2$)
+    We illustrate this interesting diversity in Fig.\ref{fig:m100_m10_color}, where 
+    we show the 3-color images of randomly selected massive central galaxies that 
+    have similar \minn{} ($11.1 \leq \log (M_{\star,\ 10\mathrm{kpc}}/M_{\odot}) < 11.2$)
     but different \mtot{}.   
     From the top-left to the bottom-right, the \mtot{} of these galaxies increases
-    from $10^{11.22} M_{\odot}$ to $10^{11.75} M_{\odot}$.}
+    from $10^{11.22} M_{\odot}$ to $10^{11.75} M_{\odot}$.
     
-    \update{
-    Putting together, these results indicate that massive central galaxies with 
-    similar \mstar{} in the ``in-situ'' components share very similar radial 
-    \mstar{} distributions in the inner region. 
-    Given the highly dissipative nature of the ``in-situ'' phase, this is consistent
-    with the prediction that dissipative process like intense star-formation or 
-    wet-merger should create de~Vaucouleur-like ($n\sim 4$) \mden{} profile
-    (e.g. \citealt{Hopkins2008}).
-    On the other hand, the outer envelope of massive galaxies should be slowly 
-    assembled through non-dissipative accretion process, where merger history 
-    should play a essential role.  
-    Therefore, it is reasonable to see that the central galaxy of more massive 
-    halo has more significant stellar envelope than the one from lower mass 
-    halo at fixed \mstar{} of their ``in-situ'' components.
-    }
-    
-    \update{
-    Despite that the structural contrast is very clear using the median \mden{} 
-    profile, we still perform a serious of tests to verify the robustness of the 
-    results. 
-    Changing the redshift range or the lower $\lambda$ bound of the \rbcg{} sample 
-    has no impact in the significance of the results; 
-    Replacing the \minn{} with the \mstar{} within 5 or 15 kpc will result in 
-    very similar differences; 
-    And, unlike the \mtot{}-matched samples, spitting the samples into two \minn{} 
-    bins (above and below \logminn{}$=11.4$) reveals no apparent \minn{}-dependence 
-    of the structural differences.
-    During the comparison, we notice that there is still tiny structural difference
-    within 10 kpc (right figure of Fig.\ref{fig:prof_1}).
-    When we match the two samples using both \minn{} and \meff{}, we notice that 
-    inner median \mden{} profiles within 10 kpc becomes extremely similar 
-    (see Fig.\ref{fig:match} in Appendix.\ref{app:match}), while the differences 
-    in the outer part remain the same. 
-    Hence, for \rbcg{} and \nbcg{} galaxies that share not only the same inner mass, 
-    but also the same inner \mden{} profiles, we still see significant environmental 
-    dependence in their overall structure.}
-    
-    \update{
-    When we match the two samples using \minn{}, the matched samples have 
-    different \mtot{} distributions (median \logmtot{}$\sim 11.78$; 
-    median \logmtot{}$\sim 11.64$).  
-    Although it is still safe to say that they represent very massive central 
-    galaxies, we also notice that the \nbcg{} sample starts to include galaxies with 
-    $11.2 \leq$\logmtot{}$< 11.6$. 
-    For one thing, our samples start to become quite incomplete below 
-    \logmtot{}$\sim 11.5$-11.6; the satellite contamination could also increases
-    toward lower \mtot{} end.  
-    More importantly, when the \mtot{} becomes very different, it is no longer 
-    comfortable to assume that they can share very similar ``in-situ'' components 
-    even at the same \minn{}, as they could be in different phases of evolution.
-    Therefore, we also match the two samples using \minn{} again, but only include the 
-    massive ones with \logmtot{}$\geq 11.5$.  
-    Comparison between these more complete, purer samples of massive central galaxies 
-    shows very similar structural differences again (see the right side of 
-    Fig.\ref{fig:match} in Appendix.\ref{app:match}).
-    In fact, their median profiles become even more similar in the inner region,
-    suggesting that the results are very robust.}
-    
-    \update{
-    The median profiles shown in Fig.\ref{fig:prof_1} are available in 
-    Table.1.}
-
+    As with the \mtot{}-matched sample, the results are very robust against 
+    sample details, definition of ``inner'' \mstar{} and the \minn{} bins. 
+    In Appendix.\ref{app:match}, we also show that:
+    1) When we match using both \minn{} and \meff{}, we end up with \rbcg{} and \nbcg{} 
+    samples with perfectly matched inner median \mden{} profiles, while the different 
+    in the outskirt remains the same (see the left figure of Fig.\ref{fig:prof_4}).  
+    2) Also, the results will not change even when only a more \mstar{}-complete sample
+    (\logmtot{}$> 11.5$) is considered (see the right figure of Fig.\ref{fig:prof_4}). 
+      
+    The median profiles shown in Fig.\ref{fig:prof_1} are available in Table.1.
 %% ------------------------------------------------------------------------------------ %% 
 
-\subsection{Comparisons of ellipticity and optical-color profiles}
+%% ------------------------------------------------------------------------------------ %% 
+\subsection{Ellipticity and Color Profiles}
     \label{ssec:ell_color}
-    
-    \alexie{On the fence about this section. Is it all important???}
-    
+       
 %% ------------------------------------------------------------------------------------ %% 
   \begin{figure*}[t!]
       \centering 
       \includegraphics[width=\textwidth]{fig/redbcg_discussion_2}
-      \caption{Comparisons of the radial profiles for ellipticity and optical colors 
-      	for \mtot{}-matched (\textbf{left figure}) and \minn{}-matched 
-      	(\textbf{right figure}) of \rbcg{} (orange-red) and \nbcg{} (grey-black) samples. 
-        The formats are very similar to the figure for \mden{} profile 
-        (e.g. right figure of Fig.\ref{fig:prof_1}). 
-        On each side, from top to bottom, we show the elliptical profile, and the 
-        color profile using $g-r$ and $g-i$ color. 
-        Since the individual profile of these properties has very large uncertain in the 
-        outskirt, we block the region at large radii where we think the median profiles 
-        are still unreliable using a dark, shaded box.
-        We also compare these results with previous results based on SDSS images. 
-        They are: 
-        1) Ellipticity profile of the stacked image of a large sample of red galaxies at 
-        $z\sim 0.4$ from \citet{Tal2011} with PSF correction 
-        (solid blue line on top panel); 
-        2) Ellipticity and $g-r$ color profiles from stacking analysis of nearby massive 
-        galaxies with high concentration index ($C>2.6$) in \citet[][blue dash lines 
-        on the top and middle panels]{DSouza2014}; 
-        3) average $g-r$ and $g-i$ color profiles for a large sample of nearby 
-        elliptical galaxies in \citet[][blue, solid lines on the middle and bottom 
-        panels]{LaBarbera2010}.}
+      \caption{
+          Comparisons of the radial profiles of ellipticity and optical colors 
+      	  for \mtot{}-matched (\textbf{left figure}) and \minn{}-matched 
+      	  (\textbf{right figure}) of \rbcg{} (orange-red) and \nbcg{} (grey-black) samples. 
+          The formats are very similar to the figure for \mden{} profile 
+          (e.g. right figure of Fig.\ref{fig:prof_1}). 
+          On each side, from top to bottom, we show the elliptical profile, and the 
+          color profile using $g-r$ and $g-i$ color. 
+          Since the individual profile of these properties has very large uncertain in the 
+          outskirt, we block the region at large radii where we think the median profiles 
+          are still unreliable using a dark, shaded box.
+          We also compare these results with previous results based on SDSS images. 
+          They are: 
+          1) Ellipticity profile of the stacked image of a large sample of red galaxies at 
+          $z\sim 0.4$ from \citet{Tal2011} with PSF correction 
+          (solid blue line on top panel); 
+          2) Ellipticity and $g-r$ color profiles from stacking analysis of nearby massive 
+          galaxies with high concentration index ($C>2.6$) in \citet[][blue dash lines 
+          on the top and middle panels]{DSouza2014}; 
+          3) average $g-r$ and $g-i$ color profiles for a large sample of nearby 
+          elliptical galaxies in \citet[][blue, solid lines on the middle and bottom 
+          panels]{LaBarbera2010}.
+          }
       \label{fig:ell_color}
   \end{figure*}
 %% ------------------------------------------------------------------------------------ %% 
     
-    \update{
-    In the above section, we focus on the 1-D \mden{} profiles that are based on 
-    $i$-band image along. 
-    Although they already help us reveal interesting structural differences, we 
-    should not forget that the multi-band, 2-D HSC images of massive galaxies 
-    contain more information. 
-    Among them, the shapes and colors of different stellar components are particularly 
-    important to look into.
+    Besides the 1-D \mden{} profiles, the radial profiles of isophotal shape and colors 
+    are also useful diagnostic tools to study massive galaxies. 
     Here, we extract the radial profiles of ellipticity and $k$-corrected optical colors
     of galaxies in both \mtot{}-matched and \minn{}-matched samples (used in 
     Fig.\ref{fig:prof_1}) using \texttt{Ellipse}, and compare the average profiles between
-    the \rbcg{} and \nbcg{} samples for two main purposes:}
+    the \rbcg{} and \nbcg{} samples for two main purposes:
     
     \begin{enumerate}
-        \item \update{Since we derive the \mden{} profiles using average isophotal 
-            shape, if these massive galaxies have steep or complicated elliptical 
-            profiles, or the two samples share very different elliptical profiles, 
-            the comparison of the average \mden{} profiles could be biased.
-            Therefore, we want to verify that photometry using average isophotal 
-            shape is appropriate for these samples. 
-            We extract ellipticity profiles in $i$-band using \texttt{Ellipse} by 
-            setting the geometric parameters free while forcing all isophotes share 
-            the same center.}
-        \item \update{As emphasized earlier, we apply the average \m2l{} to derive 
-            \mstar{} of these massive galaxies knowing that the \m2l{} changes with 
-            radius.  Although this may not be a critical issue when deriving ``total''
-            \mstar{}, it certainly can bias the comparisons of \mden{} profiles when 
-            two samples have very different \m2l{} profiles. 
-            So we want to confirm that the application of average \m2l{} is reasonable
-            using the optical color profiles as tracer of \m2l{}.  
-            After preparing the images in other bands in the same way with $i$-band 
-            ones, we derive color profiles by applying the isophotes from $i$-band 
-            to other images in a ``forced photometry'' mode.}
+        \item To see whether the ellipticity profile strongly depends on environment, 
+            and to see whether 1-D \mden{} profiles using average isophotal shape is 
+            appropriate for the goal of this work.
+        
+        \item To verify that the average color gradient does not strongly depend on 
+            the environment, and is not steep enough to invalid the assumption that   
+            it is reasonable to use average \m2l for comparing massive galaxies. 
+            We extract color profiles by applying the isophotes in $i$-band to images 
+            in other bands in ``forced photometry'' manner.  
     \end{enumerate}
 
-    \update{
-    Strictly speaking, we need better background subtraction and 2-D modeling method 
-    to accurately recover these information. 
-    But the straightforward methods applied here are sufficient for these purposes. 
-    We make no correction to the differences in background subtraction and PSF in 
-    different bands, therefore, we will simply ignore the shape and color information 
-    in the inner-most region and very low surface brightness regime. 
-    The profiles between 5-50 kpc should be useful. 
-    Here we only consider $g$ and $r$ band data as the ones in $z$ and Y-band are 
-    often shallower, have worse seeing, and suffer more from background subtraction 
-    issues. 
+    Since we do not correct the differences in sky subtraction and seeing across 
+    different bands, we simply ignore the ellipticity and color in the inner-most and 
+    very low surface brightness regions (profiles are useful between 5-50 kpc). 
     We apply Galactic extinction and $k$-correction to both $g-r$ and $g-i$ color 
     profiles; the $k$-correction values are also from \texttt{iSEDFit} results.
     We show the average ellipticity, $g-r$, and $g-i$ color profiles for the 
     \mtot{}-matched (\minn{}-matched) samples of \rbcg{} and \nbcg{} galaxies on the 
     left (right) side of \ref{fig:ell_color}, and also compare them with previous 
     estimates that are based on stacking analysis of SDSS galaxies 
-    (e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}).}
-    
-    \update{
-    Firstly, it is easy to see that massive central galaxies on average have positive 
-    ellipticity profiles. 
-    The ellipticity slowly, but steadily increase with radius from $e\le 0.2$ around 
-    5-10 kpc to $e\sim 0.3$ at 40-50 kpc.  
-    For the \mtot{}-matched samples, their ellipticity profiles trace each other 
-    very well all the way to 50 kpc (2-3$\times R_{\mathrm{e}}$ for their \mstar{}); 
-    there might be hints that the \rbcg{} ones have higher ellipticity at larger 
-    radius, but the isophotal fits with free geometry become very unstable at such 
-    low surface brightness region. 
-    This confirms that the comparisons of \mden{} profiles using average isophotal 
-    shape is reasonable. 
-    On the other hands, when matched using \minn{}, the \rbcg{} galaxies show 
-    systematically higher ellipticity than the \nbcg{} ones at $r > 10$ kpc, despite 
-    the ellipticity profiles at inner region are still very similar. 
-    Since the average ellipticity value is still quite low, and the slope of the 
-    profile is very shallow, the differences in ellipticity profiles will not affect 
-    the significant differences in \mden{} profiles. 
-    And it further hints different assembly histories of the outer envelopes of
-    central galaxies in different environments. 
-    These results are in consistent with the ones from 2-D decomposition in
-    \citep{Huang2013a}: the outer envelopes of massive ETGs have higher ellipticity 
-    than the inner, ``in-situ'' dominated region; and become more elongated with 
-    \mstar{}. 
-    As for the ellipticity profile, although it contains interesting information 
-    regarding the assembly history, it is difficult to estimate them down to very 
-    large radius. 
-    \citet{Tal2011} stacked the SDSS images of a large sample of Luminous Red 
-    Galaxies (LRGs) at $z\sim 0.4$, and extract the ellipticity profile after 
-    correcting the PSF convolution effect.   
-    Its slope is much shallower than the average ones using HSC images, despite the 
-    two samples are at similar redshift and are quite comparable. 
-    The poorer seeing condition of SDSS image plus the systematics in the stacking 
-    process can easily explain this. 
-    \citet{DSouza2015} performed similar stacking analysis for a large sample of very 
-    nearby ETGs.  
-    The ellipticity profile is quite consistent with our average ones within 5-10 
-    kpc, but become much shallower at outer region.  
-    The lower average \mstar{} of their sample and/or the uncertainties in the 
-    stacking analysis may explain this.  
-    This highlights the advantages of the high-resolution, deep HSC images again,
-    and it would be very interesting to compare with numerical simulations. 
-    }
-    
-    \update{ 
-    Secondly, we see shallow and negative gradients of average $g-r$ and $g-i$ color 
-    profiles for both \rbcg{} and \nbcg{} galaxies after excluding the unreliable 
-    regions. 
-    On the left of Fig.\ref{fig:ell_color}, we see that the \rbcg{} and \nbcg{} 
-    samples share very similar color profiles from 5-50 kpc. 
-    This is very good news for using average \m2l{} in the comparisons of \mden{}
-    profiles: although the \mden{} profiles may not be perfectly accurate, there 
-    should be no bias when comparing the average profiles of \rbcg{} and \nbcg{} 
-    samples.
-    On the right side of Fig.\ref{fig:ell_color}, the situation is very similar 
-    as the slopes of color gradients are basically the same for two samples; 
-    although there might be some evidence that, when matched at similar \mstar{} 
-    of the ``in-situ'' component, the \rbcg{} galaxies tend to have slightly redder
-    envelopes than the \nbcg{} ones. 
-    This is worth further investigation, especially vial multi-band, 2-D 
-    decomposition method. 
-    Ignoring the tiny differences between the corresponding HSC and SDSS filters, 
-    we see quite consistent $g-r$ color profiles; but the $g-i$ profiles become 
-    slightly steeper using HSC images. 
-    Although the exact cause of this difference is not clear, it is worth noting that
-    the SDSS $i$-band images suffer from the ``red-halo'' effect of extended PSF 
-    wing (e.g. \citealt{Wu2005}, \citealt{Tal2011}) which could make the color 
-    at larger radius appear redder.
-    Thank to the thickness of the CCD, the HSC $i$-band images do not have this 
-    problem, hence can provide more accurate color estimates.
-    }
+    (e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}).
 
-    \update{
-    Although the 1-D analysis is not perfect, these preliminary results already 
-    point out the importance and benefits of including multiband, 2-D information 
-    into account. 
-    Now we know that, for massive central galaxies with similar \mtot{}, the average 
-    \mden{} profiles show subtle dependence on halo mass, while the color and 
-    ellipticity profiles are very stable.  
-    On the other hands, for central galaxies that have the same \mstar{}, ellipticity 
-    and color profiles within 10 kpc, their outer envelopes appears to be strongly 
-    depend on environments. 
-    }
+    Firstly, the ellipticity of massive galaxies steadily increase with radius 
+    from $e\le 0.2$ around 5-10 kpc to $e\sim 0.3$ at 40-50 kpc, in consistent with 
+    previous 2-D modeling results \citep{Huang2013a}.  
+    For the \mtot{}-matched samples, their ellipticity profiles are very similar 
+    all the way to 50 kpc (2-3$\times R_{\mathrm{e}}$ for their \mstar{}). 
+    Meanwhile, for the \minn{}-matched samples, the \rbcg{} galaxies have higher 
+    ellipticity than the \nbcg{} ones at $r > 10$ kpc, while their inner ellipticity 
+    profiles are very similar.  
+    This further hints that massive central galaxies in different halos but with 
+    similar ``in-situ'' mass could experience different merging history.
+    And, given he relative low ellipticity value and shallow ellipticity profile, 
+    we conclude that average isophote is appropriate for the structural comparisons 
+    we performed.
+    Previously, people often rely on image stacking method to extract ellipticity 
+    profile out to large radius (e.g. \citealt{Tal2011}, \citealt{DSouza2015}).
+    Comparing with the ellipticity profile directly measured on deep HSC image, 
+    we find that the stacked ellipticity profiles tend to underestimate the 
+    ellipticity in the outskirt. 
+    Since the ellipticity profile contains interesting information of the assembly 
+    history, we think it highlights the advantage of the HSC image in studying 
+    massive galaxies again, and it would be very interesting to compare with 
+    numerical simulations on this.
+     
+    % \citet{Tal2011} stacked the SDSS images of a large sample of Luminous Red 
+    % Galaxies (LRGs) at $z\sim 0.4$, and extract the ellipticity profile after 
+    % correcting the PSF convolution effect.   
+    % Its slope is much shallower than the average ones using HSC images, despite the 
+    % two samples are at similar redshift and are quite comparable. 
+    % The poorer seeing condition of SDSS image plus the systematics in the stacking 
+    % process can easily explain this. 
+    % \citet{DSouza2015} performed similar stacking analysis for a large sample of very 
+    % nearby ETGs.  
+    % The ellipticity profile is quite consistent with our average ones within 5-10 
+    % kpc, but become much shallower at outer region.  
+    % The lower average \mstar{} of their sample and/or the uncertainties in the 
+    % stacking analysis may explain this.  
+    % This highlights the advantages of the high-resolution, deep HSC images again,
+    % and it would be very interesting to compare with numerical simulations. 
     
+    Secondly, we see shallow and negative gradients of average $g-r$ and $g-i$ color 
+    profiles for both \rbcg{} and \nbcg{} galaxies. 
+    For both \mtot{}- and \minn{}-matched samples, we find no significant difference
+    in their median color profiles, which supports the assumption of using single 
+    average \m2l{} value to estimate \mden{} profiles.
+    The median $g-r$ color profiles are quite consistent with the ones based on 
+    stacked SDSS images. 
+    For $g-i$ profiles, the HSC ones are slightly deeper than the SDSS ones, but we 
+    need to remind you the so-called ``red-halo'' effect of extended PSF wing in 
+    SDSS $i$-band (e.g. \citealt{Wu2005}, \citealt{Tal2011}) that could make the 
+    color appears redder.
+    Thank to the thickness of the CCD, the HSC $i$-band image can help provide more 
+    accurate color estimates as it does not suffer from the ``red-halo'' effect.
+    
+    These results suggest that multi-band, 2-D information will help us piece together
+    a more complete view of massive galaxy evolution, but also point out limitations 
+    of the 1-D \mden{} profile analysis. 
+    In the near future, we will come back to this point with the help of 2-D modeling
+    method. 
+    
+    % On the left of Fig.\ref{fig:ell_color}, we see that the \rbcg{} and \nbcg{} 
+    % samples share very similar color profiles from 5-50 kpc. 
+    % This is very good news for using average \m2l{} in the comparisons of \mden{}
+    % profiles: although the \mden{} profiles may not be perfectly accurate, there 
+    % should be no bias when comparing the average profiles of \rbcg{} and \nbcg{} 
+    % samples.
+    
+    % On the right side of Fig.\ref{fig:ell_color}, the situation is very similar 
+    % as the slopes of color gradients are basically the same for two samples; 
+    % although there might be some evidence that, when matched at similar \mstar{} 
+    % of the ``in-situ'' component, the \rbcg{} galaxies tend to have slightly redder
+    % envelopes than the \nbcg{} ones. 
+    % This is worth further investigation, especially vial multi-band, 2-D 
+    % decomposition method. 
+
+    % Although the 1-D analysis is not perfect, these preliminary results already 
+    % point out the importance and benefits of including multiband, 2-D information 
+    % into account. 
+    % Now we know that, for massive central galaxies with similar \mtot{}, the average 
+    % \mden{} profiles show subtle dependence on halo mass, while the color and 
+    % ellipticity profiles are very stable.  
+    % On the other hands, for central galaxies that have the same \mstar{}, ellipticity 
+    % and color profiles within 10 kpc, their outer envelopes appears to be strongly 
+    % depend on environments. 
+        
 %% ------------------------------------------------------------------------------------ %% 
 
+%% ------------------------------------------------------------------------------------ %% 
 \subsection{Environmental Dependence of Scaling Relations}
     \label{ssec:scaling}
 
@@ -1618,7 +1500,8 @@ We highlight this in the right panel of Fig.\ref{fig:smf1} as we show the
   \begin{figure*}[bt!]
       \centering 
       \includegraphics[width=\textwidth]{fig/redbcg_scaling_relation}
-      \caption{\textbf{Left}: The \mstar{}-size relations for \rbcg{} 
+      \caption{
+          \textbf{Left}: The \mstar{}-size relations for \rbcg{} 
           (orange squares) and \nbcg{} (grey dots) galaxies. 
           Here we use the \mtot{} as proxy of total \mstar{}, and use the 
           $R_{\mathrm{50}}$ derived from the 1-D profile as size estimate. 
@@ -1652,23 +1535,19 @@ We highlight this in the right panel of Fig.\ref{fig:smf1} as we show the
     dependence has been found at low redshift using various definitions of ``size''. 
     And the observations become controversial at intermediate and high redshift
     (e.g. \citealt{MCooper2012}, \citealt{Papovich2012}, \citealt{Kelkar2015}).
-    \update{
     Since comparisons of \mden{} profiles reveal that the structure of massive central 
     galaxies indeed shows dependence on halo mass or environment, we expect to find 
     similar evidence on the \mstar{}-size relations (see the left panel of 
     Fig.\ref{fig:scaling_relation}).
-    }
      
     We use the \mtot{} as the proxy of ``total'' \mstar{}, and the 
     radius that encloses 50\% of luminosity within 100 kpc ($R_{\mathrm{50}}$) as 
     the ``size'' to evaluate the relation.
-    \update{
     We derive the $R_{\mathrm{50}}$ using the $i$-band curve-of-growth. 
     Since the massive galaxies in this sample are large enough, we do not need to 
     worry about the seeing correction here. 
     Meanwhile, the 1-D method is less affected by the accuracy of background 
     subtraction and structural details.
-    }
     
 %    We use the curve-of-growth of luminosity from the \texttt{Ellipse} run on 
 %    $i$-band images to estimate the $R_{\mathrm{50}}$ here.
@@ -1680,7 +1559,8 @@ We highlight this in the right panel of Fig.\ref{fig:smf1} as we show the
 %    At the same time, this 1-D method has the advantages of being less affected by the 
 %    accuracy of background subtraction, structural details, and model assumptions.
     
-    On the left of Fig.\ref{fig:scaling_relation}, we see clear \mstar{}-size relations for both samples.  
+    On the left of Fig.\ref{fig:scaling_relation}, we see clear \mstar{}-size relations 
+    for both samples.  
     At fixed \mtot{}, the distributions of $R_{\mathrm{50}}$ for the \rbcg{} and
     \nbcg{} galaxies greatly overlap.  
     Meanwhile, it seems that the \rbcg{} galaxies do have a slightly higher 
@@ -1741,24 +1621,21 @@ We highlight this in the right panel of Fig.\ref{fig:smf1} as we show the
     
     In short, we confirm that the massive central galaxies in this work generally 
     follow the \mstar{}-size relation for massive ETGs at low-$z$.
-    \update{
     More importantly, we find that the \mstar{}-size relations at high-\mstar{} end 
     depends on \mhalo{}, suggesting that the central galaxies in denser environment 
     (higher \mhalo{}) have slightly larger $R_{\mathrm{50}}$ comparing to the 
     ones from smaller haloes at fixed \mtot{}. 
-    }
     
     It would be interesting to revisit this topic using 2-D models based on deep HSC 
     images as the next step.
     It is worth noting that our results are based on massive galaxies at $z\sim 0.4$, 
     while the sample of HC13 has $z<0.09$.
-    \update{
     Although here we can not study the redshift evolution of \mstar{}-size relation 
     here, it will be interesting to see whether the structural evolution of massive
     galaxies between $z\sim 0.4$ and $0.0$ also depends on environment. 
     If the \rbcg{} galaxies experienced more megers than the \nbcg{} ones during this 
     time, we should expect that \mstar{}-size relation shows stronger environmental 
-    dependence at $z\sim 0.0$ using deeper image than SDSS.} 
+    dependence at $z\sim 0.0$ using deeper image than SDSS.
     On the other hand, if the \nbcg{} galaxies could assemble more \mstar{} through
     minor mergers in the last 3-4 Gyrs, they could potentially ``catch-up'' with the 
     \rbcg{} galaxies on the \mstar{}-size plane, and makes it harder to find the 
@@ -1766,38 +1643,9 @@ We highlight this in the right panel of Fig.\ref{fig:smf1} as we show the
     In principle, we can make uses of the frequency of tidal features and the numbers 
     of satellites around our \rbcg{} and \nbcg{} galaxies to make some predictions 
     in the near future.
+%% ------------------------------------------------------------------------------------ %% 
     
 %% ------------------------------------------------------------------------------------ %% 
-
-%%% ------------------------------------------------------------------------------------ %% 
-%  \begin{figure*}[t]
-%      \centering 
-%      \includegraphics[width=\textwidth]{fig/redbcg_m100_m10_new}
-%      \caption{\textbf{(a)}: Distributions of galaxies on the 
-%          \mtot{}-$\Delta (\log M_{\star})_{100\mathrm{kpc}-10\mathrm{kpc}}$ plane. 
-%          All \rbcg{} (open red boxes) and \nbcg{} (light, grey dots) galaxies 
-%          are shown in the background. 
-%          The \mtot{}-matched samples between $11.6<$\logms{}$<11.9$ (between two 
-%          vertical lines) are highlighted (\rbcg{}: solid red boxes; 
-%          \nbcg{}: bigger grey dots). 
-%          We also show the median values (solid triangular and hexagon), and the
-%          distributions of $\Delta (\log M_{\star})_{100\mathrm{kpc}-10\mathrm{kpc}}$
-%          (both histograms and kernel density distributions on the right).
-%          The best scaling relations for \rbcg{} (red, solid) and 
-%          \nbcg{} (grey, dashed) galaxies along with their uncertainties 
-%          are illustrated as well.~~
-%          \textbf{(b)}: Distributions of galaxies on the 
-%          $\Delta (\log M_{\star})_{100\mathrm{kpc}-10\mathrm{kpc}}$-\minn{} plane.~~
-%          \textbf{(c)}: Distributions of galaxies on the 
-%          $\Delta (\log M_{\star})_{100\mathrm{kpc}-10\mathrm{kpc}}$-\mtot{} plane.
-%          But, this time, we highlight the \rbcg{} and \nbcg{} samples that are 
-%          matched using \minn{} instead of \mtot{}.~~
-%          \textbf{(d)}: Relations between \mtot{} and \minn{}. 
-%          Other formats of figure (b), (c), and (d) are very similar with figure (a).}
-%      \label{fig:scaling_relation}
-%  \end{figure*} 
-%%% ------------------------------------------------------------------------------------ %% 
-
 \subsubsection{Relations between stellar mass within different physical apertures}
     \label{sssec:m100_m10}
     
@@ -1832,7 +1680,6 @@ We highlight this in the right panel of Fig.\ref{fig:smf1} as we show the
     At the same time, the comparisons in Fig.\ref{fig:prof_1} and 
     Fig.\ref{fig:prof_2} also suggest that the \mtot{}-matched \rbcg{} galaxies 
     have lower \minn{} than the \nbcg{} sample. 
-    \update{
     When we plot $\Delta \log M$ with \minn{} for the \mtot{}-matched samples in 
     panel (b), we can easily confirm this result.
     The correlation between $\Delta \log M$ and \minn{} is quite weak for the 
@@ -1844,16 +1691,14 @@ We highlight this in the right panel of Fig.\ref{fig:smf1} as we show the
     These reflect the structural differences we found in Fig.\ref{fig:prof_1}: 
     at fixed \mtot{}, central galaxy in more massive halo tende to have even higher 
     fraction of \mstar{} stored between 10 and 100 kpc than the one from smaller 
-    haloes.}
+    haloes.
     
     In panel (c), we show the relationship between \mtot{} and $\Delta \log M$ 
     again, but highlight the \minn{}-matched samples showed in right panel of 
     Fig.\ref{fig:prof_1}. 
-    \update{
     Their distributions clearly show the impact of the much more prominent outer 
     envelope hosted by \rbcg{} galaxies through the differences in \mtot{} and 
     $\Delta \log M$ of the \minn{}-matched samples.
-    }
     
     Finally, in panel (d), we plot \mtot{} against \minn{} directly.  
     It is intriguing to see that the distributions of \rbcg{} and \nbcg{} galaxies 
@@ -1891,34 +1736,26 @@ We highlight this in the right panel of Fig.\ref{fig:smf1} as we show the
     \mhalo{} dependence at the high-mass end. 
     Unfortunately, due to the impact of PSF, the $M_{\star, 5\ \mathrm{kpc}}$ values 
     are less reliable than \minn{}. 
-    \update{
     Samples at lower redshift, images with higher spatial resolution, and 2-D modeling 
     analysis can help us push the investigation further into smaller radius, and help 
     us develop better proxy for the \mstar{} of the ``in-situ'' component.  
-    }
     
-    \update{
     Limited by our capability to estimate \mhalo{} with better accuracy or individually, 
     we can not further quantify this \mhalo{}-dependence here.
     Albeit that the \redm{} richness ($\lambda$) traces \mhalo{} reasonably well, 
     we do not find any clear correlation with $\lambda$ within the \rbcg{} galaxies.
-    }
     In the current sample, most of the \rbcg{} galaxies are centrals of clusters with 
     $30 \leq \lambda \leq 40$, and only a small fraction comes from more massive clusters.  
     Therefore, the small sample size, the uncertainties of richness from shallow SDSS
     images, and the intrinsic scatter of the $\lambda$-\mhalo{} relation may conspire to 
     stop us from extracting more information from this \mhalo{}-dependence.
     
-    \update{
     The \mhalo{}-dependence of structure in massive central galaxies could be the result 
     of many different physical processes. 
     It would be very interesting to compare with progenitors of these massive 
     galaxies at higher redshift and with the results of numerical simulations (e.g. see 
     Fig.1 of \citealt{Wellons2016b}) vial the \mtot{}-\minn{} or similar relations.
-    }
-     
 %% ------------------------------------------------------------------------------------ %% 
-
 
 %% ------------------------------------------------------------------------------------ %% 
   \begin{figure}[bt!]
