@@ -197,6 +197,7 @@
     Our mass profiles are provided in a convenient tabulated format in order to 
     facilitate comparisons with predictions from numerical simulations of galaxy 
     formation.
+    \song{First trial by Jenny; need more works}
     
 \end{abstract}
 
@@ -593,9 +594,9 @@
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
-  \begin{figure*}
+  \begin{figure}
       \centering 
-      \includegraphics[width=\textwidth]{fig/redbcg_smf_new}
+      \includegraphics[width=\columnwidth]{fig/redbcg_completeness}
       \caption{
           \textbf{Left:} Difference between \mcmodel{} and \mtot{} for central
       	  galaxies in halos less massive than $10^{14} M_{\odot}$ (grey dots) and 
@@ -612,9 +613,38 @@
           The impact on the SMF can exceed 0.2 dex for massive central galaxies 
           living in halos larger than $\log (M_{\mathrm{halo}}/M_{\odot}) > 14.2$ 
           (red lines).
+          \song{New figure for completeness; Need to update the caption}
           }
-      \label{fig:smf1}
-  \end{figure*}
+      \label{fig:mass_complete}
+  \end{figure}
+          
+%% ------------------------------------------------------------------------------------ %%
+ 
+%% ------------------------------------------------------------------------------------ %% 
+  \begin{figure}
+      \centering 
+      \includegraphics[width=\columnwidth]{fig/redbcg_mass_diff}
+      \caption{
+          \song{New figures to show how \mstar{} changes with different definitions; 
+                Need to update the caption.}
+          \textbf{Left:} Difference between \mcmodel{} and \mtot{} for central
+      	  galaxies in halos less massive than $10^{14} M_{\odot}$ (grey dots) and 
+      	  in halos more massive than $10^{14} M_{\odot}$ (red squares). 
+          On average, \mcmodel{} underestimates the total stellar mass of massive 
+          galaxies by 0.1 dex while in some cases, the difference can exceed 0.2 dex.
+          Vertical histograms indicate the mass difference for galaxies with
+          $11.6<$\logmtot{}$<11.9$. 
+          \textbf{Right:}: Impact of using \mcmodel{} on the galaxy stellar mass
+          function. 
+          Dashed lines correspond to the SMF computed using \mcmodel{} as an estimate
+          of the total luminosity whereas solid lines correspond to the SMF computed
+          using the total luminosity from our 1-D profile. 
+          The impact on the SMF can exceed 0.2 dex for massive central galaxies 
+          living in halos larger than $\log (M_{\mathrm{halo}}/M_{\odot}) > 14.2$ 
+          (red lines).
+          }
+      \label{fig:mass_diff}
+  \end{figure}
           
 %% ------------------------------------------------------------------------------------ %%
  
@@ -928,10 +958,10 @@
     procedure\footnote{The \mstar{} using HSC photometry is in excellent with the 
     values derived from the \texttt{S82-MGC} which includes NIR data from UKIDSS; 
     \texttt{S82-MGC} also uses \texttt{iSEDFit} with similar assumptions.}. 
-    The right side of Fig~\ref{fig:smf1} compares the SMFs of galaxies from 
+    The right side of Fig~\ref{fig:mass_complete} compares the SMFs of galaxies from 
     \texttt{S82-MGC} with the SMFs of galaxies from our two 
     samples\footnote{Errors on the SMFs are estimated via bootstrap resampling}. 
-    Based on Fig~\ref{fig:smf1}, we conclude that our sample of massive galaxies is 
+    Based on Fig~\ref{fig:mass_complete}, we conclude that our sample of massive galaxies is 
     reasonably complete down to \logms{}${\sim} 11.6$ at $0.3 \leq z \leq 0.5$. 
     %The \rbcg{} sample is less affected by completeness because we can utilize 
     %photo-$z$s from \redm{}. 
@@ -1002,7 +1032,7 @@
     Different methods for estimating the ``total'' \mstar{} can have a large impact on 
     the high mass end of the galaxy stellar mass function (e.g. \citealt{Bernardi2013, 
     DSouza2014, DSouza2015, Bernardi2016a}). 
-    Fig~\ref{fig:smf1} shows the SMF computed using both \mtot{} and \mcmodel{}. 
+    Fig~\ref{fig:mass_complete} shows the SMF computed using both \mtot{} and \mcmodel{}. 
     As one can be seen from this figure, our careful 1-D approach recovers more flux 
     in massive galaxies than \texttt{cModel}. 
     More importantly, the average difference steadily increases with \mtot{} and also 
@@ -1223,10 +1253,13 @@
      
 
 %% ------------------------------------------------------------------------------------ %% 
-  \begin{figure}
+  \begin{figure*}
       \centering 
-      \includegraphics[width=\columnwidth]{fig/redbcg_discussion_1}
-      \caption{Comparison of the median \mden{} profiles of massive galaxies in the 
+      \includegraphics[width=\textwidth]{fig/redbcg_insitu_accretion}
+      \caption{
+          \song{New figures to illustrate the assumption of in-situ and accreted mass;
+                Need to update the caption.}
+          Comparison of the median \mden{} profiles of massive galaxies in the 
           two lower \mtot{} bins from Fig~\ref{fig:avg_prof} with other observations 
           and simulations, focusing on the inner region. 
           The format is similar with the right panel of Fig~\ref{fig:avg_prof}.
@@ -1242,7 +1275,7 @@
           discovered by \citet[][Yellow, dashed]{Liu2013} in the Hubble 
           Ultra-Deep Field.}
       \label{fig:discussion_1}
-  \end{figure}
+  \end{figure*}
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
@@ -1338,12 +1371,14 @@
 %% ------------------------------------------------------------------------------------ %% 
   \begin{figure*}
       \centering 
-      \includegraphics[width=\textwidth]{fig/redbcg_discussion_5}
+      \includegraphics[width=\textwidth]{fig/redbcg_mass_smf}
       \caption{
+          \song{New figures to show the impact of mass definition on SMF. 
+                Need to update the caption.}
           \textbf{Left}: Relation between \mtot{} and the logarithmic mass difference 
           between \mmax{} and \mtot{} for both \rbcg{} (red square) and \nbcg{} 
           (grey dot) galaxies.  The format is very similar to the left figure of 
-          Fig~\ref{fig:smf1}.~~
+          Fig~\ref{fig:mass_complete}.~~
           \textbf{Right}: The stellar mass volume-density distributions of massive 
           galaxies after combining the \rbcg{} and \nbcg{} samples together, using 
           both \mtot{} (black solid line) and \mmax{} (black dash line). 
@@ -1390,7 +1425,7 @@
     question when studying the high-mass end of the galaxy SMF. 
     The issues discussed above are currently one of the primary limitations in 
     determinations of the high-mass end of the SMF (\citealt{Bernardi2016}). 
-    Fig~\ref{fig:smf1} illustrated how improved \mstar{} measurement can 
+    Fig~\ref{fig:mass_complete} illustrated how improved \mstar{} measurement can 
     significantly modifies the SMF. 
     On the right hand side of Fig~\ref{fig:discussion_2}, we further highlight that 
     the shape of SMF at high-mass end is quite sensitive to even very small 
@@ -1638,7 +1673,7 @@
       \caption{
           \textbf{Top-left}: The \logms{}-$g-r$ color relation of the \rbcg{} 
           (red circle; detaield format is the same with the right panel of 
-          Fig~\ref{fig:smf1}) and \nbcg{} (grey dots) samples.
+          Fig~\ref{fig:mass_complete}) and \nbcg{} (grey dots) samples.
           We apply the $k$-corrections from \texttt{iSEDFit} fitting to the colors.~~          
           \textbf{Top-right}: the histograms of the redshift for the \rbcg{} and 
           \nbcg{} galaxies in both \logmtot$>11.2$ and $11.6<$\logmtot{}$<11.9$
@@ -1959,7 +1994,7 @@
         \textbf{Left:} comparison of \mstar{} estimated by the GAMA survey and 
         the \mtot{} using HSC images in this work. 
         We plot the \logmgama{} against the difference between \logmtot{} and \logmgama{}. 
-        The format is very similar to the left panel of Fig~\ref{fig:smf1}. 
+        The format is very similar to the left panel of Fig~\ref{fig:mass_complete}. 
         The two vertical lines highlight the mass range $11.4 \leq$\logmgama{}$<11.8$ 
         that is used for the comparison.~~
         \textbf{Right:} we compare the \mden{} profiles of \rbcg{} (orange-red) and 
