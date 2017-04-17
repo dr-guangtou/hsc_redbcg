@@ -234,47 +234,64 @@
 %% ------------------------------------------------------------------------------------ %% 
 \section{Introduction}
     \label{sec:intro}
-    
 
     Massive galaxies are unique laboratories for studying both cosmology and galaxy 
     formation. 
     Simulations of structure formation within the context of the $\Lambda$-CDM 
-    cosmological model make predictions for the hierarchical growth of dark matter halos 
-    and galaxies (e.g. \citealt{Baugh1996, DeLucia2006}), but there are many open 
-    questions regarding the star-formation history, mass assembly process, and 
+    cosmological model make predictions for the hierarchical growth of dark matter 
+    halos and galaxies (e.g. \citealt{Baugh1996, DeLucia2006}), but there are many 
+    open questions regarding the star-formation history, mass assembly process, and 
     structural evolution of massive galaxies. 
-    Massive galaxies are thought to grow according to a ``two-phase'' formation scenario 
-    (e.g. \citealt{Oser2010, Oser2012}). 
-    In this scenario, the progenitors of $z{\sim} 0$ massive early-type galaxies (ETGs) 
-    undergo a rapid growth phase at $z{\sim} 2$ triggered either by disk instabilities 
-    or gas rich mergers (e.g. \citealt{Hopkins2008, Dekel2009}). 
-    Observationally, the progenitors of ETGs are thought to correspond to the so-called 
-    ``red nuggets'' (e.g. \citealt{Damjanov2009}) which have smaller effective radii 
-    ($R_{\mathrm{e}}$; e.g. \citealt{Trujillo2006, vanDokkum2008, Cimatti2008}), 
-    slightly higher central velocity dispersion and stellar mass density 
-    (\mden{}; e.g. \citealt{vandeSande2011, Belli2014}), more disk-like morphologies 
-    (e.g. \citealt{vanderWel2011}) than their local descendants 
+    Massive galaxies are thought to grow according to a ``two-phase'' formation 
+    scenario (e.g. \citealt{Oser2010, Oser2012}). 
+    In this scenario, the progenitors of $z{\sim} 0$ massive early-type galaxies 
+    (ETGs) undergo a rapid growth phase at $z{\sim} 2$ triggered either by disk 
+    instabilities or gas rich mergers (e.g. \citealt{Hopkins2008, Dekel2009}). 
+    Observationally, the progenitors of ETGs are thought to correspond to the 
+    so-called ``red nuggets'' (e.g. \citealt{Damjanov2009}) which have smaller 
+    effective radii ($R_{\mathrm{e}}$; e.g. \citealt{Trujillo2006, vanDokkum2008, 
+    Cimatti2008}), slightly higher central velocity dispersion and stellar mass 
+    density (\mden{}; e.g. \citealt{vandeSande2011, Belli2014}), more disk-like 
+    morphologies (e.g. \citealt{vanderWel2011}) than their local descendants 
     (e.g. \citealt{Bezanson2009, vanDokkum2010}).
     
     Following this initial epoch of early formation, feedback from stars and/or AGN 
     (e.g. \citealt{Sijacki2007, Fabian2012}) efficiently quench star formation in 
-    massive galaxies and a large fraction of these massive progenitors become quiescent 
-    at $z>1$ (e.g. \citealt{Bezanson2009, Kriek2016}). 
+    massive galaxies and a large fraction of these massive progenitors become 
+    quiescent at $z>1$ (e.g. \citealt{Bezanson2009, Kriek2016}). 
     The second phase in the ``two-phase'' formation scenario is driven by 
     non-dissipative processes such as dry mergers with other galaxies 
     (e.g. \citealt{Naab2006, Khochfar2006}). 
-    According to the ``two-phase'' scenario, minor mergers drive the growth of massive 
-    galaxies at late times and can help explain the significant increase
-    of $R_{\mathrm{e}}$ (e.g. \citealt{Newman2012, vdWel2014}) as well as the build-up 
-    of the outer stellar halos of ETGs (e.g.  \citealt{Szomoru2012, Patel2013}).        
-    {\bf Words here about mass dependence: in the simulations, a larger fraction of the mass 
-    is ex-situ at increasingly higher mass. Seen in early work by Naab, Oser, etc, and in the 
-    Illustris papers. First prediction to compare with is that the accreted/ex-situ fraction is 
-    a function of mass.}
-   
-    In addition, according to this two-phase formation scenario, the late time growth of massive ETGs 
-    is intrinsically tied to the growth of their host dark matter halos 
-    (e.g. \citealt{Leauthaud2012, Behroozi2013, Shankar2013}). 
+    According to the ``two-phase'' scenario, minor mergers drive the growth of 
+    massive galaxies at late times and can help explain the significant increase
+    of $R_{\mathrm{e}}$ (e.g. \citealt{Newman2012, vdWel2014}) as well as the 
+    build-up of the outer stellar halos of ETGs (e.g.  \citealt{Szomoru2012, 
+    Patel2013}).        
+    \update{
+    More importantly, both numerical simulation (e.g. \citealt{Oser2010}) and 
+    semi-analytic model (SAM; e.g. \citealt{LeeYi2013, LeeYi2017}) agree that the 
+    mass fraction of the accreted component should increase with total stellar mass, 
+    although different models still predict somewhat different values at fixed 
+    stellar mass (e.g. \citealt{Lackner2012, Cooper13, Qu2017}).
+    According to the recent results from Illustris \footnote{
+    \texttt{http://www.illustris-project.org/}} simulation (\citealt{Vogelsberger2014},
+    \citealt{Genel2014}), the fraction of the accreted mass increases significantly
+    with total stellar mass at \logms{}$>11.0$, and the accreted component starts 
+    to dominate the stellar mass budget ($f_{\mathrm{accreted}}>0.5$) at 
+    \logms{}$>11.5$ (\citealt{RodriguezGomez2016}).
+    }
+    
+    \update{
+    These predictions 
+    
+    }
+    \song{The following section focuses on the environmental dependence, should move 
+    to Paper II, I will replace it with introduction that focus on the mass
+    dependence and outskirt profile.}
+    
+    In addition, according to this two-phase formation scenario, the late time growth 
+    of massive ETGs is intrinsically tied to the growth of their host dark matter 
+    halos (e.g. \citealt{Leauthaud2012, Behroozi2013, Shankar2013}). 
     Massive ETGs that live at the center of more massive halos should experience 
     a different mass assembly history and should be subject to a larger merger rate 
     compared to ETGs that live in smaller dark matter halos. 
