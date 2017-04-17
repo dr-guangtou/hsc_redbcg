@@ -444,8 +444,8 @@
     The HSC \texttt{WIDE} survey is about $3.0$-$4.0$ magnitudes deeper in the $i$-band 
     than SDSS. 
     Combined with the excellent imaging resolution (the median $i$-band seeing is 
-    0.6\asec), and the wide area, the HSC survey represents a tremendous data set to 
-    perform a large statistical study of the surface brightness profiles of ETGs out to 
+    0.6\asec), and the wide area, the HSC survey represents a tremendous dataset to 
+    perform large statistical study of the surface brightness profiles of ETGs out to 
     large radii.     
     Fig~\ref{fig:sdss_compare} illustrates the quality of HSC imaging compared to SDSS 
     for three low redshift ETGs, and shows that HSC survey data are well suited for 
@@ -462,35 +462,36 @@
 
     The full details of the HSC data processing can be found in \citet{BoschInPrep}
     and are briefly summarized here. 
-    The HSC SSP data are processed with \texttt{hscPipe 4.0.1}, a derivative of the 
+    The HSC SSP data are processed with \texttt{hscPipe 4.0.2}, a derivative of the 
     Large Synoptic Survey Telescope (LSST) pipeline (e.g.\ \citealt{Juric2015}; 
     \citealt{Axelrod2010}), modified for HSC. 
     \texttt{hscPipe} first performs a number of tasks at the single exposure level 
     (bias subtraction, flat fielding, background modeling, object detection and 
     measurements). 
-    Astrometric and photometric calibrations are performed at the single exposure level. 
+    Astrometric and photometric calibrations are performed at the single exposure 
+    level. 
     \texttt{hscPipe} then warps different exposures on to a common World Coordinate 
     System (WCS) and combines them into coadded images. 
     At this stage, \texttt{hscPipe} updates the images with a better astrometric and 
     photometric calibration using stars that are common among exposures. 
     
-    The pixel scale of the combined images is $0.168^{\arcsec}$. 
+    The pixel scale of the combined images is $0.168$\asec{}. 
     Photometric calibration is based on data from the Panoramic Survey Telescope 
     and Rapid Response System (Pan-STARRS) 1 imaging survey 
     (\citealt{Schlafly2012}, \citealt{Tonry2012}, \citealt{Magnier2013}). 
     To achieve consistent deblending and photometry across all bands, \texttt{hscPipe} 
-    performs multi-band post-processing at the coadd level. 
-    First, \texttt{hscPipe} performs object detection on coadd images in each band 
-    independently and records the flux peak and the above-threshold region 
-    (referred as a ``footprint'') for each source. 
-    Next, ``footprints'' and peaks from different bands are merged together before     
+    performs multi-band post-processing at the \texttt{coadd} level. 
+    First, \texttt{hscPipe} performs object detection on \texttt{coadd} images in 
+    each band independently and records the flux peak and the above-threshold region 
+    (referred as a \texttt{footprint}) for each source. 
+    Next, \texttt{footprints} and peaks from different bands are merged together before     
     performing deblending and measurements. 
     Finally, \texttt{hscPipe} selects a reference band for each object based on the 
     $S/N$ in different bands (for most galaxies in this work, the reference band is 
     the $i$-band). 
     After fixing the centroids, shape, and other non-amplitude parameters of each 
     object in this reference catalog, \texttt{hscPipe} perform forced photometry 
-    on the coadd image in each band. 
+    on the \texttt{coadd} image in each band. 
     This forced photometry approach is optimized to yield accurate galaxy colors. 
        
     For each galaxy, \texttt{hscPipe} measures a \cmodel{} magnitude using an approach 
@@ -526,8 +527,8 @@
     
     We begin by using a broad luminosity cut to select an initial sample of massive 
     galaxies at $z < 0.5$ from the HSC photometric catalog. 
-    Based on \citet{Leauthaud2016}, galaxies with \logms{}$\geq 11.5$ mostly have 
-    $i_{\mathrm{SDSS, cModel}} \leq 21.0$ mag. 
+    Based on \citet{Leauthaud2016}, $i_{\mathrm{SDSS, cModel}} \leq 21.0$ mag can 
+    define a sample that includes almost all \logms{}$\geq 11.5$ galaxies.    
     We therefore select our initial sample to be brighter than 
     $i_{\mathrm{HSC, cModel}} \leq 21.5$\footnote{We neglect small differences between 
     the response curves of SDSS-$i$ and HSC-$i$ filters.}
@@ -538,7 +539,7 @@
     %%   The original catalogs contain 2275477 objects
     
     We further select extended objects with no deblending errors, with well defined 
-    centroids, and with \texttt{cModel} magnitudes in all five bands. 
+    centroids, and with useful \texttt{cModel} magnitudes in all five bands. 
     After removing objects that have pixels affected by saturation, cosmic-rays, or 
     other optical artifacts\footnote{each criterion removes less than 8\% of the 
     entire sample.}. This sample corresponds to 1760845 galaxies and will be referred 
@@ -547,23 +548,28 @@
         
     Here we limit our study to the very high-mass end where the majority of galaxies 
     have either a spectroscopic redshift or a robust red-sequence photo-$z$ from the 
-    \redm{} catalog (see Section \ref{ssec:redmapper}).  
+    \redm{} galaxy cluster catalog\footnote{See: http://risa.stanford.edu/redmapper/} 
+    (e.g.\ \citealt{Rykoff2014}; \citealt{Rozo2015b}).  
     We match the \texttt{hscPho} sample with a spec-$z$ catalog compiled by the HSC 
     team\footnote{It is created by matching HSC objects with all publicly available 
-    spectroscopic redshifts (e.g.\ SDSS/BOSS; GAMA). The spec-z quality flag from 
-    different catalogs are homogenized into a single flag that indicates secure 
-    redshifts.}.  
+    spectroscopic redshifts (e.g.\ SDSS/BOSS; GAMA). 
+    The spec-z quality flag from different catalogs are homogenized into a single 
+    flag that indicates secure redshifts.}.  
     To ensure reasonable \mstar{}-completeness at the high-\mstar{} end we focus on
     the redshift range $0.3 \leq z \leq 0.5$. 
     %% This is catalog: "dr1_specz_use.fits"   
    
+    \update{
     For objects without a spectroscopic redshift, we match them with the central 
-    galaxies from the \redm{} catalog using a $2.0^{\arcsec}$ matching radius. 
-    The matched objects with useful red-sequence photo-$z$ ($z_{\lambda}$) are also 
-    included in the final sample of bright galaxies with reliable redshift between 
-    $0.3 \leq z \leq 0.5$. The accuracy of the red-sequence photo-$z$ is sufficient 
-    (median $|z_{\lambda} - z_{\mathrm{Spec}}| {\sim} 0.01$ for the ones with a 
-    spec-$z$) for the goal of this work.
+    galaxies from the \redm{} catalog using a $2.0^{\arcsec}$ matching radius, 
+    and keep the matched objects with useful red-sequence photo-$z$ 
+    ($0.3 \leq z_{\lambda} < 0.5$) in the final sample. 
+    These galaxies are the best candidates for BCGs in clusters selected from 
+    SDSS DR8 data (\citealt{SDSSDR8}) via a well-tested red-sequence method. 
+    The accuracy of the red-sequence photo-$z$ is sufficient (median 
+    $|z_{\lambda} - z_{\mathrm{Spec}}| {\sim} 0.01$ for the ones with spec-$z$) 
+    for the goal of this work.
+    }
     The \redm{} catalog provides an additional 133 unique redshifts for massive 
     galaxies in our sample.
     %% Estimated from "dr1_redbcg_hsc_sdss_gama_1arcsec.fits"
@@ -572,9 +578,12 @@
     reliable redshift information (referred as \texttt{hscZ}).
     %% Saved as "dr1_wide_galaxy_icmodel_21.5.fits"
     Among them, the BOSS and SDSS ``legacy'' LRG samples provide the majority of 
-    spec-$z$. Before we can define our mass-complete sample of central galaxies required for 
-    our analysis, we describe our one-dimensional photometric analysis (\S \ref{sec:ellipse}) 
-    and stellar mass estimations (\S \ref{sec:mstar}). We then define the final sample in \S \ref{sec:final}.
+    spec-$z$. 
+    Before we can define our mass-complete sample of central galaxies required for 
+    our analysis, we describe our one-dimensional photometric analysis 
+    (\S \ref{sec:ellipse}) and stellar mass estimations (\S \ref{sec:mstar}). 
+    We then define the final sample in \S \ref{sec:final}.
+    
 %    By comparing with the Stripe 82 Massive Galaxy Catalog
 %    (\texttt{S82-MGC}; \citealt{Bundy2015}), \citet{Leauthaud2016} have measured the
 %    \mstar{} completeness of the combined BOSS and SDSS samples. 
@@ -791,17 +800,17 @@
 \section{Measurements of 1-D Surface Brightness Profiles}
     \label{sec:ellipse}
     
-    Massive ETGs imaged at the depth of HSC are not well modeled by simple models such 
-    as the de~Vaucouleurs model or a single \ser component model. 
-    These models will fail to simultaneously capture the profile in both the inner and 
-    the outer region and these models also cannot account for any radial variations in 
-    ellipticity and position angle. 
+    Massive ETGs imaged at the depth of HSC are not well modeled by the de~Vaucouleurs
+    or \ser law. 
+    These models will fail to simultaneously describe the profile in both the inner and 
+    the outer regions and also cannot account for any radial variations in ellipticity 
+    and position angle. 
     In principle, massive galaxies can still be described by more complex 
     models (e.g \citealt{Huang2013a, Huang2013b, Oh2017}), but they are still 
     sensitive to the choices of models (e.g. de~Vaucouleurs or \ser{} profile), 
     the number of components, initial guesses of parameters, and the internal 
     degeneracies among different parameters. 
-    Background subtraction uncertainty can affect the 2-D model fitting dramatically, 
+    Background subtraction uncertainty also affects the 2-D model fitting dramatically, 
     especially for massive ETGs in our sample. 
     We therefore perform elliptical isophote fitting using the IRAF \texttt{Ellipse} 
     algorithm (Jedrzejewski 1987) to estimate the total luminosities of massive 
@@ -847,46 +856,59 @@
     We test our procedure using different mask sizes, different \texttt{Ellipse} 
     parameters, and with or without our background correction. 
     Based on these tests, we find that our 1-D surface brightness profiles are reliable 
-    up to surfaces brightness levels of $>28.5$ \sb. 
+    up to surfaces brightness levels of $i{\sim}28.5$ \sb. 
     Beyond that, some of our profiles shows signs of truncation and/or large 
     fluctuations which are due to the uncertainty in the background subtraction. 
     We choose to limit our study to surface brightness levels up to ${\sim} 28.5$ \sb. 
     This is a conservative choice but already enables us to measure light profiles 
     out to $100$ kpc on a galaxy-by-galaxy basis (no stacking). 
-    For more details about the technical details of how we use \texttt{Ellipse}, 
-    please see Appendix~\ref{app:ellipse}.
+    For more technical details of the \texttt{Ellipse} procedure, please see 
+    Appendix~\ref{app:ellipse}.
+
+%% ------------------------------------------------------------------------------------ %% 
     
     For physical (e.g.\ late-stage major merger) and unphysical (e.g.\ nearby foreground 
     galaxy or bright star) reasons, we can not extract reliable 1-D profiles for a small 
     fraction of massive galaxies because they are heavily masked out. 
-    This is an intrinsic limitation of the 1-D method. 
-    \jenny{This cut removes roughly 10\% of the sample.}
+    \update{
+    This is an intrinsic limitation of the 1-D method, and it removes ${\sim}10$\% of 
+    the sample.
+    }
     %It affects $18/164$ of the \rbcg{} sample, and a smaller fraction of the 
     %\nbcg{} sample. 
     It is worth noting that this excludes most major-merging massive galaxies. 
     
-    \jenny{Describe the two apertures here I think?}
-    Given our exquisite profiles out to 100 kpc, the meaning of ``total'' magnitude can take on different meanings. 
-    Throughout this work, we consider two benchmark physical apertures:
-        \begin{itemize}    
-        \item The stellar mass within 10 kpc (hereafter noted \minn{}). 
+    \update{
+    Given our exquisite profiles out to 100 kpc, the definition and meaning of ``total'' 
+    magnitude (and stellar mass) becomes more interesting.
+    With the help of the \m2l{} estimated in the next section (\S \ref{sec:mstar}), 
+    we can integrate the profile out to certain radii, and estimate the stellar mass 
+    within.  
+    Motivated by the ``two-phase'' scenario, we will consider two benchmark physical 
+    apertures throughout this work:
+    }
+    
+    \begin{itemize} 
+       
+        \item \textbf{The \mstar{} within the inner 10 kpc} (hereafter noted \minn{}). 
             According to the two-phase scenario, the ``in-situ'' star-formation quickly 
             builds up the inner, dense core of massive ETGs.  
-            Based on recent observations and simulations (e.g.~\citealt{vanDokkum2010}; 
-            \citealt{RodriguezGomez2016}), the in-situ component of massive ETGs is 
-            mostly contained within one effective radius ($R_{\mathrm{e}}$, or 5-10 kpc). 
-            We use \minn{} as a proxy for the mass forged during the ``in-situ''
+            Based on recent observation (e.g.~\citealt{vanDokkum2010}) and simulations 
+            (e.g. \citealt{RodriguezGomez2016}), the in-situ component dominates the 
+            \mstar{} within one effective radius ($R_{\mathrm{e}}$, or 5-10 kpc) of 
+            $z{\sim}0$ massive ETGs.
+            We therefore use \minn{} as proxy for the mass forged during the ``in-situ''
             phase. 
             Given the quality of the HSC data, we can reliably measure \minn{} over our 
             redshift range ($1.0^{\arcsec}$ in radius equals 4.4 and 6.1 kpc at redshift
             0.3 and 0.5).  
             
-        \item The stellar mass within 100 kpc (hereafter noted \mtot{}). 
+        \item \textbf{The stellar mass within 100 kpc} (hereafter noted \mtot{}). 
             For our galaxy sample, a 100 kpc aperture corresponds to 5-10 
             $\times R_{\mathrm{e}}$. 
-            We show in section \ref{ssec:mtotal} that most of the mass for these ETGs 
-            can be captured by a 100 kpc radius and that \mtot{} is a good proxy for the 
-            ``total'' \mstar{}. 
+            We show in section \ref{ssec:mtotal} that most of the \mstar{} for these 
+            ETGs can be captured by a 100 kpc radius and that \mtot{} is a good proxy 
+            for the ``total'' \mstar{}. 
             Although not perfect, we argue that our measurements of \mtot{} (which are 
             actually measuring the light directly out to 100 kpc) are a better tracer 
             of total \mstar{} than model-dependent results from shallower data 
