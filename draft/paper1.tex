@@ -122,7 +122,7 @@
 \newcommand{\alexie}[1]{\textcolor{blue}{\textbf{[Alexie: #1]}}}
 \newcommand{\jenny}[1]{\textcolor{Bittersweet}{\textbf{[Jenny: #1]}}}
 \newcommand{\kevin}[1]{\textcolor{green}{\textbf{[Kevin: #1]}}}
-\newcommand{\update}[1]{\textcolor{Bittersweet}{#1}}
+\newcommand{\update}[1]{\textcolor{OliveGreen}{#1}}
 %\newcommand{\update}[1]{#1}
 
 
@@ -385,12 +385,13 @@
     In this work, we assume $H_0$ = 70~km~s$^{-1}$ Mpc$^{-1}$, ${\Omega}_{\rm m}=0.3$, 
     and ${\Omega}_{\rm \Lambda}=0.7$.
     Stellar mass is noted \mstar{} and has been derived using a Chabrier Initial Mass 
-    Function (IMF; \citealt{Chabrier2003}).     
-    $M_{\mathrm{halo}}$ denotes halo mass in general whereas $M_{\rm 200b}$ is 
-    explicitly defined as $M_{\rm 200b}\equiv M(<r_{\rm 200b})=200\bar{\rho} 
-    \frac{4}{3}\pi r_{\rm 200b}^3$ where $r_{\rm 200b}$
-    is the radius at which the mean interior density is equal to 200 times
-    the mean matter density ($\bar{\rho}$). 
+    Function (IMF; \citealt{Chabrier2003}).   
+      
+    %$M_{\mathrm{halo}}$ denotes halo mass in general whereas $M_{\rm 200b}$ is 
+    %explicitly defined as $M_{\rm 200b}\equiv M(<r_{\rm 200b})=200\bar{\rho} 
+    %\frac{4}{3}\pi r_{\rm 200b}^3$ where $r_{\rm 200b}$
+    %is the radius at which the mean interior density is equal to 200 times
+    %the mean matter density ($\bar{\rho}$). 
     
 %% ------------------------------------------------------------------------------------ %% 
 
@@ -948,8 +949,8 @@
     In short, it first generates a large grid of SEDs from synthetic stellar population 
     models by drawing randomly from the prior distributions of relevant parameters 
     (e.g. age, metallicity, dust extinction, and star formation history).
-    Based on these models, it uses the observed photometry and redshift to compute the 
-    statistical likelihood, and generates the posterior probability distribution 
+    Based on these models, it uses the observed photometry and redshift to compute 
+    the statistical likelihood, and generates the posterior probability distribution 
     functions (PDF) for each parameter.  
     To get the best estimate of a given parameter, \texttt{iSEDFit} integrates the 
     full PDF over all the other nuisance parameters.
@@ -959,16 +960,19 @@
     
     In this work, we derive average \m2l{} using the Flexible Stellar Population 
     Synthesis\footnote{http://scholar.harvard.edu/cconroy/sps-models}
-    (FSPS; \texttt{v2.4}; \citealt{FSPS}, \citealt{Conroy2010}) model based on the MILES
-    \footnote{http://www.iac.es/proyecto/miles/pages/stellar-libraries/miles-library.php}
+    (FSPS; \texttt{v2.4}; \citealt{FSPS}, \citealt{Conroy2010}) model based on the 
+    MILES\footnote{http://www.iac.es/proyecto/miles/pages/stellar-libraries}
     (\citealt{MILES1}, \citealt{MILES2}) stellar library and assuming a
     \citet{Chabrier2003} IMF between 0.1 to 100 \msun. 
     The star formation history (SFH) is assumed to follow a delayed-$\tau$ model with 
     stochastic star bursts (see Appendix~\ref{app:sed}). 
     This SFH is appropriate for massive galaxies at low redshifts 
     (e.g.\ \citealt{Kauffmann2003}). 
-    For stellar metallicity, we assume a flat distribution between 0.004 to 0.03 
-    (the highest value allowed by FSPS) \jenny{define metallicity here, means different things sometimes}. 
+    \update{
+    For stellar metallicity 
+    ($[\mathrm{M}/\mathrm{H}]=\log\ \mathrm{Z}/\mathrm{Z}_{\odot}$), we assume a flat 
+    distribution between 0.004 to 0.03 (the highest value allowed by FSPS).
+    } 
     We adopt the \citet{Calzetti2000} extinction law with a order two Gamma 
     distribution of $A_{V}$ between 0 to 2 magnitude. 
     A majority of our galaxies are red and quiescent and our results are 
@@ -980,13 +984,15 @@
     \cmodel{} only accounts for the statistical error on the flux measurement but does
     not account for systematic uncertainties in the model-fitting process. 
     It therefore underestimates the flux errors of bright galaxies. 
-    Based on tests using synthetic objects, we find that the average accuracy of
-    \cmodel{} for a bright galaxy is $\sim 1$\% in the $r$, $i$, $z$ bands, 
-    and slightly worse in the $g$ and Y-band. 
-    Therefore, we supply \texttt{iSEDFit} with simplified flux errors assuming 
-    $S/N = 100$ for the $riz$ bands, and $S/N = 80$ for the $g$Y bands (on average, 
-    images in $gY$ bands are shallower in depth and/or have higher background noise).  
-    The typical uncertainty of \logms{} is around 0.08-0.10 dex at \logms${\sim} 11.5$. 
+    For this work, we supply \texttt{iSEDFit} with simplified flux errors assuming 
+    $S/N = 100$ for the $riz$ bands, and $S/N = 80$ for the $g$- and $y$-band 
+    (on average, images in $gy$ bands are shallower in depth and/or have higher 
+    background noise).  
+    Although thse are still conservative estimates of the systematic uncertainties 
+    involved in the model-fitting, tests using synthetic galaxies show that \cmodel{}
+    provides excellent measurements of five-band colors, which are crucial for reliable
+    \m2l{} estimates.
+    The typical uncertainty of \logms{} is around 0.06-0.08 dex at \logms${\sim} 11.5$. 
     Please see Appendix~\ref{app:sed} for further details.
       
 %% ------------------------------------------------------------------------------------ %%  
@@ -996,15 +1002,15 @@
     \label{ssec:mtotal}
     
     Using the best-fit stellar mass from \texttt{iSEDFit} (noted as as \mcmodel{}), 
-    we estimate the average \m2l{} in the $i$-band, then use that \m2l{} to convert our 
-    1-D luminosity density profiles into stellar mass density profiles. 
+    we estimate the average \m2l{} in the $i$-band, then use that \m2l{} to convert 
+    our 1-D luminosity density profiles into stellar mass density (\mden{}) profiles. 
     We also convert our 10 and 100 kpc aperture luminosities into corresponding stellar 
     mass estimates (noted as \minn{} and \mtot{}).
     
     For the remainder of this paper, we will use \mtot{} as a proxy of ``total'' 
-    stellar mass. \jenny{Here is where we need discussion of Figure \ref{fig:mass_diff} I think? When do 
-    we discuss cModel magnitudes?}
-	\jenny{Check me here!}
+    stellar mass. 
+    
+
     In Appendix~\ref{app:sedasic}, we briefly summarize the basic statistics of 
     the sample using our estimates of \mtot{} and \minn{}.
     We confirm that the sample follows a very tight ``red-sequence'' that does not appear to depend on 
