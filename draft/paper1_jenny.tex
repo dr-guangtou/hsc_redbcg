@@ -2104,16 +2104,16 @@
     the priors used.   
     In Fig~\ref{fig:ised_1}, we show an example of the \texttt{iSEDFit} output by 
     visualizing the 5-band HSC SED on top of the best-fit model along with the PDF 
-    of the key parameters. 
+    of the key parameters.
+     
     Although we only use the best-fit \m2l{} in this work, it is necessary to make 
     sure the model is reasonable. 
     We show the relations between \mstar{} and a few key stellar population parameters 
     derived by \texttt{iSEDFit} in Fig~\ref{fig:ised_2}. 
-    Although degeneracies among these parameters are almost inevitable using only 
-    five broad-band photometry, most massive galaxies in both \rbcg{} (left) and 
-    \nbcg{} (right) samples have old age, high metallicity ($1.5 \times Z_{\odot}$ is 
-    the highest metallicity allowed by the adopted \texttt{FSPS} SSP models), and low 
-    dust extinction as expected
+    Degeneracies among these parameters are inevitable based on only five broad-band
+    photometry, but as expected, most massive galaxies show old stellar age, high
+    stellar metallicity ($1.5 \times Z_{\odot}$ is the highest metallicity allowed by 
+    the adopted \texttt{FSPS} SSP models), and low dust extinction.
    
     Meanwhile, \mstar{} measurement based on SED fitting heavily depends on the 
     adopted SSP model, the form of IMF, dust extinction law, and details in 
@@ -2127,51 +2127,50 @@
     burst\footnote{The chance of random star burst is set at 0.2 for every 2 Gyrs. 
     The duration of the star burst is draw from a logarithmic distribution 
     between 0.03 to 0.3 Gyr; and the mass fraction formed in the burst is from 
-    a logarithmic distribution between 0.01 and 1.0.} do not affect the results. 
-    On the other hand, the choices of SSP model, IMF, and dust extinction do impact
-    the SED fitting results systematically, and we explore it using a few 
+    a logarithmic distribution between 0.01 and 1.0.} rarely affect the \mstar{}. 
+    But he choices of SSP model, IMF, and dust extinction do systematically impact
+    the estimates of \mstar{}, and therefore we look into this with a few 
     additional tests (see Fig~\ref{fig:ised_3}):
 
     \begin{enumerate}
 
         \item Choosing the \citet{Salpeter1955} IMF results in systematically 
-            higher \mstar{} (on average $+0.25$ dex of \logms{}) for both \rbcg{}
-            and \nbcg{} galaxies (Left panels).
+            higher \mstar{} (on average $+0.25$ dex of \logms{}) for these massive 
+            galaxies (top panel).
             Although there are multiple lines of evidence that favor Salpeter 
             or even more ``bottom-heavy'' IMF in massive galaxies 
             (e.g.\ \citealt{Conroy2012}; \citealt{Cappellari2012}), we still 
             present the main results using Chabrier IMF to accommodate galaxies 
             with lower \mstar{} in the sample, and to be as consistent as possible 
-            with a few previous works.  
+            with previous works.  
             This choice of IMF does not change the main results qualitatively. 
 
         \item \mstar{} based on the \texttt{BC03} models are systematically lower 
-            than the ones based on \texttt{FSPS+MILES} models (middle panels)
+            than the ones based on \texttt{FSPS+MILES} models (middle panel)
             The difference shows a large scatter, and can be as large as 0.4 dex,
-            although it does show any \mstar{} dependency. 
-            We notice that the \texttt{BC03} provides better overall ${\chi}^2$. 
-            This could relates to the higher upper limit of stellar metallicity 
-            ($2 \times \mathrm{Z}_{\odot}$) allowed by the \texttt{BC03} model 
-            that help fit the shape of the SED in the red-end better.  
-            However, the \texttt{BC03} model could underestimate the 
-            stellar age for a fraction of massive galaxies ($< 3$--4 Gyrs), and 
-            leads to underestimate of  \m2l{} for them too.
+            although it is not \mstar{}-dependent. 
+            The \texttt{BC03} results show better average ${\chi}^2$ than the 
+            \texttt{FSPS} ones. 
+            This relates to the higher upper-limit of stellar metallicity 
+            ($2 \times \mathrm{Z}_{\odot}$) allowed by the \texttt{BC03} model, 
+            which help fits the shape of the SED in the red-end slightly better.  
+            However, the \texttt{BC03} results also show puzzlingly low stellar 
+            ages ($< 3$--4 Gyrs) for these massive, red galaxies. 
+            This could also lead to underestimated \m2l{} values.
             It is worth noting that, both \texttt{FSPS} and \texttt{BC03} 
-            models still have difficulties recovering SED at the red-end (between $z$ 
-            and Y-band), and reproducing the optical color-color relations for 
-            red-sequence galaxies (e.g.\ \citealt{MIUSCAT2}).
+            models still have difficulties recovering SED at the very red-end 
+            (between $z$ and $y$-band), and reproducing the optical color-color 
+            relations for red-sequence galaxies (e.g.\ \citealt{MIUSCAT2}).
             In this work, we decide to keep using the \texttt{FSPS+MILES} model as 
             the fiducial one.  
-            However, using the results based on \texttt{BC03} model will not 
-            only change the main conclusions here, but also results in more 
-            significant differences in the median \mden{} profiles.
+            Using results based on \texttt{BC03} model will not change any of our 
+            conclusions here.
             
-        \item On the right panels of Fig~\ref{fig:ised_3}, we also compare with the
+        \item On the bottom panel of Fig~\ref{fig:ised_3}, we compare with the
             SED fitting results without considering the dust extinction. 
             This choice leads to slightly smaller \mstar{} values as expected. 
-            The impact is very small for the \rbcg{} galaxies, and becomes larger 
-            at the low-\mstar{} end of the \nbcg{} sample. 
-            But it still will not change any of the important results in this work.
+            Its impact becomes slightly larger at lower \mstar{} end. 
+            It will not change any of our conclusions here.
           
     \end{enumerate}
 %% ------------------------------------------------------------------------------------ %% 
