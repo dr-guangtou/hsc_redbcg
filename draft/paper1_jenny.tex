@@ -5,6 +5,7 @@
 % Version 4; emulateapj format; Edited SH
 % Version 5; MNRAS format; Edited SH
 % Version 6; MNRAS format; Paper I edited by JG
+% Version 7; MNRAS format; Edited by SH
 
 \documentclass[a4paper,fleqn,usenatbib]{mnras}
 
@@ -635,56 +636,26 @@
 %    ($P_{\mathrm{CEN}} \geq 0.7$) to form a sample of massive central galaxies that 
 %    live in massive halos.
 %% ------------------------------------------------------------------------------------ %% 
-%
-%% ------------------------------------------------------------------------------------ %% 
-%  \begin{figure}
-%      \centering 
-%      \includegraphics[width=\columnwidth]{fig/redbcg_completeness}
-%      \caption{
-%          \textbf{Left:} Difference between \mcmodel{} and \mtot{} for central
-%      	  galaxies in halos less massive than $10^{14} M_{\odot}$ (grey dots) and 
-%      	  in halos more massive than $10^{14} M_{\odot}$ (red squares). 
-%          On average, \mcmodel{} underestimates the total stellar mass of massive 
-%          galaxies by 0.1 dex while in some cases, the difference can exceed 0.2 dex.
-%          Vertical histograms indicate the mass difference for galaxies with
-%          $11.6<$\logmtot{}$<11.9$. 
-%          \textbf{Right:}: Impact of using \mcmodel{} on the galaxy stellar mass
-%          function. 
-%          Dashed lines correspond to the SMF computed using \mcmodel{} as an estimate
-%          of the total luminosity whereas solid lines correspond to the SMF computed
-%          using the total luminosity from our 1-D profile. 
-%          The impact on the SMF can exceed 0.2 dex for massive central galaxies 
-%          living in halos larger than $\log (M_{\mathrm{halo}}/M_{\odot}) > 14.2$ 
-%          (red lines).
-%          \song{New figure for completeness; Need to update the caption}
-%          }
-%      \label{fig:mass_complete}
-%  \end{figure}
-          
-%% ------------------------------------------------------------------------------------ %%
  
 %% ------------------------------------------------------------------------------------ %% 
   \begin{figure}
       \centering 
       \includegraphics[width=\columnwidth]{fig/redbcg_mass_diff}
       \caption{              
-          \song{New figures to show how \mstar{} changes with different definitions; 
-                Need to update the caption.}
-          \textbf{Left:} Difference between \mcmodel{} and \mtot{} for central
-      	  galaxies in halos less massive than $10^{14} M_{\odot}$ (grey dots) and 
-      	  in halos more massive than $10^{14} M_{\odot}$ (red squares). 
+          \textbf{Top:} Difference between \mcmodel{} and \mtot{} for massive
+      	  galaxies (grey dots).
+      	  The running-median of the mass differences along with the standard deviations
+      	  in a series of mass bins are shown in large red, hexagons with error bars. 
           On average, \mcmodel{} underestimates the total stellar mass of massive 
           galaxies by 0.1 dex while in some cases, the difference can exceed 0.2 dex.
-          Vertical histograms indicate the mass difference for galaxies with
-          $11.6<$\logmtot{}$<11.9$. 
-          \textbf{Right:}: Impact of using \mcmodel{} on the galaxy stellar mass
-          function. 
-          Dashed lines correspond to the SMF computed using \mcmodel{} as an estimate
-          of the total luminosity whereas solid lines correspond to the SMF computed
-          using the total luminosity from our 1-D profile. 
-          The impact on the SMF can exceed 0.2 dex for massive central galaxies 
-          living in halos larger than $\log (M_{\mathrm{halo}}/M_{\odot}) > 14.2$ 
-          (red lines).
+          Vertical histograms indicate the mass difference for all galaxies (shaded 
+          histogram) and for the ones with \logmtot{}$>11.6$ (empty histogram).
+          \textbf{Middle:} Difference between \mmax{} and \mtot{} in the same format. 
+          The average difference is small (0.02 dex) and does not show 
+          clear mass--dependence. 
+          \textbf{Bottom:} Difference between the \mtot{} and \mgama{} in the same
+          format.  
+          Here \mgama{} is based on single-\ser{} model derived from SDSS images. 
           }
       \label{fig:mass_diff}
   \end{figure}
