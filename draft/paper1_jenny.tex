@@ -1993,26 +1993,25 @@
             We increase the mask size for objects detected in different regions 
             separated by these apertures (which are outlined by solid, elliptical 
             apertures with different colors) using slightly different criteria.~~
-            \textbf{Middle:}: The flux profile that is zoomed into the near-zero flux 
-            range (top panel), and the curve-of-growth of the magnitude for the example
-            massive galaxy.  
-            To highlight the importance of correcting sky background, we show the profiles 
-            using both images with (red, solid line) and without (black, dash line) 
-            ad-hoc background correction. 
+            \textbf{Middle:}: The zoom-in intensity profile around very low intensity 
+            value (top panel), and the curve-of-growth of the enclosed magnitude 
+            (bottom panel) of the example galaxy.  
+            To highlight the importance of background correction, we show the profiles 
+            using both images with (red, solid line) and without (black, dotted line) 
+            background correction. 
             On the top panel, besides the horizontal line that highlights the zero flux 
-            level, we also show the uncertainty of the sky background estimate via 
-            grey-shaded region.  
+            level, we also show the uncertainty of the sky background estimate using 
+            the grey-shaded region.  
             On the bottom panel, two horizontal lines indicate the magnitudes 
-            corresponding to total (solid) and half flux (dash) using the 
-            background-corrected profile. ~~
-            \textbf{Right:} compare the 1-D surface brightness profiles for the same 
-            example galaxy extracted using different mask 
+            corresponding to total flux (solid) and flux within 100 kpc (dash).~~
+            \textbf{Right:} compares the 1-D surface brightness profiles for the same 
+            example galaxy using different masks 
             (smaller masking region: red, dash line; larger masks: blue, dash line), 
-            or different \texttt{Ellipse} settings
+            or different \texttt{Ellipse} configurations
             (more aggressive pixel-clipping: cyan, dash line; 
              larger step in radius: green, dash line; 
              using mean flux along the isophote instead of median: purple, dash line)
-            with the one using the default configuration (black, solid line).
+            with the default one (black, solid line).
             }
         \label{fig:ell_tech}
     \end{figure*}
