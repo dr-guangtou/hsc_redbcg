@@ -2026,20 +2026,22 @@
         \begin{center}
         \includegraphics[width=\textwidth]{fig/redbcg_isedfit_example.pdf}
         \caption{
-            Left: example output figure from \texttt{iSEDFit} that shows the SED 
-        	fitting results. 
+            \textbf{Left:} Example of output figure from \texttt{iSEDFit} that shows 
+            the SED fitting results. 
             The open-boxes show the observed fluxes in 5-band, and the solid, blue-dots
             show the best-fitted results, along with the high-resolution spectrum for
             this model reconstructed using the synthetic spectra from \texttt{FSPS}. 
             Top-left corner shows the best-fit stellar population parameters, and 
             bottom-right corner shows the ID, redshift of this object, and reduced 
             $\chi^2$ of the best-fit model.~~~
-            Right: the Posterior distributions of a few key parameters.
-            From top-left to bottom right are: 1) stellar mass (\logms{}); 2) age of the 
-            population (mass and star-formation rate weighted) in Gyr; 3) star formation 
-            rate ($\log\ \mathrm{SFR}\ (M_{\odot}/\mathrm{yr})$; instant one and the one 
-            averaged over the previous 100 Myr; 4) stellar metallicity 
-            ($\mathrm{Z}/\mathrm{Z}_{\odot}$); 5) dust extinction ($\mathrm{A}_V$ in mag);
+            \textbf{Right:} the Posterior distributions of a few key parameters.
+            From top-left to bottom right are: 
+            1) stellar mass (\logms{}); 
+            2) age of the population (mass and star-formation rate weighted) in Gyr; 
+            3) star formation rate ($\log\ \mathrm{SFR}\ (M_{\odot}/\mathrm{yr})$; 
+            instant one and the one averaged over the previous 100 Myr; 
+            4) stellar metallicity ($\mathrm{Z}/\mathrm{Z}_{\odot}$); 
+            5) dust extinction ($\mathrm{A}_V$ in mag);
             6) birthrate parameter ($\log\ b$; averaged over previous 100 and 1000 Myr).
             }
         \label{fig:ised}
@@ -2052,21 +2054,16 @@
         \begin{center}
         \includegraphics[width=12cm]{fig/redbcg_isedfit_2.pdf}
         \caption{
-            \song{Update the caption.}
-            Relationships between \mstar{} and other stellar population 
-            parameters using the results from \texttt{iSEDfit}. 
-            The \textbf{left} figures are for the \rbcg{} sample, and the 
-            \textbf{righ}t ones are 
-            for the \nbcg{} sample. 
-            They are both color-coded using the redshift of the object, while 
-            their sizes reflect the magnitude differences in $i$-band between 
-            the observed and best-fit value. 
+            Relationships between \mstar{} and key stellar population parameters from 
+            \texttt{iSEDfit}. 
             The four stellar population properties are: 
-            1) \textbf{Top-left}: mass-weighted stellar age in Gyr; 
-            2) \textbf{Bottom-left}: \m2l{} in $i$-band; 
-            3) \textbf{Top-right}: mass-weighted stellar metallicity in unit of Solar 
-            value;
-            4) \textbf{bottom-right}: dust extinction values in magnitude.
+            1) \textbf{Top-left}: \mstar{}-weighted stellar population age in Gyr; 
+            2) \textbf{Bottom-left}: SFR-weighted age in Gyr; 
+            3) \textbf{Top-right}: \mstar{}-weighted stellar metallicity in unit of 
+            Solar value;
+            4) \textbf{bottom-right}: dust extinction value in $V$-band.
+            As expected, most of the HSC massive galaxies are old, metal-rich, and 
+            dust-free. 
             }
         \label{fig:ised_2}
         \end{center}
@@ -2078,25 +2075,23 @@
         \begin{center}
         \includegraphics[width=\columnwidth]{fig/redbcg_isedfit_3.pdf}
         \caption{
-            \song{Update the caption.}
             Comparisons of \mstar{} estimated by \texttt{iSEDFit} using different
-            assumptions. 
-            In each figure, we plot the \mstar{} from default model against their 
+            model assumptions. 
+            In each figure, we plot the \mstar{} from the default model against the
             differences with other models. 
-            The top (bottom) row shows the comparisons of the \rbcg{} (\nbcg{}) sample. 
-            The four models involved here are labeled as: 
-            (A): default one; 
-            (B): using the Salpeter IMF instead of the Chabrier one 
-                (\textbf{Left column});
-            (C): using the BC03 synthetic population model instead of the FSPS one
-                (\textbf{Middle column});
-            (D): assume that there is no dust extinction (\textbf{Right column}). 
-            On each figure, the grey shaded region highlights the uncertainty 
-            of the $\log($\logms{}$)$ using typical \mstar{} uncertainties from 
-            both sides. 
-            For each comparison, we highlight the median $\chi^{2}$ value, and the fraction
-            of galaxies with $\chi^{2} > 10.0$ at the top. 
-            We also show the histogram of the \mstar{}-differences on the right panel.
+            The four models involved are labeled as: 
+            (A): Default model; 
+            (B): Using the Salpeter IMF instead of the Chabrier one 
+                (\textbf{Top panel});
+            (C): Using the BC03 synthetic population model instead of the FSPS one
+                (\textbf{Middle panel});
+            (D): No dust extinction (\textbf{Bottom panel}). 
+            On each panel, the grey shaded region highlights the typical uncertainty 
+            of the $\log($\logms{}$)$.            
+            For each pair of models, we highlight their median $\chi^{2}$ values and 
+            the fraction of galaxies with $\chi^{2} > 10.0$ at the top. 
+            On each panel, we also show the histograms of the \mstar{}-differences on 
+            the right side.
             }
         \label{fig:ised_3}
         \end{center}
