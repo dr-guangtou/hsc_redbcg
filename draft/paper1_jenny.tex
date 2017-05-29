@@ -941,7 +941,15 @@
     involved in the model-fitting, tests using synthetic galaxies show that \cmodel{}
     provides excellent measurements of five-band colors, which are crucial for 
     reliable \m2l{} estimates.
-    The typical uncertainty of \logms{} is around 0.06-0.08 dex at \logms${\sim} 11.5$. 
+    The typical uncertainty of \logms{} is around 0.06-0.08 dex at \logms${\sim} 11.5$.
+    
+    In Appendix~\ref{app:sed}, we briefly summarize the basic statistics of 
+    the sample, including average stellar age, metallicity, and internal dust 
+    extinction along with their relation with \mtot{}. 
+    All these properties behave reasonably for massive galaxies in this sample despite 
+    that we do not utilize them in this paper. 
+    Using the $k$-corrected optical color, we can also confirm that the sample follows 
+    a tight ``red-sequence''.  
     Please see Appendix~\ref{app:sed} for further details.
       
 %% ------------------------------------------------------------------------------------ %%  
@@ -950,34 +958,27 @@
 \subsection{``Total'' Stellar Masses}
     \label{ssec:mtotal}
     
-    Using the best-fit stellar mass from \texttt{iSEDFit} (noted as as \mcmodel{}), 
+    Using the best-fit \mstar{} from \texttt{iSEDFit} (noted as as \mcmodel{}), 
     we estimate the average \m2l{} in the $i$-band, then use that \m2l{} to convert 
     our 1-D luminosity density profiles into stellar mass density (\mden{}) profiles. 
     We also convert our 10 and 100 kpc aperture luminosities into corresponding stellar 
     mass estimates (noted as \minn{} and \mtot{}).
-    
+
     For the remainder of this paper, we will use \mtot{} as a proxy of ``total'' 
     stellar mass. 
-    \update{
     As expected, the integration of the 1-D profile out to very large radius recovers 
     more luminosity (stellar mass) compared to the \cmodel{}-based estimates 
     (Fig \ref{fig:mass_diff}).
-    }
-    \song{Work in progress.}
-    
-    In Appendix~\ref{app:sed}, we briefly summarize the basic statistics of 
-    the sample using our estimates of \mtot{} and \minn{}.
-    We confirm that the sample follows a very tight ``red-sequence'' that does not appear to depend on 
-    environment (see \S XX). 
-    Appendix~\ref{app:sed} describes the outputs from our SED fitting process 
-    (average stellar age, metallicity, and internal dust extinction). 
-    We do not utilize these quantities in this paper, but we have checked that they all 
-    behave reasonably for both samples. 
+    At high-\mstar{} end (e.g. \logmtot{}$>11.6$), the average difference is larger 
+    than 0.1 dex and can be as large as 0.2--0.3 dex.  
+    More importantly, the differences between \mtot{} and \mcmodel{} clearly show 
+    dependence on total stellar mass as \mcmodel{} tends to misse more light in 
+    more massive galaxies.  
+    In the next section, we will show that this 
 
-    \song{The color gradients and ellipticity profiles will be updated}
     Our methodology ignores any radial variations in \m2l{}. 
-    It is well known that massive ETGs have negative optical color gradients indicating 
-    gradients in \m2l{} (e.g.\ \citealt{LaBarbera2012}; 
+    It is well known that massive ETGs have negative optical color gradients 
+    indicating gradients in \m2l{} (e.g.\ \citealt{LaBarbera2012}; 
     \citealt{DSouza2015}). \jenny{earlier reference here?}
     These color gradients are shallow and smooth out to a few times the effective 
     radius and color gradients at the outskirts are not yet well quantified.
@@ -999,7 +1000,7 @@
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %%        
-    \subsection{Stellar Mass Completeness}
+\subsection{Stellar Mass Completeness}
     \label{ssec:complete}
     
     With the help of the \texttt{S82-MGC} (\citealt{Bundy2015}), we investigate the 
