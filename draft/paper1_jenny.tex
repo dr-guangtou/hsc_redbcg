@@ -399,8 +399,8 @@
 \subsection{The Hyper Suprime-Cam Survey}
     \label{ssec:hsc}
 
-    The Subaru Strategic Program (SSP, \citealt{MiyazakiInPrep}) makes use of the new 
-    prime-focus camera, the Hyper Suprime-Cam (HSC;~\citealt{Miyazaki2012}), on the 
+    The Subaru Strategic Program (SSP, \citealt{HSC_SSP, HSC_DR1}) makes use of the 
+    new prime-focus camera, the Hyper Suprime-Cam (HSC;~\citealt{Miyazaki2012}), on the 
     8.2-m Subaru telescope at Mauna Kea. 
     The ambitious multi-layer HSC survey takes advantage of the large field of 
     view (FoV;~1.5 deg in diameter) of this camera and will cover $>1000$ deg$^2$ 
@@ -431,7 +431,7 @@
 \subsection{HSC Data Processing}
     \label{sec:pipeline}
 
-    The full details of the HSC data processing can be found in \citet{BoschInPrep}
+    The full details of the HSC data processing can be found in \citet{Bosch2017}
     and are briefly summarized here. 
     The HSC SSP data are processed with \texttt{hscPipe 4.0.2}, a derivative of the 
     Large Synoptic Survey Telescope (LSST) pipeline (e.g.\ \citealt{Juric2015}; 
@@ -466,13 +466,13 @@
     This forced photometry approach is optimized to yield accurate galaxy colors. 
        
     For each galaxy, \texttt{hscPipe} measures a \cmodel{} magnitude using an approach 
-    that is similar to SDSS (\citealt{BoschInPrep}). 
+    that is similar to SDSS (\citealt{Bosch2017}). 
     However, as opposed to SDSS, the HSC \cmodel{} is based on forced photometry which 
     means that it can accurately measure both the \textit{fluxes and colors of galaxies}. 
     The HSC \cmodel{} algorithm fits the flux distribution of each object using a 
     combination of a de~Vaucouleur and an exponential component and accounts for the PSF. 
     The performance of this algorithm has been tested using synthetic objects 
-    (\citealt{SynPipeInPrep}), and the results indicate that, generally speaking, 
+    (\citealt{SynPipe}), and the results indicate that, generally speaking, 
     the HSC \cmodel{} photometry is accurate down to $i >25.0$ mag.  
     However, \cmodel{} currently systematically underestimates the total fluxes of 
     massive ETGs with extended stellar distributions. 
@@ -485,7 +485,7 @@
     The deblending method implemented by the \texttt{hscPipe} currently tends to 
     ``over-deblend'' the outskirts of bright galaxies and leads to an 
     under-estimation of the the total flux of massive ETGs (this is discussed further in 
-    \citealt{BoschInPrep}).  
+    \citealt{Bosch2017}).  
     For these reasons, our results will be based on custom developed code to measure 
     the luminosities and stellar masses of massive galaxies. 
     We use the HSC \texttt{hscPipe} photometry for two purposes: 
@@ -522,9 +522,9 @@
     galaxies at $z < 0.5$ from the HSC photometric catalog. 
     Based on \citet{Leauthaud2016}, $i_{\mathrm{SDSS, cModel}} \leq 21.0$ mag can 
     define a sample that includes almost all \logms{}$\geq 11.5$ galaxies.    
-    We therefore select our initial sample to be brighter than 
-    $i_{\mathrm{HSC, cModel}} \leq 21.5$\footnote{We neglect small differences between 
-    the response curves of SDSS-$i$ and HSC-$i$ filters.}
+    We therefore made a conservative selection of initial sample of massive galaxies
+    with $i_{\mathrm{HSC, cModel}} \leq 21.5$\footnote{We neglect small differences
+    between the response curves of SDSS-$i$ and HSC-$i$ filters.}
     and also limit our sample to regions that have reached the required depth of 
     the \texttt{WIDE} survey in the $i$-band.
     %% The SQL search is saved as "sample.sql" 
@@ -546,13 +546,12 @@
     We match the \texttt{hscPho} sample with a spec-$z$ catalog compiled by the HSC 
     team\footnote{It is created by matching HSC objects with all publicly available 
     spectroscopic redshifts (e.g.\ SDSS/BOSS; GAMA). 
-    The spec-z quality flag from different catalogs are homogenized into a single 
+    The spec-$z$ quality flag from different catalogs are homogenized into a single 
     flag that indicates secure redshifts.}.  
     To ensure reasonable \mstar{}-completeness at the high-\mstar{} end we focus on
     the redshift range $0.3 \leq z \leq 0.5$. 
     %% This is catalog: "dr1_specz_use.fits"   
    
-    \update{
     Objects without a spectroscopic redshift are matched with the central 
     galaxies from the \redm{} catalog using a $2.0^{\arcsec}$ matching radius. 
     We keep the matched objects with useful red-sequence photo-$z$ 
@@ -562,7 +561,6 @@
     The accuracy of the red-sequence photo-$z$ is sufficient (median 
     $|z_{\lambda} - z_{\mathrm{Spec}}| {\sim} 0.01$ for the ones with spec-$z$) 
     for the goal of this work.
-    }
     The \redm{} catalog provides an additional 133 unique redshifts for massive 
     galaxies in our sample.
     %% Estimated from "dr1_redbcg_hsc_sdss_gama_1arcsec.fits"
@@ -571,8 +569,19 @@
     reliable redshift information (referred as \texttt{hscZ}).
     %% Saved as "dr1_wide_galaxy_icmodel_21.5.fits"
     Among them, the BOSS and SDSS ``legacy'' LRG samples provide the majority of 
-    spec-$z$. 
-    Before we can define our mass-complete sample of central galaxies required for 
+    spec-$z$. and the GAMA survey provides additional $14$\% of spec-$z$.
+    We choose the redshift range of $0.3 \leq z \leq 0.5$ to make sure that 
+    (1) The inner region of massive galaxies can be resolved, and \mstar{} within 
+    10 kpc can be reliably measured; 
+    (2) The background noise and cosmological dimming are not major issues and the 
+    \mden{} profile can be measured out to $>100$ kpc; 
+    (3) Evolution in structure and stellar population properties can be largely 
+    ignored.  
+    At both lower and higher redshift, the completeness of spec-$z$ sample starts 
+    to decline.  
+    Also for bright galaxies at lower redshift, the over-subtraction of background 
+    becomes a more serious issue. 
+    Before we can define our mass-complete sample of massive galaxies required for 
     our analysis, we describe our one-dimensional photometric analysis 
     (\S \ref{sec:ellipse}) and stellar mass estimations (\S \ref{sec:mstar}). 
     We then define the final sample in \S \ref{sec:final}.
@@ -880,7 +889,7 @@
     Although \cmodel{} tends to underestimate the total flux for bright, extended 
     objects, it can still yield accurate \emph{average} colors thanks to the 
     forced-photometry method that takes the PSF convolution into account
-    (e.g. \citealt{SynPipeInPrep}). 
+    (e.g. \citealt{SynPipe}). 
 
     \texttt{iSEDFit} takes a simplified Bayesian approach. 
     In short, it first generates a large grid of SEDs from synthetic stellar population 
