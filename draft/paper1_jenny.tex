@@ -698,7 +698,6 @@
 %    clusters, any further satellite contamination can be safely neglected 
 %    (e.g. \citealt{Reid2014, Hoshino2015, Saito2016, vanUitert2016}).
 %    %% Saved as "dr1_nonbcg_use_sed5b.fits"
-%    % TODO: The actual number waits to be updated}
 %    
 % 
 %%% ------------------------------------------------------------------------------------ %% 
@@ -747,44 +746,46 @@
 \section{Measurements of 1-D Surface Brightness Profiles}
     \label{sec:ellipse}
     
-    Massive ETGs imaged at the depth of HSC are not well modeled by the de~Vaucouleurs
-    or \ser law. 
-    These models will fail to simultaneously describe the profile in both the inner and 
-    the outer regions and also cannot account for any radial variations in ellipticity 
-    and position angle. 
+    The surface brightness profile of massive ETG can not be well modeled by the 
+    de~Vaucouleurs or single-\ser law, especially at the imaging depth of HSC.
+    These models will fail to simultaneously describe the profile in both the inner 
+    and the outer regions and also cannot account for any radial variations in 
+    ellipticity and position angle. 
     In principle, massive galaxies can still be described by more complex 
     models (e.g \citealt{Huang2013a, Huang2013b, Oh2017}), but they are still 
     sensitive to the choices of models (e.g. de~Vaucouleurs or \ser{} profile), 
     the number of components, initial guesses of parameters, and the internal 
     degeneracies among different parameters. 
-    Background subtraction uncertainty also affects the 2-D model fitting dramatically, 
-    especially for massive ETGs in our sample. 
+    Background subtraction uncertainty also affects the 2-D model fitting 
+    dramatically, especially for massive ETGs in our sample. 
     We therefore perform elliptical isophote fitting using the IRAF \texttt{Ellipse} 
     algorithm (Jedrzejewski 1987) to estimate the total luminosities of massive 
     galaxies and measure their one-dimensional profiles of stellar mass surface 
     density (\mden{}). 
     This 1-D method we adopt is less affected by the issues mentioned above. 
-    Also, we will only study galaxies in the radial range where we are not sensitive 
-    to either the PSF ($r<3-5$ kpc) or the background subtraction ($r>100$ kpc). 
+    Also, we will only study galaxies in the radial range where we are not 
+    sensitive to either the PSF ($r<3-5$ kpc) or the background subtraction 
+    ($r>100$ kpc). 
         
     We prepare large $i$-band cut-outs for each galaxy that extend to 750 kpc in 
-    radius, along with a bad pixel mask, and the PSF model. 
+    radius, along with a bad pixel mask and the PSF model. 
     These cut-outs include all of the light of the galaxy and are large enough to 
     also evaluate the background level. 
     We choose to use $i$-band images because they trace the stellar distributions of 
     massive galaxies at $0.3 \leq z \leq 0.5$ reasonably well 
     (the observed i-band corresponds to a rest-frame $g$ or $r$ band), but also 
     because they have better seeing and much lower background levels than the $z$ 
-    and Y band images (although these in principle may be better tracers of \mden{}). 
+    and $y$ band images (although these in principle may be better tracers of 
+    \mden{}). 
     
-    For each cut-out, to overcome the \texttt{hscPipe} ``over-deblending'' issue, we 
-    use a customized procedure to detect and appropriately mask out neighbouring 
-    objects. 
+    For each cut-out, to overcome the \texttt{hscPipe} ``over-deblending'' issue, 
+    we use a customized procedure to detect and aggressively mask out
+    neighbouring objects. 
     Furthermore, \texttt{hscPipe} tends to over-subtract the background around 
     bright objects. 
-    To correct for this over-subtraction, we first aggressively mask all objects 
-    (including the central massive galaxy), and derive an empirical background 
-    correction using \texttt{SExtractor}.
+    To improve the background subtraction, we first aggressively mask 
+    out all objects (including the central massive galaxy), and derive an 
+    empirical background correction using \texttt{SExtractor}.
     Then, we run \texttt{Ellipse} on the background-corrected, masked cut-outs 
     following the methodology of \citet{Li2012}. 
     In short, we first fit each isophote using a free centroid and shape 
@@ -805,7 +806,8 @@
     Based on these tests, we find that our 1-D surface brightness profiles are reliable 
     up to surfaces brightness levels of $i{\sim}28.5$ \sb. 
     Beyond that, some of our profiles shows signs of truncation and/or large 
-    fluctuations which are due to the uncertainty in the background subtraction. 
+    fluctuations which are due to either the uncertainty in the background 
+    subtraction or the unmasked flux from other objects.
     We choose to limit our study to surface brightness levels up to ${\sim} 28.5$ \sb. 
     This is a conservative choice but already enables us to measure light profiles 
     out to $100$ kpc on a galaxy-by-galaxy basis (no stacking). 
@@ -817,45 +819,48 @@
     For physical (e.g.\ late-stage major merger) and nuisance (e.g.\ nearby foreground 
     galaxy or bright star) reasons, we cannot extract reliable 1-D profiles for a small 
     fraction of massive galaxies because they are heavily masked out. 
-    \update{
     This is an intrinsic limitation of the 1-D method, and it removes ${\sim}10$\% of 
     the sample.
-    }
     %It affects $18/164$ of the \rbcg{} sample, and a smaller fraction of the 
     %\nbcg{} sample. 
     It is worth noting that this excludes most major-merging massive galaxies. 
     
-    \update{
-    Given our exquisite profiles that extend to 100 kpc, the definition and meaning of ``total'' 
-    magnitude (and stellar mass) becomes more nuanced.
+    Given our exquisite profiles that extend to 100 kpc, the definition and meaning 
+    of ``total'' magnitude (and stellar mass) becomes more nuanced.
     With the help of the \m2l{} estimated in the next section (\S \ref{sec:mstar}), 
     we integrate the profile to a range of radii, and estimate the stellar mass 
     within these different apertures.  
     Motivated by the two-phase scenario, we will consider two benchmark physical 
     apertures throughout this work:
-    }
     
     \begin{itemize} 
        
-        \item \textbf{The \mstar{} within the inner 10 kpc} (hereafter noted \minn{}). 
-            According to the two-phase scenario, the ``in-situ'' star-formation quickly 
-            builds up the inner, dense core of massive ETGs.  
-            Based on recent observation (e.g.~\citealt{vanDokkum2010}) and simulations 
-            (e.g. \citealt{RodriguezGomez2016}), the in-situ component dominates the 
-            \mstar{} within one effective radius ($R_{\mathrm{e}}$, or 5-10 kpc) of 
-            $z{\sim}0$ massive ETGs.
-            We therefore use \minn{} as proxy for the mass forged during the ``in-situ''
-            phase. 
-            Given the quality of the HSC data, we can reliably measure \minn{} over our 
-            redshift range ($1.0^{\arcsec}$ in radius equals 4.4 and 6.1 kpc at redshift
-            0.3 and 0.5).  
+        \item \textbf{The \mstar{} within the inner 10 kpc} 
+            (hereafter noted \minn{}). 
+            According to the two-phase scenario, the ``in-situ'' star-formation 
+            quickly builds up the inner, dense core of massive ETGs.  
+            Based on recent observation (e.g.~\citealt{vanDokkum2010}) and 
+            simulations (e.g. \citealt{RodriguezGomez2016}), the in-situ component
+            dominates the \mstar{} within one effective radius ($R_{\mathrm{e}}$, 
+            or 5-10 kpc) of $z{\sim}0$ massive ETGs.
+            We therefore use \minn{} as proxy for the mass forged during the 
+            ``in-situ'' phase. 
+            Given the quality of the HSC data, we can reliably measure \minn{} over 
+            our redshift range ($1.0^{\arcsec}$ in radius equals 4.4 and 6.1 kpc 
+            at redshift 0.3 and 0.5).  
+            It is worth noting that, at very high-\mstar{} end, there can be 
+            significant contribution of accreted stars within 10 kpc 
+            (e.g. \citealt{RodriguezGomez2016). 
+            We will further discuss the justification of this assumption in 
+            \ref{ssec:twophase}.
             
-        \item \textbf{The stellar mass within 100 kpc} (hereafter noted \mtot{}). 
+        \item \textbf{The stellar mass within 100 kpc} 
+            (hereafter noted \mtot{}). 
             For our galaxy sample, a 100 kpc aperture corresponds to 5-10 
             $\times R_{\mathrm{e}}$. 
-            We show in section \ref{ssec:mtotal} that most of the \mstar{} for these 
-            ETGs can be captured by a 100 kpc radius and that \mtot{} is a good proxy 
-            for the ``total'' \mstar{}. 
+            We show in section \ref{ssec:mtotal} that most of the \mstar{} for 
+            these ETGs can be captured by a 100 kpc radius and that \mtot{} is 
+            a good proxy for the ``total'' \mstar{}. 
             Although not perfect, we argue that our measurements of \mtot{} (which are 
             actually measuring the light directly out to 100 kpc) are a better tracer 
             of total \mstar{} than model-dependent results from shallower data 
@@ -1512,6 +1517,7 @@
     
 \subsection{The ``Two phase'' Formation Scenario of Massive Galaxies and the 
             Build-Up of Outer Envelopes}
+    \label{ssec:twophase}
 
     {\bf Do we need two different sections and two different radial profile figures?}
             
