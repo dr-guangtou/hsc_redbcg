@@ -972,31 +972,67 @@
     At high-\mstar{} end (e.g. \logmtot{}$>11.6$), the average difference is larger 
     than 0.1 dex and can be as large as 0.2--0.3 dex.  
     More importantly, the differences between \mtot{} and \mcmodel{} clearly show 
-    dependence on total stellar mass as \mcmodel{} tends to misse more light in 
+    dependence on total stellar mass as \mcmodel{} tends to miss more light in 
     more massive galaxies.  
-    In the next section, we will show that this 
-
+    This relates to the mass-dependence nature of the stellar halos in massive 
+    galaxies and the intrinsic limitation of \cmodel{} method, which we will discuss
+    more in the next section.
+    Such differences also have important implications in the estimation of stellar 
+    mass function or in the study of environment-dependence of galaxy structure.  
+    We will also discuss these topics in Section \ref{sec:discussion}.
+    
+    Although 100 kpc is already a very large radius that should enclose the majority 
+    of stars that belong to these massive galaxies, we know that their \mden{} 
+    profiles extend beyond 100 kpc without showing sign of truncation. 
+    Therefore, for massive galaxies, even \mtot{} should be only considered a lower
+    limit of the ``total'' \mstar{}. 
+    In Fig \ref{fig:mass_diff}, we also integrate the \mden{} of each galaxy to the 
+    outermost radii as \mmax{} and compare their differences with \mtot{} 
+    (right panel).  
+    Although \mmax{} is much more uncertain than \mtot{} due to background subtraction
+    and impacts from nearby objects, we see they do return more \mstar{} than \mtot{}. 
+    However, the mass differences are on average very small ($\sim0.02-0.03$ dex) and 
+    do not show strong mass dependence.  
+    This confirms that, at the current depth of HSC images, \mtot{} can be used as 
+    good proxy of ``total'' stellar mass.   
+    
     Our methodology ignores any radial variations in \m2l{}. 
     It is well known that massive ETGs have negative optical color gradients 
-    indicating gradients in \m2l{} (e.g.\ \citealt{LaBarbera2012}; 
-    \citealt{DSouza2015}). \jenny{earlier reference here?}
+    indicating gradients in \m2l{} (e.g.\ \citealt{Carollo1993, Davies1993, 
+    LaBarbera2012, DSouza2015}).
     These color gradients are shallow and smooth out to a few times the effective 
     radius and color gradients at the outskirts are not yet well quantified.
-    Our results looking at the outer envelopes as a function of mass and environment 
-    will be robust as long as there is \emph{no significant difference in 
-    the average color gradient between sub-samples}.
-    %More importantly, for the comparison between the \rbcg{} and \nbcg{} samples, 
-    %our results will be robust as long as there is \emph{no significant difference in 
-    %the average color gradient between the two samples}. 
-    We have confirmed that this is indeed the case (see Section~\ref{ssec:ell_color}). 
+    Therefore, using average \m2l{} is unlikely to bias the results on \mstar{}
+    measurements.  
+    We will discuss color gradients more in Section~\ref{ssec:ell_color}. 
+    In summary, we do not find optical color gradient shows dependence on stellar
+    mass, hence the results about the mass-dependence of the \mden{} profiles will 
+    not be affected by it. 
     
-    Our method for deriving total stellar masses is similar to the 
-    method adopted by the GAMA survey (\citealt{Taylor2011, Kelvin2012}). 
-    We have compared our \mstar{} values with those from GAMA and the results are given 
-    in Appendix~\ref{app:gama}. 
-    We find a systematic differences between the two \mstar{} estimates.
+    %Our results looking at the outer envelopes as a function of mass and environment 
+    %will be robust as long as there is \emph{no significant difference in 
+    %the average color gradient between sub-samples}.
+    %We have confirmed that this is indeed the case (see Section~\ref{ssec:ell_color}). 
+    
+    Our method for deriving total \mstar{} is similar to the method adopted by the 
+    GAMA survey (\citealt{Taylor2011, Kelvin2012}), where the average \m2l{} is from 
+    SED fitting of PSF-matched aperture photometry and the total luminosity comes from 
+    sing-\ser{} modeling of the SDSS images. 
+    To avoid the differences in stellar population assumptions, we directly compare the 
+    total luminosity within 100 kpc and the GAMA single-\ser{} luminosity for the same
+    galaxies. 
+    At high-\mstar{} end, the HSC 1-D profiles still recover more light than the 
+    single-\ser{} model on average.
     It is likely that the GAMA models fail to capture the flux associated with the 
-    outskirts of galaxies due to the limited depth of SDSS.     
+    outskirts of galaxies due to the limited depth of SDSS.  
+    Meanwhile, there are also many cases where the high-\ser{} index of GAMA model leads 
+    to over-estimated total luminosity. 
+    We will discuss more of this comparison in the next paper of this series 
+    (Huang\etal in prep.).
+        
+    %We have compared our \mstar{} values with those from GAMA and the results are given 
+    %in Appendix~\ref{app:gama}. 
+   
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %%        
