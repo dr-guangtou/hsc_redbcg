@@ -1283,7 +1283,7 @@
           The uncertainty of distribution using \mtot{} is shown in grey shaded 
           region.  
           Here, we also compare the distributions with SMF from previous works: 
-          (a): SDSS galaxies at $z{\sim} 0.1$ from \citet{Bernardi2013}; the \mstar{} 
+          (a): SDSS galaxies at $z{\sim} 0.1$ from \citet{Bernardi2017}; the \mstar{} 
           is based on photometry from 2-D \ser{}$+$Exponential model fitting 
           (purple); 
           (b): SDSS galaxies at $z{\sim} 0.1$ from \citet{Moustakas13} based on 
@@ -1305,7 +1305,7 @@
     \label{ssec:smf}
     
     In Section \ref{ssec:mtotal}, we demonstrate that different methods for estimating
-    ``total'' stellar mass. 
+    ``total'' \mstar{} can have a large impact at the high-mass end.  
     
     Different methods for estimating the ``total'' \mstar{} can have a large impact on 
     the high mass end of the galaxy stellar mass function (e.g. \citealt{Bernardi2013, 
@@ -1427,12 +1427,16 @@
 \subsubsection{General Trends and Comparison with Previous Work}
     \label{sssec:sbp_inter}
           
-    Compared to the much discussed ``mass-size'' relation, the \mden{} profiles that 
-    we have derived capture the full information about the structural properties of 
+    Previous discussions about the structural evolution of massive galaxies or the 
+    environmental dependence of their structures often focus on scaling relations,  
+    like the ``\mstar{}-size'' relation. 
+    In this work, we argue that, compared to these scaling relations, the \mden{} 
+    profiles that we have derived capture the full structural information of these 
+    massive galaxies.
+    By studying these \mden{} profiles directly, we can by-pass difficult questions 
+    about how to accurately define and measure the ``sizes'' and ``masses'' of these 
     massive galaxies. 
-    We argue that by studying the shapes of these galaxy profiles directly, we can 
-    by-pass outstanding questions about how to accurately define and measure the 
-    ``sizes'' and ``masses'' of these massive galaxies. 
+    
     Fig~\ref{fig:avg_prof} shows the median \mden{} profiles\footnote{The median 
     profiles along with their uncertainties are derived using bootstrap resampling 
     method} of massive central galaxies at $0.3 < z < 0.5$ in three \mtot{} 
@@ -1442,22 +1446,35 @@
     As shown in the left panel of Fig~\ref{fig:avg_prof}, we can comfortably trace
     the \mden{} profiles of these massive galaxies out to 100 kpc 
     \textbf{individually}. 
-    These median \mden{} profiles have moderate differences in the inner region, 
-    but show significant differences in the outskirts with more massive galaxies 
-    showing more prominent stellar envelopes. 
-    \jenny{This seems out of place here:Most of these massive galaxies ($\ge 10^{11.4} M_{\odot}$) are slowly-rotating 
-    (e.g.\ \citealt{Cappellari13b}) giant ellipticals with ``boxy'' inner isophotal 
-    shapes (e.g.\ \citealt{Kormendy2009}), and slightly flattened inner \mden{} 
-    profiles (e.g.\ \citealt{Lauer07})}. 
-    But in the outskirts, the structure of these galaxies is 
-    \emph{clearly not self-similar}. 
+    These median \mden{} profiles have moderate differences in the inner region. 
+    Within inner 10 kpc, the median \mden{} profile of more massive galaxies 
+    shows slightly higher \mden{} value but similar slope. 
+    These massive galaxies ($\ge 10^{11.4} M_{\odot}$) are known to have quite 
+    uniform properties in the inner region. 
+    At these masses, most of them should be ``slow-rotating'' 
+    (e.g.\ \citealt{Cappellari13b})``core''--elliptical galaxies 
+    (e.g.\ \citealt{Lauer07}) that have ``boxy'' inner isophotal shapes and similar 
+    slopes of the inner surface brightness profiles (e.g.\ \citealt{Kormendy2009,
+    Schombert2015}).
+    
+    Meanwhile, in the outskirts, we can notice significant differences where more 
+    massive galaxies have gradually more flattened \mden{} profiles and show more 
+    prominent stellar halos.
+    It is also interesting to see that the distributions of \mden{} profiles show 
+    considerably large scatter at large radius. 
+    Given the \s2n{} of the HSC image at these surface brightness levels, these 
+    scatters should reflect the \textbf{intrinsic scatter of the structures of 
+    massive galaxies in their stellar halos}.
+    Overall, the structures of massive galaxies are \emph{clearly not self-similar}
+    out to 100 kpc. 
     Some of our \mden{} profiles show signs of unphysical truncation and fluctuation 
     related to inaccurate sky subtraction. 
     In this paper, we do not use profiles beyond 100 kpc, even though the median 
     \mden{} profiles for the two most massive bins behave reasonably out to 
     ${\sim} 200$ kpc. 
     
-    Fig~\ref{fig:avg_prof} compares our results with previous work. 
+    The right panel of Fig~\ref{fig:avg_prof} compares our results with previous 
+    works. 
     Most previous studies have relied on stacking techniques to measure surface 
     brightness profiles out to large radii.
     So far, the surface brightness profiles of massive galaxies out to such large 
