@@ -1228,12 +1228,7 @@
     Since we have rejected satellites in \redm{} cluster and the satellite 
     contamination steadily decreases with stellar mass (e.g. \citealt{Reid2014, 
     Hoshino2015, Saito2016, vanUitert2016}), the massive galaxies in the \nbcg{} 
-    sample are very likely to be the central galaxies of 
-    
-     very high mass end, and given that we have rejected satellites in \redm{} 
-    clusters, any further satellite contamination can be neglected for the purpose of 
-    this work
-    .
+    sample are very likely to be the central galaxies of their own dark matter halos.
     %% Saved as "dr1_nonbcg_use_sed5b.fits"
 %% ------------------------------------------------------------------------------------ %% 
 
@@ -1254,34 +1249,63 @@
             data release. 
         \item \texttt{hscZ} sample: we limit the \texttt{hscPho} sample to galaxies 
             with reliable redshift information. 
-        \item We further divide the sample into an \rbcg{} sample and a \nbcg{} sample, 
-          with the former roughly having \logmh{}$\geq 14.2$ and the latter having 
-           \logmh{}$<14.0$.
-
-%          : we select a sample of 164 galaxies at 
-%            $0.3 \leq z \leq 0.5$ that are the central galaxies 
-%            in $\lambda > 30$ \redm{} clusters. 
-%            They represent the central galaxies in very massive halos 
-%            (\logmh{}$\geq 14.2$). 
-%        \item \nbcg{} sample: after excluding all cluster members from the 
-%            \texttt{hscZ} sample, we have 14661 bright galaxies at 
-%            $0.3 \leq z \leq 0.5$. 
-%            After applying an additional \mstar{} cut (see Section 
-%            \ref{ssec:isedfit}), this sample corresponds to central galaxies in 
-%            halos with \logmh{}$<14.0$.  
+        \item With the help of the \redm{} cluster catalog, we further select 
+            candidates of massive central galaxies in a range of \mhalo{}
+            We broadly divide the sample into the central galaxies living in halos
+            with \logmh{}$\geq 14.0$ (\rbcg{}) and \logmh{}$<14.0$ (\nbcg{}). 
     \end{itemize}
     
+    To discuss the mass-dependence of galaxy structure, we will combine the \rbcg{}
+    and \nbcg{} samples and group them into three bins of \mtot{}.  
+    In this work, we will only separately discuss the \rbcg{} and \nbcg{} samples 
+    when we look into the impact of \mstar{} definition on the SMF in Section 
+    \ref{ssec:smf}. 
+    We will carefully look into the structural differences between the central galaxies 
+    from these two samples later (Huang\etal~in prep.).  
 %% ------------------------------------------------------------------------------------ %% 
 
+%% ------------------------------------------------------------------------------------ %% 
+  \begin{figure*}
+      \centering 
+      \includegraphics[width=\textwidth]{fig/redbcg_mass_smf}
+      \caption{
+          \textbf{Left:} Impact of using \mtot{} on the galaxy stellar mass function. 
+          Dashed lines correspond to the SMF computed using \mcmodel{} whereas solid 
+          lines correspond to the SMF computed using \mtot{}. 
+          Here we separate the HSC massive galaxies into the central galaxies living 
+          in halos more massive than \logmh{}$\sim14.2$ (red lines) and the ones in 
+          halos with \logmh{}$<14.0$ (black lines).
+          The impact on the SMF can exceed 0.2 dex for massive central galaxies in 
+          very massive halos.
+          \textbf{Right}: The stellar mass volume density distributions of massive 
+          HSC galaxies, using both \mtot{} (black solid line) and \mmax{} (black dotted 
+          line). 
+          The uncertainty of distribution using \mtot{} is shown in grey shaded 
+          region.  
+          Here, we also compare the distributions with SMF from previous works: 
+          (a): SDSS galaxies at $z{\sim} 0.1$ from \citet{Bernardi2013}; the \mstar{} 
+          is based on photometry from 2-D \ser{}$+$Exponential model fitting 
+          (purple); 
+          (b): SDSS galaxies at $z{\sim} 0.1$ from \citet{Moustakas13} based on 
+          improved SDSS \texttt{cModel} photometry (blue); 
+          (c): \texttt{S82-MGC} galaxies at $0.15 < z< 0.43$ from 
+          \citet{Leauthaud2016} based on PSF-matched SDSS-UKIDSS photometry (green).
+          Please see text for more details of the comparison.
+          }
+      \label{fig:smf}
+  \end{figure*}
+%% ------------------------------------------------------------------------------------ %%
 
- 
 %% ------------------------------------------------------------------------------------ %% 
 \section{Results}
     \label{sec:result}
 
 %% ------------------------------------------------------------------------------------ %%     
     \subsection{Impact of Missing Light on the Galaxy Stellar Mass Function}
-    \label{ssec:s82}
+    \label{ssec:smf}
+    
+    In Section \ref{ssec:mtotal}, we demonstrate that different methods for estimating
+    ``total'' stellar mass. 
     
     Different methods for estimating the ``total'' \mstar{} can have a large impact on 
     the high mass end of the galaxy stellar mass function (e.g. \citealt{Bernardi2013, 
@@ -1299,6 +1323,76 @@
     %The impact of missing flux is most prominent for the \rbcg{} sample.
     For studies about the SMF or other aspects of galaxy evolution based on 
     \cmodel{}-like photometry or shallower images, these effects can not be neglected.
+    
+        Even with deep HSC images, it is non trivial to clearly define and measure the
+    ``total'' \mstar{} for these massive systems. 
+    As discussed in Section~\ref{ssec:mtotal}, our 1-D approach has certain advantages 
+    over the 2-D modeling method and in principle, should capture a the majority of 
+    the stellar mass. 
+    However, even though we extend to 100 kpc, there is no evidence that the profile 
+    drops to zero on these scales. 
+    We now estimate how much extra mass is ``hidden'' beyond the 100 kpc radius. 
+    For this, we integrate the \mden{} profiles out to the detection limit in 
+    surface brightness profile that is defined by the background noise.
+    We will call this the ``maximum mass'' of the galaxy (\mmax{}). 
+    For obvious reasons, we find that \mmax{} is larger than \mtot{} with an average 
+    difference of about ${\sim}0.04$ dex. 
+    The left hand side of Fig \ref{fig:smf} shows differences between \mtot{}
+    and \mmax{}. 
+    On a galaxy-by-galaxy basis, the difference \mmax{}-\mtot{} depends on the slope 
+    of the stellar envelope. 
+    In this work, we have opted to in general use \mtot{} rather than \mmax{} as the 
+    uncertainty on \mmax{} is larger. 
+    However, we have checked that none of our results are changed by replacing \mtot{} 
+    via \mmax{}.
+        
+    How to define and measure the ``total'' mass of a galaxy becomes a critical 
+    question when studying the high-mass end of the galaxy SMF. 
+    The issues discussed above are currently one of the primary limitations in 
+    determinations of the high-mass end of the SMF (\citealt{Bernardi2016}). 
+    Fig~\ref{fig:mass_complete} illustrated how improved \mstar{} measurement can 
+    significantly modifies the SMF. 
+    On the right hand side of Fig~\ref{fig:smf}, we further highlight that 
+    the shape of SMF at high-mass end is quite sensitive to even very small 
+    change of \mstar{}. 
+    We also compare the SMFs of our HSC samples with the following previous studies:
+        
+    \begin{itemize}
+    
+        \item The SMF derived from a SDSS-\textit{GALEX} sample of $z{\sim} 0.1$ 
+            galaxies from \citet{Moustakas13}. 
+            Here, the total luminosity is based on the SDSS \cmodel{} magnitude. 
+            The \m2l{} is derived via SED fitting using \texttt{iSEDfit} with similar 
+            assumptions as in our work.
+            
+        \item The SMF for $z{\sim} 0.1$ SDSS galaxies from \citet{Bernardi2013}. 
+            The total luminosity is based on 2-D \texttt{SerExp} models 
+            (\ser{}$+$ Exponential disk model; integrated to infinity) that 
+            recovers much more flux compared to SDSS \cmodel{} magnitudes. 
+            The \m2l{} is also from SED fitting assuming a Chabrier IMF.
+            
+        \item The SMF for $0.15 < z < 0.30$ galaxies from the \texttt{S82-MGC} sample
+            \citep{Leauthaud2016} where the \mstar{} is derived using 
+            \texttt{iSEDfit} on PSF-corrected aperture photometry from 
+            \texttt{S82}.
+            
+    \end{itemize}
+
+%% ------------------------------------------------------------------------------------ %% 
+    It is clear that different analyses lead to very different slopes at high-mass end. 
+    Here, we do not try to evaluate whether the differences displayed in 
+    Fig~\ref{fig:smf} are dominated by differences in photometry versus 
+    assumptions about stellar population models (e.g. \citealt{Bernardi2016}). 
+    However, given that the results that we are comparing assume the same IMF and adopt 
+    similar assumptions about stellar population models, we hypothesize that the 
+    differences in Fig~\ref{fig:smf} are dominated by differences in photometry. 
+    The goal of our of present paper is not to present and discuss a careful evaluation
+    of the high-mass end of the SMF -- this will be presented in a forthcoming paper 
+    once the HSC survey has accumulated more data. 
+    However, this is clearly a topic that warrants further investigation, and careful 
+    photometry measurements from HSC data will shed further light on these questions. 
+    
+    
 %% ------------------------------------------------------------------------------------ %%  
 
 %% ------------------------------------------------------------------------------------ %%
@@ -1657,38 +1751,6 @@
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
-  \begin{figure*}
-      \centering 
-      \includegraphics[width=\textwidth]{fig/redbcg_mass_smf}
-      \caption{
-          \textbf{Left:} Impact of using \mtot{} on the galaxy stellar mass function. 
-          Dashed lines correspond to the SMF computed using \mcmodel{} whereas solid 
-          lines correspond to the SMF computed using \mtot{}. 
-          Here we separate the HSC massive galaxies into the central galaxies living 
-          in halos more massive than \logmh{}$\sim14.2$ (red lines) and the ones in 
-          halos with \logmh{}$<14.0$ (black lines).
-          The impact on the SMF can exceed 0.2 dex for massive central galaxies in 
-          very massive halos.
-          \textbf{Right}: The stellar mass volume density distributions of massive 
-          HSC galaxies, using both \mtot{} (black solid line) and \mmax{} (black dotted 
-          line). 
-          The uncertainty of distribution using \mtot{} is shown in grey shaded 
-          region.  
-          Here, we also compare the distributions with SMF from previous works: 
-          (a): SDSS galaxies at $z{\sim} 0.1$ from \citet{Bernardi2013}; the \mstar{} 
-          is based on photometry from 2-D \ser{}$+$Exponential model fitting 
-          (purple); 
-          (b): SDSS galaxies at $z{\sim} 0.1$ from \citet{Moustakas13} based on 
-          improved SDSS \texttt{cModel} photometry (blue); 
-          (c): \texttt{S82-MGC} galaxies at $0.15 < z< 0.43$ from 
-          \citet{Leauthaud2016} based on PSF-matched SDSS-UKIDSS photometry (green).
-          Please see text for more details of the comparison.
-          }
-      \label{fig:discussion_2}
-  \end{figure*}
-%% ------------------------------------------------------------------------------------ %%
-
-%% ------------------------------------------------------------------------------------ %% 
 \subsection{What is the ``Total Mass'' of Massive Galaxies?}
 
     Even with deep HSC images, it is non trivial to clearly define and measure the
@@ -1704,7 +1766,7 @@
     We will call this the ``maximum mass'' of the galaxy (\mmax{}). 
     For obvious reasons, we find that \mmax{} is larger than \mtot{} with an average 
     difference of about ${\sim}0.04$ dex. 
-    The left hand side of Fig \ref{fig:discussion_2} shows differences between \mtot{}
+    The left hand side of Fig \ref{fig:smf} shows differences between \mtot{}
     and \mmax{}. 
     On a galaxy-by-galaxy basis, the difference \mmax{}-\mtot{} depends on the slope 
     of the stellar envelope. 
@@ -1719,7 +1781,7 @@
     determinations of the high-mass end of the SMF (\citealt{Bernardi2016}). 
     Fig~\ref{fig:mass_complete} illustrated how improved \mstar{} measurement can 
     significantly modifies the SMF. 
-    On the right hand side of Fig~\ref{fig:discussion_2}, we further highlight that 
+    On the right hand side of Fig~\ref{fig:smf}, we further highlight that 
     the shape of SMF at high-mass end is quite sensitive to even very small 
     change of \mstar{}. 
     We also compare the SMFs of our HSC samples with the following previous studies:
@@ -1748,11 +1810,11 @@
 %% ------------------------------------------------------------------------------------ %% 
     It is clear that different analyses lead to very different slopes at high-mass end. 
     Here, we do not try to evaluate whether the differences displayed in 
-    Fig~\ref{fig:discussion_2} are dominated by differences in photometry versus 
+    Fig~\ref{fig:smf} are dominated by differences in photometry versus 
     assumptions about stellar population models (e.g. \citealt{Bernardi2016}). 
     However, given that the results that we are comparing assume the same IMF and adopt 
     similar assumptions about stellar population models, we hypothesize that the 
-    differences in Fig~\ref{fig:discussion_2} are dominated by differences in photometry. 
+    differences in Fig~\ref{fig:smf} are dominated by differences in photometry. 
     The goal of our of present paper is not to present and discuss a careful evaluation
     of the high-mass end of the SMF -- this will be presented in a forthcoming paper 
     once the HSC survey has accumulated more data. 
