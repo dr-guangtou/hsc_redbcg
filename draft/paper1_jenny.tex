@@ -1043,62 +1043,85 @@
     \mstar{} completeness of our samples. 
     The \texttt{S82-MGC} sample matches the deeper SDSS photometric data in the 
     Stripe 82 region (\citealt{Annis2014}) with the near infrared data from the United 
-    Kingdom Infrared Telescope Infrared Deep Sky Survey (UKIDSS; \citealt{Lawrence2007}). 
-    The deeper photometry and better photo-$z$s make the \texttt{S82-MGC} sample complete 
-    to \logms{}$\geq 11.2$ at $z<0.7$ which makes it sufficient to evaluate the 
-    completeness of our HSC samples.
+    Kingdom Infrared Telescope Infrared Deep Sky Survey (UKIDSS; 
+    \citealt{Lawrence2007}). 
+    The deeper photometry and better photo-$z$s make the \texttt{S82-MGC} sample 
+    complete to \logms{}$\geq 11.2$ at $z<0.7$ which makes it sufficient to evaluate 
+    the completeness of our HSC sample.   
+	By comparing with the Stripe 82 Massive Galaxy Catalog
+    (\texttt{S82-MGC}; \citealt{Bundy2015}), \citet{Leauthaud2016} have measured the
+    \mstar{} completeness of the combined BOSS and SDSS samples. 
+    They estimate that the BOSS spec-$z$ sample, which is the main contributor of 
+    spec-$z$ in our massive galaxy sample, is about 80\% complete at 
+    \logms{}$\geq 11.6$ at $0.3 < z < 0.5$. 
+    As the secondary contributor, the GAMA survey is 80\% complete down to 
+    $10^{10.8}$\msun at $z{\sim} 0.3$, but is only 80\% complete to 
+    $10^{12.0}$\msun{} at $z{\sim} 0.5$ according to \citet{Taylor2011} (e.g.\ 
+    their Fig~~6).
     
     There are 20453 \texttt{S82-MGC} galaxies that are also in the \texttt{hscPho} 
     sample at $0.3 \leq z_{\mathrm{s82}} \leq 0.5$. 
-    We compute \mstar{} values for these galaxies using our fiducial 
+    We estimate \mcmodel{} values of these galaxies using our fiducial 
     procedure\footnote{The \mstar{} using HSC photometry is in excellent with the 
     values derived from the \texttt{S82-MGC} which includes NIR data from UKIDSS; 
     \texttt{S82-MGC} also uses \texttt{iSEDFit} with similar assumptions.}. 
-    Figure~\ref{fig:mass_complete} compares the SMFs of galaxies from 
-    \texttt{S82-MGC} with the SMFs of galaxies from our 
-    sample\footnote{Errors on the SMFs are estimated via bootstrap resampling}. 
-    Based on Fig~\ref{fig:mass_complete}, we conclude that our sample of massive galaxies is 
-    reasonably complete down to \logms{}${\sim} 11.6$ at $0.3 \leq z \leq 0.5$. 
+    Figure~\ref{fig:mass_complete} compares the volume number density distributions 
+    of galaxies from \texttt{S82-MGC} with the one for galaxies in our 
+    sample\footnote{Since we do not apply any statistical correction on the 
+    completeness, we do not use the term ``stellar mass function'' to avoid confusion;
+    Errors on the distributions are estimated via bootstrap resampling}. 
+    Based on Fig~\ref{fig:mass_complete}, we conclude that our sample of massive 
+    galaxies is reasonably complete down to \logmcmodel{}${\sim} 11.5$ at 
+    $0.3 \leq z \leq 0.5$. 
     %The \rbcg{} sample is less affected by completeness because we can utilize 
     %photo-$z$s from \redm{}. 
     %However, the completeness of the \nbcg{} sample is still limited by the 
     %availability of spec-$z$s from BOSS.    
-    In this work, we will focus on the range $11.6 \le$ \logmtot{}$ \le 11.9$ 
-    where our two samples are complete. 
+    Given the average difference between \mtot{} and \mcmodel{}, we will focus on 
+    the galaxies with \logmtot{}$> 11.6$ where our sample shows good completeness.
+    The massive galaxies with $11.4 \le$\logmtot{}$<11.6$ are also included in the 
+    discussion since there is no obvious reason to worry about the impact of
+    completeness on the main results of this work.
+    
     %When comparing \nbcg{} and \rbcg{} we will also always make sure that the two 
     %samples are well matched both in terms of \mstar{} as well as in terms of redshift. 
     %Please see the next section and Appendix~\ref{app:match} for more details.
     
-	\jenny{Anything else we need to keep from here?}
-	By comparing with the Stripe 82 Massive Galaxy Catalog
-    (\texttt{S82-MGC}; \citealt{Bundy2015}), \citet{Leauthaud2016} have measured the
-    \mstar{} completeness of the combined BOSS and SDSS samples. 
-    They estimate that the BOSS spec-$z$ sample is about 80\% complete at 
-    \logms{}$\geq 11.6$ at $0.3 < z < 0.5$. 
-    The GAMA survey, which partially overlaps with the HSC footprints, supplements 
-    our \texttt{hscZ} sample by 14\%. 
-    Based on \citet{Taylor2011} (e.g.\ their Fig~~6), at $z{\sim} 0.3$, the GAMA 
-    sample is 80\% complete down to $10^{10.8}$\msun; but only 80\% complete to 
-    $10^{12.0}$\msun at $z{\sim} 0.5$. 
-    We can therefore expect our sample to be roughly \mstar{}-complete above 
-    \logms{}$\geq 11.5$-$11.6$. 
-    This question will be addressed more carefully using the overlap region between 
-    HSC and the \texttt{S82-MGC} in Section \ref{ssec:s82}.
 %% ------------------------------------------------------------------------------------ %%
 
 %% ------------------------------------------------------------------------------------ %%  
 \section{The Final Sample}
     \label{sec:final}
     
-	With stellar masses in hand, we now use the redMapper cluster catalog to identify a sample of 
-    central galaxies.
-
-	\subsection{Indentifying central galaxies using the \redm{}{} cluster catalog}
+	With the different estimates of \mstar{} and the \mden{} profiles in hand, we now 
+	proceed to identify a sample of massive central galaxies with the help from the 
+	\redm{} galaxy cluster catalog. 
+	The ``central'' galaxy can be roughly defined as the galaxy that live in the 
+	center of its own dark matter halo.  
+	In contrast, galaxy in a sub-halo who is orbiting within the virial radius of a 
+	more massive halo is referred to as ``satellite''. 
+	Central galaxy has its unique importance in the study of galaxy evolution and 
+	galaxy-halo coevolution.
+	Therefore, to better understand the connection between the structure of massive 
+	galaxies and the assembly history of stars and halos, we wish to focus on central 
+	galaxies in this work. 
+    
+\subsection{Candidates of massive central galaxies}
     \label{ssec:redmapper}
     
-    We wish to focus on galaxies located at the center of their dark matter halos. 
-    To limit our sample to central galaxies, we use \texttt{v5.10} of the \redm{}{} 
-    cluster catalog\footnote{See: http://risa.stanford.edu/redmapper/} 
+    Identification of central galaxy is not an easy task (e.g. \citealt{Yang2007}).
+    For this purpose, we first use the \redm{} catalog to help us isolate the central 
+    galaxies in massive halos and also exclude the massive satellite galaxies in these
+    haloes.  
+    Assuming the completeness of the \redm{} catalog, we treat the rest of sample as 
+    galaxies from less massive halos.  
+    Given the smaller fraction of satellite galaxies at high-\mstar{} end (e.g. 
+    \citealt{Reid2014, Hoshino2015, Saito2016}), 
+    we further assume that the massive ones (\logmtot{}$>11.4$) among them are likely 
+    to be the central galaxies of these smaller halos. 
+    
+    In the first step, we make use of the \texttt{v5.10} of the \redm{} cluster 
+    \footnote{See: http://risa.stanford.edu/redmapper/} 
     (e.g.\ \citealt{Rykoff2014}; \citealt{Rozo2015b}). 
     These authors have developed a well-tested red-sequence cluster finder that has 
     been run on SDSS DR8 (\citealt{SDSSDR8}) photometric data. 
@@ -1115,14 +1138,13 @@
     Melchior2016}). 
     All these studies consistently find that \redm{} clusters with $\lambda > 20$ 
     have $\log (M_{\mathrm{halo}}/M_{\odot}) \geq 14.0$. 
-    The \redm{} catalog therefore helps us group massive central galaxies into 
-    samples with different average \mhalo{}. 
-    We will use the central galaxies of \redm{} clusters 
-    ($P_{\mathrm{CEN}} \geq 0.7$) to form a sample of massive central galaxies that 
-    live in massive halos as described below. In addition to identifying central galaxies, 
-    we are also able to link each galaxy with a halo mass using the redMaPPer catalog, and 
-    this information is also very useful in studying the 
-    relationship between galaxy structure and environment.
+    Therefore the central galaxies of these \redm{} clusters\footnote{We only use the 
+    central galaxies with $P_{\mathrm{CEN}} \geq 0.7$} form a sample of massive central 
+    galaxies that live in massive halos as described above.
+    Besides the selection of central galaxies, we are also able to link each galaxy
+    with a \mhalo{} using the \redm{} catalog. 
+    Such information is also very useful in studying the relationship between galaxy
+    structure and environment (Huang\etal in prep.).
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
@@ -1161,53 +1183,58 @@
     % $1.0^{\arcsec}$ radius, and it results in 704 galaxies.  
     %% Saved as "dr1_redbcg_hsc_sdss_gama_1arcsec.fits"
     
-    Due to the depth and resolution of SDSS, the \redm{} catalog becomes slightly 
-    incomplete at lower richness ($\lambda < 40$) at $z > 0.33$. 
-    To ensure a clean separation in \mhalo{}, here we only focus on the central 
-    galaxies of clusters with $\lambda > 30$. 
-    According to \citet{Simet2016}, this $\lambda \geq 30$ sample should correspond to 
-    $M_{\mathrm{halo}}>10^{14.2} M_{\odot}$. 
-    We have checked that none of the results in this work depend on the choice of this 
-    $\lambda$ limit.
-    
-    We therefore match the \texttt{hscZ} sample with the central galaxies of \redm{} clusters 
-    with $\lambda \geq 30$ and $P_{\mathrm{0.7}} \geq 0.7$, and find 164 matched 
-    galaxies at $0.3 \leq z \leq 0.5$.
-    Our sample of \textbf{central galaxies in more massive halos} will be referred to 
+    % TODO: Move this to Paper II
+    %To ensure a clean separation in \mhalo{}, here we only focus on the central 
+    %galaxies of clusters with $\lambda > 30$. 
+    %According to \citet{Simet2016}, this $\lambda \geq 30$ sample should correspond to 
+    %$M_{\mathrm{halo}}>10^{14.2} M_{\odot}$. 
+    %We have checked that none of the results in this work depend on the choice of this 
+    %$\lambda$ limit.
+
+    %The median $\lambda$ of the clusters associated with the \rbcg{} sample is 
+    %${\sim} 41$, corresponding to halo mass of 
+    %$M_{\mathrm{halo}}{\sim} 2.2\times 10^{14}$ $h^{-1}$ $M_{\odot}$.
+    %Only 44 centrals from the \rbcg{} sample live in clusters with $\lambda \geq 50$
+    %($M_{\mathrm{halo}} {\sim} 3.0\times 10^{14}$ $h^{-1} M_{\odot}$). 
+    %Our \rbcg{} sample therefore corresponds to galaxies in moderate mass halos.
+ 
+    After matching the \texttt{hscZ} sample with the central galaxies of \redm{} 
+    clusters with $\lambda \geq 20$ and $P_{\mathrm{0.7}} \geq 0.7$, we find 164 
+    matched galaxies at $0.3 \leq z \leq 0.5$.
+    This sample of \textbf{central galaxies in more massive halos} will be referred to 
     as the \rbcg{} sample. 
-    The median $\lambda$ of the clusters associated with the \rbcg{} sample is 
-    ${\sim} 41$, corresponding to halo mass of 
-    $M_{\mathrm{halo}}{\sim} 2.2\times 10^{14}$ $h^{-1}$ $M_{\odot}$.
-    Only 44 centrals from the \rbcg{} sample live in clusters with $\lambda \geq 50$
-    ($M_{\mathrm{halo}} {\sim} 3.0\times 10^{14}$ $h^{-1} M_{\odot}$). 
-    Our \rbcg{} sample therefore corresponds to galaxies in moderate mass halos.
+    Due to the depth and resolution of SDSS, the \redm{} catalog becomes slightly 
+    incomplete at lower richness ($\lambda < 40$) at $z > 0.33$, but the main results 
+    of this work are not affected by this.
     %% Saved as "dr1_redbcg_use_sed5b.fits"
     
-    Out next goal is to construct a sample of central galaxies living in halos with 
-    \logmh{}$<14.0$. 
-    We first identify and remove all galaxies within a cylindrical region around all 
-    \redm{} clusters. 
+    As the next step, we want to construct a sample of central galaxies living in halos 
+    with \logmh{}$<14.0$. 
+    To achieve this, we identify and remove all galaxies within a cylindrical region 
+    around all \redm{} clusters. 
     We use a radius equal to $R_{\mathrm{200b}}$ and the thickness of the cylinder is 
-    set to twice the uncertainty of the photometric redshift error. 
-    We convert $\lambda$ to $M_{\mathrm{halo}}$ using the calibration of 
-    \citet{Simet2016} and we use the mass-concentration relation from 
-    \citet{Diemer2015} to compute $R_{\mathrm{200b}}$. At $0.3 < z < 0.5$, the 
-    uncertainty of photo-$z$ is between 0.015 to 0.025, and is enough to exclude 
-    cluster members.
+    set to twice the uncertainty of the photometric redshift error of the cluster. 
+    We convert $\lambda$ of each cluster to $M_{\mathrm{halo}}$ using the calibration 
+    of \citet{Simet2016} and we use the mass-concentration relation from 
+    \citet{Diemer2015} to compute $R_{\mathrm{200b}}$. 
+    At $0.3 < z < 0.5$, the uncertainty of photo-$z$ is between 0.015 to 0.025, and 
+    is enough to exclude cluster members.
+    
     After removing galaxies associated with \redm{} clusters, the remaining galaxies 
     in our sample will be dominated by central galaxies living in halos with 
-    \logmh{}$\leq 14.0$. 
-    We will refer to this sample of \textbf{central galaxies in less massive halos}
-    as the \nbcg{} sample. For massive central galaxies that are not in these cluster-level halos, 
-    we unfortunately can not estimate their \mhalo{} individually, but it is safe 
-    to assume they will have $\log (M_{\mathrm{halo}}/M_{\odot}) < 14.0$.  
-    At this very high mass end, and given that we have rejected satellites in \redm{} 
-    clusters, any further satellite contamination can be safely neglected 
-    (e.g. \citealt{Reid2014, Hoshino2015, Saito2016, vanUitert2016}).
-    %% Saved as "dr1_nonbcg_use_sed5b.fits"
-    % TODO: The actual number waits to be updated}
+    \logmh{}$< 14.0$. 
+    We will refer to this sample of \textbf{potential central galaxies in less 
+    massive halos} as the \nbcg{} sample. 
+    Since we have rejected satellites in \redm{} cluster and the satellite 
+    contamination steadily decreases with stellar mass (e.g. \citealt{Reid2014, 
+    Hoshino2015, Saito2016, vanUitert2016}), the massive galaxies in the \nbcg{} 
+    sample are very likely to be the central galaxies of 
     
- 
+     very high mass end, and given that we have rejected satellites in \redm{} 
+    clusters, any further satellite contamination can be neglected for the purpose of 
+    this work
+    .
+    %% Saved as "dr1_nonbcg_use_sed5b.fits"
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
