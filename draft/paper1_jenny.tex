@@ -1357,19 +1357,21 @@
     %uncertainty on \mmax{} is larger. 
     %However, we have checked that none of our results are changed by replacing \mtot{} 
     %via \mmax{}.
-        
-    How to define and measure the ``total'' mass of a galaxy becomes a critical 
-    question when studying the high-mass end of the galaxy SMF. 
-    The issues discussed above are currently one of the primary limitations in 
-    determinations of the high-mass end of the SMF (\citealt{Bernardi2017}). 
-    Fig~\ref{fig:mass_complete} illustrated how improved \mstar{} measurement can 
-    significantly modifies the SMF. 
-    On the right hand side of Fig~\ref{fig:smf}, we further highlight that 
-    the shape of SMF at high-mass end is quite sensitive to even very small 
-    change of \mstar{}. 
-    We also compare the SMFs of our HSC samples with the following previous studies:
-        
+    
+    On the same figure, we also compare the HSC results with the ones from following 
+    works:
+
     \begin{itemize}
+
+        \item The SMF for $0.15 < z < 0.30$ galaxies from the \texttt{S82-MGC} sample
+            \citep{Leauthaud2016} where the \mstar{} is derived using 
+            \texttt{iSEDfit} on PSF-corrected aperture photometry from 
+            \texttt{S82}.
+            The stellar population model and star-formation history assumptions are 
+            very similar to the ones in this work, except that it uses the 
+            \texttt{BC03} model. 
+            Based on the test results from Appendix \ref{app:sed}, we simply shifts 
+            the SMF to higher \mstar{} by 0.08 dex. 
     
         \item The SMF derived from a SDSS-\textit{GALEX} sample of $z{\sim} 0.1$ 
             galaxies from \citet{Moustakas13}. 
@@ -1377,42 +1379,54 @@
             The \m2l{} is derived via SED fitting using \texttt{iSEDfit} with similar 
             assumptions as in our work.
             
-        \item The SMF for $z{\sim} 0.1$ SDSS galaxies from \citet{Bernardi2013}. 
+        \item The observed SMF for $z{\sim} 0.1$ SDSS galaxies from 
+            \citet{Bernardi2017}. 
             The total luminosity is based on 2-D \texttt{SerExp} models 
             (\ser{}$+$ Exponential disk model; integrated to infinity) that 
-            recovers much more flux compared to SDSS \cmodel{} magnitudes. 
-            The \m2l{} is also from SED fitting assuming a Chabrier IMF.
-            
-        \item The SMF for $0.15 < z < 0.30$ galaxies from the \texttt{S82-MGC} sample
-            \citep{Leauthaud2016} where the \mstar{} is derived using 
-            \texttt{iSEDfit} on PSF-corrected aperture photometry from 
-            \texttt{S82}.
-            
+            recovers much more flux compared to SDSS \cmodel{} magnitudes 
+            (\citealt{Bernardi2013, Meert2015}). 
+            The \m2l{} is adopted from the SED fitting results from the ``dusty'' 
+            model in \citet{Mendel2014} which share similar assumptions of stellar 
+            population models with this work.
+           
     \end{itemize}
-
-    Overall, this illustrates again that our 1-D approach has certain advantages 
-    over the 2-D modeling method and in principle, should capture the majority of 
-    the total \mstar{}.
-   
     
+    To appropriately compare SMFs from different works, one needs to carefully 
+    separate the differences in the measurements of luminosity and \m2l{}, and 
+    takes the uncertainties of \mstar{} measurements into account\footnote{
+    Fixed uncertainty of \logms{} can lead to increasingly over-estimated 
+    volume density with \mstar{} due to the very steep slope of SMF at high-mass end.} 
+    (\citealt{Bernardi2010, Bernardi2017}), which is beyond the scope of this work.  
+    Here, we primarily want to visualize the importance of \mstar{} measurements 
+    to the SMF at high-mass end. 
+    All SMFs share similar volume density around \logms{}${\sim}11.0$, but the ones
+    that are based on \texttt{cModel} and small aperture photometry show much 
+    steeper slopes than the HSC \mtot{} one. 
+    The SMF based on single-\ser{} model seems to face the same issue. 
+    We also compare with the $z{\sim}0.1$ SMF from the GAMA survey 
+    (\citealt{Wright2017}) whose luminosity is scaled with the single-\ser{} model
+    from \citet{Kelvin2012}, and its high-mass end behavior is very similar to 
+    the \citet{Leauthaud2016} and the \citet{Moustakas13} ones. 
+    And, once the \m2l{} measurements based on similar assumptions are adopted, 
+    the SDSS SMF using the \texttt{SerExp} models from \citet{Bernardi2017} becomes 
+    surprisingly similar to the HSC \mtot{} one that is not model dependent.
+    Both SMFs highlight the importance of ``missing light'' from different angles. 
+    Right now, the \citet{Bernardi2017} sample and our HSC one have almost no 
+    galaxy in common due to the differences in redshift range, hence it is not 
+    clear whether the \texttt{SerExp} model can indeed describe the flux 
+    distributions of these massive galaxies out to $>100$ kpc. 
+    It would be interesting to look into the application of multi-component 
+    2-D models using HSC images. 
+            
+    In summary, the result highlights that the SMF at high-mass end is sensitive to 
+    even moderate change of \mstar{}, and illustrates the advantages of deep HSC image
+    and careful 1-D approach in estimating total \mstar{} of massive galaxies.
     For studies about the SMF or other aspects of galaxy evolution based on 
-    \cmodel{}-like photometry or shallower images, these effects can not be neglected.
-%% ------------------------------------------------------------------------------------ %% 
-    It is clear that different analyses lead to very different slopes at high-mass end. 
-    Here, we do not try to evaluate whether the differences displayed in 
-    Fig~\ref{fig:smf} are dominated by differences in photometry versus 
-    assumptions about stellar population models (e.g. \citealt{Bernardi2017}). 
-    However, given that the results that we are comparing assume the same IMF and adopt 
-    similar assumptions about stellar population models, we hypothesize that the 
-    differences in Fig~\ref{fig:smf} are dominated by differences in photometry. 
-    The goal of our of present paper is not to present and discuss a careful evaluation
-    of the high-mass end of the SMF -- this will be presented in a forthcoming paper 
-    once the HSC survey has accumulated more data. 
-    However, this is clearly a topic that warrants further investigation, and careful 
-    photometry measurements from HSC data will shed further light on these questions. 
-    
-    
-%% ------------------------------------------------------------------------------------ %%  
+    shallow image or simplified model, these effects can not be neglected.
+    Although we only discuss the high-mass end, this \mstar{} range is crucial for 
+    tracing the evolution of massive galaxies and calibrating numerical simulation 
+    and semi-analytic model as it is very sensitive to the AGN-feedback recipe.   
+%% ------------------------------------------------------------------------------------ %%
 
 %% ------------------------------------------------------------------------------------ %%
 \subsection{Surface Mass Density Profiles}
@@ -2264,7 +2278,7 @@
    
     Meanwhile, \mstar{} measurement based on SED fitting heavily depends on the 
     adopted SSP model, the form of IMF, dust extinction law, and details in 
-    the assumption of SFH (e.g.\ \citealt{Bernardi2016b}). 
+    the assumption of SFH (e.g.\ \citealt{Bernardi2017}). 
     For massive galaxies in this sample, the form of the SFH\footnote{We choose 
     to use the delayed-$\tau$ model for SFH; we adopt flat distribution between 
     0.5 to 14.0 Gyrs as the prior for the look-back time when the star formation 
