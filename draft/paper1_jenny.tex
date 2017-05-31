@@ -1628,59 +1628,58 @@
 	becomes unstable and easily affected by any contamination; the color profile in
 	the outskirt also becomes very sensitive to background level and noise level in 
 	either band. 
-	In this work, we will only   
-	 
+	In this work, we will focus on the median ellipticity and color profiles between 
+	8--60 kpc where we can safely ignore the above issues. 
 	
+	The ellipticity of the isophote contains information about the 3-D geometry 
+	(e.g. \citealt{Chang2013, Mitsuda2017}) and kinematic (e.g. 
+	\citealt{Cappellari2012, Weijmans2014}) of stars in massive galaxies.  
+	Left of Fig \ref{fig:ell_color} shows the ellipticity profiles of HSC massive 
+	galaxies and highlight the median profiles for the same three \mtot{} bins used 
+	in Fig \ref{fig:avg_prof}. 
+	In general, the ellipticity of massive galaxy slowly increases with radius.
+	One can even notice this trend by directly comparing the shape of galaxy between 
+	SDSS and HSC images (e.g. Fig \ref{fig:sdss_compare}).  
+	More interestingly, the ellipticity profiles clear depend on \mtot{}: 
+	at ${\sim} 10$ kpc, median ellipticities from all three bins are low and similar 
+	($< 0.2$); but more massive galaxies become increasingly more elongated in their
+	stellar halo. 	
+	For the \logms{}$>11.8$ galaxy, its median ellipticity profile becomes steeper 
+	at $>10$ kpc, and the ellipticity steadily increases from $e\le 0.2$ to 
+	$e{\sim} 0.4$ at 50-60 kpc.
+	This is consistent with previous 2-D modeling results from \citet{Huang2013a}.
+	If accreted stars dominate the stellar halos of massive galaxies, this 
+	mass-dependent ellipticity profile may lead us to some insights about the 
+	differences in their assembly history (e.g. average time since last merger, 
+	average merger mass ratio).
+	We also compare our ellipticity profiles with previous ones that are based on 
+	image stacking techniques (the PSF-removed $i$-band from \citealt{Tal2011}, 
+	the concentration galaxies with $11.0<$\logms{}$<11.4$ from 
+	\citealt{DSouza2015}), 
+	We notice that the stacked image sometimes fails to recover the ellipticity 
+	profile, probably due to the uncertainties in aligning galaxies before the 
+	stacking process. 
 	
-	
-   These quantities contain interesting information about the physical processes that 
-    shape galaxies. We also want to be sure that we do not introduce any systematic bias in 
-    our mass determinations because of systematic changes in color profile with stellar or 
-    halo mass.
-       
-    %\begin{enumerate}
-    %    
-    %    \item To see whether the ellipticity profile depends strongly on environment, 
-    %        and to see whether or not the fact that we use an using average isophotal 
-    %        shape for our our 1-D \mden{} profiles has any impact on our results.
-    %    
-    %    \item To verify that the average color gradient does not depend strongly on 
-    %        the environment and that is not steep enough to cause a problem with our 
-    %        choice the assumption that it is reasonable to use average \m2l for 
-    %        comparing massive galaxies. 
-    %        We extract color profiles by applying the isophotes in $i$-band to images 
-    %        in other bands in ``forced photometry'' manner.  
-    %        
-    %\end{enumerate}
-
-    We compute ellipticities and color profiles in the radial range of 5-50 kpc 
-    (this is the range where we can safely ignore differences in sky subtraction and 
-    seeing across different bands). 
     
     We show the average ellipticity, $g-r$, and $g-i$ color profiles for the 
     \mtot{}-matched (\minn{}-matched) samples of \rbcg{} and \nbcg{} galaxies on the 
     left (right) side of \ref{fig:ell_color}. 
     We also compare our results with previous work based on stacking SDSS galaxies 
     (e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}).
-    
-    We find that in general, the ellipticities of massive galaxies increases with 
-    radius from $e\le 0.2$ around 5-10 kpc to $e{\sim} 0.3$ at 40-50 kpc. 
-    This is consistent with previous 2-D modeling results from \citet{Huang2013a}. 
-    The ellipticity profiles of the \mtot{}-matched samples are very similar at 
-    $r<50$ kpc (2-3$\times R_{\mathrm{e}}$ for their \mstar{}). 
-    However, for the \minn{}-matched samples, the \rbcg{} galaxies have higher 
-    ellipticity than the \nbcg{} ones at $r > 10$ kpc, while their inner ellipticity 
-    profiles are very similar.  
-    This further hints that massive central galaxies in different halos but with 
-    similar ``in-situ'' mass may experience different late-time merging histories. 
-    Overall, the relative low ellipticity value and the fact that the ellipticity 
-    gradients are shallow lead us to conclude that the use of an average 
-    isophotal ellipticity is fine for this present study.
+
+    % TODO: Move this to Paper II 
+    %The ellipticity profiles of the \mtot{}-matched samples are very similar at 
+    %$r<50$ kpc (2-3$\times R_{\mathrm{e}}$ for their \mstar{}). 
+    %However, for the \minn{}-matched samples, the \rbcg{} galaxies have higher 
+    %ellipticity than the \nbcg{} ones at $r > 10$ kpc, while their inner ellipticity 
+    %profiles are very similar.  
+    %This further hints that massive central galaxies in different halos but with 
+    %similar ``in-situ'' mass may experience different late-time merging histories. 
+    %Overall, the relative low ellipticity value and the fact that the ellipticity 
+    %gradients are shallow lead us to conclude that the use of an average 
+    %isophotal ellipticity is fine for this present study.
             
-    Previous attempts to constrain ellipticity gradients have relied on image 
-    stacking techniques (e.g. \citealt{Tal2011}, \citealt{DSouza2015}). 
-    Compared to our measurements, we find that stacked ellipticity profiles tend to 
-    underestimate the ellipticity in the outskirt. 
+ 
     Ellipticity profiles contain additional information about the assembly histories 
     and in future work, it would be of interest to compare our ellipticity profiles 
     with predictions from hydrodynamic simulations such as Illustris 
