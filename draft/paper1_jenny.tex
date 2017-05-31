@@ -1302,55 +1302,66 @@
     \label{sec:result}
 
 %% ------------------------------------------------------------------------------------ %%     
-    \subsection{Impact of Missing Light on the Galaxy Stellar Mass Function}
+\subsection{Impact of Missing Light on the Galaxy Stellar Mass Function}
     \label{ssec:smf}
     
+    As one of the most fundamental statistics of galaxy population, the Stellar 
+    Mass Function (SMF) and its evolution are critical to our understanding of 
+    galaxy evolution.  
     In Section \ref{ssec:mtotal}, we demonstrate that different methods for estimating
-    ``total'' \mstar{} can have a large impact at the high-mass end.  
-    
-    Different methods for estimating the ``total'' \mstar{} can have a large impact on 
-    the high mass end of the galaxy stellar mass function (e.g. \citealt{Bernardi2013, 
-    DSouza2014, DSouza2015, Bernardi2016a}). 
-    Fig~\ref{fig:mass_complete} shows the SMF computed using both \mtot{} and \mcmodel{}. 
-    As can be seen from this figure, our careful 1-D approach recovers more flux 
-    in massive galaxies than \texttt{cModel}. 
+    ``total'' \mstar{} can lead to quite different results, hence have a large impact 
+    on the high mass end of the galaxy stellar mass function (e.g. 
+    \citealt{Bernardi2013, DSouza2014, DSouza2015, Bernardi2017}).
+    On average, integration of our carefully derived non-parametric \mden{} profile 
+    to 100 kpc (\mtot{}) recovers more light (hence mass) than the \texttt{cModel}
+    method. 
+    At \logmtot{} $>11.6$, the difference sometimes can be larger than 0.2 dex. 
     More importantly, the average difference steadily increases with \mtot{}. 
-    At \logms{} $>11.5$, the difference can be larger than 0.2 dex. 
-    This difference relates to the intrinsic limitation of the \texttt{cModel} method 
-    and also reflects the fact that more massive ETGs tend to have more extended 
-    stellar mass distributions (e.g. \citealt{Graham2003}). 
-    Generally speaking, the use of \mtot{} instead of the \mcmodel{} shifts the SMF 
-    towards the higher-mass end and slightly modifies the high-mass slope. 
-    %The impact of missing flux is most prominent for the \rbcg{} sample.
-    For studies about the SMF or other aspects of galaxy evolution based on 
-    \cmodel{}-like photometry or shallower images, these effects can not be neglected.
+    These differences relates to the intrinsic limitation of the \texttt{cModel} 
+    method and also reflects the fact that more massive ETGs tend to have more 
+    extended stellar mass distributions (e.g. higher-\ser{} index, 
+    \citealt{Graham2003}).
     
-        Even with deep HSC images, it is non trivial to clearly define and measure the
-    ``total'' \mstar{} for these massive systems. 
-    As discussed in Section~\ref{ssec:mtotal}, our 1-D approach has certain advantages 
-    over the 2-D modeling method and in principle, should capture a the majority of 
-    the stellar mass. 
-    However, even though we extend to 100 kpc, there is no evidence that the profile 
-    drops to zero on these scales. 
-    We now estimate how much extra mass is ``hidden'' beyond the 100 kpc radius. 
-    For this, we integrate the \mden{} profiles out to the detection limit in 
-    surface brightness profile that is defined by the background noise.
-    We will call this the ``maximum mass'' of the galaxy (\mmax{}). 
-    For obvious reasons, we find that \mmax{} is larger than \mtot{} with an average 
-    difference of about ${\sim}0.04$ dex. 
-    The left hand side of Fig \ref{fig:smf} shows differences between \mtot{}
-    and \mmax{}. 
-    On a galaxy-by-galaxy basis, the difference \mmax{}-\mtot{} depends on the slope 
-    of the stellar envelope. 
-    In this work, we have opted to in general use \mtot{} rather than \mmax{} as the 
-    uncertainty on \mmax{} is larger. 
-    However, we have checked that none of our results are changed by replacing \mtot{} 
-    via \mmax{}.
+    Although we do not attempt to measure SMF, we use Fig \ref{fig:smf}
+    to demonstrate the impacts from missing light and different definitions of 
+    \mstar{}.
+    The left panel of Fig \ref{fig:smf} shows the SMF\footnote{There are actually
+    the volume density distributions, we refer to them as SMFs for convenience 
+    although the incompleteness and other systematics have not been corrected}
+    computed using \mcmodel{} and \mtot{} for both the \rbcg{} and \nbcg{} samples.
+    
+    Generally speaking, the use of \mtot{} instead of the \mcmodel{} shifts the SMF 
+    towards the higher-mass end without significantly modifying the slope at 
+    high-mass end.
+    Interestingly, the impact of missing flux is more prominent for the \rbcg{} 
+    galaxies whose contribution to the very high-mass end is substantial. 
+    This difference between the \rbcg{} and \nbcg{} samples here may hint that 
+    the \rbcg{} galaxies suffer more from missing light. 
+    We will look into this in details in the following work (Huang\etal in prep.).
+
+    As discussed in Section~\ref{ssec:mtotal}, even with much deeper images from HSC,
+    it is non-trivial to clearly define and measure the ``total'' \mstar{} for 
+    these massive systems, and the \mden{} profiles of these galaxies often extend 
+    well beyond 100 kpc. 
+    We measure \mmax{} by integrating the \mden{} profiles out to the detection 
+    limit that is defined by the background noise.
+    Although the \mden{} profile becomes more uncertain at $>100$ kpc, \mmax{} can
+    provide us certain clue about how much extra mass is ``hidden'' there. 
+    Although the average difference we find is small even at high-mass end 
+    (${\sim}0.03$ dex), on the right panel of Fig \ref{fig:smf}, we can still its 
+    influence on the SMF at high-mass end, where the slope becomes slightly 
+    shallower. 
+    
+    % TODO: Move this to Paper II
+    %In this work, we have opted to in general use \mtot{} rather than \mmax{} as the 
+    %uncertainty on \mmax{} is larger. 
+    %However, we have checked that none of our results are changed by replacing \mtot{} 
+    %via \mmax{}.
         
     How to define and measure the ``total'' mass of a galaxy becomes a critical 
     question when studying the high-mass end of the galaxy SMF. 
     The issues discussed above are currently one of the primary limitations in 
-    determinations of the high-mass end of the SMF (\citealt{Bernardi2016}). 
+    determinations of the high-mass end of the SMF (\citealt{Bernardi2017}). 
     Fig~\ref{fig:mass_complete} illustrated how improved \mstar{} measurement can 
     significantly modifies the SMF. 
     On the right hand side of Fig~\ref{fig:smf}, we further highlight that 
@@ -1379,11 +1390,18 @@
             
     \end{itemize}
 
+    Overall, this illustrates again that our 1-D approach has certain advantages 
+    over the 2-D modeling method and in principle, should capture the majority of 
+    the total \mstar{}.
+   
+    
+    For studies about the SMF or other aspects of galaxy evolution based on 
+    \cmodel{}-like photometry or shallower images, these effects can not be neglected.
 %% ------------------------------------------------------------------------------------ %% 
     It is clear that different analyses lead to very different slopes at high-mass end. 
     Here, we do not try to evaluate whether the differences displayed in 
     Fig~\ref{fig:smf} are dominated by differences in photometry versus 
-    assumptions about stellar population models (e.g. \citealt{Bernardi2016}). 
+    assumptions about stellar population models (e.g. \citealt{Bernardi2017}). 
     However, given that the results that we are comparing assume the same IMF and adopt 
     similar assumptions about stellar population models, we hypothesize that the 
     differences in Fig~\ref{fig:smf} are dominated by differences in photometry. 
@@ -1576,6 +1594,10 @@
 %% ------------------------------------------------------------------------------------ %% 
     
 %% ------------------------------------------------------------------------------------ %% 
+	The 1-D \mden{} profiles are extracted using single band image and the flux-weighted 
+	shape of the isophote.  
+	From the HSC images of these massive 
+	
 	In addition to the shape of the light profile, we can also 
     study the $k$-corrected color profiles and ellipticity profiles 
     (computed via \texttt{Ellipse}) of these galaxies, and how 
@@ -1805,7 +1827,7 @@
     How to define and measure the ``total'' mass of a galaxy becomes a critical 
     question when studying the high-mass end of the galaxy SMF. 
     The issues discussed above are currently one of the primary limitations in 
-    determinations of the high-mass end of the SMF (\citealt{Bernardi2016}). 
+    determinations of the high-mass end of the SMF (\citealt{Bernardi2017}). 
     Fig~\ref{fig:mass_complete} illustrated how improved \mstar{} measurement can 
     significantly modifies the SMF. 
     On the right hand side of Fig~\ref{fig:smf}, we further highlight that 
@@ -1838,7 +1860,7 @@
     It is clear that different analyses lead to very different slopes at high-mass end. 
     Here, we do not try to evaluate whether the differences displayed in 
     Fig~\ref{fig:smf} are dominated by differences in photometry versus 
-    assumptions about stellar population models (e.g. \citealt{Bernardi2016}). 
+    assumptions about stellar population models (e.g. \citealt{Bernardi2017}). 
     However, given that the results that we are comparing assume the same IMF and adopt 
     similar assumptions about stellar population models, we hypothesize that the 
     differences in Fig~\ref{fig:smf} are dominated by differences in photometry. 
