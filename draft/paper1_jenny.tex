@@ -1608,15 +1608,32 @@
 %% ------------------------------------------------------------------------------------ %% 
     
 %% ------------------------------------------------------------------------------------ %% 
-	The 1-D \mden{} profiles are extracted using single band image and the flux-weighted 
-	shape of the isophote.  
-	From the HSC images of these massive 
+	Aforementioned results only use the 1-D \mden{} profiles that are baed on single 
+	band image and the flux-weighted isophotal shape, while more useful information 
+	can be gathered from the HSC images of these massive galaxies.
+	The ellipticity and $k$-corrected optical color profiles are particularly 
+	interesting.
+	We extract ellipticity profile using \texttt{Ellipse} by setting the shape of each 
+	isophote free. 
+	And by applying the $i$-band isophotes to images of other bands in the 
+	forced-photometry way, we can also measure the color profiles too. 
+	We apply Galactic extinction correction and \texttt{iSEDFit} $k$-correction to 
+	both the $g-r$ and $g-i$ color profiles.
+	The PSF smearing effect will make the central isophotal shape rounder than the 
+	real value, while the seeing differences between filters will bias the central 
+	color\footnote{Since the HSC $i$-band always has better seeing, the central color 
+	will become redder when the seeing effect is not corrected.}. 
+	At the same time, it is more difficult to extract reliable ellipticity and 
+	color profiles out to 100 kpc: at low surface brightness region, isophotal shape 
+	becomes unstable and easily affected by any contamination; the color profile in
+	the outskirt also becomes very sensitive to background level and noise level in 
+	either band. 
+	In this work, we will only   
+	 
 	
-	In addition to the shape of the light profile, we can also 
-    study the $k$-corrected color profiles and ellipticity profiles 
-    (computed via \texttt{Ellipse}) of these galaxies, and how 
-    they depend on mass and environment.
-    These quantities contain interesting information about the physical processes that 
+	
+	
+   These quantities contain interesting information about the physical processes that 
     shape galaxies. We also want to be sure that we do not introduce any systematic bias in 
     our mass determinations because of systematic changes in color profile with stellar or 
     halo mass.
@@ -1639,8 +1656,7 @@
     We compute ellipticities and color profiles in the radial range of 5-50 kpc 
     (this is the range where we can safely ignore differences in sky subtraction and 
     seeing across different bands). 
-    We apply Galactic extinction and $k$-correction to both $g-r$ and $g-i$ color 
-    profiles; the $k$-correction values are also from \texttt{iSEDFit} results.
+    
     We show the average ellipticity, $g-r$, and $g-i$ color profiles for the 
     \mtot{}-matched (\minn{}-matched) samples of \rbcg{} and \nbcg{} galaxies on the 
     left (right) side of \ref{fig:ell_color}. 
