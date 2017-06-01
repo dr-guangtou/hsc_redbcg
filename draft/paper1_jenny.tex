@@ -1941,111 +1941,55 @@
     
     \end{enumerate}
 
-    
-    The comparison confirms that \minn{} should be reasonable proxy of the 
-    ``in-situ'' mass\footnote{We convert these \mden{} profiles to the same 
-    Chabrier IMF; but there are still differences in median \mstar{} and 
-    details in the \m2l{} estimates}.  
-    More importantly, it shows that the \mden{} profile at 
-    $\mathrm{R} > 15$-20 kpc is likely dominated by stars that are not related 
-    to the ``in-situ'' processes.  
-    
     We also compare with a uniquely massive BCG at high redshift: 
     a ${\sim} 10^{11.4} M_{\odot}$ BCG with distinctive ``cD''-like envelope at 
     $z{\sim} 1.1$ (\citealt{Liu2013}).  
     Its \mden{} profile follows the median profile of $11.6\leq$\logmtot{}$<11.8$ 
-    massive galaxies nicely inside 10-15 kpc, but becomes much steeper in the outskirt.  
-    This unique object may present an interesting case where the inner ``core'' of a 
-    massive BCGs is already in pace at $z{\sim} 1$ when its extended envelope is still
-    under construction.
-    More BCGs like this at $0.5 < z < 1.0$ can shed light on this intriguing 
-    process, and help us confirm whether the environmental dependence of structure 
-    has already emerged within massive galaxies at higher redshift 
-    (e.g. \citealt{Papovich2012})
+    massive galaxies nicely inside 10-15 kpc, but becomes steeper in the outskirt.
+    It represents an interesting phase where the inner ``core'' of massive BCG is 
+    already in pace at $z{\sim} 1$ while the outer halo is still being assembled. 
 
-    % TODO: Comparison with Illustris.
+    These comparisons certainly support the idea that \minn{} mainly consists of 
+    \textit{in-situ} stars and mass at $\mathrm{R} > 15$-20 kpc is dominated by accreted 
+    component.     
+    Meanwhile, they also show that the \texttt{in-situ} component 
+    could have steeper \mden{} slope and mass distribution much more extended than 
+    10 kpc\footnote{We convert these \mden{} profiles to the same 
+    Chabrier IMF; but there are still differences in median \mstar{} and 
+    details in the \m2l{} estimates}. 
+    More comparisons with massive galaxies at high redshift and simulated 
+    \textit{in-situ} components will help shed light on this.     
 
-%% ------------------------------------------------------------------------------------ %% 
-
-%% ------------------------------------------------------------------------------------ %% 
-\subsection{What is the ``Total Mass'' of Massive Galaxies?}
-
-    Even with deep HSC images, it is non trivial to clearly define and measure the
-    ``total'' \mstar{} for these massive systems. 
-    As discussed in Section~\ref{ssec:mtotal}, our 1-D approach has certain advantages 
-    over the 2-D modeling method and in principle, should capture a the majority of 
-    the stellar mass. 
-    However, even though we extend to 100 kpc, there is no evidence that the profile 
-    drops to zero on these scales. 
-    We now estimate how much extra mass is ``hidden'' beyond the 100 kpc radius. 
-    For this, we integrate the \mden{} profiles out to the detection limit in 
-    surface brightness profile that is defined by the background noise.
-    We will call this the ``maximum mass'' of the galaxy (\mmax{}). 
-    For obvious reasons, we find that \mmax{} is larger than \mtot{} with an average 
-    difference of about ${\sim}0.04$ dex. 
-    The left hand side of Fig \ref{fig:smf} shows differences between \mtot{}
-    and \mmax{}. 
-    On a galaxy-by-galaxy basis, the difference \mmax{}-\mtot{} depends on the slope 
-    of the stellar envelope. 
-    In this work, we have opted to in general use \mtot{} rather than \mmax{} as the 
-    uncertainty on \mmax{} is larger. 
-    However, we have checked that none of our results are changed by replacing \mtot{} 
-    via \mmax{}.
-        
-    How to define and measure the ``total'' mass of a galaxy becomes a critical 
-    question when studying the high-mass end of the galaxy SMF. 
-    The issues discussed above are currently one of the primary limitations in 
-    determinations of the high-mass end of the SMF (\citealt{Bernardi2017}). 
-    Fig~\ref{fig:mass_complete} illustrated how improved \mstar{} measurement can 
-    significantly modifies the SMF. 
-    On the right hand side of Fig~\ref{fig:smf}, we further highlight that 
-    the shape of SMF at high-mass end is quite sensitive to even very small 
-    change of \mstar{}. 
-    We also compare the SMFs of our HSC samples with the following previous studies:
-        
-    \begin{itemize}
+    In line with the prediction from Illustris, this comparison also 
+    suggests that, at very high-mass end, the accreted component can make significant 
+    contribution even within the inner 10--20 kpc. 
+    The nature of these ``accreted'' stars in the center of massive galaxies deserve 
+    more attention. 
+    It is possible that they mainly come from major merger and used to be the 
+    \texttt{in-situ} component of another massive galaxy. 
+    It would be interesting see whether there is an alternative, but also physically 
+    motivated definition of \textit{in-situ} component that can be more easily examined 
+    by observation.   
     
-        \item The SMF derived from a SDSS-\textit{GALEX} sample of $z{\sim} 0.1$ 
-            galaxies from \citet{Moustakas13}. 
-            Here, the total luminosity is based on the SDSS \cmodel{} magnitude. 
-            The \m2l{} is derived via SED fitting using \texttt{iSEDfit} with similar 
-            assumptions as in our work.
-            
-        \item The SMF for $z{\sim} 0.1$ SDSS galaxies from \citet{Bernardi2013}. 
-            The total luminosity is based on 2-D \texttt{SerExp} models 
-            (\ser{}$+$ Exponential disk model; integrated to infinity) that 
-            recovers much more flux compared to SDSS \cmodel{} magnitudes. 
-            The \m2l{} is also from SED fitting assuming a Chabrier IMF.
-            
-        \item The SMF for $0.15 < z < 0.30$ galaxies from the \texttt{S82-MGC} sample
-            \citep{Leauthaud2016} where the \mstar{} is derived using 
-            \texttt{iSEDfit} on PSF-corrected aperture photometry from 
-            \texttt{S82}.
-            
-    \end{itemize}
+    % TODO: Move to Paper II
+    %More BCGs like this at $0.5 < z < 1.0$ can shed light on this intriguing 
+    %process, and help us confirm whether the environmental dependence of structure 
+    %has already emerged within massive galaxies at higher redshift 
+    %(e.g. \citealt{Papovich2012})
 
 %% ------------------------------------------------------------------------------------ %% 
-    It is clear that different analyses lead to very different slopes at high-mass end. 
-    Here, we do not try to evaluate whether the differences displayed in 
-    Fig~\ref{fig:smf} are dominated by differences in photometry versus 
-    assumptions about stellar population models (e.g. \citealt{Bernardi2017}). 
-    However, given that the results that we are comparing assume the same IMF and adopt 
-    similar assumptions about stellar population models, we hypothesize that the 
-    differences in Fig~\ref{fig:smf} are dominated by differences in photometry. 
-    The goal of our of present paper is not to present and discuss a careful evaluation
-    of the high-mass end of the SMF -- this will be presented in a forthcoming paper 
-    once the HSC survey has accumulated more data. 
-    However, this is clearly a topic that warrants further investigation, and careful 
-    photometry measurements from HSC data will shed further light on these questions.     
+
+%% ------------------------------------------------------------------------------------ %% 
+\subsection{Stellar Halo or Intra-cluster Light?}     
       
-    Finally, we emphasize that in this present study we do not attempt to separate the 
-    light of the galaxy with a potential (and distinct) ``intra-cluster''
-    light component (ICL; e.g. \citealt{Carlberg1997, Lin2004, Gonzalez2005, 
-    Mihos2005}). 
+    Finally, we emphasize that in this work we do not attempt to separate the 
+    potential (and distinct) ``intra-cluster'' light component (ICL; e.g. 
+    \citealt{Carlberg1997, Lin2004, Gonzalez2005, Mihos2005}) from the massive 
+    galaxies. 
     Instead, we adopt the view that the light of the main galaxy and the 
-    ``intra-cluster''component are a smooth and continuous distribution. 
-    A reliable isolation of a physically meaningful ICL component using photometry 
-    alone is extremely difficult, if not impossible. 
+    ``intra-cluster''component share a smooth and continuous distribution. 
+    
+    The majority of massive galaxies in our samples are not considered as BCGs
     At the imaging depth of HSC, we find no evidence for a clearly distinction between 
     an ``inner component'' and an ``intra-cluster'' component. 
     Instead, most of our profiles are smoothly varying out to 100 kpc with little 
@@ -2057,8 +2001,9 @@
     the Virgo cluster, whose ultra-deep images (e.g. \citealt{Mihos2016}) show
     that the stellar halo of the BCG can smoothly extends beyond 100 kpc, while the 
     ICL only becomes important outside that radius and is dominated by individual 
-    tidal features. {\bf I continue to think you are saying all gals have some ICL, rather 
-    that no galaxies have ICL...}
+    tidal features.
+Reliable isolation of a physically meaningful ICL component using photometry 
+    alone is extremely difficult, if not impossible. 
 
 %% ------------------------------------------------------------------------------------ %% 
 
