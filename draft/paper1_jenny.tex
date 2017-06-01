@@ -1634,9 +1634,9 @@
 	The ellipticity of the isophote contains information about the 3-D geometry 
 	(e.g. \citealt{Chang2013, Mitsuda2017}) and kinematic (e.g. 
 	\citealt{Cappellari2012, Weijmans2014}) of stars in massive galaxies.  
-	Left of Fig \ref{fig:ell_color} shows the ellipticity profiles of HSC massive 
-	galaxies and highlight the median profiles for the same three \mtot{} bins used 
-	in Fig \ref{fig:avg_prof}. 
+	The left panel of Fig \ref{fig:ell_color} shows the ellipticity profiles of HSC 
+	massive galaxies and highlight the median profiles for the same three \mtot{} 
+	bins used in Fig \ref{fig:avg_prof}. 
 	In general, the ellipticity of massive galaxy slowly increases with radius.
 	One can even notice this trend by directly comparing the shape of galaxy between 
 	SDSS and HSC images (e.g. Fig \ref{fig:sdss_compare}).  
@@ -1658,14 +1658,49 @@
 	\citealt{DSouza2015}), 
 	We notice that the stacked image sometimes fails to recover the ellipticity 
 	profile, probably due to the uncertainties in aligning galaxies before the 
-	stacking process. 
-	
+	stacking process.
     
-    We show the average ellipticity, $g-r$, and $g-i$ color profiles for the 
-    \mtot{}-matched (\minn{}-matched) samples of \rbcg{} and \nbcg{} galaxies on the 
-    left (right) side of \ref{fig:ell_color}. 
-    We also compare our results with previous work based on stacking SDSS galaxies 
-    (e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}).
+    As for the color profiles, it is well known that massive elliptical galaxies 
+    have shallow and negative color gradient that reflects radial variation of 
+    stellar population (e.g.\ \citealt{Carollo1993, LaBarbera2012}) and contains 
+    information about the assembly history of stellar halos (e.g. 
+    \citealt{Hirschmann2015}). 
+    The right panels of Fig \ref{fig:ell_color} show the $k$-corrected $g-r$ and 
+    $g-i$ color profiles and the median profiles in three \mtot{} bins. 
+    As expected, all median color profiles show smooth and shallow negative 
+    gradients, but we do not find evidence for mass-dependence here. 
+    We also compare our results with the stacked color profiles from  
+    \citealt{LaBarbera2010}\footnote{Use the median color profiles of high-mass 
+    ETGs; the original profile is in unit of $R_{\mathrm{e}}$, we use a typical 
+    $R_{\mathrm{e}}=8.0$ kpc to convert it into kpc unit.} and 
+    \citealt{DSouza2014}.
+    The median color profiles from HSC images are systematically steeper than the 
+    stacked SDSS ones. 
+    Considering the differences in response curves of HSC and SDSS filters, and 
+    the uncertainties of color measurements, the HSC $g-r$ color profiles are 
+    consistent with those based on SDSS images. 
+    For the $g-i$ profiles, the HSC ones still show steeper gradients. 
+    The SDSS $i$-band suffers from the so-called ``red-halo'' effect of 
+    (e.g. \citealt{Wu2005}, \citealt{Tal2011}) that could lead to redder color in 
+    the low surface brightness outskirt of galaxy.
+    HSC $i$-band image do not suffer from this effect (thanks to thick CCDs), 
+    therefore can help provide more accurate color estimates.
+    For the ones from \citet{LaBarbera2010}, uncertainty of $R_{\mathrm{e}}$ 
+    measurements could also ``smooth'' the color gradients.
+    The relative steeper color profiles have been observed in very nearby massive 
+    ETGs individually.  
+    On Fig \ref{fig:ell_color}, we also compare with the $g-r$ color profiles of 
+    NGC 4472 (\citealt{Mihos2013}) and NGC 4365 (\citealt{Mihos2017})\footnote{
+    Both are converted from $B-V$ colors}, and the $g-i$ profile of NGC 1399 
+    (\citealt{Iodice2016}). 
+    These individual profiles show similar color gradients with the HSC median ones.   
+    
+    % TODO: Move to discussion
+    %Ellipticity profiles contain additional information about the assembly histories 
+    %and in future work, it would be of interest to compare our ellipticity profiles 
+    %with predictions from hydrodynamic simulations such as Illustris 
+    %\citealt{Vogelsberger2014}, \citealt{Genel2014}) or \textit{Horizon-AGN} 
+    %(\citealt{Dubois2014}).    
 
     % TODO: Move this to Paper II 
     %The ellipticity profiles of the \mtot{}-matched samples are very similar at 
@@ -1678,28 +1713,17 @@
     %Overall, the relative low ellipticity value and the fact that the ellipticity 
     %gradients are shallow lead us to conclude that the use of an average 
     %isophotal ellipticity is fine for this present study.
-            
- 
-    Ellipticity profiles contain additional information about the assembly histories 
-    and in future work, it would be of interest to compare our ellipticity profiles 
-    with predictions from hydrodynamic simulations such as Illustris 
-    (\citealt{Vogelsberger2014}, \citealt{Genel2014}) or \textit{Horizon-AGN} 
-    (\citealt{Dubois2014}).
-    
-    In terms of color gradients, we find shallow and negative gradients of median 
-    $g-r$ and $g-i$ color profiles for both \rbcg{} and \nbcg{} galaxies. 
-    {\bf Can we also look as a function of stellar mass?}
-    For both \mtot{}- and \minn{}-matched samples, we find no significant difference
-    in their median color profiles, which supports the assumption of using single 
-    average \m2l{} value to estimate \mden{} profiles.
-    The median $g-r$ color profiles are quite consistent with those based on 
-    stacked SDSS images. 
-    For the $g-i$ profiles, the HSC ones show steeper gradients than the SDSS ones, 
-    however, it is important to point out that the SDSS $i$-band suffers from the 
-    so-called ``red-halo'' effect of (e.g. \citealt{Wu2005}, \citealt{Tal2011}) that 
-    could make the SDSS color appears redder. 
-    In contrast, HSC $i$-band image do not suffer from this effect (thanks to thick 
-    CCDs), therefore can help provide more accurate color estimates.
+    %We show the average ellipticity, $g-r$, and $g-i$ color profiles for the 
+    %\mtot{}-matched (\minn{}-matched) samples of \rbcg{} and \nbcg{} galaxies on the 
+    %left (right) side of \ref{fig:ell_color}. 
+    %We also compare our results with previous work based on stacking SDSS galaxies 
+    %(e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}).    
+   
+    %In terms of color gradients, we find shallow and negative gradients of median 
+    %$g-r$ and $g-i$ color profiles for both \rbcg{} and \nbcg{} galaxies. 
+    %For both \mtot{}- and \minn{}-matched samples, we find no significant difference
+    %in their median color profiles, which supports the assumption of using single 
+    %average \m2l{} value to estimate \mden{} profiles.
 %% ------------------------------------------------------------------------------------ %%
      
 
