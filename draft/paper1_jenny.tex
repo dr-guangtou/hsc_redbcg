@@ -1593,15 +1593,19 @@
           \textbf{Left panel} shows the ellipticity profiles, 
           \textbf{Upper-right panel} shows the $g-r$ color profiles, and 
           \textbf{Lower-right panel} is for $g-i$ color profiles. 
-          We compare our results with those from \citet{Tal2011} based on stacking 
+          We compare our results with those from (1) \citet{Tal2011} based on stacking 
           large samples of luminous red galaxies in SDSS at $z{\sim} 0.4$ 
-          (solid red line on left panel). 
-          We also compare with the results from a stacking analysis of nearby massive 
+          (solid red line on left panel), 
+          (2) the results from a stacking analysis of nearby massive 
           galaxies with high concentration index ($C>2.6$) in 
-          \citet[][blue dash lines on the left and upper-right panels]{DSouza2014}. 
-          Finally, we also compare with the average $g-r$ and $g-i$ color profiles 
+          \citet[][blue dash lines on the left and upper-right panels]{DSouza2014}, 
+          (3) and the average $g-r$ and $g-i$ color profiles 
           from a large sample of nearby elliptical galaxies in \citet[][blue, solid 
           lines on both right panels]{LaBarbera2010}.
+          For color profiles, we also compare with deep observations of a few nearby 
+          massive ETGs: the $g-r$ color profiles of NGC 4472 (\citealt{Mihos2013}) 
+          and NGC 4365 (\citealt{Mihos2017}), and the $g-i$ profile of NGC 1399 
+          (\citealt{Iodice2016})
           }
       \label{fig:ell_color}
   \end{figure*}
@@ -1742,6 +1746,14 @@
       \includegraphics[width=\textwidth]{fig/redbcg_insitu_accretion}
       \caption{
           \textbf{Left:}
+          Relation between \mtot{} and the fraction of \mstar{} within 10 to 100 kpc, 
+          which is used here as proxy of the fraction of accreted stars. 
+          The typical uncertainties of \mtot{} and the mass fraction are shown in 
+          upper-left corner. 
+          This relation is compared with the relation between \mstar{} and the fraction
+          of accreted stars derived from the Illustris simulation at $z=0$ 
+          (Fig 4 in \citealt{RodriguezGomez2016}; grey solid and dashed lines). 
+          \textbf{Right:}
           Comparison of the median \mden{} profiles of massive galaxies in the 
           two lower \mtot{} bins from Fig~\ref{fig:avg_prof} with other observations 
           and simulations, focusing on the inner region. 
@@ -1757,14 +1769,6 @@
           4) the \mden{} profile of the very massive cD galaxy at $z{\sim} 1.1$ 
           discovered by \citet[][Yellow, dashed]{Liu2013} in the Hubble 
           Ultra-Deep Field.
-          \textbf{Right:}
-          Relation between \mtot{} and the fraction of \mstar{} within 10 to 100 kpc, 
-          which is used here as proxy of the fraction of accreted stars. 
-          The typical uncertainties of \mtot{} and the mass fraction are shown in 
-          upper-left corner. 
-          This relation is compared with the relation between \mstar{} and the fraction
-          of accreted stars derived from the Illustris simulation at $z=0$ 
-          (Fig 4 in \citealt{RodriguezGomez2016}; grey solid and dashed lines). 
           }
       \label{fig:discussion_1}
   \end{figure*}
@@ -1854,7 +1858,7 @@
     %our findings. 
 
 %% ------------------------------------------------------------------------------------ %% 
-\subsection{Aperture Masses as Proxies of In-Situ and Accreted Stars}
+\subsection{Aperture Masses as Proxies of the \textit{In-situ} and Accreted Stars}
     \label{ssec:insitu}
     
     Recent hydrodynamic simulations of galaxy formation often separate the stars in 
@@ -1867,7 +1871,28 @@
     mass is the most fundamental one. 
     However, on the observational side, separation of these two physical components 
     is extremely difficult. 
-    So far, we have 
+    Recently, deep surveys of nearby disk galaxies start to provide constraints of 
+    their accreted fraction using the distinctive halo components. 
+    For more massive ETGs, efforts so far all depend on multi-component model fitting
+    and image stacking analysis (e.g. \citealt{Huang2013a, dSouza2014, Spavone2017}).
+    In this work, we propose that \mstar{} within different physical apertures could 
+    be explored as potential proxies of masses in \textit{in-situ} and accreted 
+    components.  
+    Given the behaviours of the \mden{} profiles shown in Fig \ref{fig:avg_prof}, 
+    we propose to use mass within 10 kpc (\minn{}) and 100 kpc (\mtot{}) as proxies 
+    of the \textit{in-situ} and total \mstar{}. 
+    
+    On the left panel of Fig \ref{fig:discussion_1}, we plot the relation between 
+    \mtot{} and the fraction of mass between 10 and 100 kpc (as proxy of the mass of 
+    the accreted component), and compare with the relation between \mstar{} and 
+    accreted fraction derived from the Illustris simulation 
+    (\citealt{RodriguezGomez2016}). 
+    It is intriguing to see that, our proxy of accreted mass not only strongly 
+    correlates with \mtot{}, the relation is surprisingly consistent with the 
+    prediction from \citet{RodriguezGomez2016}. 
+    Given the different definition of total stellar mass, 
+    
+    
     
     % TODO: Move to Paper II
     %Meanwhile, these simulation also point out that the fraction of accreted stars 
@@ -1883,21 +1908,33 @@
     %\mden{} profiles of massive galaxies is driven by the variations in the 
     %``ex-situ'' component at large radii. 
    
-    We now investigate to what degree our assumption that the inner 10 kpc \mstar{}
-    corresponds to an in-situ mass.    
-    Fig \ref{fig:discussion_1} compares the median \mden{} profiles of the 
-    galaxies in two \mtot{} bins 
-    ($11.4\leq$\logmtot{}$<11.6$ and $11.6\leq$\logmtot{}$<11.8$) with 
-    (1) the median \mden{} profiles of massive ETGs at $1.0 < z < 1.5$ in
-    \citealt{Patel2013} since they are considered as the progenitors of 
-    ${\sim} 10^{11.5} M_{\odot}$ ETGs at $z=0$.    
-    (2) the inner components of $z{\sim} 0$ ellipticals from 2-D decomposition 
-    (\citealt{Huang2013a}).
-    As proxy of the in-situ components, \citet{Huang2013b} showed they are 
-    structurally similar to the compact ``red nuggets'' at high-$z$. 
-    (3) the ``in-situ'' components of simulated central galaxies in massive halos 
-    from \citet{Cooper2013} (the inner ${\sim} 5$ kpc is quite uncertain due to the 
-    resolution).  
+    To see whether \minn{} can reasonably represent the \textit{in-situ} mass, we 
+    compare the average \mden{} profiles of HSC massive galaxies in two \mtot{} 
+    bins (Left panel of Fig \ref{fig:discussion_1}, 
+    $11.4\leq$\logmtot{}$<11.6$ and $11.6\leq$\logmtot{}$<11.8$) with: 
+    
+    \begin{enumerate}
+        
+        \item The median \mden{} profiles of massive ETGs at $1.0 < z < 1.5$ in
+            \citealt{Patel2013} since they are considered as the progenitors of 
+            ${\sim} 10^{11.5} M_{\odot}$ ETGs at $z=0$ and their inner region 
+            should be dominated by \textit{in-situ} stars. 
+    
+        \item The inner components of $z{\sim} 0$ ellipticals from 2-D 
+            decomposition (\citealt{Huang2013a}).
+            As proxy of the \textit{in-situ} component, \citet{Huang2013b} showed 
+            that they are structurally similar to the compact ``red nuggets'' at 
+            high-$z$. 
+        
+        \item The \textit{in-situ} components of simulated central galaxies in 
+            massive halos from \citet{Cooper2013} (the inner ${\sim} 5$ kpc is 
+            quite uncertain due to the resolution).  
+            These \mden{} profiles are generated using the particle tagging 
+            method (see \citealt{Cooper2010})
+    
+    \end{enumerate}
+
+    
     The comparison confirms that \minn{} should be reasonable proxy of the 
     ``in-situ'' mass\footnote{We convert these \mden{} profiles to the same 
     Chabrier IMF; but there are still differences in median \mstar{} and 
