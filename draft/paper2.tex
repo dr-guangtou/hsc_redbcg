@@ -136,7 +136,6 @@
         Masayuki Tanaka,$^{6}$
         Rachel Mandelbaum,$^{7}$
         Satoshi Miyazaki,$^{5,8}$
-        Yutaka Komiyama,$^{5,8}$
         HSC collaboration 
         \\
         $^{1}$Kavli-IPMU, The University of Tokyo Institutes for Advanced Study, 
@@ -244,7 +243,41 @@
 \section{Introduction}
     \label{sec:intro}
     
-    \song{This is the old version, need works}
+    \jenny{Here is a suggested shorter introduction.}   
+    One of the most intriguing observations of high-redshift galaxies from the last decade has 
+    been the dramatic size growth in massive quiescent galaxies 
+    \citep{Trujillo2006,vanDokkum2008,Damjanov2009,Cimatti2008} of factors of $2-4$ from $z \approx 2$ to the present. 
+    These observations have led to a two-phase picture of galaxy growth,
+    in which galaxies dissipatively form a central compact region and then their envelope grows around 
+    them via dry merging \citep[e.g,][]{Naab2006, Khochfar2006,Oser2010, Oser2012}, which allows for 
+    dramatic growth at late times. 
+    There is likely also a contribution from progenitor bias, in which larger galaxies become quiescent 
+    later \citep[e.g.,][]{Newman2012,XX}. 
+
+	There have been a number of papers testing the two-phase picture observationally at low redshift, 
+    looking at the light profiles \citep{Huang2013a,Huang2013b,Oh2017}, color gradients (), 
+    and stellar population gradients \citep[e.g.,][]{}. The observations are generically consistent with the 
+    two-phase model. However, to really test this picture requires highly sensitive observations extending 
+    beyond 10 kpc to truly probe the material accreted at late times \citep[Illustris paper here?][]{}. The surface 
+    brightness falls rapidly in the outer parts of elliptical galaxies, making such observations very challenging. In 
+    \citet[][; Paper I hereafter]{Huanetal2017}, we showed that the Hyper-Suprime Camera Survey {\bf CITE} allows us 
+    to derive robust surface brightness profiles for {\it individual} galaxies out to 100 kpc. 
+    
+    In Paper I, we exploited this sensitivity to verify that the fraction of accreted mass residing in an extended
+    envelope is a function of the mass of the galaxy. Another unexplored issue is the extent to which, at fixed stellar 
+    mass, the accreted fraction depends on the surrounding halo mass. According to this two-phase formation 
+    scenario, the late time growth of massive ETGs is intrinsically tied to the growth of their host dark matter halos 
+    (e.g. \citealt{Leauthaud2012, Behroozi2013, Shankar2013}). 
+    Massive ETGs that live at the center of more massive halos should experience 
+    a different mass assembly history and should be subject to a larger merger rate 
+    compared to ETGs that live in smaller dark matter halos. 
+    A natural prediction of the two-phase formation scenario is therefore that the 
+    structural properties of massive galaxies should depend on their ``environment''. In this paper, we use our 
+    large sample of early-type galaxies, along with halo masses from RedMapper \citep{}, to explore how the mass in
+    extended stellar envelopes depends on halo mass. 
+    Paper proceeds as follows: XXX.
+
+    \song{This is the old version, needs work}
     Massive galaxies are unique laboratories for studying both cosmology and galaxy 
     formation. 
     Simulations of structure formation within the context of the $\Lambda$-CDM 
@@ -350,7 +383,7 @@
             (such as SDSS) which rely on extrapolating the light profiles of galaxies 
             out to large radii.
             
-       \end{itemize}
+   \end{itemize}
 %% ------------------------------------------------------------------------------------ %% 
 
     {\bf We will show the implications for the stellar mass function of including most of 
@@ -444,7 +477,39 @@
 \section{Data And Sample Selection}
     \label{sec:data}
     
-    \song{Need a much shorter version of this}
+    \song{Need a much shorter version of HSC data summar here.}
+    
+    %    The \rbcg{} sample is less affected by completeness because we can utilize 
+    %photo-$z$s from \redm{}. 
+    %However, the completeness of the \nbcg{} sample is still limited by the 
+    %availability of spec-$z$s from BOSS.\alexie{Not sure this is important here.}
+    
+    \jenny{Here is an attempt to include all the things we really need here.}
+    Our sample selection is described in detail in Paper I. Here we include a short summary for completeness. 
+    We focus on early-type galaxies with $0.3<z<0.5$ and stellar mass $M_*>10^{11.5}$~\msun. 
+    The redshift range includes a large enough volume to have good statistics at the high-mass end, while 
+    the stellar mass limit is set by our photometric incompleteness. HSC-identified objects are cross-matched 
+    with the spectroscopic and photometric samples from redMapper \citep{Rykoff2014}. Stellar masses are estimated 
+    using stellar population synthesis modeling of the broad-band photometry, and then the mass limit is 
+    imposed. Using comparisons with published mass functions, we demonstrate that we are complete 
+    to $M_*>10^{11.5}$~\msun\ over the full redshift range. 
+    
+    Finally, here we wish to focus on galaxies that live at the centers of their dark matter halos. 
+    We utilize the group information 
+    in redMapper v5.10 \citep{Rykoff2014,Rozo2015b} to identify central galaxies. We use the 
+    relation between richness $\lambda$ and stellar mass to select groups with 
+    $\lambda>30$ or $M_{\rm halo}>10^{14.2}$~\msun\ \citep[e.g.,][]{simetetal2016}. This limit is chosen 
+    to mitigate incompleteness at the high end of our redshift window. We then identify the 
+    central galaxy to have $P_{\rm CEN}>0.7$. We will refer to this sample of 164 central galaxies as \rbcg{}. The median 
+    richness of the sample is $\lambda \approx 41$ ($M_* \approx 2.2 \times 10^{14}$~\msun), and there are 
+    only 44 central galaxies in clusters with $\lambda>0.5$ ($M_* > 10^{15}$~\msun). We build a complementary 
+    sample of central galaxies in lower-mass halos by calculating the radius of each group with 
+    $\lambda>20$ \citep{Diemer2015} and 
+    then excluding galaxies within a cylinder around each group, with the thickness of the cylinder broadened to include 
+    photo-z uncertainty. The sample of {\bf XX} central galaxies living in halos with $M_* < 10^{14}$~\msun\ will 
+    be called \nbcg{}.
+
+    
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
@@ -487,10 +552,7 @@
     
     \textbf{Completeness that depends on halo mass:}
 
-    The \rbcg{} sample is less affected by completeness because we can utilize 
-    photo-$z$s from \redm{}. 
-    However, the completeness of the \nbcg{} sample is still limited by the 
-    availability of spec-$z$s from BOSS.
+
 
     When comparing \nbcg{} and \rbcg{} we will also always make sure that the two 
     samples are well matched both in terms of \mstar{} as well as in terms of redshift. 
@@ -509,29 +571,6 @@
     \mden{} profiles from both samples are impacted by seeing and background subtraction 
     at similar levels. 
     To match the two samples by stellar mass, we will use two different methods:
-      
-    \begin{itemize}
-    
-        \item We match the two samples according to \mtot{}. 
-            We select galaxies from \rbcg{} with $11.6 < $\logmtot{} $<11.9$ 
-            (median \logmtot{} ${\sim} 11.74$). 
-            There are 45 \rbcg{} galaxies in this range. 
-            We then match this distribution by drawing galaxies from \nbcg{}. 
-            There are 229 unique \nbcg{} galaxies in the matched sample. 
-            In this \mtot{} range, 100 kpc corresponds to 5-8 times the effective radius 
-            and \mtot{} is a good proxy of total stellar mass.     
-        
-       \item We match the two samples according to \minn{}. 
-           We select galaxies from \rbcg{} with $11.2 < $\logminn{}$ < 11.6$ 
-            (median \logminn{}${\sim} 11.36$).
-            For the 56 galaxies from the \rbcg{} sample, we achieve excellent matches
-            in \minn{} and redshift using 375 \nbcg{} galaxies.
-            Motivated by recent observations and simulations, we use \minn{} as the 
-            proxy of the \mstar{} of the ``in-situ'' component.
-            We will discuss more about this assumption in 
-            Section~\ref{sec:discussion}.   
-                 
-    \end{itemize}
 
 %% ------------------------------------------------------------------------------------ %%     
     Fig~\ref{fig:prof_1} compares the profiles of galaxies at fixed \mtot{} and at fixed 
