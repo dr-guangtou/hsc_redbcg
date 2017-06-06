@@ -1468,10 +1468,10 @@
 	Here we turn to the ellipticity and $k$-corrected optical color profiles.
 	We extract ellipticity profile using \texttt{Ellipse} by setting the shape of each 
 	isophote free. 
-	By applying the $i$-band isophotes to images of other bands in the 
-	forced-photometry way \jenny{not sure what this means?}, we can also measure the color profiles too. 
-	We apply Galactic extinction correction and \texttt{iSEDFit} $k$-correction to 
-	both the $g-r$ and $g-i$ color profiles.
+	We also apply the isophotal information derived in $i$-band directly to other 
+	filters and extract 1-D $g-r$ and $g-i$ color profiles.
+	Both Galactic extinction correction and \texttt{iSEDFit} $k$-correction are applied 
+	to them.
 	The PSF smearing effect will make the central isophotal shape rounder than the 
 	real value, while the seeing differences between filters will bias the central 
 	color\footnote{Since the HSC $i$-band always has better seeing, the central color 
