@@ -1162,13 +1162,19 @@
           \textbf{Left:} Impact of using \mtot{} on the galaxy stellar mass function. 
           Dashed lines correspond to the SMF computed using \mcmodel{} whereas solid 
           lines correspond to the SMF computed using \mtot{}. 
-          Here we separate our HSC sample into  centrals in halos more massive than \logmh{}$\sim14.2$ (red lines) and centrals in 
-          halos with \logmh{}$<14.0$ (black lines).
+          Here we separate our HSC sample into  centrals in halos more massive than
+          \logmh{}$\sim14.2$ (red lines) and centrals in halos with \logmh{}$<14.0$ 
+          (black lines).
           The impact on the SMF can exceed 0.2 dex for massive central galaxies in 
           very massive halos.
           \textbf{Right}: The stellar mass volume density distributions of massive 
           HSC galaxies, using both \mtot{} (black solid line) and \mmax{} (black dotted 
-          line).  The grey  shaded region shows the resampling error on the HSC SMF. We  compaer our results with previous studies: (a): SDSS galaxies at $z{\sim} 0.1$ from \citet{Bernardi2017} with \mstar{} values based on photometry from 2-D \ser{}$+$Exponential model fitting 
+          line).  
+          The grey shaded region shows the resampling error on the HSC SMF plus a 20\%
+          uncertainties to account for other issues in our sample. 
+          We compare our results with previous studies: 
+          (a): SDSS galaxies at $z{\sim} 0.1$ from \citet{Bernardi2017} with \mstar{} 
+          values based on photometry from 2-D \ser{}$+$Exponential model fitting 
           (purple); 
           (b): SDSS galaxies at $z{\sim} 0.1$ from \citet{Moustakas13} based on 
           improved SDSS \texttt{cModel} photometry (blue); 
@@ -1252,6 +1258,11 @@
     take the uncertainties of \mstar{} measurements into account}.
     Instead, we primarily aim to visualize the importance of \mstar{} measurements 
     to the SMF at the high-mass end.
+    We do not include satellite galaxy in our sample (could affect ${\sim}10$\% of 
+    galaxies at this very high-mass end) and can not extract 1-D \mden{} profile 
+    for a small fraction of galaxies due to severe contamination of nearby object. 
+    Therefore, we should expect at least ${\sim}20$\% uncertainties in the current 
+    volume density distributions (shown as the shaded region on Fig \ref{fig:smf}).
     Despite the differences in these SMF, we can see that the ones using 
     \texttt{cModel} or small aperture photometry can not appropriately account for 
     the high-mass end due to the missing light in the outskirt. 
