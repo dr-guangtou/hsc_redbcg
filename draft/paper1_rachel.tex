@@ -376,7 +376,8 @@
         \includegraphics[width=\textwidth]{fig/redbcg_ellipse_example}
         \caption{
             Left: example of the 1-D surface brightness and ellipticity profile 
-            for a massive galaxy at $z=0.23$ in the $i$-band using \texttt{Ellipse}. 
+            of a massive galaxy at $z=0.23$ in the $i$-band extracted using 
+            \texttt{Ellipse}. 
             In this work, we always show the radial profile using a $R^{1/4}$ scaling 
             on the x-axis.
             By using this scale, the de Vaucouleurs profile will appear as a straight 
@@ -388,8 +389,8 @@
             to twice the size of the half-width of a 1\asec{} seeing at $z\sim 0.5$.
             It is a very conservative estimate of the region that we can not reliable 
             extract 1-D profile due to the smearing effect of seeing.
-            On the top panel, the dashed line shows the ellipticity used for the final 
-            isophote. 
+            On the top panel, the dashed line shows the mean ellipticity used for the 
+            final isophote. 
             Right: the three color image of this galaxy with isophotes 
             extracted by \texttt{Ellipse}. 
             The thick dotted line highlights the isophote with 
@@ -494,7 +495,7 @@
     brightness stellar envelope is a challenging problem. 
     The deblending method currently implemented in \texttt{hscPipe} tends to 
     ``over-deblend'' the outskirts of bright galaxies and leads to an 
-    under-estimation of the the total flux of massive ETGs (this is discussed further in 
+    under-estimation of the total flux of massive ETGs (this is discussed further in 
     \citealt{Bosch2017}).  
     For these reasons, our results will be based on custom-developed code to measure 
     the luminosities and stellar masses of massive galaxies. 
@@ -572,8 +573,7 @@
     Matched objects with a red-sequence photo-$z$ ($0.3 \leq z_{\lambda} < 0.5$) are 
     included in our sample. 
     The accuracy of the red-sequence photo-$z$ is sufficient (median 
-    $|z_{\lambda} - z_{\mathrm{Spec}}| {\sim} 0.01$ for the ones with spec-$z$) 
-    for the goal of this work.
+    $|z_{\lambda} - z_{\mathrm{Spec}}| {\sim} 0.01$) for our goal.
     The \redm{} catalog provides an additional 133 unique redshifts for massive 
     galaxies in our sample.
     %% Estimated from "dr1_redbcg_hsc_sdss_gama_1arcsec.fits"
@@ -582,22 +582,23 @@
     reliable redshift information (referred as \texttt{hscZ}).
     %% Saved as "dr1_wide_galaxy_icmodel_21.5.fits"
     The majority of our redshifts comes from the BOSS and SDSS ``legacy'' LRG samples. 
-    The GAMA survey provides an additional $14$\% of spec-$z$.
+    The GAMA survey provides an additional $14$\% of all spectroscopic redshifts.
     Although the GAMA survey only covers parts of the \texttt{S15B} data release, 
     hence affects the homogeneity of our sample, it will not affect the results of 
     this work.
     We will discuss this more in \S \ref{sec:final}.
 
-    We choose the redshift range of $0.3 \leq z \leq 0.5$ to make sure that 
+    We choose the redshift range $0.3 \leq z \leq 0.5$ to make sure that: 
     (1) The inner region of massive galaxies can be resolved, and \mstar{} within 
     10 kpc can be reliably measured; 
-    (2) The background noise and cosmological dimming are not major issues and the 
+    (2) The background noise and cosmological dimming are not major issues so that the 
     \mden{} profile can be measured out to $>100$ kpc; 
     (3) Redshift evolution in the stellar population properties can be largely 
     ignored.  
     Also at higher redshift, the completeness of the spec-$z$ sample starts to decline. 
     And finally, the over-subtraction of the background level becomes a more serious 
     issue at lower redshifts.  
+   
     We will now describe our one-dimensional photometric analysis (\S \ref{sec:ellipse}) 
     and our stellar mass estimates (\S \ref{sec:mstar}). 
     We will then define the final sample in \S \ref{sec:final}.
@@ -793,9 +794,9 @@
         
     We prepare large $i$-band postage-stamps for each galaxy that extend to 750 kpc 
     in radius, along with a bad pixel mask and the PSF model. 
-    These postage-stamps include all of the light of the galaxy and are large enough 
-    to also evaluate the background level. We choose to use $i$-band images because 
-    they trace the stellar mass distributions of massive galaxies at 
+    These postage-stamps include all of the light of the galaxy and are also large 
+    enough to also evaluate the background level. We choose to use $i$-band images 
+    because they trace the stellar mass distributions of massive galaxies at 
     $0.3 \leq z \leq 0.5$ reasonably well 
     (the observed $i$-band corresponds to a rest-frame $g$ or $r$ band), but also 
     because they have better seeing and much lower background levels than the $z$ 
@@ -903,6 +904,11 @@
             
        \end{itemize}
        
+    We should point out that both \minn{} and \mtot{} are measured within the same 
+    elliptical aperture. 
+    The 10 kpc and 100 kpc here refer to the radius along the major aixs of the 
+    elliptical isophote. 
+       
 %% ------------------------------------------------------------------------------------ %% 
     
 %% ------------------------------------------------------------------------------------ %% 
@@ -925,7 +931,7 @@
     \texttt{iSEDFit}\footnote{http://www.sos.siena.edu/~jmoustakas/isedfit/} 
     (\citealt{Moustakas13}) to estimate the average \m2l{} and $k$-corrections using
     5-band HSC \cmodel{} fluxes.
-    Although \cmodel{} tends to underestimate the total flux for bright, extended 
+    Although \cmodel{} tends to underestimate the total fluxes of bright, extended 
     objects, it can still yield accurate \emph{average} colors thanks to the 
     forced-photometry method that takes the PSF convolution into account
     (e.g. \citealt{SynPipe}). 
