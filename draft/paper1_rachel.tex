@@ -362,8 +362,8 @@
     Stellar mass is denoted \mstar{} and has been derived using a Chabrier Initial Mass 
     Function (IMF; \citealt{Chabrier2003}).   
       
-    $M_{\mathrm{halo}}$ denotes halo mass in general whereas $M_{\rm 200b}$ is 
-    explicitly defined as $M_{\rm 200b}\equiv M(<r_{\rm 200b})=200\bar{\rho} 
+    Halo mass is defined as $M_{\rm 200b}$ as 
+    $M_{\rm 200b}\equiv M(<r_{\rm 200b})=200\bar{\rho} 
     \frac{4}{3}\pi r_{\rm 200b}^3$ where $r_{\rm 200b}$
     is the radius at which the mean interior density is equal to 200 times
     the mean matter density ($\bar{\rho}$). 
@@ -549,18 +549,25 @@
     have either a spectroscopic redshift or a robust red-sequence photo-$z$ from the 
     \redm{} galaxy cluster catalog\footnote{See: http://risa.stanford.edu/redmapper/} 
     (e.g.\ \citealt{Rykoff2014}; \citealt{Rozo2015b}).  
-\rachel{You require it to be a redmapper cluster member?  Or do you mean it must be part of the redmagic galaxy sample?  I do not fully understand the logic in using redmapper rather than redmagic.}
-We match the \texttt{hscPho} sample with a spec-$z$ catalog compiled by the HSC 
-    team\footnote{It is created by matching HSC objects with all publicly available 
-    spectroscopic redshifts (e.g.\ SDSS/BOSS; GAMA). 
+
+    We match the \texttt{hscPho} sample with a spec-$z$ catalog compiled by the HSC 
+    team.
+    It is created by matching HSC objects with a series of publicly available 
+    spectroscopic redshifts (e.g.\ SDSS DR12 \citealt{SDSSDR12}; 
+    GAMA DR2 \citealt{Liske2015}). 
     The spec-$z$ quality flag from different catalogs are homogenized into a single 
-    flag that indicates secure redshifts. \rachel{Is there a paper or a note at the data release page that we could reference so readers can check out how this was defined?}}.  
+    flag that indicates secure redshifts.
+    Please see Section 4.4.2 of \citet{HSC_DR1} for details of this catalog.  
     To ensure reasonable \mstar{}-completeness at the high-\mstar{} end we focus on
     the redshift range $0.3 \leq z \leq 0.5$. 
     %% This is catalog: "dr1_specz_use.fits"   
    
     Objects without a spectroscopic redshift are matched with central 
-    galaxies from the \redm{} SDSS DR8 (\citealt{SDSSDR8}) catalog using a $2.0^{\arcsec}$ matching radius. Matched objects with a red-sequence photo-$z$ ($0.3 \leq z_{\lambda} < 0.5$) are included in our sample. The accuracy of the red-sequence photo-$z$ is sufficient (median 
+    galaxies from the \redm{} SDSS DR8 (\citealt{Rykoff2014}) catalog using a 
+    $2.0^{\arcsec}$ matching radius. 
+    Matched objects with a red-sequence photo-$z$ ($0.3 \leq z_{\lambda} < 0.5$) are 
+    included in our sample. 
+    The accuracy of the red-sequence photo-$z$ is sufficient (median 
     $|z_{\lambda} - z_{\mathrm{Spec}}| {\sim} 0.01$ for the ones with spec-$z$) 
     for the goal of this work.
     The \redm{} catalog provides an additional 133 unique redshifts for massive 
@@ -570,16 +577,25 @@ We match the \texttt{hscPho} sample with a spec-$z$ catalog compiled by the HSC
     In total, at $0.3 \leq z \leq 0.5$, our sample consists of 25286 galaxies with 
     reliable redshift information (referred as \texttt{hscZ}).
     %% Saved as "dr1_wide_galaxy_icmodel_21.5.fits"
-    The majority of our redshifts come from the BOSS and SDSS ``legacy'' LRG samples. The GAMA survey provides an additional $14$\% of spec-$z$.
-\rachel{This is only of order 1\% of the original sample.  Do we understand why?  Of particular concern are cuts that affect survey homogeneity; e.g., in the area covered by GAMA vs.\ the area not covered by GAMA, might the sample look different?  What will that do to this study?}
-We choose the redshift range of $0.3 \leq z \leq 0.5$ to make sure that 
+    The majority of our redshifts comes from the BOSS and SDSS ``legacy'' LRG samples. 
+    The GAMA survey provides an additional $14$\% of spec-$z$.
+    Although the GAMA survey only covers parts of the \texttt{S15B} data release, hence affects 
+    the homogeneity of our sample, it will not affect the results of this work.
+    We will discuss this more in \S \ref{sec:final}.
+
+    We choose the redshift range of $0.3 \leq z \leq 0.5$ to make sure that 
     (1) The inner region of massive galaxies can be resolved, and \mstar{} within 
     10 kpc can be reliably measured; 
     (2) The background noise and cosmological dimming are not major issues and the 
     \mden{} profile can be measured out to $>100$ kpc; 
     (3) Redshift evolution in the stellar population properties can be largely 
     ignored.  
-    Also at higher redshift, the completeness of the spec-$z$ sample starts to decline. And finally, the over-subtraction of the background level becomes a more serious issue at lower redshifts.  We will now describe our one-dimensional photometric analysis  (\S \ref{sec:ellipse}) and our stellar mass estimates (\S \ref{sec:mstar}). We will then define the final sample in \S \ref{sec:final}.
+    Also at higher redshift, the completeness of the spec-$z$ sample starts to decline. 
+    And finally, the over-subtraction of the background level becomes a more serious 
+    issue at lower redshifts.  
+    We will now describe our one-dimensional photometric analysis (\S \ref{sec:ellipse}) 
+    and our stellar mass estimates (\S \ref{sec:mstar}). 
+    We will then define the final sample in \S \ref{sec:final}.
     
 %    By comparing with the Stripe 82 Massive Galaxy Catalog
 %    (\texttt{S82-MGC}; \citealt{Bundy2015}), \citet{Leauthaud2016} have measured the
@@ -751,17 +767,19 @@ We choose the redshift range of $0.3 \leq z \leq 0.5$ to make sure that
     sensitive to the choice of a particular model (e.g. de~Vaucouleurs or \ser{} profile), 
     the number of components, initial guesses of parameters, and internal 
     degeneracies among different parameters. 
-    Background subtraction uncertainties can also affect the 2-D model fitting method, especially for the massive ETGs that make up our sample. 
-    
+    Background subtraction uncertainties can also affect the 2-D model fitting method, 
+    especially for the massive ETGs that make up our sample. 
     
     We therefore perform elliptical isophote fitting using the IRAF \texttt{Ellipse} 
     algorithm (Jedrzejewski 1987) to estimate the total luminosities of massive 
     galaxies and to measure their one-dimensional stellar mass surface 
     density profiles (\mden{}). 
     This 1-D method is less affected by the issues mentioned above. 
-    Also, we will only study galaxies in the radial range where we are not 
-    sensitive to either the PSF ($r<3-5$ kpc) or the background subtraction 
-    ($r>100$ kpc). \rachel{Here too I think we have to be careful about how we say this.  The PSF is not irrelevant outside of the inner part of the profile.  It's just less important.  Perhaps say `\dots where we are less sensitive to the PSF or the background subtraction\dots'}
+    Also, we will only study galaxies in the radial range where we are less 
+    sensitive to either the PSF ($r<5-6$ kpc) or the background subtraction 
+    ($r>100$ kpc).
+    The region 
+    It is worth noting that the PSF  
         
     We prepare large $i$-band postage-stamps for each galaxy that extend to 750 kpc in 
     radius, along with a bad pixel mask and the PSF model. 
