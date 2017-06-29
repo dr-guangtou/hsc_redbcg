@@ -509,12 +509,16 @@
       \caption{              
           \textbf{Left:} Difference between \mcmodel{} and \mtot{} for massive
       	  galaxies (grey dots).
-      	  The running-median of the mass difference is shown by large red hexagons. On average, \mcmodel{} underestimates the total stellar mass of massive 
+      	  The running-median of the mass difference is shown by large red hexagons. 
+      	  On average, \mcmodel{} underestimates the total stellar mass of massive 
           galaxies by 0.1 dex while in some cases, the difference can exceed 0.2 dex.
           Vertical histograms indicate the mass difference for all galaxies (shaded 
           histogram) and for the ones with \logmtot{}$>11.6$ (empty histogram).
           \textbf{Right:} Difference between \mmax{} and \mtot{} in the same format. 
-          The average difference is small (0.02 dex) and with no clear mass--dependence. \rachel{It might be worth explicitly noting the different vertical axis scales in the caption.  I did not notice at first, and if you do not notice then you might draw the wrong conclusion.}}
+          The average difference is small (0.02 dex) and with no clear mass--dependence. 
+          \textbf{Please note that the scales of the vertical axes are different 
+            for these two figures.}
+          }
       \label{fig:mass_diff}
   \end{figure*}
           
@@ -579,8 +583,9 @@
     %% Saved as "dr1_wide_galaxy_icmodel_21.5.fits"
     The majority of our redshifts comes from the BOSS and SDSS ``legacy'' LRG samples. 
     The GAMA survey provides an additional $14$\% of spec-$z$.
-    Although the GAMA survey only covers parts of the \texttt{S15B} data release, hence affects 
-    the homogeneity of our sample, it will not affect the results of this work.
+    Although the GAMA survey only covers parts of the \texttt{S15B} data release, 
+    hence affects the homogeneity of our sample, it will not affect the results of 
+    this work.
     We will discuss this more in \S \ref{sec:final}.
 
     We choose the redshift range of $0.3 \leq z \leq 0.5$ to make sure that 
@@ -764,8 +769,8 @@
     ellipticity and position angle. 
     In principle, massive galaxies can still be described by more complex 
     models (e.g \citealt{Huang2013a, Huang2013b, Oh2017}), but they are still 
-    sensitive to the choice of a particular model (e.g. de~Vaucouleurs or \ser{} profile), 
-    the number of components, initial guesses of parameters, and internal 
+    sensitive to the choice of a particular model (e.g. de~Vaucouleurs or \ser{} 
+    profile), the number of components, initial guesses of parameters, and internal 
     degeneracies among different parameters. 
     Background subtraction uncertainties can also affect the 2-D model fitting method, 
     especially for the massive ETGs that make up our sample. 
@@ -776,16 +781,22 @@
     density profiles (\mden{}). 
     This 1-D method is less affected by the issues mentioned above. 
     Also, we will only study galaxies in the radial range where we are less 
-    sensitive to either the PSF ($r<5-6$ kpc) or the background subtraction 
-    ($r>100$ kpc).
-    The region 
-    It is worth noting that the PSF  
+    sensitive to either the PSF or the background subtraction.
+    We ignore the inner 6.11 kpc, which is twice the size of 1\asec{} seeing at 
+    $z=0.5$.
+    Using this conservative choice, we can safely ignore the smearing effect of 
+    seeing outside this radius.
+    As we will show later, we confirm this by comparing our HSC profiles with 
+    observations with higher spatial resolution. 
+    As for the impact from background subtraction, we will focus on the profiles 
+    within 100 kpc. 
         
-    We prepare large $i$-band postage-stamps for each galaxy that extend to 750 kpc in 
-    radius, along with a bad pixel mask and the PSF model. 
-    These postage-stamps include all of the light of the galaxy and are large enough to 
-    also evaluate the background level. We choose to use $i$-band images because they trace the stellar distributions of 
-    massive galaxies at $0.3 \leq z \leq 0.5$ reasonably well 
+    We prepare large $i$-band postage-stamps for each galaxy that extend to 750 kpc 
+    in radius, along with a bad pixel mask and the PSF model. 
+    These postage-stamps include all of the light of the galaxy and are large enough 
+    to also evaluate the background level. We choose to use $i$-band images because 
+    they trace the stellar mass distributions of massive galaxies at 
+    $0.3 \leq z \leq 0.5$ reasonably well 
     (the observed $i$-band corresponds to a rest-frame $g$ or $r$ band), but also 
     because they have better seeing and much lower background levels than the $z$ 
     and $y$ band images (although these in principle may be better tracers of 
