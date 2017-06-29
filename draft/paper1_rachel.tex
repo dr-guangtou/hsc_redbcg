@@ -378,7 +378,7 @@
             Left: example of the 1-D surface brightness and ellipticity profile 
             for a massive galaxy at $z=0.23$ in the $i$-band using \texttt{Ellipse}. 
             In this work, we always show the radial profile using a $R^{1/4}$ scaling 
-            on the x-axis. \rachel{So should the units be kpc$^{1/4}$?}
+            on the x-axis.
             By using this scale, the de Vaucouleurs profile will appear as a straight 
             line on this figure.  
             We also plot the relative brightness profile of the PSF model normalized 
@@ -838,7 +838,7 @@
     fluctuations which are due to either the uncertainty in the background 
     subtraction or the unmasked flux from other objects.
     We choose to limit our study to surface brightness levels up to ${\sim} 28.5$ \sb. 
-    This is a conservative choice but already enables us to measure light profiles 
+    This is a conservative choice but already åenables us to measure light profiles 
     out to $100$ kpc on a galaxy-by-galaxy basis (no stacking). 
     For more technical details of the \texttt{Ellipse} procedure, please see 
     Appendix~\ref{app:ellipse}.
@@ -852,13 +852,18 @@
     the sample.
     %It affects $18/164$ of the \rbcg{} sample, and a smaller fraction of the 
     %\nbcg{} sample. 
-    It is worth noting that this excludes most massive galaxies undergoing major mergers. 
-    
+    We visually examine the 3-color images of randomly selected galaxies with failed 
+    1-D profile.  
+    Most of them are relative small galaxies that are severly contaminated by nearby 
+    objects, and will not affect the results of this work.  
+    Meanwhile, tt is worth noting that this does exclude most major merging systems 
+    among massive galaxies. 
+        
     Given our exquisite profiles that extend to 100 kpc, the definition and meaning 
     of ``total'' magnitude (and stellar mass) becomes nuanced.
-    With the help of the \m2l{} estimated in the next section (\S \ref{sec:mstar}), 
-    we integrate the profile to a range of radii, and estimate the stellar mass 
-    within these different apertures.  \rachel{You should at least clarify whether it's a radius-dependent \m2l{} here or not, so readers know whether both luminosity and \m2l{} depend on radius, or just luminosity.}
+    With the help of the average \m2l{} estimated in the next section 
+    (\S \ref{sec:mstar}), we integrate the profile to a range of radii, and estimate 
+    the stellar mass within these different apertures.  
     Motivated by the two-phase scenario, we will consider two benchmark physical 
     apertures throughout this work:
     
@@ -866,7 +871,8 @@
        
         \item \textbf{The \mstar{} within the inner 10 kpc} 
             (hereafter noted \minn{}). 
-            According to the two-phase scenario, the \textit{in situ} star-formation phase quickly builds up the inner, dense core of massive ETGs.  
+            According to the two-phase scenario, the \textit{in situ} star-formation 
+            phase quickly builds up the inner, dense core of massive ETGs.  
             Based on recent observation (e.g.~\citealt{vanDokkum2010}) and 
             simulations (e.g. \citealt{RodriguezGomez2016}), the \textit{in situ} 
             component dominates the \mstar{} within one effective radius 
@@ -876,16 +882,17 @@
             Given the quality of the HSC data, we can reliably measure \minn{} over 
             our redshift range ($1.0^{\arcsec}$ in radius equals 4.4 and 6.1 kpc 
             at redshifts 0.3 and 0.5 respectively).  
-\rachel{Earlier you said you do not measure the profiles on the very smallest scales, below 3-5 kpc, so how are scales in that range handled when measuring \mstar{} within 10 kpc?}
-It is worth noting that, at the very high-\mstar{} end, accreted stars may make a significant contribution to the mass within 10 kpc 
-            (e.g. \citealt{RodriguezGomez2016}). We will further discuss the justification of this assumption in 
+            It is worth noting that, at the very high-\mstar{} end, accreted stars 
+            may make a significant contribution to the mass within 10 kpc 
+            (e.g. \citealt{RodriguezGomez2016}). 
+            We will further discuss the justification of this assumption in 
             \ref{ssec:twophase}.
             
         \item \textbf{The stellar mass within 100 kpc} 
             (hereafter noted \mtot{}). 
             For our galaxy sample, a 100 kpc aperture corresponds to 5-10 
             $\times R_{\mathrm{e}}$. 
-            We show in section \ref{ssec:mtotal} that most of the \mstar{} for 
+            We show in Section \ref{ssec:mtotal} that most of the \mstar{} for 
             these ETGs can be captured by a 100 kpc radius and that \mtot{} is 
             a good proxy for the ``total'' \mstar{}. 
             Although not perfect, we argue that our measurements of \mtot{} (which are 
