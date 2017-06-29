@@ -293,7 +293,7 @@
     growth, it is time to confront this model with additional observations, 
     in particular, the detailed surface mass density profiles of low redshift massive 
     galaxies. 
-    Early studies based on one-dimensional light profiles suggested that the surface 
+    Early studies based on one-dimensional light profiles found that the surface 
     mass density profiles of nearby ETGs are well described by single-\ser{} profiles 
     (e.g. \citealt{Kormendy2009}; except for the most central region) and that the 
     \ser{} index increases with total luminosity 
@@ -383,9 +383,11 @@
             line on this figure.  
             We also plot the relative brightness profile of the PSF model normalized 
             at the central surface brightness of the galaxy to highlight the region 
-            affected by seeing. \rachel{`most strongly affected by seeing'?  It's not the case that the seeing is totally irrelevant outside this region.  The `most affect' in the sentence below does not quite make sense either.}
-            The grey shaded region highlights the region most affect by seeing 
-            ($r<3$ kpc).
+            most strongly affected by seeing.
+            The grey shaded region highlights the region ($r<6$ kpc) that is equivalent 
+            to twice the size of the half-width of a 1\asec{} seeing at $z\sim 0.5$.
+            It is a very conservative estimate of the region that we can not reliable 
+            extract 1-D profile due to the smearing effect of seeing.
             On the top panel, the dashed line shows the ellipticity used for the final 
             isophote. 
             Right: the three color image of this galaxy with isophotes 
@@ -405,24 +407,27 @@
     \label{ssec:hsc}
 
     The Subaru Strategic Program (SSP, \citealt{HSC_SSP, HSC_DR1}) makes use of the 
-    new prime-focus camera, the Hyper Suprime-Cam (HSC;~\citealt{Miyazaki2012}), on the 
+    new prime-focus camera, the Hyper Suprime-Cam (HSC;~\citealt{Miyazaki2012}, 
+    Miyazaki in~prep.), on the 
     8.2-m Subaru telescope at Mauna Kea. 
-\rachel{Need to cite the HSC survey camera paper, Miyazaki et al in prep.}
-The ambitious multi-layer HSC survey takes advantage of the large field of 
+    The ambitious multi-layer HSC survey takes advantage of the large field of 
     view (FoV;~1.5 deg in diameter) of this camera and will cover $>1000$ deg$^2$ 
     of sky in 5 broad bands ($grizy$) to a limiting depth of $r {\sim} 26$ mag 
     in the \texttt{WIDE} layer. 
     This work is based on the internal data release \texttt{S15B}, which covers 
-    ${\sim} 100$ deg$^2$ in all 5-band to full \texttt{WIDE} depth.  
-\rachel{Need to say how this relates to the release that is available to the public and described in the HSC DR1 paper, for the sake of reproducibility.}
-The regions covered by this release overlap with a number of spectroscopic surveys 
+    ${\sim} 110$ deg$^2$ in all 5-band to full \texttt{WIDE} depth.  
+    The regions covered by this release overlap with a number of spectroscopic surveys 
     (e.g.\ SDSS/BOSS: \citealt{Eisenstein2011}, \citealt{Alam2015}; 
     GAMA: \citealt{Driver2011}, \citealt{Liske2015}).
+    \texttt{S15B} release has similar sky coverage with the Public Data Release 1
+    (Please see Table 3 in \citealt{HSC_DR1} for detailed comparison).
 
-    The HSC \texttt{WIDE} survey is about $3.0$-$4.0$ magnitudes deeper in terms of the $i$-band surface brightness limit than SDSS. Combined with the excellent imaging resolution (the median $i$-band seeing is 
-    0.6\asec) and the wide area, the HSC survey represents a tremendous dataset to 
-    perform large statistical studies of the surface brightness profiles of massive
-    galaxies out to their very outskirts.  \rachel{This language seems a bit too informal for a journal article.  Perhaps `\dots represents an ideal dataset to perform statistical studies\dots'?}   
+    The HSC \texttt{WIDE} survey is about $3.0$-$4.0$ magnitudes deeper in terms of 
+    the $i$-band surface brightness limit than SDSS. 
+    Combined with the excellent imaging resolution (the median $i$-band seeing is 
+    0.6\asec) and the wide area, the HSC survey represents an ideal dataset to perform 
+    statistical studies of the surface brightness profiles of massive galaxies out to 
+    their very outskirts.  
     Fig~\ref{fig:sdss_compare} illustrates the quality of HSC imaging compared to SDSS 
     for three low redshift ETGs, and shows that HSC survey data are well suited for 
     mapping the stellar distribution of massive galaxies out to large radii.
@@ -519,15 +524,15 @@ The regions covered by this release overlap with a number of spectroscopic surve
 \subsection{Initial Massive Galaxy Sample}
     \label{ssec:initial}
     
-    We begin by using a broad luminosity cut to select an initial sample of massive 
+    We begin by using a broad flux cut to select an initial sample of massive 
     galaxies at $z < 0.5$ from the HSC photometric catalog. 
-\rachel{You do not seem to explicitly calculate luminosities, but rather to make a flux (not luminosity) cut.  So should we call it a `broad flux cut'?}
-Based on \citet{Leauthaud2016}, $i_{\mathrm{SDSS, cModel}} \leq 21.0$ mag can 
+    Based on \citet{Leauthaud2016}, $i_{\mathrm{SDSS, cModel}} \leq 21.0$ mag can 
     define a sample that includes almost all \logms{}$\geq 11.5$ galaxies.    
     We therefore perform an initial conservative selection of massive galaxies
     with $i_{\mathrm{HSC, cModel}} \leq 21.5$\footnote{We neglect small differences
-    between the response curves of the SDSS-$i$ and HSC-$i$ filters.}. We also limit our sample to regions that have reached the required depth of 
-    the \texttt{WIDE} survey in the $i$-band. \rachel{As defined in DR1 paper?}
+    between the response curves of the SDSS-$i$ and HSC-$i$ filters.}. 
+    We also limit our sample to regions that have reached the required depth of 
+    the \texttt{WIDE} survey in $i$-band as defined in \citet{HSC_DR1}.
     %% The SQL search is saved as "sample.sql" 
     %% The master catalog used here is "dr1_wide_galaxy_icmodel_21.5.fits"
     %%   The original catalogs contain 2275477 objects
