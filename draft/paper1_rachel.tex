@@ -810,8 +810,12 @@
     To improve the background subtraction, we first aggressively mask 
     out all objects (including the central massive galaxy), and derive an 
     empirical background correction using \texttt{SExtractor}.
-\rachel{Need to describe what settings were used and, more importantly, how these were validated.  Otherwise there is no reason to trust them over the \texttt{hscPipe} results!  You state below that you've tested this procedure, but without enough information for readers to judge.  Perhaps a key plot or two could go in the appendix?}
-Then, we run \texttt{Ellipse} on the background-corrected, masked cut-outs 
+    These procedures are described in details in Appendix~\ref{app:ellipse}. 
+    We should point out that we are not using the photometric results from our 
+    customized process, but simply rely on them for improved local background model
+    and appropriate object mask.
+
+    Then, we run \texttt{Ellipse} on the background-corrected, masked cut-outs 
     following the methodology of \citet{Li2012}. 
     In short, we first fit each isophote using a free centroid and shape 
     (ellipticity and position angle). 
