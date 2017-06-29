@@ -183,6 +183,7 @@
 %%%%%%%%%%%%: Abstract and Keywords %%%%%%%%%%%%
 
 \begin{abstract} 
+
     Massive galaxies display extended light profiles that can reach out to several 
     hundreds of kilo parsecs. 
     These stellar halos are a key fossil record of galaxy assembly history. 
@@ -203,10 +204,12 @@
     Thus, when this extended light is not properly accounted for, the stellar mass 
     function is systematically underestimated at the highest masses.
     Our results are broadly consistent with the two phase formation scenario of massive 
-    galaxies in which outer envelopes are built up at late times from minor merging. 
+    galaxies in which outer envelopes are built up at late times from series of merging
+    events. 
     We provide surface mass surface mass density profiles in a convenient tabulated format 
     to facilitate comparisons with predictions from numerical simulations of 
     galaxy formation.
+    
 \end{abstract}
 
 \begin{keywords}
@@ -253,9 +256,11 @@
     Observationally, the progenitors of ETGs are thought to correspond to the 
     population of massive quiescent galaxies at high redshift that have smaller 
     average effective radii ($R_{\mathrm{e}}$; e.g. \citealt{Trujillo2006, 
-    vanDokkum2008, Cimatti2008}).  These high redshift galaxies also have slightly higher central velocity dispersions and stellar mass densities (\mden{}; e.g. \citealt{vandeSande2011, Belli2014}), and 
-    more disk-like morphologies (e.g. \citealt{vanderWel2011}) than low redshift galaxies (e.g. \citealt{Bezanson2009, vanDokkum2010}) with similar stellar 
-    mass.
+    vanDokkum2008, Cimatti2008}).  
+    These high redshift galaxies also have slightly higher central velocity dispersions 
+    and stellar mass densities (\mden{}; e.g. \citealt{vandeSande2011, Belli2014}), 
+    and more disk-like morphologies (e.g. \citealt{vanderWel2011}) than low redshift 
+    galaxies (e.g. \citealt{Bezanson2009, vanDokkum2010}) with similar stellar mass.
     
     Following this initial epoch of early formation, feedback from stars and/or AGN 
     (e.g. \citealt{Sijacki2007, Fabian2012}) efficiently quenches star formation in 
@@ -263,36 +268,66 @@
     A large fraction of these massive progenitors are already quiescent by $z=1$ 
     (e.g. \citealt{Bezanson2009, Kriek2016}). 
     The second phase of their assembly is driven by non-dissipative processes such 
-    as dry mergers with other galaxies (e.g. \citealt{Naab2006, Khochfar2006}). The ``two-phase'' formation of massive galaxies is  designed to both explain the observed increase in the effective radii ($R_{\mathrm{e}}$) of massive galaxies (e.g. 
-    \citealt{Newman2012, vdWel2014}) and the build-up of stellar 
-    halos  (e.g. \citealt{Szomoru2012, Patel2013}). According to this formation mechanism, minor mergers dominate the mass assembly of massive galaxies at late times (e.g. \citealt{Hilz2012, Hilz2013, Oogi2013, Bedorf2013, Laporte2013}).
+    as dry mergers with other galaxies (e.g. \citealt{Naab2006, Khochfar2006}). 
+    The ``two-phase'' formation of massive galaxies is designed to both explain the 
+    observed increase in the effective radii ($R_{\mathrm{e}}$) of massive galaxies 
+    (e.g. \citealt{Newman2012, vdWel2014}) and the build-up of stellar 
+    halos  (e.g. \citealt{Szomoru2012, Patel2013}). 
+    According to this formation mechanism, minor mergers dominate the mass assembly 
+    of massive galaxies at late times 
+    (e.g. \citealt{Hilz2012, Hilz2013, Oogi2013, Bedorf2013, Laporte2013}).
     
     Both numerical simulations (e.g. \citealt{Oser2010}) and 
     semi-analytic models (SAM; e.g. \citealt{LeeYi2013, LeeYi2017}) agree that the 
-    mass fraction in the accreted component should increase with total galaxy stellar mass (e.g. \citealt{Lackner2012, Cooper2013, 
-    Qu2017}). For instance, recent results from the Illustris\footnote{
-    \texttt{http://www.illustris-project.org/}} simulation 
-    (\citealt{Vogelsberger2014}, \citealt{Genel2014}) predicts that the fraction of  
-    accreted stars increases significantly and reaches $f_{\mathrm{accreted}}>0.5$ at \logms{}$>11.5$ (\citealt{RodriguezGomez2016}). \rachel{Given that Illustris gets the SMF totally wrong at high stellar mass, is there a reason we should be quoting their results?  Perhaps better to wait for Illustris-TNG?  Or give some caveat here that it's not clear that the physics that shapes the most massive galaxies is a realistic implementation?}
+    mass fraction in the accreted component should increase with total galaxy stellar 
+    mass (e.g. \citealt{Lackner2012, Cooper2013, Qu2017}).
+    For instance, recent results from the 
+    Illustris\footnote{\texttt{http://www.illustris-project.org/}} simulation 
+    (\citealt{Vogelsberger2014}, \citealt{Genel2014}) predict that the fraction of  
+    accreted stars increases significantly and reaches $f_{\mathrm{accreted}}>0.5$ at 
+    \logms{}$>11.5$ (\citealt{RodriguezGomez2016})\footnote{The Illustris simulation
+    does not reproduce the observed stellar mass function at high \mstar{} end.}. 
 %% ------------------------------------------------------------------------------------ %% 
     
     Given the success of this two-phase scenario in explaining trends like overall size 
-    growth, it is time to confront this model with additional observations,  in particular, the detailed surface mass density profiles of low redshift massive galaxies. Early studies based on one-dimensional light profiles suggested that the profiles of nearby ETGs are well described by single-\ser{} profiles (e.g. \citealt{Kormendy2009}; except for the
-    most central region) and that the \ser{} index increases with total luminosity 
-    (e.g. \citealt{Graham2013}). However,  later work revealed a more complicated  situation  showing  that  ETGs  belong to two famillies, those that follow single-\ser{} law, versus those that significant deviation from the single-\ser{} profile \citep{Schombert2015}. \rachel{You should say what differed in these later studies; e.g., use of deeper/better data?} Two-dimensional analyses have found that the stellar distributions of massive ETGs are often better fit by multiple-component models 
-    (e.g. \citealt{Huang2013a, Oh2017}).  \citet{Huang2013b} further suggest a connection between the multi-component 
+    growth, it is time to confront this model with additional observations, 
+    in particular, the detailed surface mass density profiles of low redshift massive 
+    galaxies. 
+    Early studies based on one-dimensional light profiles suggested that the surface 
+    mass density profiles of nearby ETGs are well described by single-\ser{} profiles 
+    (e.g. \citealt{Kormendy2009}; except for the most central region) and that the 
+    \ser{} index increases with total luminosity 
+    (e.g. \citealt{Graham2013}). 
+    However, recently, detailed empirical comparison of surface brightness profiles 
+    revealed a more complicated situation showing that ETGs belong to two famillies, 
+    those that follow single-\ser{} law, versus those that significantly deviate from 
+    the single-\ser{} profile \citep{Schombert2015}.  
+    Two-dimensional analyses have also found that the stellar distributions of massive 
+    ETGs are often better fit by multiple-component models 
+    (e.g. \citealt{Huang2013a, Oh2017}).  
+    \citet{Huang2013b} further suggest a connection between the multi-component 
     nature of massive galaxies and their two-phase assembly history. 
     To further confront the two-phase scenario requires very deep observations of 
     large samples of massive ETGs to correctly estimate their total stellar masses
-    (e.g. \citealt{Bernardi2013, DSouza2014}) as well as to quantify the amplitude and scatter among outer envelopes (e.g. \citealt{Capaccioli2015, Iodice2016, 
+    (e.g. \citealt{Bernardi2013, DSouza2014}) as well as to quantify the amplitude and 
+    scatter among outer envelopes (e.g. \citealt{Capaccioli2015, Iodice2016, 
     Iodice2017}).
     
-    Until now,  studies of the profiles of massive galaxies have been  either  been conducted  using large samples but with shallow imaging, for example the Sloan Digital Sky Survey (SDSS; e.g. \citealt{SDSSDR7, SDSSDR12}), or with deeper imaging  but smaller sample sizes (e.g cite CLASH AND FRONTIER FIELDS??). In this paper, we take advantage of new high-quality (median  seeing of
-    FWHM${\sim} 0.6^{\arcsec}$ in the $i$-band) and deep ($i$-band surface brightness 
+    Until now, studies of the surface brightness or mass density profiles of massive 
+    galaxies have been either conducted using large samples but with shallow imaging, 
+    for example the Sloan Digital Sky Survey (SDSS; e.g. \citealt{SDSSDR7, SDSSDR12}), 
+    or with deeper imaging but much smaller sample sizes (e.g \citealt{Gonzalez2005, 
+    Capaccioli2015}). 
+    In this paper, we take advantage of new high-quality (median seeing of
+    FWHM${\sim} 0.6^{\arcsec}$ in $i$-band) and deep ($i$-band surface brightness 
     limit $> 28.5$~\sb) images from the Hyper Suprime-Cam (HSC) Subaru Strategic 
-    Program \citep[SSP,][]{HSCDR1} to characterize the light profiles of massive galaxies out to 100 kpc. The deep imaging depth and excellent seeing conditions of HSC images make them 
+    Program \citep[SSP,][]{HSCDR1} to characterize the light profiles of massive 
+    galaxies out to 100 kpc. 
+    The deep imaging depth and excellent seeing conditions of HSC images make them 
     perfect for mapping the \mstar{} distributions of massive galaxies out to very 
-    large radii. We select a large sample (${\sim} 7000$) of massive central galaxies at $0.3 < z < 0.5$ using ${\sim} 100$ deg$^2$ of data from the HSC wide layer. 
+    large radii. 
+    We select a large sample (${\sim} 7000$) of massive central galaxies 
+    at $0.3 < z < 0.5$ using ${\sim} 100$ deg$^2$ of data from the HSC wide layer. 
     
  %       With the help of reliable spectroscopic and photometric redshift 
  %   (e.g. the ones for \redm{} clusters, \citealt{Rykoff2014}; \citealt{Rozo2015b}),
@@ -304,16 +339,21 @@
     massive galaxies out to 100 kpc, 
     (b) investigate the dependence of their outer stellar halos on total stellar 
     mass, and 
-    (c) examine the implications in terms of  evaluating the high mass end of the galaxy stellar mass function (SMF). In a second paper in this series, we will investigate the environmental (dark matter halo mass) dependence of the sizes of massive ETGs (Huang\etal in prep.).
+    (c) examine the implications in terms of evaluating the high mass end of the 
+    galaxy stellar mass function (SMF). 
+    In a second paper in this series, we will investigate the environmental 
+    (dark matter halo mass) dependence of the sizes of massive ETGs 
+    (Huang\etal in prep.).
     
     This paper is organized as follows. 
-    Section \ref{sec:data} presents our data and sample selection. 
+    Section \ref{sec:data} presents our data and initial sample selection. 
     Section \ref{sec:ellipse} describes our procedure for extracting 1-D surface 
     brightness profiles. 
-    Section \ref{sec:mstar} describes how we estimate stellar mass. 
+    Section \ref{sec:mstar} describes how we estimate stellar mass.
+    Section \ref{sec:final} summaries the final sample selection procedure. 
     Our main results are presented in Section \ref{sec:result} and discussed in 
     Section \ref{sec:discussion}. 
-    Section \ref{sec:summary} presents our summary and conclusions. \rachel{Outline does not mention section 5.}
+    Section \ref{sec:summary} presents our summary and conclusions.
 
     Magnitudes use the AB system (\citealt{Oke1983}), and are corrected for Galactic 
     extinction using calibrations from \citet{Schlafly11}.
