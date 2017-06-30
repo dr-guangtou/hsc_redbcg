@@ -1625,13 +1625,16 @@
     the profile (e.g., \citealt{Tal2011, DSouza2015}). 
     \citet{Huang2013a} derived \mden{} profiles for a small sample of very nearby 
     ellipticals (within 100 Mpc; median \logms{} ${\sim} 11.3$) based on relatively 
-    shallow images from the Carnegie-Irvine Galaxy Survey (CGS, \citealt{CGS1}).  
+    shallow images from the Carnegie-Irvine Galaxy Survey 
+    (CGS, \citealt{CGS1})\footnote{https://cgs.obs.carnegiescience.edu/CGS/Home.html}.  
     This sample is at very low redshift ($z<0.02$), and so the \mden{} profiles from 
     \citet{Huang2013a} galaxies are accurate to smaller scales (down to $r=1$ kpc) 
     than our HSC ones.  
-    Our \mden{} profiles show good agreement with the \citet{Huang2013a} sample in the radial range of overlap (out to 50 kpc). CGS images are deeper than SDSS images in the $r$-band, but the median 
-    profiles from \citet{Huang2013a} still only reach to ${\sim} 50$ kpc for $z{\sim} 0$ (PUT THE EXACT REDSHIFTS HERE)
-    massive galaxies.
+    Our \mden{} profiles show good agreement with the \citet{Huang2013a} sample in 
+    the radial range of overlap (out to 50 kpc). 
+    CGS images are deeper than SDSS images in the $r$-band, but the median 
+    profiles from \citet{Huang2013a} still only reach to ${\sim} 50$ kpc for 
+    $z<0.02$ massive galaxies.
     Meanwhile, our deep HSC images can reliably deliver individual \mden{} profiles 
     for $z{\sim} 0.4$ galaxies out to at least 100 kpc.  
     
@@ -1641,17 +1644,20 @@
     thought to be the progenitors of $z=0$ massive ETGs (e.g. \citealt{Leja2013}).  
     The median \mstar{} of the \citet{Patel2013} sample is 
     ${\sim} 10^{11.2} M_{\odot}$ which is lower than our lowest mass bin. 
-    However, \citet{Patel2013} use the BC03 SSP model which provides masses that are roughly 0.1 dex 
-    lower than our FSPS masses (Appendix~\ref{app:sed}). 
-    Furthermore, the \citet{Patel2013} images are shallower than ours meaning 
-    that their masses will be lower than ours because of missing light in the 
+    However, \citet{Patel2013} uses the BC03 stellar population model which leads to 
+    \mstar{} that are roughly 0.1 dex lower than our FSPS estimates 
+    (see Appendix~\ref{app:sed}). 
+    Furthermore, the \citet{Patel2013} images are shallower than ours which means 
+    that their \mstar{} could still be underestimated due to missing light in the 
     outskirts. 
     Given these two considerations, it is reasonable to roughly compare the 
-    \citet{Patel2013} profile with the one in our lowest stellar mass bin. 
-    The superb resolution of the \textit{HST}/ACS image means that the profiles in
-    \citet{Patel2013} can be measured down to 1 kpc. 
-    The good agreement between our profiles and the ones derived from HST imaging demonstrates that our profiles are robust at $r > 3$ kpc and that we can accurately 
-    measure \minn{}.
+    \citet{Patel2013} profile with the one in our lowest \mtot{} bin. 
+    The superb resolution of the \textit{HST}/ACS image allows \citet{Patel2013} to 
+    accurately measure \mden{} profile down to 1 kpc without worrying the smearing 
+    effect of seeing. 
+    The good agreement between our profiles and the ones derived from HST imaging 
+    demonstrates that our profiles are robust at $r\geq 3$ kpc so that we can 
+    accurately measure \minn{}.
     
     Finally, we also compare with the predicted median \mden{} profile of central 
     galaxies in massive halos ($13.5 < \log M_{200,c} < 14.0$) from a cosmological 
@@ -1713,65 +1719,116 @@
 	%Aforementioned results only use the 1-D \mden{} profiles that are baed on single 
 	%band image and the flux-weighted isophotal shape, while more useful information 
 	%can be gathered from the HSC images of these massive galaxies.
-    So far, we have focused only on 1-D \mden{} profiles. We now consider ellipticity and $k$-corrected optical color profiles.
-	We extract ellipticity profiles using \texttt{Ellipse} by leaving the shape of each isophote as a free parameter. We also apply the isophotal information derived in the $i$-band directly to other 
-	filters and extract 1-D $g-r$ and $g-i$ color profiles. We apply the Galactic extinction correction and the \texttt{iSEDFit} $k$-correction  to the color profiles. Smearing by the PSF wil l make the central isophotal shape rounder than the 
+    So far, we have focused only on 1-D \mden{} profiles. 
+    We now consider ellipticity and $k$-corrected optical color profiles.
+	We extract ellipticity profiles using \texttt{Ellipse} by leaving the shape of 
+	each isophote as a free parameter. 
+	We also apply the isophotal information derived in the $i$-band directly to other 
+	filters and extract 1-D $g-r$ and $g-i$ color profiles.
+	We apply the Galactic extinction correction and the \texttt{iSEDFit} $k$-correction 
+	to the color profiles. 
+	Smearing effect of seeing will make the central isophotal shape rounder than the 
 	real value, while seeing differences between filters will bias the central 
 	color\footnote{Since the HSC $i$-band always has better seeing, the central color 
-	will become redder is seeing effects are not accounted for}. On large scales, it is more difficult to extract reliable ellipticity and 
-	color profiles out to 100 kpc: at low surface brightness levels, the isophotal shape 
-	becomes unstable and is easily affected by contamination. Color profiles are also more difficult to extract out to large radial scales because  getting the color accurately depends on the background subtraction and the noise levels in both bands. In this paper, we will focus on the median ellipticity and color profiles between 
+	will become redder is seeing effects are not accounted for}. 
+	On large scales, it is more difficult to extract reliable ellipticity and 
+	color profiles out to 100 kpc: at low surface brightness levels, the isophotal 
+	shape becomes unstable and is easily affected by contamination. 
+	Color profiles are also more difficult to extract out to large radial scales
+	because  getting the color accurately depends on the background subtraction and 
+	the noise levels in both bands. 
+	In this paper, we will focus on the median ellipticity and color profiles between 
 	8--60 kpc where we can safely ignore the issues described above. 
 	
 	The ellipticity of the isophotes contains information about the 3-D geometry 
 	(e.g. \citealt{Tremblay1995, Tremblay1996, Chang2013, RodriguezPadilla2013, 
 	Mitsuda2017}) and kinematics (e.g. \citealt{Cappellari2012, Weijmans2014}) of 
 	stars in massive galaxies.  
-	The left panel of Fig \ref{fig:ell_color} shows the ellipticity profiles of HSC 
+	The left panel of Fig \ref{fig:ell_color} shows the ellipticity profiles of 
 	massive galaxies and highlights the median profiles for the same three \mtot{} 
-	bins used in Fig \ref{fig:avg_prof}.  Our results are also compared with previous work based on image stacking techniques (the PSF-removed $i$-band results from \citealt{Tal2011},  and
-concentrated galaxies with $11.0<$\logms{}$<11.4$ from \citealt{DSouza2015}).
-	As expected, ellipticity profiles from image stacking methods yield results that are more shallow than when  ellipticities can be measured on a galaxy-by-galaxy basis. Uncertainties in how to align galaxies, and the intrinsic isophotal twist can lead to this effect. 
+	bins as used in Fig \ref{fig:avg_prof}.  
+	Our results are also compared with previous work based on image stacking techniques 
+	(the PSF-removed $i$-band results from \citealt{Tal2011}, and
+    concentrated galaxies with $11.0<$\logms{}$<11.4$ from \citealt{DSouza2015}).
+	As expected, ellipticity profiles from image stacking methods yield results that 
+	are more shallow than when ellipticity can be measured on a galaxy-by-galaxy basis.     
+	Uncertainties in how to align galaxies, and the intrinsic isophotal twist can 
+	lead to this effect. 
 
-	In general, we find that the ellipticities of massive galaxies slowly increase with radius. This trend can even be seen directly "by eye" in HSC images (e.g. Fig \ref{fig:sdss_compare}). More interestingly, the ellipticity profiles vary with  \mtot{}: 
-	at ${\sim} 10$ kpc, the median ellipticity ($< 0.2$) is similar for all three redshift bins,  but the ellipticity of the outer stellar halo increases with galaxy mass. Galaxies with  \logms{}$>11.8$ have median ellipticity profiles that become steeper at $>10$ kpc. The ellipticity of the outer profiles steadily increases from $e\le 0.2$ to $e{\sim} 0.4$ at 50-60 kpc.
+	In general, we find that the ellipticities of massive galaxies slowly increase 
+	with radius. 
+	This trend can even be seen directly "by eye" in HSC images (e.g. 
+	Fig \ref{fig:sdss_compare}). 
+	More interestingly, the ellipticity profiles vary with \mtot{}: 
+	at ${\sim} 10$ kpc, the median ellipticity ($< 0.2$) is similar for all three 
+	redshift bins, but the ellipticity of the outer stellar halo increases with 
+	\mtot{}. 
+	Galaxies with \logmtot{}$>11.8$ have median ellipticity profiles that become 
+	steeper at $>10$ kpc. 
+	The ellipticity of the outer profile steadily increases from 
+	$e\le 0.2$ to $e{\sim} 0.4$ at 50-60 kpc.
     
 	This is consistent with studies of nearby massive galaxies, both from 1-D 
 	ellipticity profiles and 2-D modeling results \citep{Porter1991, Gonzalez2005, 
-	Zibetti2005, Spavone2017, Huang2013a, Oh2017}. However,  to the best of our knowledge, our HSC results are the first to show  clear evidence that:  a) the ellipticities of the stellar halo  depend strongly on galaxy mass, and b)  the ellipticity of the stellar halo is anti-correlated with the slope of \mden{}.
+	Zibetti2005, Spavone2017, Huang2013a, Oh2017}. 
+	However, to the best of our knowledge, our HSC results are the first to show 
+	clear evidence that:  
+	a) the ellipticity of stellar halo in massive ETGs depends strongly on 
+	\mstar{}, and 
+	b) the ellipticity of the stellar halo is anti-correlated with the slope of 
+	\mden{}.
     
 	If accreted stars dominate the stellar halos of massive galaxies, this 
-	mass-dependent ellipticity profile may contain clues about the assembly history of massive galaxies (e.g. average time since last merger, 
-	average merger mass ratio).
+	mass-dependent ellipticity profile may contain clues about the assembly history 
+	of massive galaxies (e.g. average time since last merger, average merger 
+	mass ratio).
 	Previous simulations often focused on reproducing the rounder average shape 
 	and slow-rotating nature of massive ETGs (e.g. \citealt{Wu2014}), and the 
 	projected ellipticity profiles and their correlations with the kinematic of 
-	stars and merging history have not been well explored. 
+	stars and merging history have not been carefully explored. 
    
     Regarding the color profiles, it is well known that massive elliptical galaxies 
     have shallow and negative color gradients that reflect radial variations in their  
     stellar populations (e.g.\ \citealt{Carollo1993, LaBarbera2012}) and hence contain
     information about the assembly history of their stellar halos (e.g. 
     \citealt{Hirschmann2015}). 
-    The right panels of Fig \ref{fig:ell_color} show the $k$-corrected $g-r$ and 
-    $g-i$ color profiles for all galaxies in our sample, together with the median profiles in three \mtot{} bins. We find the the  median $g-r$ and $g-i$ color  decreases  at larger radii, but there does not appear to be an significant mass dependence in the  gradient of the color profiles. We also compare our results with the stacked color profiles from  \citealt{LaBarbera2010}\footnote{We use the median color profiles of high-mass 
+    The right panels of Fig \ref{fig:ell_color} show the $k$-corrected $(g-r)$ and 
+    $(g-i)$ color profiles for all galaxies in our sample, together with the median 
+    profiles in three \mtot{} bins. 
+    We find the the median rest-frame $(g-r)$ and $(g-i)$ color decreases at 
+    larger radii, but there does not appear to be an significant \mstar{} dependence 
+    in the gradient of rest-frame optical colors. 
+    We also compare our results with the stacked color profiles from  
+    \citealt{LaBarbera2010}\footnote{We use the median color profiles of high-mass 
     ETGs; the original profile is in units of $R_{\mathrm{e}}$, we use a typical 
     $R_{\mathrm{e}}=8.0$ kpc to convert it into physical kpc.} and 
     \citealt{DSouza2014}.
     The median color profiles from HSC images are systematically steeper than the 
     stacked SDSS ones. 
-    Considering differences in the response curves between HSC and SDSS filters, together with the uncertainties of color measurements, the HSC $(g-r)$ color profiles are  in fairly good agreement with  those from SDSS. However, the $(g-i)$ profiles of HSC galaxies are steeper compared to SDSS. The SDSS $i$-band suffers from the so-called ``red-halo'' effect
-    (e.g. \citealt{Wu2005}, \citealt{Tal2011}).  This is due to  the fact that the SDSS $i$-band PSF has more prominent wing than other bands. Because the PSF model does not capture these wings, this artificially distributes more flux to the outskirts, and leads to apparently redder colors in 
-    the low surface brightness outskirts of galaxies. Because HSC uses thick CCDs, HSC $i$-band images do not suffer from this effect and can be used to determine galaxy colors with higher accuracy. 
+    Considering differences in the response curves between HSC and SDSS filters, 
+    together with the uncertainties of color measurements, the HSC $(g-r)$ color 
+    profiles are in fairly good agreement with those from SDSS. 
+    However, the $(g-i)$ profiles of HSC galaxies are steeper compared to SDSS. 
+    The SDSS $i$-band suffers from the so-called ``red-halo'' effect
+    (e.g. \citealt{Wu2005}, \citealt{Tal2011}).  
+    This is due to the fact that the SDSS $i$-band PSF has more prominent wing 
+    than other bands. 
+    Because the PSF model does not capture these wings, this artificially distributes 
+    more flux to the outskirts, and leads to apparently redder colors in the low 
+    surface brightness outskirts of galaxies. 
+    Because HSC uses thick CCDs, HSC $i$-band images do not suffer from this effect 
+    and can be used to determine galaxy colors with higher accuracy. 
         
 %    For the ones from \citet{LaBarbera2010}, uncertainty of $R_{\mathrm{e}}$ 
 %    measurements could also ``smooth'' the color gradients.
     
     Fairly steep color profiles have been observed in several very nearby massive 
-    ETGs.  Fig \ref{fig:ell_color} shows the $g-r$ color profiles of 
-    NGC 4472 (\citealt{Mihos2013}) and NGC 4365 (\citealt{Mihos2017})\footnote{
+    ETGs.  
+    Fig \ref{fig:ell_color} shows the $g-r$ color profiles of NGC 4472 
+    (\citealt{Mihos2013}) and NGC 4365 (\citealt{Mihos2017})\footnote{
     Both are converted from ($B-V$) colors.}, and the $g-i$ profile of NGC 1399 
-    (\citealt{Iodice2016}). These individual profiles  display  similar color gradients as our HSC sample.   
+    (\citealt{Iodice2016}). 
+    These individual profiles display similar color gradients as our HSC sample.   
     
     % TODO: Move to discussion
     %Ellipticity profiles contain additional information about the assembly histories 
@@ -1820,10 +1877,11 @@ concentrated galaxies with $11.0<$\logms{}$<11.4$ from \citealt{DSouza2015}).
 \section{Discussion}
     \label{sec:discussion}
     
-    In this paper, we have used  data from the HSC survey that is both simultaneously deep and wide to trace the stellar mass distributions of 
-    $0.3 < z < 0.5$ massive galaxies out to $>100$ kpc and to reveal the mass-dependent nature 
-    of their stellar halos.
-    Here we briefly discuss the scientific implications of our results .
+    In this paper, we have used data from the HSC survey that is both simultaneously 
+    deep and wide to trace the stellar mass distributions of $0.3 < z < 0.5$ massive 
+    galaxies out to $>100$ kpc and to reveal the mass-dependent nature of their 
+    stellar halos.
+    Here we briefly discuss the scientific implications of our results.
     
     % TODO: Move to Paper II
     %By using deep imaging from the HSC survey we have shown that the stellar mass 
