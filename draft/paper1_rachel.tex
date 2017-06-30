@@ -1114,8 +1114,10 @@
 \subsection{Stellar Mass Completeness}
     \label{ssec:complete}
     
-    With the help of the \texttt{S82-MGC} (\citealt{Bundy2015}), we investigate the 
-    \mstar{} completeness of our samples. 
+    With the help of the Stripe82 Massive Galaxy Catalog (\texttt{S82-MGC},
+    \citealt{Bundy2015}
+    )\footnote{http://www.ucolick.org/$~$kbundy/massivegalaxies/s82-mgc.html}, 
+    we investigate the \mstar{} completeness of our samples. 
     The \texttt{S82-MGC} sample matches the deeper SDSS photometric data in the 
     Stripe 82 region (\citealt{Annis2014}) with the near infrared data from the United 
     Kingdom Infrared Telescope Infrared Deep Sky Survey (UKIDSS; 
@@ -1123,13 +1125,13 @@
     Comparing to normal SDSS images, the deeper photometry and better photo-$z$s 
     from \texttt{S82-MGC} make this sample complete to \logms{}$\geq 11.2$ at $z<0.7$ 
     which makes it sufficient to evaluate the completeness of our HSC sample.   
-	By comparing with the Stripe 82 Massive Galaxy Catalog
-    (\texttt{S82-MGC}; \citealt{Bundy2015}), \citet{Leauthaud2016} have measured the
-    \mstar{} completeness of the combined BOSS and SDSS samples. 
+	By comparing with the \texttt{S82-MGC} sample (\citealt{Bundy2015}), 
+	\citet{Leauthaud2016} have measured the \mstar{} completeness of the combined BOSS 
+	and SDSS samples. 
     They estimate that the BOSS spec-$z$ sample, which is the main source of redshifts 
     for our sample, is about 80\% complete at 
     \logms{}$\geq 11.6$ at $0.3 < z < 0.5$. The GAMA survey is 80\% complete down to 
-    $10^{10.8}$\msun at $z{\sim} 0.3$, but is only 80\% complete to 
+    $10^{10.8}$\msun{} at $z{\sim} 0.3$, but is only 80\% complete to 
     $10^{12.0}$\msun{} at $z{\sim} 0.5$ according to \citet{Taylor2011} (e.g.\ 
     their Fig.~6).
     
@@ -1139,7 +1141,7 @@
     \mcmodel{} for consistency with the \texttt{S82-MGC} catalog.  
     The \texttt{S82-MGC} also uses \texttt{iSEDFit} with similar assumptions as 
     used in this work and we find excellent agreement between HSC \mcmodel{} and 
-    the mass derived by \texttt{S82-MGC} which includes NIR data from UKIDSS; 
+    the mass derived by \texttt{S82-MGC} which includes NIR data from UKIDSS.
     
     Figure~\ref{fig:mass_complete} compares the number density distributions of 
     galaxies from \texttt{S82-MGC} with those from our sample\footnote{We do not 
@@ -1170,28 +1172,30 @@
 \section{The Final Sample}
     \label{sec:final}
     
-	With  \mstar{} estimates in hand, we now use the \redm{} galaxy cluster catalog to  create a sample of massive central galaxies. The ``central'' galaxy is defined as the galaxy that lives in the 
+	With \mstar{} estimates in hand, we now use the \redm{} galaxy cluster catalog to  
+	create a sample of massive central galaxies. 
+	The ``central'' galaxy is defined as the galaxy that lives in the 
 	center of its own dark matter halo.  
 	In contrast, a galaxy in a sub-halo that is orbiting within the virial radius of a 
 	more massive halo is referred to as a ``satellite''. 
-	%The central galaxy has its unique importance in the study of galaxy evolution and 
-	%galaxy-halo coevolution.
 	To better understand the connection between the structures of massive 
-	galaxies and the assembly history of both their stars and dark matter halos, we wish to focus on central 
-	galaxies in this work. 
+	galaxies and the assembly history of both their stars and dark matter halos, we 
+	wish to focus on central galaxies in this work. 
     
 \subsection{Candidate massive central galaxies}
     \label{ssec:redmapper}
     
-    The robust identification of the central galaxy is not an easy task (e.g. \citealt{Yang2007}). In this paper, we use the \redm{} catalog create a sample of massive central galaxies with minimal contamination from satellite galaxies.
-\rachel{What about those that are centrals in massive groups?  Also, the \redm{} catalog is not volume-limited to $z=0.5$, so what are the implications for this work?  It wasn't clear to me if that was part of the incompleteness shown in figure 4 since I was not sure if that was after the final selection or not.}
+    The robust identification of the central galaxy is not an easy task (e.g.
+    \citealt{Yang2007}). 
+    In this paper, we use the \redm{} catalog create a sample of massive central 
+    galaxies with minimal contamination from satellite galaxies.
 
 %    Given the smaller fraction of satellite galaxies at high-\mstar{} end (e.g. 
 %    \citealt{Reid2014, Hoshino2015, Saito2016}), 
 %    we further assume that the massive ones (\logmtot{}$>11.4$) among them are likely 
 %    to be the central galaxies of these smaller halos. 
     
-    We use \texttt{v5.10} of the \redm{} cluster  catalog\footnote{See: http://risa.stanford.edu/redmapper/} 
+    We use \texttt{v5.10} of the \redm{} cluster  catalog
     (e.g.\ \citealt{Rykoff2014}; \citealt{Rozo2015b}). 
     These authors have developed a well-tested red-sequence cluster finder that has 
     been run on SDSS DR8 (\citealt{SDSSDR8}) photometric data. 
