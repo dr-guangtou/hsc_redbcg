@@ -960,29 +960,30 @@
     This SFH is appropriate for massive galaxies at low redshifts 
     (e.g.\ \citealt{Kauffmann2003}). 
     For stellar metallicity 
-    ($[\mathrm{M}/\mathrm{H}]=\log\ \mathrm{Z}/\mathrm{Z}_{\odot}$), we assume a flat 
-    distribution between 0.004 to 0.03 (the highest value allowed by FSPS).
+    ($[\mathrm{M}/\mathrm{H}]=\log\ (\mathrm{Z}/\mathrm{Z}_{\odot})$), we assume a 
+    flat distribution between 0.004 to 0.03 (the highest value allowed by FSPS).
     We adopt the \citet{Calzetti2000} extinction law with a order two Gamma 
     distribution of $A_{V}$ between 0 to 2 magnitude. 
     The majority of our galaxies are red and quiescent ones so the results are not 
     very sensitive to parameters related to the SFH or the internal dust extinction. 
-    To achieve reasonable sampling across these parameters, we generate 250000 models. 
+    To achieve reasonable sampling across these parameters, we generate 250000 
+    models. 
     
     We construct five band SEDs using the forced-photometry \cmodel{} magnitudes 
     corrected for Galactic extinction. 
-    \cmodel{} only accounts for the statistical error on the flux measurement but 
-    does not account for systematic uncertainties in the model-fitting process. 
-    It therefore underestimates the flux errors of bright galaxies. 
+    Right now, \cmodel{} only accounts for the statistical error on the flux 
+    measurement and it certaintly underestimates the true flux errors of bright 
+    galaxies.  
     For this work, we supply \texttt{iSEDFit} with simplified flux errors assuming 
     $S/N = 100$ for the $riz$ bands, and $S/N = 80$ for the $g$ and $y$ band 
     (on average, images in $gy$ bands are shallower in depth and/or have higher 
     background noise).  
-    Although these are still conservative estimates of the systematic uncertainties 
-    involved in the model-fitting, tests using synthetic galaxies show that \cmodel{}
-    provides excellent measurements of five-band colors, which are crucial for 
-    reliable \m2l{} estimates.
-\rachel{I'm a little surprised at the statement that 1\% error is a conservative estimate of systematic uncertainties.  It definitely seems like a conservative estimate of {\em statistical} error.  Can you justify that all systematics are really below 1\%?}
-The typical uncertainty of \logms{} is around 0.06-0.08 dex at \logms${\sim} 11.5$.
+    These empirical \s2n{} choices still only provide lower-limits of the true 
+    systematic uncertainties from the model-fitting process. 
+    In \citealt{SynPipe}, we evaluate the accuracy of HSC \cmodel{} photometry 
+    using synthetic galaxies, and show that \cmodel{} provides excellent measurements 
+    of five-band colors, which are crucial for reliable \m2l{} estimates.
+    The typical uncertainty of \logms{} is around 0.06-0.08 dex at \logms${\sim} 11.5$.
     
     In Appendix~\ref{app:sed}, we briefly summarize the basic statistics of 
     the sample, including average stellar age, metallicity, and internal dust 
