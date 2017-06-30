@@ -644,8 +644,8 @@
     And finally, the over-subtraction of the background level becomes a more serious 
     issue at lower redshifts.  
    
-    We will now describe our one-dimensional photometric analysis (\S \ref{sec:ellipse}) 
-    and our stellar mass estimates (\S \ref{sec:mstar}). 
+    We will now describe our one-dimensional photometric analysis 
+    (\S \ref{sec:ellipse}) and our stellar mass estimates (\S \ref{sec:mstar}). 
     We will then define the final sample in \S \ref{sec:final}.
     
 %    By comparing with the Stripe 82 Massive Galaxy Catalog
@@ -1098,8 +1098,8 @@
     edge of the postage-stamp, and pick the isophote that gives us the highest  
     luminosity to estimate the \mstar{} within and call this one \mmax{}. 
     The right panel of Fig \ref{fig:mass_diff} compares \mmax{} and \mtot{}.  
-    Uncertainties in the background subtraction, and the impact of neighbouring objects,
-    means that \mmax{} is much more uncertain than \mtot{}. 
+    Uncertainties in the background subtraction, and the impact of neighbouring 
+    objects, means that \mmax{} is much more uncertain than \mtot{}. 
     Nonetheless, we do see that \mmax{} is larger than than \mtot{}. 
     However, the mass differences are on average very small ($\sim0.02-0.03$ dex) and 
     do not show a strong mass dependence.  
@@ -1117,14 +1117,14 @@
     However, these color gradients are shallow and smooth out to a few times the 
     effective radius (e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}, 
     color gradients at larger radii are not yet well quantified). 
-    Because the gradients are shallow, using an average \m2l{} is unlikely to bias our
-    results on \mstar{} measurements.  
+    Because the gradients are shallow, using an average \m2l{} is unlikely to bias 
+    our results on \mstar{} measurements.  
     In \citet{Huang2016}, the authors conduct multi-band decomposition for a sample 
     of very nearby elliptical galaxies, and estimate the \m2l{} of each component 
     separately. 
-    The sum of all components suggest a slightly higher \mstar{} ($0.05-0.10$ dex when
-    typical uncertainty of \mstar{} is 0.12-0.15 dex) and the mass differences show
-    no dependence on \mstar{}. 
+    The sum of all components suggest a slightly higher \mstar{} ($0.05-0.10$ dex 
+    when typical uncertainty of \mstar{} is 0.12-0.15 dex) and the mass differences 
+    show no dependence on \mstar{}. 
  
     Color gradients will be discussed more in \S~\ref{ssec:ell_color}. 
     In summary, our results about the mass-dependence of \mden{} profiles should not 
@@ -2336,61 +2336,68 @@
 %%%%%%%%%%: Appendix Section %%%%%%%%%%%%
 
 \appendix
-    
-%% ------------------------------------------------------------------------------------ %%  
-\section{A. Basic Statistical Properties of the Sample} 
-	\label{app:basic} 
-    
-    On the top-left panel of Fig~\ref{fig:sample_stats}, we show the \mtot{}-color 
-    relations using the $k$-corrected $g-r$ color. 
-    Both samples follow the same tight ``red-sequence'' with little contamination 
-    from the ``blue cloud''.
-    At fixed \mtot{}, we see little offset in color distributions of the two 
-    samples, suggesting that both samples consist of quiescent galaxies with 
-    similar average stellar population properties.  
-    This is consistent with previous result that suggests the average stellar 
-    population of massive central galaxy does not depend on \mhalo{} 
-    (e.g.\ \citealt{Park2007}).  
-    In this work, we focus on the \mstar{} range of $11.6 \le$\logmtot{}$\le 11.9$, 
-    where both samples have acceptable completeness, and their \mtot{} distributions 
-    greatly overlap (see the normalized distributions of \mtot{} in the bottom-left 
-    panel of Fig~\ref{fig:sample_stats}). 
-    As for the \minn{} distributions, the two samples overlap the most within 
-    $11.2 \le$\logmtot{}$\le 11.6$, but now they show quite different
-    distributions (bottom-right figure).
-    
-    The redshift distributions also show small difference
-    (upper-right panel) even in the high-\mtot{} bin, where the redshift distribution 
-    of the \nbcg{} sample skews toward higher-$z$ end due to the contribution of BOSS 
-    spec-$z$.
-    
+ 
 %% ------------------------------------------------------------------------------------ %% 
   \begin{figure}
       \centering 
       \includegraphics[width=\columnwidth]{fig/redbcg_sample_stats}
       \caption{
-          \textbf{Top-left}: The \logms{}-$g-r$ color relation of the \rbcg{} 
-          (red circle; detaield format is the same with the right panel of 
-          Fig~\ref{fig:smf1}) and \nbcg{} (grey dots) samples.
-          We apply the $k$-corrections from \texttt{iSEDFit} fitting to the colors.~~          
-          \textbf{Top-right}: the histograms of the redshift for the \rbcg{} and 
-          \nbcg{} galaxies in both \logmtot$>11.2$ and $11.6<$\logmtot{}$<11.9$
-          mass bins.
+          \textbf{Top-left}: The \logmtot{}-$(g-r)$ rest-frame color relation for the 
+          HSC massive galaxies.
+          We $k$-correct the color using the \texttt{iSEDFit} fitting results.
+          Massive galaxies form a ``red-sequence'' on this figure, and there is 
+          little contamination from blue object at high-mass end.~~          
+          \textbf{Top-right}: the redshift distribution of the massive galaxies. 
+          The filled and empty histograms are for the \logmtot{}$>11.6$ and 
+          \logmtot{}$>11.2$ galaxies.
           The vertical lines highlights the $0.3\leq z \leq 0.5$ redshift range.~~
-          \textbf{Bottom-left}: the histograms of \mtot{} for the \rbcg{} (orange-red) 
-          and \nbcg{} (grey-black) samples at both $z>0.2$ (step-filled histogram) and 
-          $0.3 \leq z \leq 0.5$ (stepped histogram). 
-          The vertical lines in both top-left and bottom-left figures highlight the 
-          $11.6<$\logmtot{}$<11.9$ mass range that will be used in the comparison of 
-          the \mtot{}-matched samples.~~
-          \textbf{Bottom-right}: the histograms of \minn{} in similar format. 
-          Here the vertical lines highlight the 
-          $11.2<$\logminn{}$<11.6$ mass range that is used for comparison.
+          \textbf{Bottom-left}: the distributions of \mtot{} of massive galaxies in 
+          this sample. 
+          Filled histogram shows the distribution for $0.3 < z < 0.5$ galaxies 
+          used in this work. 
+          And the empty histogram shows the distribution for the whole $z>0.2$ sample
+          as comparison.~~
+          \textbf{Bottom-right}: the distributions of \minn{} in similar format. 
       }
       \label{fig:sample_stats}
   \end{figure}
-%% ------------------------------------------------------------------------------------ %% 
-
+%% ------------------------------------------------------------------------------------ %%  
+   
+%% ------------------------------------------------------------------------------------ %%  
+\section{A. Basic Statistical Properties of the Sample} 
+	\label{app:basic} 
+    
+    Here we show the basic statistics of the massive galaxies used in this work.
+    On the top-left panel of Fig~\ref{fig:sample_stats}, we show the \mtot{}-color 
+    relation using the $k$-corrected rest-frame $(g-r)$ color. 
+    These massive galaxies form a clear ``red-sequence'' with little contamination 
+    from the ``blue cloud'' at the very high-mass end.
+    
+    In the rest of Fig~\ref{fig:sample_stats}, we also show the distributions of 
+    redshift, \mtot{}, and \minn{}.
+    In this work, we focus on the massive galaxies with \logmtot{}$>11.6$ at 
+    $0.3 < z < 0.5$ where the sample is fairly complete in \mtot{}.
+    
+    % TODO: Move to Paper II
+    % At fixed \mtot{}, we see little offset in color distributions of the two 
+    % samples, suggesting that both samples consist of quiescent galaxies with 
+    % similar average stellar population properties.  
+    % This is consistent with previous result that suggests the average stellar 
+    % population of massive central galaxy does not depend on \mhalo{} 
+    % (e.g.\ \citealt{Park2007}).  
+    % In this work, we focus on the \mstar{} range of $11.6 \le$\logmtot{}$\le 11.9$, 
+    % where both samples have acceptable completeness, and their \mtot{} distributions 
+    % greatly overlap (see the normalized distributions of \mtot{} in the bottom-left 
+    % panel of Fig~\ref{fig:sample_stats}). 
+    % As for the \minn{} distributions, the two samples overlap the most within 
+    % $11.2 \le$\logmtot{}$\le 11.6$, but now they show quite different
+    % distributions (bottom-right figure).
+    
+    % The redshift distributions also show small difference
+    % (upper-right panel) even in the high-\mtot{} bin, where the redshift distribution 
+    % of the \nbcg{} sample skews toward higher-$z$ end due to the contribution of BOSS 
+    % spec-$z$.
+    
 %% ------------------------------------------------------------------------------------ %% 
 \section{B. Extraction of 1-D surface brightness profile} 
     \label{app:ellipse} 
