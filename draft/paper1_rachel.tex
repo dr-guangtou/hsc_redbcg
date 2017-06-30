@@ -1120,22 +1120,31 @@
     Stripe 82 region (\citealt{Annis2014}) with the near infrared data from the United 
     Kingdom Infrared Telescope Infrared Deep Sky Survey (UKIDSS; 
     \citealt{Lawrence2007}). 
-    The deeper photometry and better photo-$z$s \rachel{Are `deeper' and `brighter' here compared to SDSS?  It isn't deeper than HSC, is it?  Should be clear what we are comparing here.} make the \texttt{S82-MGC} sample 
-    complete to \logms{}$\geq 11.2$ at $z<0.7$ which makes it sufficient to evaluate 
-    the completeness of our HSC sample.   
+    Comparing to normal SDSS images, the deeper photometry and better photo-$z$s 
+    from \texttt{S82-MGC} make this sample complete to \logms{}$\geq 11.2$ at $z<0.7$ 
+    which makes it sufficient to evaluate the completeness of our HSC sample.   
 	By comparing with the Stripe 82 Massive Galaxy Catalog
     (\texttt{S82-MGC}; \citealt{Bundy2015}), \citet{Leauthaud2016} have measured the
     \mstar{} completeness of the combined BOSS and SDSS samples. 
-    They estimate that the BOSS spec-$z$ sample, which is the main source of redshifts for our sample, is about 80\% complete at 
+    They estimate that the BOSS spec-$z$ sample, which is the main source of redshifts 
+    for our sample, is about 80\% complete at 
     \logms{}$\geq 11.6$ at $0.3 < z < 0.5$. The GAMA survey is 80\% complete down to 
     $10^{10.8}$\msun at $z{\sim} 0.3$, but is only 80\% complete to 
     $10^{12.0}$\msun{} at $z{\sim} 0.5$ according to \citet{Taylor2011} (e.g.\ 
     their Fig.~6).
     
     There are 20453 \texttt{S82-MGC} galaxies that are also in the \texttt{hscPho} 
-    sample at $0.3 \leq z_{\mathrm{s82}} \leq 0.5$.  Because the \texttt{S82-MGC} uses  cmodel  magnitudes,  in this section we use  \mcmodel{} for consistency with the  \texttt{S82-MGC} catalog.  The \texttt{S82-MGC} also uses \texttt{iSEDFit} with similar assumptions as used in this work and we find excellent agreement between HSC  \mcmodel{} and the mass derived in  the \texttt{S82-MGC} which includes NIR data from UKIDSS; 
+    sample at $0.3 \leq z_{\mathrm{s82}} \leq 0.5$.  
+    Because the \texttt{S82-MGC} uses \cmodel{} magnitudes, in this section we use  
+    \mcmodel{} for consistency with the \texttt{S82-MGC} catalog.  
+    The \texttt{S82-MGC} also uses \texttt{iSEDFit} with similar assumptions as 
+    used in this work and we find excellent agreement between HSC \mcmodel{} and 
+    the mass derived by \texttt{S82-MGC} which includes NIR data from UKIDSS; 
     
-    Figure~\ref{fig:mass_complete} compares the number density distributions of galaxies from \texttt{S82-MGC} with those from our sample\footnote{We do not apply any statistical corrections for completeness and hence we do not use the term ``stellar mass function'' to avoid confusion;
+    Figure~\ref{fig:mass_complete} compares the number density distributions of 
+    galaxies from \texttt{S82-MGC} with those from our sample\footnote{We do not 
+    apply any statistical corrections for completeness and hence we do not use the 
+    term ``stellar mass function'' to avoid confusion;
     Errors on the distributions are estimated via bootstrap resampling.}. 
     Based on Fig.~\ref{fig:mass_complete}, we conclude that our sample of massive 
     galaxies is reasonably complete down to \logmcmodel{}${\sim} 11.5$ at 
@@ -1144,8 +1153,12 @@
     %photo-$z$s from \redm{}. 
     %However, the completeness of the \nbcg{} sample is still limited by the 
     %availability of spec-$z$s from BOSS.    
-    Given the average difference between \mtot{} and \mcmodel{}, we will focus on galaxies with \logmtot{}$> 11.6$ where our sample shows good completeness. In our discussion section, we will also show results for massive galaxies with $11.4 \le$\logmtot{}$<11.6$ but we caution that our sample is incomplete in this  lower mass bin.
-\rachel{I am a bit lost as to the primary source of this incompleteness.  Is it due to limitations inherited from CMASS, or something inherent to the data (no NIR) or procedure used to select the galaxies in this work?}
+    Given the average difference between \mtot{} and \mcmodel{}, we will focus on 
+    galaxies with \logmtot{}$> 11.6$ where our sample shows good completeness. 
+    In our discussion section, we will also show results for massive galaxies 
+    with $11.4 \le$\logmtot{}$<11.6$ but we caution that our sample is incomplete 
+    in this lower mass bin mainly due to the intrinsic incompleteness of the 
+    SDSS/BOSS spec-$z$ (see \citealt{Leauthaud2016}).
 
     %When comparing \nbcg{} and \rbcg{} we will also always make sure that the two 
     %samples are well matched both in terms of \mstar{} as well as in terms of redshift. 
