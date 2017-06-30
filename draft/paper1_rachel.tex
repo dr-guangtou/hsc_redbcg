@@ -148,8 +148,7 @@
         Rachel Mandelbaum,$^{7}$
         Satoshi Miyazaki,$^{5,8}$
         \newauthor
-        Yutaka Komiyama,$^{5,8}$
-        HSC collaboration 
+        Yutaka Komiyama$^{5,8}$
         \\
         $^{1}$Kavli-IPMU, The University of Tokyo Institutes for Advanced Study, 
               the University of Tokyo (Kavli IPMU, WPI), Kashiwa 277--8583, Japan\\
@@ -1545,7 +1544,11 @@
       \includegraphics[width=\textwidth]{fig/average_mass_profiles_fsps1_A}
       \caption{
           \textbf{Left}: Median \mden{} profiles in three total stellar mass bins. 
-              Thin grey lines show a random subset of individual profiles.  The scatter between the thin grey lines reflects the true scatter in the profiles of massive galaxies (not measurement error). The shaded region highlights the region that could be affected by the PSF. \rachel{`most strongly' affected?}
+              Thin grey lines show a random subset of individual profiles.  
+              The scatter between the thin grey lines reflects the true scatter in 
+              the profiles of massive galaxies (not measurement error). 
+              The shaded region highlights the region that is most strongly affected 
+              by the seeing. 
               Two vertical lines indicate 10 kpc (thin, dotted line) and
               100 kpc (thick, dashed line). ~~~ 
           \textbf{Right}: comparison between our \mden{} profiles, previous observations, 
@@ -1566,17 +1569,25 @@
 \subsubsection{General Trends and Comparison with Previous Work}
     \label{sssec:sbp_inter}
           
-    Previous work on the structural evolution of massive galaxies has often focused on scaling relations such as the ``\mstar{}-size'' relation.  We argue that  comparing \mden{} 
-    profiles  directly  captures more information than the \mstar{}-size relation and  has the advantage that it bypasses difficult questions 
-    about how to accurately define and measure galaxy ``sizes'' and ``masses''.
+    Previous work on the structural evolution of massive galaxies has often focused on 
+    scaling relations such as the ``\mstar{}-size'' relation.  
+    We argue that  comparing \mden{} profiles directly captures more information than
+    the \mstar{}-size relation and has the advantage that it bypasses difficult 
+    questions about how to accurately define and measure galaxy ``sizes'' and 
+    ``masses''.
     
-    Fig.~\ref{fig:avg_prof} shows the median \mden{} profiles\footnote{The median 
-    profiles along with their uncertainties are derived using bootstrap resampling. \rachel{Why is this a footnote?  It's a major feature of the plot, not a minor detail.  Same comment applies to footnote below this.}} of massive central galaxies at $0.3 < z < 0.5$ in three \mtot{} 
-    bins\footnote{Note that our sample is not complete in our lowest \mtot{} bin.}. 
+    Fig.~\ref{fig:avg_prof} shows the median \mden{} profiles of massive central 
+    galaxies at $0.3 < z < 0.5$ in three \mtot{} bins.
+    These median profiles along with their uncertainties are derived using bootstrap
+    resampling method. 
+    And it is worth pointing out again that our sample is not complete in the lowest 
+    \mtot{} bin, although there is no reason to believe the median \mden{} profile
+    will be significantly affected. 
     As shown in the left panel of Fig~\ref{fig:avg_prof}, we can comfortably trace
-    the \mden{} profiles of these massive galaxies out to 100 kpc 
-    \textbf{individually}.  At large scales, some of our \mden{} profiles show signs of unphysical truncation and fluctuation 
-    related to inaccurate sky subtraction. In this paper, we do not use profiles beyond 100 kpc, even though the median 
+    the \mden{} profiles of these massive galaxies out to 100 kpc \textbf{individually}.  
+    At large scales, some of our \mden{} profiles show signs of unphysical truncation and
+    fluctuation related to inaccurate sky subtraction. 
+    In this paper, we do not use profiles beyond 100 kpc, even though the median 
     \mden{} profiles for the two most massive bins behave reasonably out to 
     ${\sim} 200$ kpc. 
        
@@ -1620,12 +1631,16 @@ Most previous studies have often focused on surface brightness profiles instead 
     galaxies in massive halos ($13.5 < \log M_{200,c} < 14.0$) from a cosmological 
     simulation where the \mden{} profiles of galaxies are calculated using the 
     particle-tagging technique (e.g., \citealt{Cooper2010}). 
-    The simulated \mden{} profile is affected by the resolution limit of the simulation in the inner region, but  is in good agreement with our median \mden{} profile for 
+    The simulated \mden{} profile is affected by the resolution limit of the simulation 
+    in the inner region, but is in good agreement with our median \mden{} profile for 
     the $11.6 <$ \logmtot{} $< 11.8$ bin within 40 kpc. 
     However, outside 40 kpc, the particle tagging method seems to predict a too 
-    prominent stellar halo and has much shallower outer slope compared to our data. In future work, we will compare  our HSC profiles with  predictions from more advanced 
-    hydrodynamic simulations such as Horizon-AGN () and MassiveBlackII (). These data will help fine-tune simulations and to understand the physical mechanisms that drive the assembly of massive galaxies and the 
-    build up of stellar halos.
+    prominent stellar halo and has much shallower outer slope compared to our data. 
+    In future work, we will compare our HSC profiles with predictions from more 
+    advanced hydrodynamic simulations such as \textit{Horizon-AGN} (\citealt{Dubois2014}) 
+    and MassiveBlackII (\citealt{Khandai2015}). 
+    These data will help fine-tune simulations and to understand the physical mechanisms 
+    that drive the assembly of massive galaxies and the build up of stellar halos.
 
     Table~1 provides tabulated values for the median profiles that are 
     displayed in Fig.~\ref{fig:avg_prof}. 
@@ -2029,8 +2044,10 @@ concentrated galaxies with $11.0<$\logms{}$<11.4$ from \citealt{DSouza2015}).
 \section*{Acknowledgements}
 
   % Personal 
-  The authors thank Frank van~den~Bosch for insightful discussions.
-  SH thanks F.S.Liu for sharing the data from his work.
+  The authors thank Frank van~den~Bosch for insightful discussions and thank 
+  Shun Saito for helping us estimate the fraction of satellite galaxies in our sample.
+  SH thanks Feng-Shan Liu for sharing the \mden{} profile of the $z\sim1$ BCG from 
+  his work.
 
   % HSC part
   The Hyper Suprime-Cam (HSC) collaboration includes the astronomical communities of 
