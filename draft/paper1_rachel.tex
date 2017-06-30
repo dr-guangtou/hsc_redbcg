@@ -299,7 +299,7 @@
     \ser{} index increases with total luminosity 
     (e.g. \citealt{Graham2013}). 
     However, recently, detailed empirical comparison of surface brightness profiles 
-    revealed a more complicated situation showing that ETGs belong to two famillies, 
+    revealed a more complicated situation showing that ETGs belong to two families, 
     those that follow single-\ser{} law, versus those that significantly deviate from 
     the single-\ser{} profile \citep{Schombert2015}.  
     Two-dimensional analyses have also found that the stellar distributions of massive 
@@ -839,7 +839,7 @@
     fluctuations which are due to either the uncertainty in the background 
     subtraction or the unmasked flux from other objects.
     We choose to limit our study to surface brightness levels up to ${\sim} 28.5$ \sb. 
-    This is a conservative choice but already åenables us to measure light profiles 
+    This is a conservative choice but already enables us to measure light profiles 
     out to $100$ kpc on a galaxy-by-galaxy basis (no stacking). 
     For more technical details of the \texttt{Ellipse} procedure, please see 
     Appendix~\ref{app:ellipse}.
@@ -855,9 +855,9 @@
     %\nbcg{} sample. 
     We visually examine the 3-color images of randomly selected galaxies with failed 
     1-D profile.  
-    Most of them are relative small galaxies that are severly contaminated by nearby 
+    Most of them are relative small galaxies that are severely contaminated by nearby 
     objects, and will not affect the results of this work.  
-    Meanwhile, tt is worth noting that this does exclude most major merging systems 
+    Meanwhile, it is worth noting that this does exclude most major merging systems 
     among massive galaxies. 
         
     Given our exquisite profiles that extend to 100 kpc, the definition and meaning 
@@ -906,7 +906,7 @@
        
     We should point out that both \minn{} and \mtot{} are measured within the same 
     elliptical aperture. 
-    The 10 kpc and 100 kpc here refer to the radius along the major aixs of the 
+    The 10 kpc and 100 kpc here refer to the radius along the major axis of the 
     elliptical isophote. 
        
 %% ------------------------------------------------------------------------------------ %% 
@@ -963,8 +963,8 @@
     ($[\mathrm{M}/\mathrm{H}]=\log\ (\mathrm{Z}/\mathrm{Z}_{\odot})$), we assume a 
     flat distribution between 0.004 to 0.03 (the highest value allowed by FSPS).
     We adopt the \citet{Calzetti2000} extinction law with a order two Gamma 
-    distribution of $A_{V}$ between 0 to 2 magnitude. 
-    The majority of our galaxies are red and quiescent ones so the results are not 
+    distribution of $A_{V}$ between 0 to 2 magnitudes. 
+    The majority of our galaxies are red and quiescent so the results are not 
     very sensitive to parameters related to the SFH or the internal dust extinction. 
     To achieve reasonable sampling across these parameters, we generate 250000 
     models. 
@@ -972,7 +972,7 @@
     We construct five band SEDs using the forced-photometry \cmodel{} magnitudes 
     corrected for Galactic extinction. 
     Right now, \cmodel{} only accounts for the statistical error on the flux 
-    measurement and it certaintly underestimates the true flux errors of bright 
+    measurement and it certainly underestimates the true flux errors of bright 
     galaxies.  
     For this work, we supply \texttt{iSEDFit} with simplified flux errors assuming 
     $S/N = 100$ for the $riz$ bands, and $S/N = 80$ for the $g$ and $y$ band 
@@ -986,14 +986,33 @@
     The typical uncertainty of \logms{} is around 0.06-0.08 dex at \logms${\sim} 11.5$.
     
     In Appendix~\ref{app:sed}, we briefly summarize the basic statistics of 
-    the sample, including average stellar age, metallicity, and internal dust 
-    extinction along with their relation with \mtot{}. 
+    the sample by showing the relationships between \mtot{} and stellar age, 
+    metallicity, and internal dust extinction. 
     All these properties behave reasonably for massive galaxies in this sample. 
     Using the $k$-corrected optical color, we can also confirm that the sample follows 
     a tight ``red-sequence''.  
     Please see Appendix~\ref{app:sed} for further details.
       
 %% ------------------------------------------------------------------------------------ %%  
+
+%% ------------------------------------------------------------------------------------ %% 
+  \begin{figure}
+      \centering 
+      \includegraphics[width=\columnwidth]{fig/redbcg_completeness}
+      \caption{
+          Evaluation of the \mstar{} completeness of the HSC massive galaxy sample.
+          We compare the volume number density function of the massive galaxies 
+          for this work (black line) with the one of a much more complete sample
+          from the S82-MGC catalog (green line).  
+          The associated uncertainties derived from bootstrap resampling are shown in 
+          shaded regions. 
+          The vertical grey line highlight the \logms{}$=11.6$ limit.  
+          Below it, the HSC massive galaxy sample becomes significantly incomplete in 
+          stellar mass. 
+          }
+      \label{fig:mass_complete}
+  \end{figure}     
+%% ------------------------------------------------------------------------------------ %%
 
 %% ------------------------------------------------------------------------------------ %% 
 \subsection{``Total'' Stellar Masses}
@@ -1019,28 +1038,50 @@
     galaxies and the intrinsic limitation of \cmodel{} method, which we will discuss
     more in the next section.
     Such differences also have important implications for estimates of the stellar 
-    mass function and for studies of the environment-dependence of galaxy structure. These topics will be discussed in Section \ref{sec:discussion}.
+    mass function and for studies of the environment-dependence of galaxy structure. 
+    These topics will be discussed in Section \ref{sec:discussion}.
     
     Although 100 kpc is already a very large radius that should enclose the majority 
     of stars that belong to these massive galaxies, we know that their \mden{} 
-    profiles extend beyond 100 kpc without showing any signs of truncation. 
-\rachel{This bold assertion is practically begging for justification.  Is this based on past work we can reference, or a part of this paper that we can forward reference?}
-Therefore, for massive galaxies, even \mtot{} should be only considered a lower
+    profiles extend beyond 100 kpc without showing any signs of truncation
+    (e.g. \citealt{Gonzalez2005, Tal2011, DSouza2014}).
+    Therefore, for massive galaxies, even \mtot{} should be only considered a lower
     limit on the ``total'' \mstar{}. 
-    In Fig \ref{fig:mass_diff}, we integrate the \mden{} of each galaxy to the  edge of the postage-stamp and call this mass \mmax{}. The right panel of Fig \ref{fig:mass_diff} compares \mmax{} and \mtot{}.  Uncertainties in the background subtraction, and the impact of neighbouring objects, means that \mmax{} is much more uncertain than \mtot{}. Nontheless, we do see that \mmax{} is larger than than \mtot{}. However, the mass differences are on average very small ($\sim0.02-0.03$ dex) and 
+    In Fig \ref{fig:mass_diff}, we integrate the \mden{} of each galaxy to the edge of 
+    the postage-stamp and call this mass \mmax{}. 
+    The right panel of Fig \ref{fig:mass_diff} compares \mmax{} and \mtot{}.  
+    Uncertainties in the background subtraction, and the impact of neighbouring objects,
+    means that \mmax{} is much more uncertain than \mtot{}. 
+    Nonetheless, we do see that \mmax{} is larger than than \mtot{}. 
+    However, the mass differences are on average very small ($\sim0.02-0.03$ dex) and 
     do not show a strong mass dependence.  
     This confirms that, at the current depth of HSC images, \mtot{} can be used as 
     good proxy of ``total'' stellar mass.   
     
-    Our methodology ignores any radial variations in \m2l{}. 
+    Our methodology ignores radial variations in \m2l{}. 
     It is well known that massive ETGs have negative optical color gradients 
     indicating gradients in \m2l{} (e.g.\ \citealt{Carollo1993, Davies1993, 
-    LaBarbera2012, DSouza2015}). However, these color gradients are shallow and smooth out to a few times the effective 
-    radius (color gradients at larger radii are not yet well quantified). Because the gradients are shallow, using an average \m2l{} is unlikely to bias our results on \mstar{}
-    measurements. \rachel{I can see why this statement might be true for the total stellar mass estimates, but might the stellar mass within 10 kpc be biased?  Can we at least say the typical sign of this bias or a rough magnitude?} Color gradients will be discussed more in Section~\ref{ssec:ell_color}. 
-    In summary, our results about the mass-dependence of \mden{} profiles should not be affected by the asumption of a constant  \m2l{} ratio because optical color gradients in our sample do not show a dependence on  stellar mass.
-    
-
+    LaBarbera2012, DSouza2015}). 
+    Assuming all massive galaxies in our sample have negative color gradients, and 
+    there is a simple monotonic relation between optical color and \m2l{}, the
+    average \m2l{} we used should in principle underestimate the \mstar{} in the 
+    center while overestimate the \mstar{} in the outskirt.
+    However, these color gradients are shallow and smooth out to a few times the 
+    effective radius (e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}, 
+    color gradients at larger radii are not yet well quantified). 
+    Because the gradients are shallow, using an average \m2l{} is unlikely to bias our
+    results on \mstar{} measurements.  
+    In \citet{Huang2016}, the authors conduct multi-band decomposition for a sample 
+    of very nearby elliptical galaxies, and estimate the \m2l{} of each component 
+    separately. 
+    The sum of all components suggest a slightly higher \mstar{} ($0.05-0.10$ dex when
+    typical uncertainty of \mstar{} is 0.12-0.15 dex) and the mass differences show
+    no dependence on \mstar{}. 
+ 
+    Color gradients will be discussed more in Section~\ref{ssec:ell_color}. 
+    In summary, our results about the mass-dependence of \mden{} profiles should not 
+    be affected by the assumption of a constant \m2l{} ratio because optical color 
+    gradients in our sample do not show a dependence on stellar mass.
     
     %Our results looking at the outer envelopes as a function of mass and environment 
     %will be robust as long as there is \emph{no significant difference in 
@@ -1162,25 +1203,6 @@ Such information is also very useful in studying the relationship between galaxy
     structure and environment (Huang\etal in prep.).
 %% ------------------------------------------------------------------------------------ %% 
 
-%% ------------------------------------------------------------------------------------ %% 
-  \begin{figure}
-      \centering 
-      \includegraphics[width=\columnwidth]{fig/redbcg_completeness}
-      \caption{
-          Evaluation of the \mstar{} completeness of the HSC massive galaxy sample.
-          We compare the volume number density function of the massive galaxies 
-          for this work (black line) with the one of a much more complete sample
-          from the S82-MGC catalog (green line).  
-          The associated uncertainties derived from bootstrap resampling are shown in 
-          shaded regions. 
-          The vertical grey line highlight the \logms{}$=11.6$ limit.  
-          Below it, the HSC massive galaxy sample becomes significantly incomplete in 
-          stellar mass. 
-\rachel{Is this figure before or after the final cuts in section 5?  The figure is referenced in section 4, so I wasn't sure.}
-}
-      \label{fig:mass_complete}
-  \end{figure}     
-%% ------------------------------------------------------------------------------------ %%
  
 %% ------------------------------------------------------------------------------------ %% 
 %\subsection{Massive Central Galaxies in Low and High Mass Halos}
@@ -1215,7 +1237,7 @@ Such information is also very useful in studying the relationship between galaxy
     %Our \rbcg{} sample therefore corresponds to galaxies in moderate mass halos.
  
     After matching the \texttt{hscZ} sample with the central galaxies of \redm{} 
-    clusters with $\lambda \geq 20$ and $P_{\mathrm{0.7}} \geq 0.7$ \rachel{What is $P_{\mathrm{0.7}}$?  Does not seem to have been defined.}, we find 164 
+    clusters with $\lambda \geq 20$ and $P_{\mathrm{Cen}} \geq 0.7$, we find 164 
     matched galaxies at $0.3 \leq z \leq 0.5$.
     This sample of \textbf{central galaxies in more massive halos} will be referred to 
     as the \rbcg{} sample. 
