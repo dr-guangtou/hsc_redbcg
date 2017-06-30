@@ -1003,7 +1003,9 @@
           Evaluation of the \mstar{} completeness of the HSC massive galaxy sample.
           We compare the volume number density function of the massive galaxies 
           for this work (black line) with the one of a much more complete sample
-          from the S82-MGC catalog (green line).  
+          from the S82-MGC catalog (green line). 
+          The grey dashed line shows the number density function of HSC massive 
+          galaxies in the three GAMA fields for comparison.
           The associated uncertainties derived from bootstrap resampling are shown in 
           shaded regions. 
           The vertical grey line highlight the \logms{}$=11.6$ limit.  
@@ -1047,8 +1049,9 @@
     (e.g. \citealt{Gonzalez2005, Tal2011, DSouza2014}).
     Therefore, for massive galaxies, even \mtot{} should be only considered a lower
     limit on the ``total'' \mstar{}. 
-    In Fig \ref{fig:mass_diff}, we integrate the \mden{} of each galaxy to the edge of 
-    the postage-stamp and call this mass \mmax{}. 
+    In Fig \ref{fig:mass_diff}, we integrate the \mden{} of each galaxy to the 
+    edge of the postage-stamp, and pick the isophote that gives us the highest  
+    luminosity to estimate the \mstar{} within and call this one \mmax{}. 
     The right panel of Fig \ref{fig:mass_diff} compares \mmax{} and \mtot{}.  
     Uncertainties in the background subtraction, and the impact of neighbouring objects,
     means that \mmax{} is much more uncertain than \mtot{}. 
@@ -1185,15 +1188,15 @@
 \subsection{Candidate massive central galaxies}
     \label{ssec:redmapper}
     
-    The robust identification of the central galaxy is not an easy task (e.g.
-    \citealt{Yang2007}). 
-    In this paper, we use the \redm{} catalog create a sample of massive central 
-    galaxies with minimal contamination from satellite galaxies.
-
-%    Given the smaller fraction of satellite galaxies at high-\mstar{} end (e.g. 
-%    \citealt{Reid2014, Hoshino2015, Saito2016}), 
-%    we further assume that the massive ones (\logmtot{}$>11.4$) among them are likely 
-%    to be the central galaxies of these smaller halos. 
+    Although the central galaxies of dark matter halos have unique importance is 
+    studying galaxy-halo connection, robust identification of central galaxy is 
+    not easy(e.g.\citealt{Yang2007}) in observation.
+    First, based on previous results (\citealt{Reid2014, Hoshino2015, Saito2016}),
+    the satellite fraction at \logmtot{}$> 11.6$ should become quite low 
+    ($\sim 10$\% level). 
+    And, we can further use the \redm{} catalog to identify and exclude massive 
+    satellites in cluster-level dark matter halos--to further reduce contamination
+    from satellite galaxies.
     
     We use \texttt{v5.10} of the \redm{} cluster  catalog
     (e.g.\ \citealt{Rykoff2014}; \citealt{Rozo2015b}). 
@@ -1211,13 +1214,14 @@
     $\lambda$, and halo mass (e.g.\ \citealt{Saro2015, Farahi2016, Simet2016, 
     Melchior2016}). 
     All these studies consistently find that \redm{} clusters with $\lambda > 20$ 
-    have $\log (M_{\mathrm{halo}}/M_{\odot}) \geq 14.0$. 
+    generally have $\log (M_{\mathrm{halo}}/M_{\odot}) \geq 14.0$, although the scatter 
+    of \mhalo{} at fixed $\lambda$ can not be ignored.
     Therefore the central galaxies of these \redm{} clusters\footnote{We only use 
     central galaxies with $P_{\mathrm{CEN}} \geq 0.7$} form a sample of massive central 
     galaxies that live in massive halos as described above.
-\rachel{Intrinsic scatter in \mhalo{} at fixed $\lambda$ is pretty big, though, so we should be careful about this assertion.}
-Such information is also very useful in studying the relationship between galaxy
+    Such information is also very useful in studying the relationship between galaxy
     structure and environment (Huang\etal in prep.).
+
 %% ------------------------------------------------------------------------------------ %% 
 
  
@@ -1258,9 +1262,11 @@ Such information is also very useful in studying the relationship between galaxy
     matched galaxies at $0.3 \leq z \leq 0.5$.
     This sample of \textbf{central galaxies in more massive halos} will be referred to 
     as the \rbcg{} sample. 
-    Due to the depth and resolution of SDSS, the \redm{} catalog becomes slightly 
-    incomplete at lower richness ($\lambda < 40$) at $z > 0.33$, but the main results 
-    of this work are not affected by this.
+    It is also worth pointing out that, due to the depth and resolution of SDSS 
+    images, this \redm{} catalog is not complete down to $\lambda=20$ at 
+    $0.3 < z < 0.5$. 
+    At $z\geq0.33$, it starts to miss a small fraction of clusters with $\lambda < 30$, 
+    but the main results of this work will not be affected by this.
     %% Saved as "dr1_redbcg_use_sed5b.fits"
     
     As the next step, we want to construct a sample of central galaxies living in halos 
@@ -1279,11 +1285,17 @@ Such information is also very useful in studying the relationship between galaxy
     After removing galaxies associated with \redm{} clusters, the remaining galaxies 
     in our sample will be dominated by central galaxies living in halos with 
     \logmh{}$< 14.0$. 
-    We will refer to this sample of \textbf{galaxies in less 
-    massive halos} as the \nbcg{} sample. Because we have rejected satellites in \redm{} clusters, and because above our galaxy mass cut most satellites reside in halos with \logmh$>14.0$ (e.g. \citealt{Reid2014, 
-    Hoshino2015, Saito2016, vanUitert2016}), galaxies in the \nbcg{} sample should  be dominated by central galaxies.
-    \rachel{There is a statistical distribution of halo masses that satellites at this stellar mass live in, based on the papers you cited; can you say more quantitatively what fraction you expect to be satellites in less massive halos?  Right now it all sounds kind of hand-wavey.}
-    
+    We will refer to this sample of \textbf{galaxies in less massive halos} as the 
+    \nbcg{} sample. 
+    Because we have rejected satellites in \redm{} clusters, and because above our 
+    galaxy mass cut most satellites reside in halos with 
+    \logmh$>14.0$ (e.g. \citealt{Reid2014, Hoshino2015, Saito2016, vanUitert2016}), 
+    galaxies in the \nbcg{} sample should  be dominated by central galaxies.
+    Using the model presented in \citet{Saito2016}, we estimate that in dark matter 
+    halos with \logmh$<11.4$, $\sim 7$\% of galaxies with \logmcmodel{}$>11.5$ are 
+    satellites.
+    This confirms that our sample should have low enough satellite contamination 
+    so that it can be taken as a sample of massive central galaxy.     
     %% Saved as "dr1_nonbcg_use_sed5b.fits"
 %% ------------------------------------------------------------------------------------ %% 
 
@@ -1295,24 +1307,37 @@ Such information is also very useful in studying the relationship between galaxy
     galaxies with reliable redshift information, and broadly separate them into two 
     categories based on $M_{\mathrm{halo}}$.
     
-    The following is a summary of our sample construction. \rachel{Would be valuable to remind the reader in what sections these samples were defined, and how many galaxies are in each one.}
-    
+    The following is a summary of our sample construction. 
+        
     \begin{itemize}
         \item \texttt{hscPho} sample: this parent sample consists of bright galaxies 
             with $i_{\mathrm{cModel}} \leq 21.0$, good quality imaging, and reliable 
             \texttt{cModel} photometry in all five HSC bands in the \texttt{S15B} 
             data release. 
+            This sample is described in \S \ref{ssec:initial}, and it contains 
+            1760845 galaxies. 
         \item \texttt{hscZ} sample: we limit the \texttt{hscPho} sample to galaxies 
             with reliable redshift information. 
+            More details of this sample can also be found in \S \ref{ssec:initial}. 
+            It provides us 25286 useful galaxies at $0.3<z<0.5$.
         \item With the help of the \redm{} cluster catalog, we further select 
-            candidates of massive central galaxies in a range of \mhalo{}.
+            candidates of massive central galaxies.
             We broadly divide the sample into central galaxies living in halos
-            with \logmh{}$\geq 14.0$ (\rbcg{}) and \logmh{}$<14.0$ (\nbcg{}). 
+            with \logmh{}$\geq 14.0$ (\rbcg{}) and \logmh{}$<14.0$ (\nbcg{}).
+            To ensure the sample is \mstar{}-complete and has minimal satellite 
+            contamination, we will further focus on the 950 massive galaxies with 
+            \logmtot{}$>11.6$ in this work\footnote{As reference, there are 
+            2613 massive galaxies with \logmtot{}$>11.5$ in our sample.}. 
+           
     \end{itemize}
     
-    The  division of our sample into two halo mass bins is mainly relevent for Paper II.  For this paper, we only consider the halo mass dependence on our sample when we evaluate impact of  mass estimates on the SMF in Section \ref{ssec:smf}. 
-
-\rachel{Could we show the redshift distribution of the second and third of these samples?}
+    The division of our sample into two halo mass bins is mainly relevant for Paper II
+    (Huang \etal in prep.).  
+    For this paper, we only consider the halo mass dependence on our sample when we 
+    evaluate impact of mass estimates on the SMF in \S \ref{ssec:smf}. 
+    We show the distributions of redshift, \mtot{} and \minn{} of the massive galaxy 
+    sample in Appendix \ref{app:basic}, along with its \mtot{}-$(g-r)$ rest-frame 
+    color relation.
 
 %% ------------------------------------------------------------------------------------ %% 
 
@@ -1322,18 +1347,25 @@ Such information is also very useful in studying the relationship between galaxy
       \includegraphics[width=\textwidth]{fig/redbcg_mass_smf}
       \caption{
           \textbf{Left:} Impact of using \mtot{} on the galaxy stellar mass function. 
-          Dashed lines correspond to the SMF computed using \mcmodel{} whereas solid 
-          lines correspond to the SMF computed using \mtot{}. 
-          Here we separate our HSC sample into  centrals in halos more massive than
+          Dashed lines correspond to the observed volume density distribution 
+          computed using \mcmodel{} whereas solid lines correspond to the distribution
+          computed using \mtot{}. 
+          We do not apply any completeness correction to the distributions here.
+          Here we separate our HSC sample into centrals in halos more massive than
           \logmh{}$\sim14.2$ (red lines) and centrals in halos with \logmh{}$<14.0$ 
           (black lines).
           The impact on the SMF can exceed 0.2 dex for massive central galaxies in 
           very massive halos.
-          \textbf{Right}: The stellar mass volume density distributions of massive 
+          \textbf{Right}: The \mstar{} volume density distributions of massive 
           HSC galaxies, using both \mtot{} (black solid line) and \mmax{} (black dotted 
           line).  
-          The grey shaded region shows the resampling error on the HSC SMF plus an additional 20\%
-          uncertainty to account for the fact that  we do not include satellite galaxies and that we fail to extract a 1-D profile for xxx\% of our galaxies. These issues will be adressed in forthcoming work. We compare our results with previous studies: 
+          Vertical lines on both plots highlight the \logmtot{}$=11.6$ mass limit. 
+          The grey shaded region shows the resampling error on the HSC SMF plus an
+          additional 20\% uncertainty to account for the fact that we do not include 
+          satellite galaxies and that we fail to extract a 1-D profile for $\sim 10$\% 
+          of our galaxies. 
+          These issues will be addressed in forthcoming work. 
+          We compare our results with previous studies: 
           (a): SDSS galaxies at $z{\sim} 0.1$ from \citet{Bernardi2017} with \mstar{} 
           values based on photometry from 2-D \ser{}$+$Exponential model fitting 
           (purple); 
@@ -1341,7 +1373,7 @@ Such information is also very useful in studying the relationship between galaxy
           improved SDSS \texttt{cModel} photometry (blue); 
           (c): \texttt{S82-MGC} galaxies at $0.15 < z< 0.43$ from 
           \citet{Leauthaud2016} based on PSF-matched SDSS-UKIDSS photometry (green).
-          \rachel{Need to state explicitly what the vertical line is.  I assume this is the stellar mass below which the sample is presumed to be too incomplete for proper derivation of the SMF.  If that's true, should we even be showing masses below that?  Or perhaps the entire left side can be shaded, instead of just having a line there?  Also, are any completeness corrections applied at any value of stellar mass?}}
+          }
       \label{fig:smf}
   \end{figure*}
 %% ------------------------------------------------------------------------------------ %%
@@ -1354,69 +1386,137 @@ Such information is also very useful in studying the relationship between galaxy
 \subsection{Impact of Missing Light on the Galaxy Stellar Mass Function}
     \label{ssec:smf}
     
-    The Stellar Mass Function (SMF) and its evolution are critical to our understanding of galaxy evolution. On average, the integration of our carefully derived non-parametric \mden{} profile 
+    The Stellar Mass Function (SMF) and its evolution are critical to our understanding 
+    of galaxy evolution. 
+    On average, the integration of our carefully derived non-parametric \mden{} profiles 
     to 100 kpc (\mtot{}) recovers more light (hence mass) than the \texttt{cModel} method. 
     At \logmtot{} $>11.6$, the difference can sometimes be larger than 0.2 dex. 
     More importantly, the average difference steadily increases with \mtot{}. 
     These differences relate to the intrinsic limitation of the \texttt{cModel} 
-    method and also reflects the fact that more massive ETGs tend to have more 
+    method and also reflect the fact that more massive ETGs tend to have more 
     extended stellar mass distributions (e.g. higher-\ser{} index, 
-    \citealt{Graham2003}). Hence,  the determination of the ``total luminosities'' of massive galaxies can result in  a significant impact 
-    on the high mass end of the galaxy stellar mass function (e.g. 
-    \citealt{Bernardi2013, DSouza2014, DSouza2015, Bernardi2017}).
+    \citealt{Graham2003}). Hence, the determination of the ``total luminosities'' of 
+    massive galaxies can result in a significant impact on the high mass end of the 
+    galaxy stellar mass function (e.g. \citealt{Bernardi2013, DSouza2014, DSouza2015,
+    Bernardi2017}).
     
 %    \footnote{To do that, one needs to 
 %    separate the differences in the measurements of luminosity and \m2l{}, and 
 %    take the uncertainties of \mstar{} measurements into account}
     
-In this paper, we have only measured light profiles for central galaxies. Also,  we cannot extract  a 1-D profile for $\sim 11$\% of galaxies (because contamination from neighbouring galaxies is too severe). These two effects will lead to a ${\sim}20$\% uncertainty in  the amplitude of our SMF.  \rachel{Mass-dependent, or really 20\% at all masses?} These are limitations that we are currently working to address and a forthcoming paper will  address them. Our goal in this paper is therefore not  to  attempt a detailed comparison between different SMFs
-    \citep[e.g.,][]{Bernardi2013, Bernardi2017}. Instead, our goal in this section is more simply to characterize the  impact of various \mstar{} measurements  on the high-mass end of the SMF.   
+    In this paper, we have only measured light profiles for central galaxies. 
+    Also, we cannot extract 1-D profiles for $\sim 11$\% of galaxies (because 
+    contamination from nearby bright object is too severe; or the its in a late-stage
+    on-going merger system). 
+    These two effects will lead to a ${\sim}20$\% uncertainty in the amplitude of 
+    our volume number density distributions. 
+    Both of these effects show dependence on \mtot{} whereas more massive galaxies 
+    suffer slightly less from them.
+    We are currently working to address these limitations in a forthcoming paper. 
+    Our goal in this paper is therefore not to attempt a detailed comparison between 
+    different SMFs \citep[e.g.,][]{Bernardi2013, Bernardi2017}. 
+    Instead, our goal in this section is simply to characterize the impact of various 
+    \mstar{} measurements on the high-mass end of the SMF.   
+    Our volume density distributions (will be referred to as SMF for simplicity) 
+    turn over at low-mass end where the sample becomes incomplete, and we do not attempt
+    to apply any completeness correction here.  
     
-     Figure \ref{fig:smf} displays the impact of missing light and of different definitions of \mstar{} on the SMF. The left panel of Fig.~\ref{fig:smf} shows the SMF\footnote{Our SMFs turn over at the low mass end as we have not applied any completeness corrections here. \rachel{Why is this a footnote?  It's a major feature of the plot, not a minor detail.}} computed using \mcmodel{} and \mtot{} for galaxies that live in low and high mass halos.  Figure \ref{fig:smf} shows that the impact of missing flux is more severe for  galaxies in high mass halos. In Paper II it will be demonstrated that this occurs because  galaxies in more massive halos have larger extended  wings than those in low mass halos (Huang\etal in prep.). Figure \ref{fig:smf} also shows that  the use of the HSC \texttt{cModel} magnitude leads to a severe underestimation of the  high mass end of the SMF. 
-\rachel{It would be useful if we can say whether this is primarily because of the adoption of simple parametric profiles, or due to background subtraction failures.  For example, if the adoption of simple parametric profiles is the primary cause of this difference, then that is a statement that might be more widely applicable than just the HSC pipeline.  If it's really just because our background subtraction algorithm is bad, then the implications are more limited.  Do we have the information that would allow us to make a statement about this?  If not, we should at minimum reiterate here the possible causes of this discrepancy.}
-
+     Figure \ref{fig:smf} displays the impact of missing light and of different 
+     definitions of \mstar{} on the SMF. 
+     The left panel of Fig.~\ref{fig:smf} shows the SMF computed using \mcmodel{} 
+     and \mtot{} for galaxies that live in low and high mass halos.  
+     Figure \ref{fig:smf} shows that the impact of missing flux is more severe for  
+     galaxies in high mass halos. 
+     In Paper II of this series (Huang\etal in prep.), it will be demonstrated that 
+     this occurs because galaxies in more massive halos have more extended stellar 
+     envelopes than those in lower mass halos at fixed \mtot{}. 
+     Figure \ref{fig:smf} also shows that the use of the HSC \texttt{cModel} 
+     magnitude leads to a severe underestimation of \mstar{} at the high mass end 
+     of SMF. 
+     From the current \texttt{hscPipe}, this problem could relate to the intrinsic 
+     limitation of simply model like \cmodel{} and the issue of over-subtracted 
+     background. 
+     Based on the 1-D surface brightness profiles in $i$-band, background subtraction
+     does not seem to be the most serious problem for these $z>0.3$ galaxies 
+     (at least not within 100 kpc). 
+     And, in the next section, we will show that a significant fraction of these 
+     1-D profiles are more extended in the outskirt than the de~Vaucouleurs profile, 
+     therefore it is not surprising that \cmodel{} will systematically underestimate 
+     their total flux.
+     
      %According to \citet{Wright2017}, the $z{\sim}0.1$ GAMA SMF based on a single-\ser{} model from \citet{Kelvin2012} suffers from similar issues.
     %appears to have the same issue (\citealt{Wright2017}),
     %    although the \ser{} model
     %also can overestimate the luminosity at high-mass end\footnote{Due to 
-    %overestimated \ser{} index and/or effective radius.}. 
+    %overestimated \ser{} index and/or effective radius.}.
     
-    
-    
-        As discussed in Section~\ref{ssec:mtotal}, even with our deep HSC images,
-    it is non-trivial to clearly define and measure the ``total'' \mstar{} for 
+    As discussed in \S~\ref{ssec:mtotal}, even with deep HSC images,
+    it is not trivial to clearly define and measure the ``total'' \mstar{} for 
     these massive systems, and the \mden{} profiles of these galaxies often extend 
-    well beyond 100 kpc. Is our fiducial 100 kpc radius sufficient in order to capture  most of the flux associated with these galaxies, or does one need to integrate out to even larger radii? To answer this question,  we attempt to capture more flux by integrating our \mden{} profiles out to the detection 
-    limit that is defined by the background noise. We will refer to this mass as \mmax{}. Although the \mden{} profiles become more uncertain at $>100$ kpc, \mmax{} helps us quantify how much extra mass may be contained at radii greater than 100 kpc.  The right hand side of Figure \ref{fig:smf} shows the impact of using \mmax{} instead of  \mtot{} on the SMF.  We find that  a 100 kpc radius captures a majority of the galaxy mass and that the impact of going from \mtot{} to \mmax{} is relatively small
+    well beyond 100 kpc. 
+    Is our fiducial 100 kpc radius sufficient to capture most of the flux associated 
+    with these galaxies, or does one need to integrate out to even larger radii? 
+    To answer this question, we attempt to capture more flux by integrating our 
+    \mden{} profiles out to the edge of the image and use the highest \mstar{} 
+    achieved during this process as \mmax{}.
+    Although the \mden{} profiles become more uncertain at $>100$ kpc, \mmax{} helps 
+    us quantify how much extra \mstar{} may be contained at radii greater than 100 kpc.  
+    The right hand side of Figure \ref{fig:smf} shows the impact of using \mmax{} 
+    instead of  \mtot{} on the SMF.  
+    We find that a 100 kpc radius captures a majority of the galaxy mass and that the 
+    impact of going from \mtot{} to \mmax{} is relatively small.
     
-    
-    In Figure \ref{fig:smf} we also compare our results  with the following previous studies:
+    In Figure \ref{fig:smf} we also compare our results with the following previous 
+    studies:
 
     \begin{itemize}
 
         \item The SMF for $0.15 < z < 0.30$ galaxies from the \texttt{S82-MGC} sample
             \citep{Leauthaud2016} where \mstar{} is derived using 
-            \texttt{iSEDfit} on PSF-corrected aperture photometry from 
-            \texttt{S82}. They adopt the same IMF, dust model, and star-formation model as we do, but use the \texttt{BC03} model. Based on the test results from Appendix \ref{app:sed}, we shift the \citet{Leauthaud2016} SMF by 0.08 dex to add their data to Figure~\ref{fig:smf}.      
+            \texttt{iSEDfit} on PSF-corrected aperture photometry from \texttt{S82}. 
+            They adopt the same IMF, dust model, and star-formation model as we do, 
+            but use the \texttt{BC03} model instead. 
+            Based on the test results in Appendix \ref{app:sed}, we shift this SMF by 
+            0.08 dex to add their data to Figure~\ref{fig:smf}.      
+       
         \item The SMF derived from a SDSS-\textit{GALEX} sample of $z{\sim} 0.1$ 
-            galaxies from \citet{Moustakas13}.  Total luminosities from \citet{Moustakas13} are based on SDSS \cmodel{} magnitude. 
-            They use a \m2l{} that is derived via SED fitting using \texttt{iSEDfit} with similar 
-            assumptions as here.
-        \item The observed SMF for $z{\sim} 0.1$ SDSS galaxies from 
-            \citet{Bernardi2017}.  Total luminosities in  \citet{Bernardi2017} are based on 2-D \texttt{SerExp} models 
-            (\ser{}$+$ Exponential disk model; integrated to infinity) that 
+            galaxies by \citet{Moustakas13}. 
+            Total luminosities in \citet{Moustakas13} are based on SDSS \cmodel{} 
+            magnitudes. 
+            They use a \m2l{} that is derived via SED fitting using \texttt{iSEDfit} 
+            with similar assumptions as the ones adopted here.
+            
+        \item The observed SMF for $z{\sim} 0.1$ SDSS galaxies from \citet{Bernardi2017}.          
+            Total luminosities in \citet{Bernardi2017} are based on 2-D \texttt{SerExp} 
+            models (\ser{}$+$ Exponential disk model; integrated to infinity) that 
             recover more flux compared to SDSS \cmodel{} magnitudes 
             (\citealt{Bernardi2013, Meert2015}). 
-            They use a \m2l{} that is adopted from the SED fitting results from the ``dusty'' 
-            model in \citet{Mendel2014}. 
+            They use a \m2l{} that is adopted from the SED fitting results in
+            \citet{Mendel2014}. 
             This model also uses the \texttt{FSPS} stellar population model 
-            \citep{FSPS} and assumes a \citet{Chabrier2003} IMF. 
+            \citep{FSPS}, assumes a \citet{Chabrier2003} IMF, and considers dust 
+            extinction using the \citet{Calzetti2000} extinction law (the 
+            ``dusty'' model).
+            
     \end{itemize}
     
-    As mentioned above, our current SMF is subject to an additional 20\% uncertainty that will be addressed in forthcoming work. Hence,  we do not attempt a detailed comparison  with respect to previous work on the galaxy SMF, reserving this  for  a future study. Here, we simply note that the  HSC SMF derived using \mtot{} is close to the one derived by \citet{Bernardi2017} using SDSS data at $z{\sim}0.1$ and assuming \texttt{SerExp} models.  Our  sample and the \citet{Bernardi2017} sample have different redshifts. Without a more in-depth study, we cannot ascertain wheter or not  the apparent agreement between the HSC SMF and the  \citet{Bernardi2017} SMF indicates a global lack of evolution in the galaxy SMF, or  that other effects are at play (difference between \mtot{} masses and \texttt{SerExp} masses) that have cancelled redshift evolution.  In future work, it will be interesting to perform a more consistent analysis to search for redshift evolution in the galaxy SMF and to study whether  or not massive galaxies in HSC are well described by \texttt{SerExp} models.
-    
+    As mentioned above, our current SMF is subject to an additional 20\% uncertainty 
+    that will be addressed in forthcoming work. 
+    Hence, we do not attempt a detailed comparison with respect to previous works on 
+    the SMF, reserving this for a future study. 
+    Here, we simply note that the HSC SMF derived using \mtot{} is close to the one 
+    derived by \citet{Bernardi2017} using SDSS data at $z{\sim}0.1$ and assuming 
+    the \texttt{SerExp} models.  
+    Our sample and the \citet{Bernardi2017} sample have different redshifts. 
+    Without a more in-depth study, we cannot ascertain whether or not the apparent 
+    agreement between the HSC SMF and the \citet{Bernardi2017} SMF indicates a global 
+    lack of evolution in the galaxy SMF, or that other effects are at play 
+    (difference between \mtot{} masses and \texttt{SerExp} masses) that have cancelled
+    redshift evolution.  
+    In future work, it will be interesting to perform a more consistent analysis to 
+    search for redshift evolution in the galaxy SMF and to study whether or not 
+    massive galaxies in HSC are well described by \texttt{SerExp} models.
    
-    
     % TODO: Move this to Paper II
     %In this work, we have opted to in general use \mtot{} rather than \mmax{} as the 
     %uncertainty on \mmax{} is larger. 
