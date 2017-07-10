@@ -433,16 +433,43 @@
 \section{Sample Selection and Data Reduction}
     \label{sec:data}
     
-    \song{Need a much shorter version of HSC data summar here.}
+    The sample selection and data reduction processes are described in detail in 
+    Paper I. 
+    Here we include a short summary for completeness.
     
+    This work makes use of the imaging data from the internal data release 
+    \texttt{S15B}, which is very similar to the Public Data Release 1 
+    (\citealt{HSC-DR1} and covers ${\sim} 110$ deg$^2$ in all five-band ($grizy$) to 
+    the required depth. 
+    These images are reduced by \texttt{hscPipe 4.0.2}, a derivative of the 
+    Large Synoptic Survey Telescope (LSST) pipeline (e.g.\ \citealt{Juric2015}; 
+    \citealt{Axelrod2010}), modified for HSC (\citealt{HSC-PIPE}).
+    The pixel scale of the reduced image is $0.168$\asec{}.
+    We use the $i$-band image for extracting surface brightness profiles.    
+    The HSC $i$-band image is typically 3--4 mag deeper than the SDSS one in surface 
+    brightness limit and has superb seeing condition (mean FWHM$=0.6$\asec{}).
+    
+    In Paper~I, we select large sample of massive galaxies with either spectroscopic 
+    redshift or reliable ``red-sequence'' photometric redshift at $0.3<z<0.5$. 
+    Within this redshift range, we have large enough volume to achieve reasonable 
+    statistics at very high \mstar{} end, can spatially resolve the inner $\sim 5$ 
+    kpc of massive galaxies, and can safely ignore any structural evolution. 
+    We derive $i$-band surface brightness profiles out to 100 kpc after carefully 
+    masking out any surrounding contaminations and correcting the background 
+    subtraction. 
+    We measure the average \m2l{} of these galaxies 
+    Using the five-band forced \cmodel{} magnitudes from \texttt{hscPipe}, we 
+    measure  of the galaxy via SED fitting. 
+    
+           
     %    The \rbcg{} sample is less affected by completeness because we can utilize 
     %photo-$z$s from \redm{}. 
     %However, the completeness of the \nbcg{} sample is still limited by the 
     %availability of spec-$z$s from BOSS.\alexie{Not sure this is important here.}
     
     \jenny{Here is an attempt to include all the things we really need here.}
-    Our sample selection is described in detail in Paper I. Here we include a short summary for completeness. 
-    We focus on early-type galaxies with $0.3<z<0.5$ and stellar mass $M_*>10^{11.5}$~\msun. 
+     
+    We focus on early-type galaxies with  and stellar mass $M_*>10^{11.5}$~\msun. 
     The redshift range includes a large enough volume to have good statistics at the high-mass end, while 
     the stellar mass limit is set by our photometric incompleteness. HSC-identified objects are cross-matched 
     with the spectroscopic and photometric samples from redMapper \citep{Rykoff2014}. Stellar masses are estimated 
