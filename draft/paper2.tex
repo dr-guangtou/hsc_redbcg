@@ -450,18 +450,57 @@
     brightness limit and has superb seeing condition (mean FWHM$=0.6$\asec{}).
     
     In Paper~I, we select large sample of massive galaxies with either spectroscopic 
-    redshift or reliable ``red-sequence'' photometric redshift at $0.3<z<0.5$. 
+    redshift or reliable ``red-sequence'' photometric redshift (\citealt{Rykoff2014}) 
+    at $0.3<z<0.5$. 
     Within this redshift range, we have large enough volume to achieve reasonable 
     statistics at very high \mstar{} end, can spatially resolve the inner $\sim 5$ 
-    kpc of massive galaxies, and can safely ignore any structural evolution. 
+    kpc of massive galaxies ($1.0^{\arcsec}$ corresponds to 4.4 and 6.1 kpc at 
+    $z=0.3$ and 0.5), and can safely ignore any structural evolution. 
     We derive $i$-band surface brightness profiles out to 100 kpc after carefully 
     masking out any surrounding contaminations and correcting the background 
     subtraction. 
-    We measure the average \m2l{} of these galaxies 
-    Using the five-band forced \cmodel{} magnitudes from \texttt{hscPipe}, we 
-    measure  of the galaxy via SED fitting. 
+    We use the broadband spectral energy distributions (SED) fitting code 
+    \texttt{iSEDFit}\footnote{http://www.sos.siena.edu/~jmoustakas/isedfit/} 
+    (\citealt{Moustakas13}) to measure the average \m2l{} and $k$--correction of 
+    these galaxies using five-band forced \cmodel{} magnitudes from \texttt{hscPipe}.
+    \citet{Chabrier2003} IMF, Flexible Stellar Population 
+    Synthesis\footnote{http://scholar.harvard.edu/cconroy/sps-models}
+    (FSPS; \texttt{v2.4}; \citealt{FSPS}, \citealt{Conroy2010}) model, 
+    \citet{Calzetti2000} extinction law, simple delayed-$\tau$ model for star 
+    formation history (SFH) are assumed here. 
+    Using these information, we obtain reliable \mden{} profiles of these 
+    galaxies out to $> 100$ kpc and \mstar{} integrated to different physical 
+    radius using elliptical apertures. 
     
-           
+    As explained in Paper I, here we focus on \mstar{} within
+        
+    \begin{itemize}
+    
+        \item a 10 kpc radii (hereafter noted \minn{}) as proxy of the ``in-situ'' 
+            stellar component. 
+            This is motivated by recent observations and simulations 
+            (e.g.~\citealt{vanDokkum2010}, \citealt{RodriguezGomez2016}).  
+            
+        \item a 100 kpc radii (hereafter noted \mtot{}), which is shown to recover 
+            more \mstar{} than the ones based on \cmodel{} photometry, as proxy of the 
+            total \mstar{} of the galaxy.
+            
+   \end{itemize}
+   
+   Although these radius are empirically selected, they help recover the 
+   \mstar{}-dependence of the fraction of accreted stars, and reveal the diversity of 
+   stellar envelopes among massive galaxies. 
+   In Figure \ref{fig:m100_m10_color}, we demonstrate such diversity by showing 
+   a random subsample of massive galaxies with very similar \minn{} that have large 
+   range of \mtot{}. 
+   We will use these two 
+   
+   
+   
+%% ------------------------------------------------------------------------------------ %%    
+\subsection{Massive Central Galaxies from Different Environment}
+    \label{ssec:cen}
+
     %    The \rbcg{} sample is less affected by completeness because we can utilize 
     %photo-$z$s from \redm{}. 
     %However, the completeness of the \nbcg{} sample is still limited by the 
@@ -492,42 +531,7 @@
     photo-z uncertainty. The sample of {\bf XX} central galaxies living in halos with $M_* < 10^{14}$~\msun\ will 
     be called \nbcg{}.
 
-%% ------------------------------------------------------------------------------------ %% 
-    Motivated by the two-phase formation scenario, we focus on \mstar{} within two 
-    different physical apertures in this work:
-    
-    \begin{itemize}
-    
-        \item The stellar mass within 10 kpc (hereafter noted \minn{}). 
-            According to the two-phase scenario, the ``in-situ'' star-formation quickly 
-            builds up the inner, dense core of massive ETGs.  
-            Based on recent observations and simulations (e.g.~\citealt{vanDokkum2010}; 
-            \citealt{RodriguezGomez2016}), the in-situ component of massive ETGs is 
-            mostly contained within one effective radius ($R_{\mathrm{e}}$, or 5-10 kpc). 
-            We use \minn{} as a proxy for the mass forged during the ``in-situ''
-            phase. 
-            Given the quality of the HSC data, we can reliably measure \minn{} over our 
-            redshift range ($1.0^{\arcsec}$ in radius equals 4.4 and 6.1 kpc at redshift
-            0.3 and 0.5).  
-            
-        \item The stellar mass within 100 kpc (hereafter noted \mtot{}). 
-            For our galaxy sample, a 100 kpc aperture corresponds to 5-10 
-            $\times R_{\mathrm{e}}$. 
-            We show in section \ref{ssec:mtotal} that most of the mass for these ETGs 
-            can be captured by a 100 kpc radius and that \mtot{} is a good proxy for the 
-            ``total'' \mstar{}. 
-            Although not perfect, we argue that our measurements of \mtot{} (which are 
-            actually measuring the light directly out to 100 kpc) are a better tracer 
-            of total \mstar{} than model-dependent results from shallower data 
-            (such as SDSS) which rely on extrapolating the light profiles of galaxies 
-            out to large radii.
-            
-   \end{itemize}
-%% ------------------------------------------------------------------------------------ %% 
 
-    {\bf We will show the implications for the stellar mass function of including most of 
-    the stellar light, a task that has been complicated before now due to shallower data. 
-    We will also investigate the idea that the accreted fraction is a function of stellar mass.}
 
     
 %% ------------------------------------------------------------------------------------ %% 
