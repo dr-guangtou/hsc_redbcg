@@ -232,27 +232,6 @@
 %% Main Text
 %% ------------------------------------------------------------------------------------ %% 
 
-%% ------------------------------------------------------------------------------------ %% 
-  \begin{figure*}
-      \centering 
-      \includegraphics[width=\textwidth]{fig/redbcg_m100_m10_compare}
-      \caption{
-          Three-color images for a subsample of massive galaxies at $z{\sim}0.4$. 
-          All of these massive galaxies have very similar \mstar{} within a 10 kpc 
-          elliptical aperture 
-          ($11.2<\log (M_{\star,10\ \mathrm{kpc}}/M_{\odot})<11.3$). 
-          The dash-line circle at the top-left figure indicates $R=$10 kpc.
-          These galaxies are rank-ordered from top to bottom and from left to right 
-          by their \mstar{} within a 100 kpc elliptical aperture which varies 
-          from $10^{11.2} M_{\odot}$ to $10^{11.7} M_{\odot}$. 
-          At fixed ``inner'' mass (\minn{}), massive galaxies display significant
-          diversity in their outer profiles. 
-          Red boxes indicate galaxies from dark matter haloes that are more massive 
-          than ${\sim} 10^{14.0} M_{\odot}$. 
-          }
-      \label{fig:m100_m10_color}
-  \end{figure*}
-%% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
 %% Introduction 
@@ -324,9 +303,9 @@
     This is very challenging observation as the surface brightness drops rapidly 
     with radius in massive ETGs. 
     
-    In \citet[][; Paper I hereafter]{hscMassiveI}, we showed that the deep, 
-    multi-band images from the Subaru Strategic Program (SSP; \citealt{HSC_SSP,
-    HSC_DR1}) using Hyper Suprime-Cam (HSC; \citealt{Miyazaki2012}, 
+    In \citet[][Paper I hereafter]{hscMassiveI}, we showed that the deep, 
+    multi-band images from the Subaru Strategic Program (SSP; \citealt{HSC-SSP,
+    HSC-DR1}) using Hyper Suprime-Cam (HSC; \citealt{Miyazaki2012}, 
     Miyazaki in~prep.) allows us to extract robust surface stellar
     mass density (\mden{}) profiles for {\it individual} massive galaxies 
     at $0.3 < z < 0.5$ out to 100 kpc. 
@@ -334,61 +313,20 @@
     and the shapes of the stellar halos of massive ETGs has a clear \mstar{} 
     dependence. 
     And the fraction of accreted stars residing in the extended envelope increases
-    with the total \mstar{} of the galaxy.    
+    with the total \mstar{} of the galaxy.
     
     In this paper, we explore how the extended stellar halo in massive central galaxies
     depends on dark matter halo mass with the help of HSC images of a large sample 
     of massive ETGs and the \redm{} cluster catalog (e.g.\ \citealt{Rykoff2014}; 
-    \citealt{Rozo2015b}; please see Section~\ref{ssec:redmapper} for details)
-
-%% ------------------------------------------------------------------------------------ %% 
-    
-    Motivated by the ``two-phase'' scenario, and also due to the difficulty in 
-    providing appropriate model to describe the \mstar{} distribution of massive 
-    galaxy from its center to the very outskirt, we focus on \mstar{} within two 
-    different physical apertures in this work:
-    
-    \begin{itemize}
-    
-        \item The stellar mass within 10 kpc (hereafter noted \minn{}). 
-            According to the two-phase scenario, the ``in-situ'' star-formation quickly 
-            builds up the inner, dense core of massive ETGs.  
-            Based on recent observations and simulations (e.g.~\citealt{vanDokkum2010}; 
-            \citealt{RodriguezGomez2016}), the in-situ component of massive ETGs is 
-            mostly contained within one effective radius ($R_{\mathrm{e}}$, or 5-10 kpc). 
-            We use \minn{} as a proxy for the mass forged during the ``in-situ''
-            phase. 
-            Given the quality of the HSC data, we can reliably measure \minn{} over our 
-            redshift range ($1.0^{\arcsec}$ in radius equals 4.4 and 6.1 kpc at redshift
-            0.3 and 0.5).  
-            
-        \item The stellar mass within 100 kpc (hereafter noted \mtot{}). 
-            For our galaxy sample, a 100 kpc aperture corresponds to 5-10 
-            $\times R_{\mathrm{e}}$. 
-            We show in section \ref{ssec:mtotal} that most of the mass for these ETGs 
-            can be captured by a 100 kpc radius and that \mtot{} is a good proxy for the 
-            ``total'' \mstar{}. 
-            Although not perfect, we argue that our measurements of \mtot{} (which are 
-            actually measuring the light directly out to 100 kpc) are a better tracer 
-            of total \mstar{} than model-dependent results from shallower data 
-            (such as SDSS) which rely on extrapolating the light profiles of galaxies 
-            out to large radii.
-            
-   \end{itemize}
-%% ------------------------------------------------------------------------------------ %% 
-
-    {\bf We will show the implications for the stellar mass function of including most of 
-    the stellar light, a task that has been complicated before now due to shallower data. 
-    We will also investigate the idea that the accreted fraction is a function of stellar mass.}
+    \citealt{Rozo2015b}; please see \S \ref{sec:data} for details)
     
     This paper is organized as follows. 
-    Section \ref{sec:data} presents our data and our sample selection. 
-    Section \ref{sec:ellipse} describes our procedure for extracting 1-D surface 
-    brightness profiles. 
-    Section \ref{sec:mstar} describes how we estimate stellar mass. 
-    Our main results are presented in Section \ref{sec:result} and discussed in 
-    Section \ref{sec:discussion}. 
-    Section \ref{sec:summary} presents our summary and conclusions.
+    \S \ref{sec:data} briefly introduce the sample selection and data reduction 
+    processes.  
+    Please refer to \citet{hscMassiveI} for more technical details.
+    Our main results are presented in \S \ref{sec:result} and discussed in 
+    \S \ref{sec:discussion}. 
+    \S \ref{sec:summary} presents our summary and conclusions.
 
     Magnitudes use the AB system (\citealt{Oke1983}), and are corrected for Galactic 
     extinction using calibrations from \citet{Schlafly11}.
@@ -403,6 +341,31 @@
     is the radius at which the mean interior density is equal to 200 times
     the mean matter density ($\bar{\rho}$). 
     
+    As in \citet{hscMassiveI}, we do not try to separate any potential ``intra-cluster''
+    component (ICL; e.g. \citealt{Carlberg1997, Lin2004, Gonzalez2005, Mihos2005}) from 
+    massive galaxies in our sample for both technical and scientific reasons.  
+%% ------------------------------------------------------------------------------------ %% 
+
+%% ------------------------------------------------------------------------------------ %% 
+  \begin{figure*}
+      \centering 
+      \includegraphics[width=\textwidth]{fig/redbcg_m100_m10_compare}
+      \caption{
+          Three-color images for a subsample of massive galaxies at $z{\sim}0.4$. 
+          All of these massive galaxies have very similar \mstar{} within a 10 kpc 
+          elliptical aperture 
+          ($11.2<\log (M_{\star,10\ \mathrm{kpc}}/M_{\odot})<11.3$). 
+          The dash-line circle at the top-left figure indicates $R=$10 kpc.
+          These galaxies are rank-ordered from top to bottom and from left to right 
+          by their \mstar{} within a 100 kpc elliptical aperture which varies 
+          from $10^{11.2} M_{\odot}$ to $10^{11.7} M_{\odot}$. 
+          At fixed ``inner'' mass (\minn{}), massive galaxies display significant
+          diversity in their outer profiles. 
+          Red boxes indicate galaxies from dark matter haloes that are more massive 
+          than ${\sim} 10^{14.0} M_{\odot}$. 
+          }
+      \label{fig:m100_m10_color}
+  \end{figure*}
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
@@ -464,9 +427,10 @@
   \end{figure*}
 %% ------------------------------------------------------------------------------------ %% 
 
-
 %% ------------------------------------------------------------------------------------ %% 
-\section{Data And Sample Selection}
+%% Sample Selection and Data Reduction
+%% ------------------------------------------------------------------------------------ %% 
+\section{Sample Selection and Data Reduction}
     \label{sec:data}
     
     \song{Need a much shorter version of HSC data summar here.}
@@ -501,12 +465,51 @@
     photo-z uncertainty. The sample of {\bf XX} central galaxies living in halos with $M_* < 10^{14}$~\msun\ will 
     be called \nbcg{}.
 
+%% ------------------------------------------------------------------------------------ %% 
+    Motivated by the two-phase formation scenario, we focus on \mstar{} within two 
+    different physical apertures in this work:
+    
+    \begin{itemize}
+    
+        \item The stellar mass within 10 kpc (hereafter noted \minn{}). 
+            According to the two-phase scenario, the ``in-situ'' star-formation quickly 
+            builds up the inner, dense core of massive ETGs.  
+            Based on recent observations and simulations (e.g.~\citealt{vanDokkum2010}; 
+            \citealt{RodriguezGomez2016}), the in-situ component of massive ETGs is 
+            mostly contained within one effective radius ($R_{\mathrm{e}}$, or 5-10 kpc). 
+            We use \minn{} as a proxy for the mass forged during the ``in-situ''
+            phase. 
+            Given the quality of the HSC data, we can reliably measure \minn{} over our 
+            redshift range ($1.0^{\arcsec}$ in radius equals 4.4 and 6.1 kpc at redshift
+            0.3 and 0.5).  
+            
+        \item The stellar mass within 100 kpc (hereafter noted \mtot{}). 
+            For our galaxy sample, a 100 kpc aperture corresponds to 5-10 
+            $\times R_{\mathrm{e}}$. 
+            We show in section \ref{ssec:mtotal} that most of the mass for these ETGs 
+            can be captured by a 100 kpc radius and that \mtot{} is a good proxy for the 
+            ``total'' \mstar{}. 
+            Although not perfect, we argue that our measurements of \mtot{} (which are 
+            actually measuring the light directly out to 100 kpc) are a better tracer 
+            of total \mstar{} than model-dependent results from shallower data 
+            (such as SDSS) which rely on extrapolating the light profiles of galaxies 
+            out to large radii.
+            
+   \end{itemize}
+%% ------------------------------------------------------------------------------------ %% 
+
+    {\bf We will show the implications for the stellar mass function of including most of 
+    the stellar light, a task that has been complicated before now due to shallower data. 
+    We will also investigate the idea that the accreted fraction is a function of stellar mass.}
+
     
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
+%% Results 
+%% ------------------------------------------------------------------------------------ %% 
 \section{Results}
-    \label{sec:results}
+    \label{sec:result}
 
     %\footnote{There are different observational definitions of ``environment''. 
     %In this paper, we use the term ``environment'' and halo mass interchangeably}.
