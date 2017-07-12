@@ -591,78 +591,99 @@
     (no star formation, lower merger rate \etal~e.g.\ \citealt{Bellstedt2016},
     \citealt{Inagaki2015}; but also see \citealt{Bai2014}). 
 
-
-
-    When comparing \nbcg{} and \rbcg{} we will also always make sure that the two 
-    samples are well matched both in terms of \mstar{} as well as in terms of redshift. 
-    Please see the next section and Appendix~\ref{app:match} for more details.
-
 %% ------------------------------------------------------------------------------------ %% 
 \subsection{Environmental Dependence of the Profiles of Massive Galaxies}
     \label{ssec:sbp_mtot} 
        
-    We now ask whether or not galaxies from our sample have \mden{} profiles that 
-    depend on \mhalo{} (at fixed \mstar{}). 
-    For this, we will build matched samples drawing from \rbcg{} and \nbcg{} that are 
-    carefully matched in \mstar{} and redshift using a KDTree algorithm 
-    (see Appendix~\ref{app:match} and Fig~\ref{fig:match} for details). 
-    By matching the redshift distributions within $0.3 < z < 0.5$, we ensure that the 
-    \mden{} profiles from both samples are impacted by seeing and background subtraction 
-    at similar levels. 
-    To match the two samples by stellar mass, we will use two different methods:
-
-%% ------------------------------------------------------------------------------------ %%     
-    Fig~\ref{fig:prof_1} compares the profiles of galaxies at fixed \mtot{} and at fixed 
-    \minn{} for our two matched samples, and shows the main results of this paper which 
-    is that we find a clear halo mass dependence in the \mden{} profiles of massive 
-    galaxies. 
-    The bottom panel of Fig~\ref{fig:prof_1} shows the difference between the two 
-    profiles, $\Delta = \log(\mu_{\star, \mathrm{cenHighMh}}) - 
-    \log(\mu_{\star, \mathrm{cenLowMh}})$, 
-    with errors computed via bootstrap resampling. 
-    In Appendix~\ref{app:robust}, we present a variety of tests that verify the 
-    robustness of these results against different uncertainties.
-   
-    There are several important points to be noticed in Fig~\ref{fig:prof_1}. 
-    First, when galaxies are matched by \mtot{}, although we detect a robust 
-    environmental dependence, it mainly only becomes prominent in the outskirts 
-    at $R>50$ kpc. 
-    This partially explains the difficulties for previous works to detect this effect
-    on shallower images. 
-    Second, we find that central galaxies in more massive dark mater halos display 
-    more flattened inner profile and more significant outer stellar envelope than 
-    the ones living in less massive halos. 
-    Third, the median \mden{} profiles of \rbcg{} and \nbcg{} cross each other 
-    at ${\sim} 15$-20 kpc, the expected $R_{\mathrm{e}}$ for ETGs at this \mtot{}. 
-    Finally, such systematic difference in structure may become more significant 
-    at very high-mass end. 
-    We see evidence of this effect when we compare the $Delta$ profiles in two \mtot{} 
-    bins (see Fig~\ref{fig:prof_2} and discussion in 
-    Appendix~\ref{app:robust})\footnote{Though the lower \mtot{} bin becomes somewhat
-    incomplete} and when we discuss the relation between \mtot{} and \minn{} for 
-    these two samples (see Fig~\ref{fig:scaling_relation}). 
-    This potential interesting result and its implication is worth more investigations 
-    later.  
-
-    Meanwhile, the subtle environmental dependence of \mden{} profiles for the 
-    \mtot{}-matched samples suggests that environment does not play the major role in 
-    shaping massive galaxies \textbf{at fixed total stellar mass}.
-    Therefore it is interesting to ask, for massive galaxies that \textbf{contain 
-    similar \mstar{} in the in-situ component}, how does environment affect their 
-    subsequent mass assembly?
-    Assuming that the \minn{} is reasonable proxy of in-situ mass, we look into this 
-    question by comparing the \mden{} profiles of the \minn{}-matched samples ( 
-    Fig~\ref{fig:prof_1}, right).  
-    Although the median \mden{} profiles are similar at $r \leq 10$ kpc, the
-    central galaxies in more massive halos clearly possess much more prominent outer
-    envelope. 
-    This result is robust in a series of statistical and systematical tests 
-    (see Appendix~\ref{app:robust}.
+    First, we ask whether the \mden{} profiles of massive central galaxies show 
+    \mhalo{}-dependence within 100 kpc at fixed \mstar{}. 
+    To perform meaning comparison, we build matched samples drawing from \rbcg{} and 
+    \nbcg{} that are carefully matched in \mstar{} and redshift using KDTree algorithm 
+    (please see Appendix~\ref{app:match} and Fig~\ref{fig:match} for details). 
+    The similar distributions of redshift of the matched samples ensure that the 
+    median \mden{} profiles from both samples are affected by seeing and background 
+    subtraction to the same extend. 
+    We address this issue more in Appendix~\ref{app:redshift}. 
     
-    At the same time, the uniform slope of the \mden{} profiles within 
-    10 kpc is in sharp contrast with the large scatter of the outskirts. 
+    We match the \rbcg{} and \nbcg{} samples using both \mtot{} and \minn{} in this
+    work. 
+    As explained in Paper~1, we use \mtot{} as proxy of the ``total'' \mstar{}
+    of massive galaxies while treat \minn{} as a rough indicator of the mass of the 
+    \textit{in-situ} component. 
+    
+%% ------------------------------------------------------------------------------------ %%     
+    Fig~\ref{fig:prof_1} compares the \mden{} profiles of massive central galaxies 
+    in \rbcg{} (orange-red color) and \nbcg{} (grey-black color) at fixed \mtot{} 
+    (left panel) and at fixed \minn{} (right panel). 
+    The top panels show the individual \mden{} profiles along with the median profiles 
+    for both samples. 
+    The bottom panel of Fig~\ref{fig:prof_1} shows the difference between the median 
+    \mden{} profile of \rbcg{} and \nbcg{} samples, with errors computed via bootstrap 
+    resampling.
+    $\Delta = \log(\mu_{\star, \mathrm{cenHighMh}}) - 
+    \log(\mu_{\star, \mathrm{cenLowMh}})$. 
+    This figure presents the main results of this work: \textbf{The \mden{} profiles of 
+    massive central galaxies show \mhalo{}-dependence at both fixed \mtot{} and 
+    \minn{}.}
+    For both \mtot{}-- and \minn{}--matched samples, we see systematic differences
+    between the median \mden{} profile of \rbcg{} galaxies and the one for \nbcg{}
+    galaxies. 
+
+    We perform statistical tests to show that the differences we see in the median 
+    \mden{} profiles are significant. 
+    We also conduct a variety of tests that verify the robustness of these results 
+    against choices of \mtot{} bins, $\lambda$ cut, and redshift range. 
+    Please see Appendix~\ref{app:robust} for more details about these tests.
+   
+    There are several important points to be noticed on the left panel of 
+    Fig~\ref{fig:prof_1}. 
+    
+    \begin{itemize}
+        
+        \item First, for the \mtot{} matched sample, although the difference in 
+            median \mden{} profiles is systematical and robust, the overall difference 
+            is very subtle and only becomes clear in the outskirts at $R>50$ kpc, 
+            which explains why such environment dependence is extremely difficult 
+            for previous works to detect using shallower images.
+            
+        \item Second, we find that, at fixed \mtot{}, massive central galaxies in 
+            more massive dark mater halos display shallower \mden{} profiles that the 
+            ones living in less massive haloes. 
+            This can be seen from the more flattened inner \mden{} profile and more 
+            significant outer stellar halos.
+        
+        \item Third, the median \mden{} profiles of \rbcg{} and \nbcg{} cross each 
+            other at ${\sim} 15$-20 kpc, the expected $R_{\mathrm{e}}$ for massive 
+            ETGs around this \mtot{}. 
+        
+        \item Finally, such systematic difference in \mden{} profiles may become more 
+            significant at higher \mtot{}.
+            We see evidence of this using the $Delta$ profiles of two \mtot{} 
+            bins (see Fig~\ref{fig:prof_2} and discussion in 
+            Appendix~\ref{app:robust})\footnote{Though the lower \mtot{} bin becomes 
+            somewhat incomplete} and when we discuss the relation between \mtot{} and 
+            \minn{} (see Fig~\ref{fig:scaling_relation}). 
+            This trend has potentially interesting implication that is worth more 
+            investigations later.  
+            
+    \end{itemize}
+
+    Generally speaking, such subtle environmental dependence of \mden{} profiles in 
+    the \mtot{}-matched samples suggests that environment does not play a major role 
+    in shaping massive galaxies \textbf{at fixed ``total'' stellar mass}.
+    Therefore it is interesting to ask, for massive galaxies that \textbf{contain 
+    similar \mstar{} in the \textit{in-situ} component}, how does environment affect 
+    their subsequent mass assembly?
+    Assuming \minn{} is reasonable tracer of the ``in-situ'' mass, we compare the 
+    \mden{} profiles of \minn{}-matched samples (right panel of Fig~\ref{fig:prof_1}).  
+    Although the median \mden{} profiles are very similar at $R \leq 10$ kpc, the
+    massive central galaxies in more massive halos host much more prominent outer 
+    stellar halo. 
+    
+    Meanwhile, the uniform slope of the \mden{} profile within 10 kpc is in sharp 
+    contrast with the large \textit{intrinsic} scatter in the outskirts. 
     It hints that these two regions are shaped by distinctive processes, and may 
-    explain their differences in environmental dependency. 
+    explain why they depend on environment at different levels.  
     In simulations, intensive dissipative process helps create 
     self-similar de~Vaucouleur-like ($n{\sim} 4$) \mden{} profile in the inner part 
     of massive galaxy (e.g. \citealt{Hopkins2008}), and the \mhalo{}-dependent
