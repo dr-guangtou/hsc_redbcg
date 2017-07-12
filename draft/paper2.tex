@@ -493,46 +493,69 @@
    In Figure \ref{fig:m100_m10_color}, we demonstrate such diversity by showing 
    a random subsample of massive galaxies with very similar \minn{} that have large 
    range of \mtot{}. 
-   We will use these two 
-   
-   
-   
+   We will use these two apertures\mstar{} to guide the comparisons of massive galaxies 
+   from different environments.  
+    
 %% ------------------------------------------------------------------------------------ %%    
-\subsection{Massive Central Galaxies from Different Environment}
+\subsection{Massive Central Galaxies from Different Environments}
     \label{ssec:cen}
-
-    %    The \rbcg{} sample is less affected by completeness because we can utilize 
-    %photo-$z$s from \redm{}. 
-    %However, the completeness of the \nbcg{} sample is still limited by the 
-    %availability of spec-$z$s from BOSS.\alexie{Not sure this is important here.}
+         
+    In this work, we focus on massive galaxies with \mtot{} $>10^{11.6}$~\msun{}. 
+    In Paper~I, we demonstrate that the \mstar{} completeness above this threshold is 
+    good over the full redshift range using comparisons with stellar mass functions 
+    from more complete samples.
     
-    \jenny{Here is an attempt to include all the things we really need here.}
-     
-    We focus on early-type galaxies with  and stellar mass $M_*>10^{11.5}$~\msun. 
-    The redshift range includes a large enough volume to have good statistics at the high-mass end, while 
-    the stellar mass limit is set by our photometric incompleteness. HSC-identified objects are cross-matched 
-    with the spectroscopic and photometric samples from redMapper \citep{Rykoff2014}. Stellar masses are estimated 
-    using stellar population synthesis modeling of the broad-band photometry, and then the mass limit is 
-    imposed. Using comparisons with published mass functions, we demonstrate that we are complete 
-    to $M_*>10^{11.5}$~\msun\ over the full redshift range. 
+    We also wish to focus on massive galaxies that live at the centers of their own 
+    dark matter halos-- so-called ``central'' galaxies.  
+    They are uniquely important to the study of galaxy-halo connection and are known 
+    to follow stellar mass--halo mass relation (SHMR; e.g. \citealt{Leauthaud2012, 
+    Behroozi2013, Kravtsov2014, Tinker2017}) at high-\mstar{} end with small scatter.
+    We utilize the \redm{} \texttt{v5.10} \citep{Rykoff2014, Rozo2015b} cluster catalog 
+    to identify central galaxies. 
     
-    Finally, here we wish to focus on galaxies that live at the centers of their dark matter halos. 
-    We utilize the group information 
-    in redMapper v5.10 \citep{Rykoff2014,Rozo2015b} to identify central galaxies. We use the 
-    relation between richness $\lambda$ and stellar mass to select groups with 
-    $\lambda>30$ or $M_{\rm halo}>10^{14.2}$~\msun\ \citep[e.g.,][]{simetetal2016}. This limit is chosen 
-    to mitigate incompleteness at the high end of our redshift window. We then identify the 
-    central galaxy to have $P_{\rm CEN}>0.7$. We will refer to this sample of 164 central galaxies as \rbcg{}. The median 
-    richness of the sample is $\lambda \approx 41$ ($M_* \approx 2.2 \times 10^{14}$~\msun), and there are 
-    only 44 central galaxies in clusters with $\lambda>0.5$ ($M_* > 10^{15}$~\msun). We build a complementary 
-    sample of central galaxies in lower-mass halos by calculating the radius of each group with 
-    $\lambda>20$ \citep{Diemer2015} and 
-    then excluding galaxies within a cylinder around each group, with the thickness of the cylinder broadened to include 
-    photo-z uncertainty. The sample of {\bf XX} central galaxies living in halos with $M_* < 10^{14}$~\msun\ will 
-    be called \nbcg{}.
-
-
-
+    Firstly, we select 68 massive central galaxies from the \redm{} clusters 
+    with $\lambda \geq 30$, $P_{\mathrm{Cen}} \geq 0.7$, and \logmtot{}$>11.5$ 
+    at $0.3 < z < 0.5$ (63/69 have \logmtot{}$>11.6$). 
+    This $\lambda$ limit is chosen to mitigate incompleteness of low richness clusters
+    at the high end of our redshift window, and the $P_{\mathrm{Cen}}$ limit is 
+    selected to exclude low probability candidate of central galaxy. 
+    Based on the \mhalo{}-$\lambda$ relation calibrated by \citet{Simet2016}, these 
+    galaxies are the brightest cluster galaxies (BCGs) of clusters with 
+    \mhalo{}$>10^{14.2}$~\msun{}.
+    This calibration is consistent with other works (e.g. \citealt{Saro2015, Farahi2016, 
+    Melchior2016, Murata2017}). 
+    The median richness of the sample is $\lambda \approx 41$ 
+    (\mhalo{}$\approx 2.2 \times 10^{14}$~\msun{}), and there are 
+    only 44 central galaxies in clusters with $\lambda>50$ 
+    (\mhalo{}$\approx 3.0 \times 10^{14}$~\msun{}).
+    We will refer to this sample of \textbf{central galaxies in more massive halos} as 
+    the \rbcg{} sample.
+    
+    Secondly, we build a complementary sample of central galaxies in lower-mass haloes
+    by excluding all galaxies that are in any \redm{} cluster with $\lambda > 20$.
+    We convert their $\lambda$ into $M_{\mathrm{200b}}$ using calibration by 
+    \citet{Simet2016}. 
+    Then we estimate the $R_{\mathrm{200b}}$ of each cluster using the method in 
+    \citet{Diemer2015}. 
+    And we exclude all galaxies within a cylinder around each cluster, with the radius
+    equal to $R_{\mathrm{200b}}$ and length equal to twice the value of the photometric 
+    redshift uncertainty (typically around 0.015 to 0.025). 
+    We generally consider this sample as the central galaxies living in halos with
+    $M_{\mathrm{200b}} < 10^{14}$~\msun{}, and will refer to this sample as \nbcg{}.
+    Initially, we select 3453 galaxies this way with \logmtot{}$> 11.2$ at 
+    $0.3 < z < 0.5$. 
+    Among them, 1564 (833) have \logmtot{}$> 11.5$ (11.6). 
+    Satellite contamination should be relative low at the high-\mtot{} end
+    (e.g. \citealt{Reid2014, Hoshino2015, Saito2016, vanUitert2016}). 
+    For instance, the model from \citet{Saito2016} predicts a $\sim 7$\% 
+    contamination in the \logmtot{}$>11.6$ sample from satellites from 
+    \logmh$<11.4$ haloes.
+    
+    It is worth noting that we failed to extract 1-D profiles for $\sim10$\% of 
+    \rbcg{} and \nbcg{} galaxies due to physical (e.g. on-going major merger) or 
+    nuisance (e.g.\ nearby foreground galaxy or bright star) reasons. 
+    These situations happen more frequently for lower-\mtot{} galaxies, and should not 
+    affect the results of this work.
     
 %% ------------------------------------------------------------------------------------ %% 
 
@@ -541,13 +564,9 @@
 %% ------------------------------------------------------------------------------------ %% 
 \section{Results}
     \label{sec:result}
-
-    %\footnote{There are different observational definitions of ``environment''. 
-    %In this paper, we use the term ``environment'' and halo mass interchangeably}.
     
-
-
-    \song{These paragraphs are from Jenny's txt file, need organization.}
+    
+    
     Massive central galaxies in this work show an intriguing diversity on the plane 
     defined by these two metrics.  
     We preview this using Fig~\ref{fig:m100_m10_color}, which shows a subsample of 
@@ -562,9 +581,6 @@
     can safely ignore significant mass growth and structural evolution in this work
     (no star formation, lower merger rate \etal~e.g.\ \citealt{Bellstedt2016},
     \citealt{Inagaki2015}; but also see \citealt{Bai2014}). 
-
-    
-    \textbf{Completeness that depends on halo mass:}
 
 
 
@@ -1127,13 +1143,72 @@
 \clearpage
 %% ------------------------------------------------------------------------------------ %% 
 
-%%%%%%%%%%: Appendix Section %%%%%%%%%%%%
+%% ------------------------------------------------------------------------------------ %% 
+%% Appendix Section
+%% ------------------------------------------------------------------------------------ %% 
 
 \appendix
 
-\song{Just copied a couple of relevant sections here; need some works}
 %% ------------------------------------------------------------------------------------ %% 
-\section{A. Comparison of \mden{} profiles using \mstar{} from the GAMA survey}
+\section{A. Basic Statistical Properties of the Sample} 
+	\label{app:sedasic} 
+    
+    On the top-left panel of Fig~\ref{fig:sample_stats}, we show the \mtot{}-color 
+    relations using the $k$-corrected $g-r$ color. 
+    Both samples follow the same tight ``red-sequence'' with little contamination 
+    from the ``blue cloud''.
+    At fixed \mtot{}, we see little offset in color distributions of the two 
+    samples, suggesting that both samples consist of quiescent galaxies with 
+    similar average stellar population properties.  
+    This is consistent with previous result that suggests the average stellar 
+    population of massive central galaxy does not depend on \mhalo{} 
+    (e.g.\ \citealt{Park2007}).  
+    In this work, we focus on the \mstar{} range of $11.6 \le$\logmtot{}$\le 11.9$, 
+    where both samples have acceptable completeness, and their \mtot{} distributions 
+    greatly overlap (see the normalized distributions of \mtot{} in the bottom-left 
+    panel of Fig~\ref{fig:sample_stats}). 
+    As for the \minn{} distributions, the two samples overlap the most within 
+    $11.2 \le$\logmtot{}$\le 11.6$, but now they show quite different
+    distributions (bottom-right figure).
+    
+    The redshift distributions also show small difference
+    (upper-right panel) even in the high-\mtot{} bin, where the redshift distribution 
+    of the \nbcg{} sample skews toward higher-$z$ end due to the contribution of BOSS 
+    spec-$z$.
+    Since this could bias the comparison of \mden{} profiles and other properties 
+    (please see Appendix\ref{app:redshift} for more details), we address this via matching 
+    the two samples in both mass and redshift distributions carefully
+    (see Appendix~\ref{app:match}).
+    
+%% ------------------------------------------------------------------------------------ %% 
+  \begin{figure*}
+      \centering 
+      \includegraphics[width=16.5cm]{fig/redbcg_sample_stats}
+      \caption{
+          \textbf{Top-left}: The \logms{}-$g-r$ color relation of the \rbcg{} 
+          (red circle; detaield format is the same with the right panel of 
+          Fig~\ref{fig:smf1}) and \nbcg{} (grey dots) samples.
+          We apply the $k$-corrections from \texttt{iSEDFit} fitting to the colors.~~          
+          \textbf{Top-right}: the histograms of the redshift for the \rbcg{} and 
+          \nbcg{} galaxies in both \logmtot$>11.2$ and $11.6<$\logmtot{}$<11.9$
+          mass bins.
+          The vertical lines highlights the $0.3\leq z \leq 0.5$ redshift range.~~
+          \textbf{Bottom-left}: the histograms of \mtot{} for the \rbcg{} (orange-red) 
+          and \nbcg{} (grey-black) samples at both $z>0.2$ (step-filled histogram) and 
+          $0.3 \leq z \leq 0.5$ (stepped histogram). 
+          The vertical lines in both top-left and bottom-left figures highlight the 
+          $11.6<$\logmtot{}$<11.9$ mass range that will be used in the comparison of 
+          the \mtot{}-matched samples.~~
+          \textbf{Bottom-right}: the histograms of \minn{} in similar format. 
+          Here the vertical lines highlight the 
+          $11.2<$\logminn{}$<11.6$ mass range that is used for comparison.
+      }
+      \label{fig:sample_stats}
+  \end{figure*}
+%% ------------------------------------------------------------------------------------ %% 
+    
+%% ------------------------------------------------------------------------------------ %% 
+\section{B. Comparison of \mden{} profiles using \mstar{} from the GAMA survey}
     \label{app:gama} 
 
 %% ------------------------------------------------------------------------------------ %% 
@@ -1192,7 +1267,7 @@
  
 %% ------------------------------------------------------------------------------------ %% 
 
-\section{B. Comparisons of \mden{} profiles in different redshift bins}
+\section{C. Comparisons of \mden{} profiles in different redshift bins}
     \label{app:redshift}
 
 %% ------------------------------------------------------------------------------------ %% 
@@ -1236,7 +1311,7 @@
 
 %% ------------------------------------------------------------------------------------ %% 
 
-\section{C. Match the \rbcg{} and \nbcg{} samples in \mstar{} and redshift distributions}
+\section{D. Match the \rbcg{} and \nbcg{} samples in \mstar{} and redshift distributions}
     \label{app:match}
 
 %% ------------------------------------------------------------------------------------ %% 
@@ -1290,7 +1365,7 @@
     in the same way, and make sure the match has the same quality. 
     
 %% ------------------------------------------------------------------------------------ %% 
-\section{D. Robustness of the \mden{} Differences} 
+\section{E. Robustness of the \mden{} Differences} 
 	\label{app:robust}
     
     In Fig~\ref{fig:prof_1}, we compare the \mden{} profiles of \mtot{}- and 
