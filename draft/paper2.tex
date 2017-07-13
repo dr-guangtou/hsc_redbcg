@@ -720,7 +720,7 @@
 %% ------------------------------------------------------------------------------------ %% 
 \subsubsection{Mass-Size Relation}
     \label{sssec:mass_size}
-        
+    
     The tight relation between \mstar{} and effective radius (or half-light radius; 
     $R_{\mathrm{e}}$ or $R_{\mathrm{50}}$; e.g. \citealt{Shankar2013, Leja2013, 
     vdWel2014}) is one of the most important scaling relation for ETGs. 
@@ -731,7 +731,7 @@
     
     In the last section, we show that the median \mden{} profiles of massive central 
     galaxies depend on environment. 
-    Therefore, we expect to also see difference in the \mstar{}--$R_{\mathrm{e}}$ 
+    We therefore expect to also see difference in the \mstar{}--$R_{\mathrm{e}}$ 
     relations of the \rbcg{} and \nbcg{} samples. 
     For this purpose, we still use \mtot{} as proxy of ``total'' \mstar{}, and adopt 
     the radius enclosing 50\% of luminosity within 100 kpc ($R_{\mathrm{50}}$; derived 
@@ -771,30 +771,37 @@
     150 kpc, or using the $R_{\mathrm{50}}$ derived within these apertures will not 
     change the results.}.
     
-    We qualitatively compare our results with \citealt{HCompany13} (HC13; green solid line) 
-    who studied $z\leq 0.09$ central ETGs in $12.5 \le$ \logmh{} $< 15$ haloes. 
-    HC13 uses the group catalog by \citet{Yang2007} to estimate \mhalo{} and  
-    empirically convert the \mstar{} from a Kroupa IMF to a Chabrier IMF by applying 
-    a constant -0.05 shift (see \citealt{Bernardi2016}).
+    We qualitatively compare our results with \citealt{HCompany13} (HC13; 
+    green solid line) who studied $z\leq 0.09$ central ETGs in 
+    $12.5 \le$ \logmh{} $< 15$ haloes. 
+    HC13 uses the group catalog by \citet{Yang2007} to estimate \mhalo{}. 
     They estimate the 2-D $R_{\mathrm{e}}$ using single-\ser{} model fitting to SDSS 
     images, and derived \mstar{} based on SED fitting using the BC03 (\citealt{BC03}) 
     synthetic population model. 
+    The \mstar{} estimates are empirically converted from a Kroupa IMF to a Chabrier 
+    IMF by applying a constant -0.05 shift (see \citealt{Bernardi2016}).
     We add $+0.1$dex to the HSC13 \mstar{} to account for the systematic 
     difference between their BC03 and our FSPS model (see Appendix~\ref{app:sed}). 
     The distributions of both \rbcg{} and \nbcg{} galaxies on the 
     \mtot{}--$R_{\mathrm{50}}$ plane follow the HC13 relation reasonably well 
-    (with slightly shallower slopes) even at \logmtot{}$< 11.6$ where our samples 
+    (with slightly shallower slopes), even at \logmtot{}$< 11.6$ where our samples 
     start to become incomplete. 
     In contrast to the present study, HC13 finds no environment dependence in the 
     mass--size relation for central galaxies from $12.5\le$ \logmh{} $<15.0$ haloes.
-    A possible explanation for this difference is that the region that strongly depends 
-    on halo mass is the low surface brightness outer envelope where the stars are 
-    mostly assembled through multiple mergers. 
-    This region is difficult to detect on shallow SDSS images, but the much deeper 
-    HSC images can provide accurate measurements of total \mstar{} and size.  
-     
-    In conclusion, we confirm that massive central galaxies at $0.3 < z < 0.5$
-    follow \mtot{}--$R_{\mathrm{50}}$ relations that show halo mass dependence. 
+    The \mstar{} and $R_{\mathrm{e}}$ in HC13 are based on much shallower SDSS images
+    that can not constrain the environment-sensitive outer stellar halos well. 
+    Detailed analysis on this topic is beyond the scope of this work, but we briefly 
+    demonstrate this using the \rbcg{} and \nbcg{} galaxies that overlap with the GAMA
+    survey (please see Appendix~\ref{app:gama} for details). 
+    We matched the two samples using the \mstar{} measured using single-\ser{} 2-D
+    model by the GAMA team (\citealt{Kelvin2012}). 
+    At fixed \mgama{}, the \rbcg{} galaxies display much more significant stellar 
+    halo despite they have very similar inner \mden{} profiles.  
+    This shows again that the deeper HSC images has unique advantage in studying the
+    connection between the assembly of massive galaxies and their dark matter haloes. 
+
+    In conclusion, we confirm that the \mtot{}--$R_{\mathrm{50}}$ relation of massive
+    central galaxies at $0.3 < z < 0.5$ depends on halo mass. 
     At fixed \mtot{}, massive central galaxies in denser environment (higher \mhalo{}) 
     have slightly larger $R_{\mathrm{50}}$ comparing to ones in smaller haloes at fixed 
     \mtot{}. 
@@ -804,18 +811,18 @@
 \subsubsection{\mtot{} - \minn{} Relation}
     \label{sssec:m100_m10}
     
-    We also investigate the relationship between \mstar{} for two different
-    fixed physical apertures (\mtot{} v.s. \minn{}) as alternative tool to help us 
-    understand the relationship between \mhalo{} and the assembly history of massive
-    galaxies.   
-    Comparing to the mass-size relation, this relation is not affected by the 
-    ambiguous definition of ``size'', and is much easier to apply to larger samples 
-    and to simulations. 
+    Now we investigate the relationship between \mstar{} within two elliptical 
+    apertures (\mtot{} v.s. \minn{}) as alternative tool to help us explore the 
+    structure and assembly of massive galaxies.
+    Comparing to the mass--size relation, this relation is not affected by the 
+    ambiguous definition of ``size'', and it is easier to apply it to larger 
+    samples or numerical simulations. 
     
-    The right panel of Fig \ref{fig:scaling_relation} compares \mtot{} and \minn{}. 
-    We find that our \rbcg{} and \nbcg{} occupy different locations within this plane,
-    and follow different best-fit \mtot{} - \minn{} relations. 
-    For \rbcg{} galaxies we find:
+    The right panel of Fig \ref{fig:scaling_relation} compares the \rbcg{} and \nbcg{}
+    galaxies on the \mtot{}--\minn{} plane.
+    We show that these two samples occupy slightly different locations on this plane,
+    and follow different best--fit \mtot{}--\minn{} relations. 
+    For \rbcg{} galaxies with \logmtot{}$>11.6$ we find:
     
     \begin{equation}
         \begin{aligned}
@@ -831,15 +838,14 @@
         \end{aligned}
     \end{equation}
     
-    We have checked that our results are unchanged if we replace the \minn{} with 
-    \mstar{} within 5 or 15 kpc apertures. 
-    Although the $M_{\star, 5\ \mathrm{kpc}}$ values are less reliable than \minn{} 
-    due to the impacts of seeing, the relation using $M_{\star, 5\ \mathrm{kpc}}$ shows 
-    more significant \mhalo{} dependence at the high-mass end.
-    Also, best-fit relation using the full \mtot{} range results in even shallower 
-    slope for the \rbcg{} galaxies.
+    These results are robust against the \mtot{} range for fitting, and they will not 
+    be affected if we replace the \minn{} with \mstar{} within 5 or 15 kpc apertures
+    or replace the \mtot{} with \mstar{} within 120 or 150 kpc apertures.  
+    The \mtot{}--$M_{\star, 5\ \mathrm{kpc}}$ relation actually suggests clearer 
+    \mhalo{}-dependence at high-\mtot{} end, but the $M_{\star, 5\ \mathrm{kpc}}$ 
+    are more vulnerable to the impact from seeing than \minn{}.
      
-    Our results suggest that: 
+    We conclude that: 
     (1) At fixed \mtot{}, central galaxies in more massive haloes tend to have 
     lower fractions of \mstar{} stored in the inner region; 
     (2) For massive galaxies with similar \minn{}, the ones in more massive haloes on 
@@ -847,19 +853,18 @@
     The scientific implication of this result is briefly discussed in 
     Section~\ref{sec:discussion}.
 
-    At the same time, we also find \rbcg{} galaxy tends to have lower \mstar{} within 
-    inner 5-10 kpc and shallower inner \mden{} profile than the \nbcg{} one at 
-    fixed \mtot{}. 
-    Although the HSC images do not have sufficient resolution to investigate this in 
-    details, it is worth pointing out that this difference could be physically 
-    interesting. 
-    Observations of compact quiescent galaxies at high-$z$ often reveal higher 
-    \mden{} in the central region than their descendants, and certain process need to  
-    be responsible for reducing the central \mden{} (e.g. strong adiabatic expansion 
-    induced by powerful AGN feedback; \citealt{Fan2008}).
+    Meanwhile, we find \rbcg{} galaxy tends to have lower \mstar{} within 10--15 kpc 
+    and shallower inner \mden{} profile than the \nbcg{} one at fixed \mtot{}. 
+    Although the HSC can not resolve the central region of these massive galaxies, 
+    such difference could have interesting physical implications. 
+    Observations of compact quiescent galaxies at high-$z$ tend to suggest higher 
+    \mden{} in the central region than their descendants, hence it is necessary to 
+    have certain process to reduce the central \mden{} (e.g. strong adiabatic expansion 
+    induced by powerful AGN feedback; \citealt{Fan2008}) to match the inner \mden{} 
+    profiles of massive central galaxies at low-$z$.
     Coalesce of super-massive black hoes (SMBHs) at the end of major merger, which is 
     common in the assembly history of massive galaxies, can also flatten the central 
-    \mden{} profile (e.g. \citealt{Milosavljevi2002}).
+    \mden{} profile via efficient scattering effect (e.g. \citealt{Milosavljevi2002}).
     On the right side of Fig \ref{fig:scaling_relation}, we find a few \rbcg{} galaxies 
     with very low \minn{} at high \mtot{} end that are apparently not bothered by 
     problematic photometry or exceptionally bad seeing.  
