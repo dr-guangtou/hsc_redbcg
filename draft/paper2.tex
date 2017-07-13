@@ -1252,6 +1252,33 @@
 \appendix
 
 %% ------------------------------------------------------------------------------------ %% 
+  \begin{figure}
+      \centering 
+      \includegraphics[width=8.5cm]{fig/redbcg_sample_stats_old}
+      \caption{
+          \textbf{Top-left}: The \logms{}-$g-r$ color relation of the \rbcg{} 
+          (red circle; detaield format is the same with the right panel of 
+          Fig~\ref{fig:smf1}) and \nbcg{} (grey dots) samples.
+          We apply the $k$-corrections from \texttt{iSEDFit} fitting to the colors.~~          
+          \textbf{Top-right}: the histograms of the redshift for the \rbcg{} and 
+          \nbcg{} galaxies in both \logmtot$>11.2$ and $11.6<$\logmtot{}$<11.9$
+          mass bins.
+          The vertical lines highlights the $0.3\leq z \leq 0.5$ redshift range.~~
+          \textbf{Bottom-left}: the histograms of \mtot{} for the \rbcg{} (orange-red) 
+          and \nbcg{} (grey-black) samples at both $z>0.2$ (step-filled histogram) and 
+          $0.3 \leq z \leq 0.5$ (stepped histogram). 
+          The vertical lines in both top-left and bottom-left figures highlight the 
+          $11.6<$\logmtot{}$<11.9$ mass range that will be used in the comparison of 
+          the \mtot{}-matched samples.~~
+          \textbf{Bottom-right}: the histograms of \minn{} in similar format. 
+          Here the vertical lines highlight the 
+          $11.2<$\logminn{}$<11.6$ mass range that is used for comparison.
+      }
+      \label{fig:sample_stats}
+  \end{figure}
+%% ------------------------------------------------------------------------------------ %% 
+
+%% ------------------------------------------------------------------------------------ %% 
 \section{A. Basic Statistical Properties of the Sample} 
 	\label{app:basic} 
     
@@ -1282,96 +1309,7 @@
     the two samples in both mass and redshift distributions carefully
     (see Appendix~\ref{app:match}).
     
-%% ------------------------------------------------------------------------------------ %% 
-  \begin{figure*}
-      \centering 
-      \includegraphics[width=16.5cm]{fig/redbcg_sample_stats_old}
-      \caption{
-          \textbf{Top-left}: The \logms{}-$g-r$ color relation of the \rbcg{} 
-          (red circle; detaield format is the same with the right panel of 
-          Fig~\ref{fig:smf1}) and \nbcg{} (grey dots) samples.
-          We apply the $k$-corrections from \texttt{iSEDFit} fitting to the colors.~~          
-          \textbf{Top-right}: the histograms of the redshift for the \rbcg{} and 
-          \nbcg{} galaxies in both \logmtot$>11.2$ and $11.6<$\logmtot{}$<11.9$
-          mass bins.
-          The vertical lines highlights the $0.3\leq z \leq 0.5$ redshift range.~~
-          \textbf{Bottom-left}: the histograms of \mtot{} for the \rbcg{} (orange-red) 
-          and \nbcg{} (grey-black) samples at both $z>0.2$ (step-filled histogram) and 
-          $0.3 \leq z \leq 0.5$ (stepped histogram). 
-          The vertical lines in both top-left and bottom-left figures highlight the 
-          $11.6<$\logmtot{}$<11.9$ mass range that will be used in the comparison of 
-          the \mtot{}-matched samples.~~
-          \textbf{Bottom-right}: the histograms of \minn{} in similar format. 
-          Here the vertical lines highlight the 
-          $11.2<$\logminn{}$<11.6$ mass range that is used for comparison.
-      }
-      \label{fig:sample_stats}
-  \end{figure*}
-%% ------------------------------------------------------------------------------------ %% 
     
-%% ------------------------------------------------------------------------------------ %% 
-\section{B. Comparison of \mden{} profiles using \mstar{} from the GAMA survey}
-    \label{app:gama} 
-
-%% ------------------------------------------------------------------------------------ %% 
-\begin{figure*}
-    \centering
-    \includegraphics[width=\textwidth]{fig/redbcg_prof_gama_new}
-    \caption{
-        \textbf{Left:} comparison of \mstar{} estimated by the GAMA survey and 
-        the \mtot{} using HSC images in this work. 
-        We plot the \logmgama{} against the difference between \logmtot{} and \logmgama{}. 
-        The format is very similar to the left panel of Fig~\ref{fig:smf1}. 
-        The two vertical lines highlight the mass range $11.4 \leq$\logmgama{}$<11.8$ 
-        that is used for the comparison.~~
-        \textbf{Right:} we compare the \mden{} profiles of \rbcg{} (orange-red) and 
-        \nbcg{} (grey-black) galaxies using the samples matched on the 
-        \mgama{}-$z$ plane at $11.4 \leq$\logmgama{}$<11.9$ and $0.28 \leq z < 0.4$. 
-        The format is very similar to the ones in Fig~\ref{fig:prof_1}.}
-    \label{fig:gama}
-\end{figure*}
-%% ------------------------------------------------------------------------------------ %% 
-
-    The GAMA survey greatly overlaps with the HSC survey, and it provides carefully 
-    measured \mstar{} for large sample of galaxies (\citealt{Taylor2011}) that help 
-    produce many interesting results (e.g. \citealt{Bauer2013, Ferreras2017}).
-    They use 2-D single-\ser{} model to correct the total luminosity of the galaxy 
-    (\citealt{Kelvin2012}), and derive the \m2l{} through optical-SED fitting 
-    (BC03 model; Chabrier IMF) based on the PSF-matched aperture photometry. 
-    Since the \ser{} model is generally more flexible than the \texttt{cModel} one, 
-    it is therefore interesting to compare with the \rbcg{} and \nbcg{} galaxies 
-    that also have spec-$z$ (at $z < 0.40$) and \mstar{} in GAMA DR2 
-    (\citealt{Liske2015}) and see the impact of deep photometry again. 
-    
-    We summarize the results in Fig~\ref{fig:gama}.  
-    On the left panel, we compare the differences between \mtot{} and \mgama{}. 
-    HSC survey on average recovers more \mstar{} at high-\mstar{} end, which is 
-    consistent with the expectation from deeper photometry, although the 
-    systematic differences in the estimates of \m2l{} could play a role here. 
-    Meanwhile, it is interesting see that, above \logmtot{}$> 11.8$, \mgama{} 
-    becomes increasingly larger than \mtot{}, and most of these massive 
-    galaxies have very high \ser{} index from the 2-D fitting. 
-    This suggests that the single-\ser{} model is no longer an appropriate one to 
-    describe very massive galaxies as it tends to over-estimate the \mstar{} the 
-    inner and/or outer regions. 
-    
-    To verify the cause of the difference in \mstar{}, we further select samples 
-    of \rbcg{} and \nbcg{} galaxies with matched \mgama{} and redshift 
-    distributions (at $11.4 <$\logmgama{}$<11.8$; see Appendix \ref{app:match}), 
-    and compare their \mden{} profiles (right panel). 
-    Although these two subsamples are equally massive according to results from 
-    GAMA survey, it is clear that the \rbcg{} galaxy has much more extended 
-    outer envelope, even though its median \mden{} profile is very similar 
-    to the \nbcg{} sample at $< 10$ kpc. 
-    We can reproduce very the same trend with the luminosity density profiles 
-    (with or without $k$-correction), suggesting that the inaccurate \ser{} 
-    model definitely leads to under-estimate of \mstar{}.  
- 
-%% ------------------------------------------------------------------------------------ %% 
-
-\section{C. Comparisons of \mden{} profiles in different redshift bins}
-    \label{app:redshift}
-
 %% ------------------------------------------------------------------------------------ %% 
 \begin{figure}
     \centering 
@@ -1382,12 +1320,16 @@
         $0.3\leq z<0.4$ (solid lines) and $0.4\leq z<0.5$ (dash lines). 
         We show the individual profile in the background using much thinner line, 
         and highlight the median profiles using thicker line and darker color.
-        Other formats are exactly the same with the left figure of 
-        Fig~\ref{fig:avg_prof}.}
+        }
     \label{fig:avg_prof_z}
 \end{figure}    
 %% ------------------------------------------------------------------------------------ %% 
-    
+
+
+%% ------------------------------------------------------------------------------------ %% 
+\section{B. Comparisons of \mden{} profiles in different redshift bins}
+    \label{app:redshift}
+
     Given the redshift range for our samples, it is important to evaluate 
     the impacts from the physical extend of seeing and the imaging depth on the \mden{} 
     profiles at different redshift. 
@@ -1410,16 +1352,12 @@
     More importantly, it also suggests that, once the redshift distributions are 
     carefully matched, the difference of \mden{} profile is likely to be physical 
     even in the central region.  
-
 %% ------------------------------------------------------------------------------------ %% 
-
-\section{D. Match the \rbcg{} and \nbcg{} samples in \mstar{} and redshift distributions}
-    \label{app:match}
 
 %% ------------------------------------------------------------------------------------ %% 
 \begin{figure*}
     \centering 
-    \includegraphics[width=\textwidth]{fig/redbcg_match}
+    \includegraphics[width=16cm]{fig/redbcg_match}
     \caption{
         \textbf{Left figure} shows the details of the \mtot{}-matching process, 
         corresponding to the results shown in the left figure of   
@@ -1443,7 +1381,80 @@
     \label{fig:match}
 \end{figure*}
 %% ------------------------------------------------------------------------------------ %% 
-    
+
+%% ------------------------------------------------------------------------------------ %% 
+  \begin{figure*}
+      \centering 
+      \includegraphics[width=15.5cm]{fig/redbcg_prof_2}
+      \caption{
+          Comparisons of the \mden{} profiles for \mtot{}-matched \rbcg{} 
+          (orange-red) and \nbcg{} (grey-black) galaxies in lower (left; [11.5,11.70]) 
+          and higher (right; [11.7, 11.9]) \mtot{} bins. 
+          Other formats are in consistent with the right figure of Fig~\ref{fig:prof_1}.
+          The difference in median profiles is more significant in higher \mtot{} bin.
+          }
+      \label{fig:prof_2}
+  \end{figure*}
+%% ------------------------------------------------------------------------------------ %% 
+
+%% ------------------------------------------------------------------------------------ %% 
+  \begin{figure*}
+      \centering 
+      \includegraphics[width=\textwidth]{fig/redbcg_prof_3}
+      \caption{
+        Comparisons of the \mden{} profiles for \rbcg{} (orange-red) and \nbcg{} 
+      	(grey-black) galaxies that are matched using proxies of total \mstar{}. 
+        The formats are in consistent with the right figure of Fig~\ref{fig:prof_1}.
+        The differences are, here, the samples are matched in slightly differnt ways. 
+        From left to right: a) using samples at lower redshift ($0.3 < z < 0.4$); 
+        b) using \rbcg{} sample with $\lambda > 20$ instead of 30; 
+        c) using \mstar{} within 150 kpc instead of 100 kpc.
+        The results are broadly consistent with the one in Fig~\ref{fig:prof_1}.
+        }
+      \label{fig:prof_3} 
+  \end{figure*}
+%% ------------------------------------------------------------------------------------ %% 
+
+%% ------------------------------------------------------------------------------------ %% 
+  \begin{figure*}
+      \centering 
+      \includegraphics[width=15.5cm]{fig/redbcg_prof_4}
+      \caption{
+          Comparisons of the \mden{} profiles for \rbcg{} (orange-red) and \nbcg{} 
+          (grey-black) galaxies that are matched using the \mstar{} enclosed in the 
+          inner region. 
+          Left panel shows the results after matching the \minn{} and \meff{} together, 
+          and the right panel shows the results when only the \logmtot{}$\ge 11.5$
+          \rbcg{} and \nbcg{} galaxies are included.
+          Other formats are in consistent with the right figure of Fig~\ref{fig:prof_1}.
+          }
+      \label{fig:prof_4} 
+  \end{figure*}
+%% ------------------------------------------------------------------------------------ %% 
+
+%% ------------------------------------------------------------------------------------ %% 
+\begin{figure*}
+    \centering
+    \includegraphics[width=16cm]{fig/redbcg_prof_gama_new}
+    \caption{
+        \textbf{Left:} comparison of \mstar{} estimated by the GAMA survey and 
+        the \mtot{} using HSC images in this work. 
+        We plot the \logmgama{} against the difference between \logmtot{} and \logmgama{}. 
+        The format is very similar to the left panel of Fig~\ref{fig:smf1}. 
+        The two vertical lines highlight the mass range $11.4 \leq$\logmgama{}$<11.8$ 
+        that is used for the comparison.~~
+        \textbf{Right:} we compare the \mden{} profiles of \rbcg{} (orange-red) and 
+        \nbcg{} (grey-black) galaxies using the samples matched on the 
+        \mgama{}-$z$ plane at $11.4 \leq$\logmgama{}$<11.9$ and $0.28 \leq z < 0.4$. 
+        The format is very similar to the ones in Fig~\ref{fig:prof_1}.}
+    \label{fig:gama}
+\end{figure*}
+%% ------------------------------------------------------------------------------------ %% 
+
+%% ------------------------------------------------------------------------------------ %% 
+\section{C. Match the \rbcg{} and \nbcg{} samples in \mstar{} and redshift distributions}
+    \label{app:match}
+
     As explained earlier, it is important to make sure the two samples have similar 
     distributions in both \mstar{} and redshift before comparing their median \mden{} 
     profiles.  
@@ -1465,9 +1476,11 @@
     (or \minn{}) and redshift.  
     For all the comparisons of \mden{} profiles in this work, we match the samples 
     in the same way, and make sure the match has the same quality. 
+%% ------------------------------------------------------------------------------------ %% 
+
     
 %% ------------------------------------------------------------------------------------ %% 
-\section{E. Robustness of the \mden{} Differences} 
+\section{D. Robustness of the \mden{} Differences} 
 	\label{app:robust}
     
     In Fig~\ref{fig:prof_1}, we compare the \mden{} profiles of \mtot{}- and 
@@ -1543,56 +1556,50 @@
             Yet, the results regarding the structural differences remain the same. 
           
     \end{enumerate}
-
-%% ------------------------------------------------------------------------------------ %% 
-  \begin{figure*}
-      \centering 
-      \includegraphics[width=\textwidth]{fig/redbcg_prof_2}
-      \caption{
-          Comparisons of the \mden{} profiles for \mtot{}-matched \rbcg{} 
-          (orange-red) and \nbcg{} (grey-black) galaxies in lower (left; [11.5,11.70]) 
-          and higher (right; [11.7, 11.9]) \mtot{} bins. 
-          Other formats are in consistent with the right figure of Fig~\ref{fig:prof_1}.
-          The difference in median profiles is more significant in higher \mtot{} bin.
-          }
-      \label{fig:prof_2}
-  \end{figure*}
 %% ------------------------------------------------------------------------------------ %% 
 
-%% ------------------------------------------------------------------------------------ %% 
-  \begin{figure*}
-      \centering 
-      \includegraphics[width=\textwidth]{fig/redbcg_prof_3}
-      \caption{
-        Comparisons of the \mden{} profiles for \rbcg{} (orange-red) and \nbcg{} 
-      	(grey-black) galaxies that are matched using proxies of total \mstar{}. 
-        The formats are in consistent with the right figure of Fig~\ref{fig:prof_1}.
-        The differences are, here, the samples are matched in slightly differnt ways. 
-        From left to right: a) using samples at lower redshift ($0.3 < z < 0.4$); 
-        b) using \rbcg{} sample with $\lambda > 20$ instead of 30; 
-        c) using \mstar{} within 150 kpc instead of 100 kpc.
-        The results are broadly consistent with the one in Fig~\ref{fig:prof_1}.
-        }
-      \label{fig:prof_3} 
-  \end{figure*}
-%% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
-  \begin{figure*}
-      \centering 
-      \includegraphics[width=\textwidth]{fig/redbcg_prof_4}
-      \caption{
-          Comparisons of the \mden{} profiles for \rbcg{} (orange-red) and \nbcg{} 
-          (grey-black) galaxies that are matched using the \mstar{} enclosed in the 
-          inner region. 
-          Left panel shows the results after matching the \minn{} and \meff{} together, 
-          and the right panel shows the results when only the \logmtot{}$\ge 11.5$
-          \rbcg{} and \nbcg{} galaxies are included.
-          Other formats are in consistent with the right figure of Fig~\ref{fig:prof_1}.
-          }
-      \label{fig:prof_4} 
-  \end{figure*}
+\section{E. Comparison of \mden{} profiles using \mstar{} from the GAMA survey}
+    \label{app:gama} 
+
+    The GAMA survey greatly overlaps with the HSC survey, and it provides carefully 
+    measured \mstar{} for large sample of galaxies (\citealt{Taylor2011}) that help 
+    produce many interesting results (e.g. \citealt{Bauer2013, Ferreras2017}).
+    They use 2-D single-\ser{} model to correct the total luminosity of the galaxy 
+    (\citealt{Kelvin2012}), and derive the \m2l{} through optical-SED fitting 
+    (BC03 model; Chabrier IMF) based on the PSF-matched aperture photometry. 
+    Since the \ser{} model is generally more flexible than the \texttt{cModel} one, 
+    it is therefore interesting to compare with the \rbcg{} and \nbcg{} galaxies 
+    that also have spec-$z$ (at $z < 0.40$) and \mstar{} in GAMA DR2 
+    (\citealt{Liske2015}) and see the impact of deep photometry again. 
+    
+    We summarize the results in Fig~\ref{fig:gama}.  
+    On the left panel, we compare the differences between \mtot{} and \mgama{}. 
+    HSC survey on average recovers more \mstar{} at high-\mstar{} end, which is 
+    consistent with the expectation from deeper photometry, although the 
+    systematic differences in the estimates of \m2l{} could play a role here. 
+    Meanwhile, it is interesting see that, above \logmtot{}$> 11.8$, \mgama{} 
+    becomes increasingly larger than \mtot{}, and most of these massive 
+    galaxies have very high \ser{} index from the 2-D fitting. 
+    This suggests that the single-\ser{} model is no longer an appropriate one to 
+    describe very massive galaxies as it tends to over-estimate the \mstar{} the 
+    inner and/or outer regions. 
+    
+    To verify the cause of the difference in \mstar{}, we further select samples 
+    of \rbcg{} and \nbcg{} galaxies with matched \mgama{} and redshift 
+    distributions (at $11.4 <$\logmgama{}$<11.8$; see Appendix \ref{app:match}), 
+    and compare their \mden{} profiles (right panel). 
+    Although these two subsamples are equally massive according to results from 
+    GAMA survey, it is clear that the \rbcg{} galaxy has much more extended 
+    outer envelope, even though its median \mden{} profile is very similar 
+    to the \nbcg{} sample at $< 10$ kpc. 
+    We can reproduce very the same trend with the luminosity density profiles 
+    (with or without $k$-correction), suggesting that the inaccurate \ser{} 
+    model definitely leads to under-estimate of \mstar{}.  
+ 
 %% ------------------------------------------------------------------------------------ %% 
+
 
 %% ------------------------------------------------------------------------------------ %%  
 \bsp
