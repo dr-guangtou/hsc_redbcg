@@ -902,80 +902,64 @@
 %% ------------------------------------------------------------------------------------ %% 
 \subsection{Ellipticity and Color Profiles}
     \label{ssec:ell_color}
-
-    We now study how the ellipticities (computed via \texttt{Ellipse}) and $k$-corrected 
-    optical colors of massive galaxies vary with radius. 
-    We also study whether or these radial trends differ between our various samples. 
-    These quantities contain interesting information about the physical processes that 
-    shape galaxies, but here we study them mainly with two goals in mind:
-       
-    \begin{enumerate}
-        
-        \item To see whether the ellipticity profile depends strongly on environment, 
-            and to see whether or not the fact that we use an using average isophotal 
-            shape for our our 1-D \mden{} profiles has any impact on our results.
-        
-        \item To verify that the average color gradient does not depend strongly on 
-            the environment and that is not steep enough to cause a problem with our 
-            choice the assumption that it is reasonable to use average \m2l for 
-            comparing massive galaxies. 
-            We extract color profiles by applying the isophotes in $i$-band to images 
-            in other bands in ``forced photometry'' manner.  
-            
-    \end{enumerate}
-
-    We compute ellipticities and color profiles in the radial range of 5-50 kpc 
-    (this is the range where we can safely ignore differences in sky subtraction and 
-    seeing across different bands). 
-    We apply Galactic extinction and $k$-correction to both $g-r$ and $g-i$ color 
-    profiles; the $k$-correction values are also from \texttt{iSEDFit} results.
+    
+    In Paper~1, we show that the ellipticity of outer stellar halo in massive galaxy 
+    steadily increases with \mtot{}, while the rest--frame color gradients do not show 
+    clear \mtot{}-dependence. 
+    Both these results provide us more insights about the assembly of massive galaxies. 
+    Here we quickly look into the environment dependence of ellipticity and 
+    rest--frame color profiles (Figure~\ref{fig:ell_color}). 
+    
+    We focus on ellipticity and color profiles within 5--60 kpc where we can safely 
+    ignore differences in sky subtraction and seeing across different bands. 
+    We apply Galactic extinction and $k$-correction to both $(g-r)$ and $(g-i)$ color 
+    profiles.
     We show the average ellipticity, $g-r$, and $g-i$ color profiles for the 
     \mtot{}-matched (\minn{}-matched) samples of \rbcg{} and \nbcg{} galaxies on the 
-    left (right) side of \ref{fig:ell_color}. 
-    We also compare our results with previous work based on stacking SDSS galaxies 
+    left (right) side of \ref{fig:ell_color} along with comparisons with previous 
+    works based on stacked SDSS galaxies 
     (e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}).
     
-    We find that in general, the ellipticities of massive galaxies increases with 
-    radius from $e\le 0.2$ around 5-10 kpc to $e{\sim} 0.3$ at 40-50 kpc. 
-    This is consistent with previous 2-D modeling results from \citet{Huang2013a}. 
-    The ellipticity profiles of the \mtot{}-matched samples are very similar at 
-    $r<50$ kpc (2-3$\times R_{\mathrm{e}}$ for their \mstar{}). 
-    However, for the \minn{}-matched samples, the \rbcg{} galaxies have higher 
-    ellipticity than the \nbcg{} ones at $r > 10$ kpc, while their inner ellipticity 
-    profiles are very similar.  
-    This further hints that massive central galaxies in different halos but with 
-    similar ``in-situ'' mass may experience different late-time merging histories. 
-    Overall, the relative low ellipticity value and the fact that the ellipticity 
-    gradients are shallow lead us to conclude that the use of an average 
-    isophotal ellipticity is fine for this present study.
+    These results show: 
+    
+    \begin{itemize}
+        
+        \item Once matched at fixed \mtot{}, the \rbcg{} and \nbcg{} galaxies 
+            show similar average ellipticity profiles. 
+            There is hint that suggests the central galaxies from more massive 
+            haloes become slightly more elongated at $R>50$ kpc than the ones 
+            in less massive halos with similar \mtot{}. 
+            However, the uncertainties in the current profiles make it not 
+            conclusive. 
             
-    Previous attempts to constrain ellipticity gradients have relied on image 
-    stacking techniques (e.g. \citealt{Tal2011}, \citealt{DSouza2015}). 
-    Compared to our measurements, we find that stacked ellipticity profiles tend to 
-    underestimate the ellipticity in the outskirt. 
-    Ellipticity profiles contain additional information about the assembly histories 
-    and in future work, it would be of interest to compare our ellipticity profiles 
-    with predictions from hydrodynamic simulations such as Illustris 
-    (\citealt{Vogelsberger2014}, \citealt{Genel2014}) or \textit{Horizon-AGN} 
-    (\citealt{Dubois2014}).
+        \item For the \minn{}-matched samples, the \rbcg{} galaxies show higher
+            average ellipticity than the \nbcg{} ones at $R > 10$ kpc. 
+            The average ellipticities in the inner region are very similar. 
+            This further suggests that the more elongated outer stellar haloes 
+            of massive halos relate to the accreted stars. 
+            
+        \item For the rest--frame color gradients, we find shallow and negative 
+            gradients for both \rbcg{} and \nbcg{} galaxies using both colors.
+            We find no significant difference for both the \mtot{}- and 
+            \minn{}--matched samples within 60 kpc. 
     
-    In terms of color gradients, we find shallow and negative gradients of median 
-    $g-r$ and $g-i$ color profiles for both \rbcg{} and \nbcg{} galaxies. 
-    For both \mtot{}- and \minn{}-matched samples, we find no significant difference
-    in their median color profiles, which supports the assumption of using single 
-    average \m2l{} value to estimate \mden{} profiles.
-    The median $g-r$ color profiles are quite consistent with those based on 
-    stacked SDSS images. 
-    For the $g-i$ profiles, the HSC ones show steeper gradients than the SDSS ones, 
-    however, it is important to point out that the SDSS $i$-band suffers from the 
-    so-called ``red-halo'' effect of (e.g. \citealt{Wu2005}, \citealt{Tal2011}) that 
-    could make the SDSS color appears redder. 
-    In contrast, HSC $i$-band image do not suffer from this effect (thanks to thick 
-    CCDs), therefore can help provide more accurate color estimates.
+    \end{itemize}
+    
+    Besides these conclusions, these comparisons also suggest: 
+    
+    \begin{itemize}
+    
+        \item The smooth ellipticity profile and its shallow gradient supports 
+            the idea of using the flux-weighted average isophotal shape to 
+            extract 1-D profiles of massive galaxies. 
+            
+        \item The similarity of average rest-frame color profiles between the 
+            \rbcg{} and \nbcg{} samples suggests that \mden{} profiles based on 
+            single average \m2l{} will not bias our comparisons. 
+    
+    \end{itemize}
 %% ------------------------------------------------------------------------------------ %%    
-    
-%% ------------------------------------------------------------------------------------ %% 
-
+   
 
 %% ------------------------------------------------------------------------------------ %% 
 \section{Discussion}
