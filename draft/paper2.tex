@@ -846,7 +846,6 @@
     average have more prominent outer envelopes. 
     The scientific implication of this result is briefly discussed in 
     Section~\ref{sec:discussion}.
-%% ------------------------------------------------------------------------------------ %% 
 
     At the same time, we also find \rbcg{} galaxy tends to have lower \mstar{} within 
     inner 5-10 kpc and shallower inner \mden{} profile than the \nbcg{} one at 
@@ -868,65 +867,108 @@
     (a few kpc; e.g. \citealt{Postman2012, LopezCruz2014}) resulting from SMBH mergers.
     The impacts of these processes, and their dependence on \mhalo{} is an interesting 
     topic to investigate in the future.
+%% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
-    
-\subsection{Scatter in Outer Stellar Enveloppes and ``cD'' Galaxies}
+  \begin{figure*}
+      \centering 
+      \includegraphics[width=\textwidth]{fig/redbcg_ell_color_environ}
+      \caption{
+          Radial variations in ellipticity and optical colors for massive galaxies. 
+          The format of this figure is similar to the right hand side of 
+          Fig~\ref{fig:prof_1}. 
+          Top panels show the ellipticity profile, middle panels show $g-r$, and lower 
+          panels show $g-i$. 
+          We compare our results with those from \citet{Tal2011} based on stacking 
+          large samples of luminous red galaxies in SDSS at $z{\sim} 0.4$ 
+          (solid blue line on top panel). 
+          We also compare with the results from a stacking analysis of nearby massive 
+          galaxies with high concentration index ($C>2.6$) in 
+          \citet[][blue dash lines on the top and middle panels]{DSouza2014}. 
+          Finally, we also compare with the average $g-r$ and $g-i$ color profiles 
+          from a large sample of nearby elliptical galaxies in \citet[][blue, solid 
+          lines on the middle and bottom panels]{LaBarbera2010}.
+          }
+      \label{fig:ell_color}
+  \end{figure*}
+%% ------------------------------------------------------------------------------------ %% 
+
+
+%% ------------------------------------------------------------------------------------ %% 
+\subsection{Ellipticity and Color Profiles}
+    \label{ssec:ell_color}
+
+    We now study how the ellipticities (computed via \texttt{Ellipse}) and $k$-corrected 
+    optical colors of massive galaxies vary with radius. 
+    We also study whether or these radial trends differ between our various samples. 
+    These quantities contain interesting information about the physical processes that 
+    shape galaxies, but here we study them mainly with two goals in mind:
+       
+    \begin{enumerate}
         
-   The thin lines in Figure \ref{fig:prof_1} show the \mden{} density profiles of 
-   individual galaxies. 
-   In general, we find that any given galaxy has a relatively smooth profile, even out 
-   to large radii, however, on a galax-by-galaxy basis there is a large (but continuous) 
-   variation in the amplitude of \mden{} at large scales. 
-   Traditionally, the so-called ``cD'' galaxies are defined to have large stellar 
-   envelopes and are found at the hearts of massive clusters (\citealt{Matthews1964, 
-   Schombert1988}). 
-   However, until present, it has not been clear whether ``cD'' galaxies are a distinct 
-   and special population, or if they are simply the continum of a smoothly varying 
-   population. 
-   Fig \ref{fig:prof_1} shows that with the help of our deep HSC images, we can directly 
-   map out the variations in \mden{} profiles at large scales. 
-   Instead of a bi-model distribution, we find that the outskirts of massive galaxies 
-   display a smooth but continuous variation. 
-   We can hence conclude that ``cD'' galaxies are simply the extremes of a continuous 
-   population but that do not necessarily form a unique a special class of galaxies. 
-   This suggests that it might not be very physically meaningful to separate these 
-   massive galaxies into two arbitrary morphological classes (``cD'' versus non-``cD''). 
-   This conclusion is similar to those of \citep{Zhao2015} who found that a large 
-   fraction of nearby BCGs (34\%) does not fall into the ``cD'' class. 
-   Our finding that massive galaxies display a diverse range of outer stellar 
-   envelope is also supported by HST observations of BCGs at $0.3 < z <0.9$ 
-   by \citealt{Bai2014}.
-   
-%% ------------------------------------------------------------------------------------ %% 
-
-%% ------------------------------------------------------------------------------------ %%
-   \song{This part is directly copied from Jenny's txt file, not the right place.}    
-   \begin{itemize}
-   
-         \item At fixed \mstar{} evaluate within 100 kpc, we find that massive central 
-            galaxies display \mden{} profiles that are not self-similar and which 
-            present subtle but systematic differences that correlate with \mhalo{}.
-            On average, massive central galaxies in more massive haloes have slightly 
-            shallower inner \mden{} profiles and more prominent outer envelope.
+        \item To see whether the ellipticity profile depends strongly on environment, 
+            and to see whether or not the fact that we use an using average isophotal 
+            shape for our our 1-D \mden{} profiles has any impact on our results.
+        
+        \item To verify that the average color gradient does not depend strongly on 
+            the environment and that is not steep enough to cause a problem with our 
+            choice the assumption that it is reasonable to use average \m2l for 
+            comparing massive galaxies. 
+            We extract color profiles by applying the isophotes in $i$-band to images 
+            in other bands in ``forced photometry'' manner.  
             
-        \item We also study how the \mden{} profiles vary with \mhalo{} at fixed 
-            ``in-situ'' mass where it is approximated by the \mstar{} within 10 kpc. 
-            At fixed \minn{} we find that central galaxies in more massive haloes 
-            possess much more extended stellar envelope in the outskirts than the ones 
-            in smaller haloes. 
-            At the same time the ellipticity, and optical color profiles inside 10 kpc 
-            show little to no dependence on environment.
-        
-        \item The \mstar{}-size relation also exhibits a clear environmental 
-            dependence and central galaxies in more massive haloes have larger 
-            $R_{\mathrm{50}}$ at fixed \mtot{}. 
-            We suggest that the relation between \mtot{} and \minn{}\footnote{or any 
-            better proxy of total \mstar{} and the mass formed in the ``in-situ'' phase.} 
-            can be a useful tool in diagnosing the assembly history of these massive 
-            galaxies and the connection with the assembly of their dark matter haloes.
-  
-   \end{itemize}
+    \end{enumerate}
+
+    We compute ellipticities and color profiles in the radial range of 5-50 kpc 
+    (this is the range where we can safely ignore differences in sky subtraction and 
+    seeing across different bands). 
+    We apply Galactic extinction and $k$-correction to both $g-r$ and $g-i$ color 
+    profiles; the $k$-correction values are also from \texttt{iSEDFit} results.
+    We show the average ellipticity, $g-r$, and $g-i$ color profiles for the 
+    \mtot{}-matched (\minn{}-matched) samples of \rbcg{} and \nbcg{} galaxies on the 
+    left (right) side of \ref{fig:ell_color}. 
+    We also compare our results with previous work based on stacking SDSS galaxies 
+    (e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}).
+    
+    We find that in general, the ellipticities of massive galaxies increases with 
+    radius from $e\le 0.2$ around 5-10 kpc to $e{\sim} 0.3$ at 40-50 kpc. 
+    This is consistent with previous 2-D modeling results from \citet{Huang2013a}. 
+    The ellipticity profiles of the \mtot{}-matched samples are very similar at 
+    $r<50$ kpc (2-3$\times R_{\mathrm{e}}$ for their \mstar{}). 
+    However, for the \minn{}-matched samples, the \rbcg{} galaxies have higher 
+    ellipticity than the \nbcg{} ones at $r > 10$ kpc, while their inner ellipticity 
+    profiles are very similar.  
+    This further hints that massive central galaxies in different halos but with 
+    similar ``in-situ'' mass may experience different late-time merging histories. 
+    Overall, the relative low ellipticity value and the fact that the ellipticity 
+    gradients are shallow lead us to conclude that the use of an average 
+    isophotal ellipticity is fine for this present study.
+            
+    Previous attempts to constrain ellipticity gradients have relied on image 
+    stacking techniques (e.g. \citealt{Tal2011}, \citealt{DSouza2015}). 
+    Compared to our measurements, we find that stacked ellipticity profiles tend to 
+    underestimate the ellipticity in the outskirt. 
+    Ellipticity profiles contain additional information about the assembly histories 
+    and in future work, it would be of interest to compare our ellipticity profiles 
+    with predictions from hydrodynamic simulations such as Illustris 
+    (\citealt{Vogelsberger2014}, \citealt{Genel2014}) or \textit{Horizon-AGN} 
+    (\citealt{Dubois2014}).
+    
+    In terms of color gradients, we find shallow and negative gradients of median 
+    $g-r$ and $g-i$ color profiles for both \rbcg{} and \nbcg{} galaxies. 
+    For both \mtot{}- and \minn{}-matched samples, we find no significant difference
+    in their median color profiles, which supports the assumption of using single 
+    average \m2l{} value to estimate \mden{} profiles.
+    The median $g-r$ color profiles are quite consistent with those based on 
+    stacked SDSS images. 
+    For the $g-i$ profiles, the HSC ones show steeper gradients than the SDSS ones, 
+    however, it is important to point out that the SDSS $i$-band suffers from the 
+    so-called ``red-halo'' effect of (e.g. \citealt{Wu2005}, \citealt{Tal2011}) that 
+    could make the SDSS color appears redder. 
+    In contrast, HSC $i$-band image do not suffer from this effect (thanks to thick 
+    CCDs), therefore can help provide more accurate color estimates.
+%% ------------------------------------------------------------------------------------ %%    
+    
 %% ------------------------------------------------------------------------------------ %% 
 
 
@@ -1015,6 +1057,65 @@
     (e.g. \citealt{Papovich2012})
 %% ------------------------------------------------------------------------------------ %% 
 
+%% ------------------------------------------------------------------------------------ %% 
+    
+\subsection{Scatter in Outer Stellar Enveloppes and ``cD'' Galaxies}
+        
+   The thin lines in Figure \ref{fig:prof_1} show the \mden{} density profiles of 
+   individual galaxies. 
+   In general, we find that any given galaxy has a relatively smooth profile, even out 
+   to large radii, however, on a galax-by-galaxy basis there is a large (but continuous) 
+   variation in the amplitude of \mden{} at large scales. 
+   Traditionally, the so-called ``cD'' galaxies are defined to have large stellar 
+   envelopes and are found at the hearts of massive clusters (\citealt{Matthews1964, 
+   Schombert1988}). 
+   However, until present, it has not been clear whether ``cD'' galaxies are a distinct 
+   and special population, or if they are simply the continum of a smoothly varying 
+   population. 
+   Fig \ref{fig:prof_1} shows that with the help of our deep HSC images, we can directly 
+   map out the variations in \mden{} profiles at large scales. 
+   Instead of a bi-model distribution, we find that the outskirts of massive galaxies 
+   display a smooth but continuous variation. 
+   We can hence conclude that ``cD'' galaxies are simply the extremes of a continuous 
+   population but that do not necessarily form a unique a special class of galaxies. 
+   This suggests that it might not be very physically meaningful to separate these 
+   massive galaxies into two arbitrary morphological classes (``cD'' versus non-``cD''). 
+   This conclusion is similar to those of \citep{Zhao2015} who found that a large 
+   fraction of nearby BCGs (34\%) does not fall into the ``cD'' class. 
+   Our finding that massive galaxies display a diverse range of outer stellar 
+   envelope is also supported by HST observations of BCGs at $0.3 < z <0.9$ 
+   by \citealt{Bai2014}.
+   
+%% ------------------------------------------------------------------------------------ %% 
+
+%% ------------------------------------------------------------------------------------ %%
+   \song{This part is directly copied from Jenny's txt file, not the right place.}    
+   \begin{itemize}
+   
+         \item At fixed \mstar{} evaluate within 100 kpc, we find that massive central 
+            galaxies display \mden{} profiles that are not self-similar and which 
+            present subtle but systematic differences that correlate with \mhalo{}.
+            On average, massive central galaxies in more massive haloes have slightly 
+            shallower inner \mden{} profiles and more prominent outer envelope.
+            
+        \item We also study how the \mden{} profiles vary with \mhalo{} at fixed 
+            ``in-situ'' mass where it is approximated by the \mstar{} within 10 kpc. 
+            At fixed \minn{} we find that central galaxies in more massive haloes 
+            possess much more extended stellar envelope in the outskirts than the ones 
+            in smaller haloes. 
+            At the same time the ellipticity, and optical color profiles inside 10 kpc 
+            show little to no dependence on environment.
+        
+        \item The \mstar{}-size relation also exhibits a clear environmental 
+            dependence and central galaxies in more massive haloes have larger 
+            $R_{\mathrm{50}}$ at fixed \mtot{}. 
+            We suggest that the relation between \mtot{} and \minn{}\footnote{or any 
+            better proxy of total \mstar{} and the mass formed in the ``in-situ'' phase.} 
+            can be a useful tool in diagnosing the assembly history of these massive 
+            galaxies and the connection with the assembly of their dark matter haloes.
+  
+   \end{itemize}
+%% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
 
