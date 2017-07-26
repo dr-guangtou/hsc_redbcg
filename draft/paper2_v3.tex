@@ -666,15 +666,15 @@
             (see Fig~\ref{fig:prof_2} and discussion in Appendix~\ref{app:robust}) 
             and when we discuss the relation between \mtot{} and 
             \minn{} (see Fig~\ref{fig:scaling_relation}). 
-            This trend has potentially interesting implications 
-            
-            \alexie{can we explain in one phrase?} that will be investigated in follow-up work. 
+            This trend potentially indicates that the assembly of stellar haloes in 
+            more massive central galaxies become more sensitive to their 
+            environments or halo mass. 
             
     \end{itemize}
 
 %This may explain why previous attempts to detect this signal using 
             %shallower images were not successful. 
-\alexie{lets chat about the following two paragraphs}
+    
     Generally speaking, such subtle environmental dependence of \mden{} profiles in 
     the \mtot{}-matched samples suggests that environment does not play a major role 
     in shaping massive galaxies \textbf{at fixed ``total'' stellar mass}.
@@ -716,7 +716,12 @@
 \subsection{The Environmental Dependence of Scaling Relations}
     \label{ssec:scaling}
     
-    The previous section showed that the \mden{} profiles of massive galaxies show a dependence on the dark matter mass of their host halos. In this section, we now turn our attention to the more commonly studied mass size relation  (\mstar{}--$R_{\mathrm{e}}$). In addition, we will also consider halo mass dependence in the \mtot{}--\minn{} plane. 
+    The above section shows that the \mden{} profiles of massive galaxies show a 
+    dependence on the masses of their host dark matter haloes. 
+    In this section, we now turn our attention to the more commonly studied stellar 
+    mass--size relation (\mstar{}--$R_{\mathrm{e}}$). 
+    In addition, we will also consider halo mass dependence on the 
+    \mtot{}--\minn{} plane. 
     
 %% ------------------------------------------------------------------------------------ %% 
 \subsubsection{Mass-Size Relation}
@@ -725,15 +730,28 @@
     The tight relation between \mstar{} and effective radius (or half-light radius; 
     $R_{\mathrm{e}}$ or $R_{\mathrm{50}}$; e.g. \citealt{Shankar2013, Leja2013, 
     vdWel2014}) is one of the most important scaling relation for ETGs. 
-    Despite numerous attempts, previous studies have failed to detect the dark matter halo mass dependence of the \mstar{}--$R_{\mathrm{e}}$ relation at low-$z$ 
+    Despite numerous attempts, previous studies have failed to detect the 
+    \mhalo{}--dependence of the \mstar{}--$R_{\mathrm{e}}$ relation at low-$z$ 
     (e.g. \citealt{Weinmann2009, Nair2010, HCompany13, Cerbrian2014}; 
-    but see \citealt{Yoon2017}). 
+    except for recent result by \citealt{Yoon2017}). 
     
-    The previous section clearly showed that the profiles of massive galaxies depend on the masses of their host dark matter halos. We now ask whether or not this dependence is also manifest when considered in terms of the more traditionally studied \mstar{}--$R_{\mathrm{e}}$ relation. However, when considering the mass-size relation, there is ambiguity and multiple approaches in terms of defining "sizes". This is especially true in the context of massive galaxies with extended stellar haloes (a reason why we prefer to show profiles directly as in the previous section). In this section, we still use \mtot{} as proxy of ``total'' \mstar{} and we adopt 
-    the radius enclosing 50\% of luminosity \alexie{mass?} within 100 kpc ($R_{\mathrm{50}}$; derived 
-    from the $i$-band curve-of-growth) as the ``size''. This definition of ``effective radius'' is more robust against structural details, 
-    choice of model, and the background subtraction \alexie{compared to what?}. 
-    Massive galaxies from this sample are large enough that the impact of seeing is not a concern.
+    The previous section clearly showed that the \mden{} profiles of massive central 
+    galaxies depend on the masses of their host dark matter halos. 
+    We now ask whether or not this dependence is also manifest when considered in 
+    terms of the more traditionally studied \mstar{}--$R_{\mathrm{e}}$ relation. 
+    However, when considering the mass-size relation, there is ambiguity and there are
+    multiple approaches to define ``sizes''. 
+    This is especially relevant in the context of massive galaxies with extended 
+    stellar haloes (a reason why we prefer to show \mden{} profiles directly as in 
+    the previous section). 
+    In this section, we still use \mtot{} as proxy of ``total'' \mstar{} and we adopt 
+    the radius enclosing 50\% of stellar mass within 100 kpc ($R_{\mathrm{50}}$; 
+    derived from the $i$-band curve-of-growth) as the ``size''. 
+    This definition of ``effective radius'' is more robust against structural details, 
+    choice of model, and the background subtraction comparing to the effective radius 
+    estimated by simple 2-D modeling method (e.g. single-\ser{} model). 
+    Massive galaxies from this sample are large enough that the impact of seeing is 
+    not a concern.
     
     The left panel of Fig~\ref{fig:scaling_relation} shows the \mtot{}--$R_{\mathrm{50}}$
     relations for galaxies in high and low mass dark matter halos. We fit the \logmtot{}-$\log (R_{\mathrm{50}}/\mathrm{kpc})$ relations at $\log(M_{\star,100})>11.6$ using the \texttt{emcee} MCMC sampler (\citealt{Emcee})\footnote{The initial guesses are based on maximum 
@@ -1204,6 +1222,11 @@
 
 \appendix
 
+
+%% ------------------------------------------------------------------------------------ %% 
+\section{Basic Statistical Properties of the Sample} 
+	\label{app:basic} 
+    
 %% ------------------------------------------------------------------------------------ %% 
   \begin{figure}
       \centering 
@@ -1230,10 +1253,6 @@
   \end{figure}
 %% ------------------------------------------------------------------------------------ %% 
 
-%% ------------------------------------------------------------------------------------ %% 
-\section{A. Basic Statistical Properties of the Sample} 
-	\label{app:basic} 
-    
     On the top-left panel of Fig~\ref{fig:sample_stats}, we show the \mtot{}-color 
     relations using the $k$-corrected $g-r$ color. 
     Both samples follow the same tight ``red-sequence'' with little contamination 
@@ -1260,7 +1279,10 @@
     (please see Appendix\ref{app:redshift} for more details), we address this via matching 
     the two samples in both mass and redshift distributions carefully
     (see Appendix~\ref{app:match}).
-    
+
+%% ------------------------------------------------------------------------------------ %% 
+\section{Comparisons of \mden{} profiles in different redshift bins}
+    \label{app:redshift}
     
 %% ------------------------------------------------------------------------------------ %% 
 \begin{figure}
@@ -1276,11 +1298,6 @@
     \label{fig:avg_prof_z}
 \end{figure}    
 %% ------------------------------------------------------------------------------------ %% 
-
-
-%% ------------------------------------------------------------------------------------ %% 
-\section{B. Comparisons of \mden{} profiles in different redshift bins}
-    \label{app:redshift}
 
     Given the redshift range for our samples, it is important to evaluate 
     the impacts from the physical extend of seeing and the imaging depth on the \mden{} 
@@ -1306,6 +1323,12 @@
     even in the central region.  
 %% ------------------------------------------------------------------------------------ %% 
 
+
+
+%% ------------------------------------------------------------------------------------ %% 
+\section{Match the \rbcg{} and \nbcg{} samples in \mstar{} and redshift distributions}
+    \label{app:match}
+    
 %% ------------------------------------------------------------------------------------ %% 
 \begin{figure*}
     \centering 
@@ -1333,6 +1356,34 @@
     \label{fig:match}
 \end{figure*}
 %% ------------------------------------------------------------------------------------ %% 
+
+    As explained earlier, it is important to make sure the two samples have similar 
+    distributions in both \mstar{} and redshift before comparing their median \mden{} 
+    profiles.  
+    Here we briefly describe the procedure used in this work. 
+    Since the \rbcg{} sample is smaller in size, we always match the \nbcg{} sample to 
+    it by searching for the $N$-nearest neighbours on the $M_{\star}$-redshift plane 
+    using the KDTree algorithm in the \texttt{scikit-learn} Python library 
+    (\citealt{scikit-learn}), and evaluate the quality of the match using the 
+    distributions of both parameters (as shown in Fig~\ref{fig:match}). 
+ 
+    As we only keep the unique \nbcg{} galaxies in the matched sample, we manually 
+    adjust the value of $N$ to achieve the best match. 
+    When the redshift distribution of the \rbcg{} sample becomes bi-model, we also try 
+    to split the sample into two redshift bins and match them separately. 
+    Typically $N$ is between 3 to 8.
+    In Fig~\ref{fig:match}, we demonstrate this procedure using the results for 
+    the \mtot{}-matched (Left) and the \minn{}-matched samples in Fig~\ref{fig:prof_1}
+    (Right), and the two samples are well matched in the distributions of \mtot{}
+    (or \minn{}) and redshift.  
+    For all the comparisons of \mden{} profiles in this work, we match the samples 
+    in the same way, and make sure the match has the same quality. 
+%% ------------------------------------------------------------------------------------ %% 
+
+    
+%% ------------------------------------------------------------------------------------ %% 
+\section{Robustness of the \mden{} Differences} 
+	\label{app:robust}
 
 %% ------------------------------------------------------------------------------------ %% 
   \begin{figure*}
@@ -1384,71 +1435,6 @@
   \end{figure*}
 %% ------------------------------------------------------------------------------------ %% 
 
-%% ------------------------------------------------------------------------------------ %% 
-\begin{figure*}
-    \centering
-    \includegraphics[width=16cm]{fig/redbcg_prof_gama_new}
-    \caption{
-        \textbf{Left:} comparison of \mstar{} estimated by the GAMA survey and 
-        the \mtot{} using HSC images in this work. 
-        We plot the \logmgama{} against the difference between \logmtot{} and \logmgama{}. 
-        The two vertical lines highlight the mass range $11.4 \leq$\logmgama{}$<11.8$ 
-        that is used for the comparison.~~
-        \textbf{Right:} we compare the \mden{} profiles of \rbcg{} (orange-red) and 
-        \nbcg{} (grey-black) galaxies using the samples matched on the 
-        \mgama{}-$z$ plane at $11.4 \leq$\logmgama{}$<11.9$ and $0.28 \leq z < 0.4$. 
-        The format is very similar to the ones in Fig~\ref{fig:prof_1}.}
-    \label{fig:gama}
-\end{figure*}
-%% ------------------------------------------------------------------------------------ %% 
-
-%% ------------------------------------------------------------------------------------ %% 
-\begin{figure}
-    \centering
-    \includegraphics[width=\columnwidth]{fig/redbcg_prof_m100D}
-    \caption{
-        \textbf{Left:} comparison of \mstar{} estimated by the GAMA survey and 
-        the \mtot{} using HSC images in this work. 
-        We plot the \logmgama{} against the difference between \logmtot{} and \logmgama{}. 
-        The two vertical lines highlight the mass range $11.4 \leq$\logmgama{}$<11.8$ 
-        that is used for the comparison.
-        }
-    \label{fig:cog}
-\end{figure}
-%% ------------------------------------------------------------------------------------ %% 
-
-%% ------------------------------------------------------------------------------------ %% 
-\section{C. Match the \rbcg{} and \nbcg{} samples in \mstar{} and redshift distributions}
-    \label{app:match}
-
-    As explained earlier, it is important to make sure the two samples have similar 
-    distributions in both \mstar{} and redshift before comparing their median \mden{} 
-    profiles.  
-    Here we briefly describe the procedure used in this work. 
-    Since the \rbcg{} sample is smaller in size, we always match the \nbcg{} sample to 
-    it by searching for the $N$-nearest neighbours on the $M_{\star}$-redshift plane 
-    using the KDTree algorithm in the \texttt{scikit-learn} Python library 
-    (\citealt{scikit-learn}), and evaluate the quality of the match using the 
-    distributions of both parameters (as shown in Fig~\ref{fig:match}). 
- 
-    As we only keep the unique \nbcg{} galaxies in the matched sample, we manually 
-    adjust the value of $N$ to achieve the best match. 
-    When the redshift distribution of the \rbcg{} sample becomes bi-model, we also try 
-    to split the sample into two redshift bins and match them separately. 
-    Typically $N$ is between 3 to 8.
-    In Fig~\ref{fig:match}, we demonstrate this procedure using the results for 
-    the \mtot{}-matched (Left) and the \minn{}-matched samples in Fig~\ref{fig:prof_1}
-    (Right), and the two samples are well matched in the distributions of \mtot{}
-    (or \minn{}) and redshift.  
-    For all the comparisons of \mden{} profiles in this work, we match the samples 
-    in the same way, and make sure the match has the same quality. 
-%% ------------------------------------------------------------------------------------ %% 
-
-    
-%% ------------------------------------------------------------------------------------ %% 
-\section{D. Robustness of the \mden{} Differences} 
-	\label{app:robust}
-    
     In Fig~\ref{fig:prof_1}, we compare the \mden{} profiles of \mtot{}- and 
     \minn{}-matched samples of \rbcg{} and \nbcg{} galaxies, and here we test the 
     robustness of the results using a few extra tests that are illustrated in
@@ -1525,15 +1511,48 @@
 %% ------------------------------------------------------------------------------------ %% 
 
 %% ------------------------------------------------------------------------------------ %% 
-\section{E. Stellar Mass Curve-of-Growth for Massive Central Galaxies} 
+\section{Stellar Mass Curve-of-Growth for Massive Central Galaxies} 
 	\label{app:cog}
 %% ------------------------------------------------------------------------------------ %% 
 
+%% ------------------------------------------------------------------------------------ %% 
+\begin{figure*}
+    \centering
+    \includegraphics[width=16cm]{fig/redbcg_prof_gama_new}
+    \caption{
+        \textbf{Left:} comparison of \mstar{} estimated by the GAMA survey and 
+        the \mtot{} using HSC images in this work. 
+        We plot the \logmgama{} against the difference between \logmtot{} and \logmgama{}. 
+        The two vertical lines highlight the mass range $11.4 \leq$\logmgama{}$<11.8$ 
+        that is used for the comparison.~~
+        \textbf{Right:} we compare the \mden{} profiles of \rbcg{} (orange-red) and 
+        \nbcg{} (grey-black) galaxies using the samples matched on the 
+        \mgama{}-$z$ plane at $11.4 \leq$\logmgama{}$<11.9$ and $0.28 \leq z < 0.4$. 
+        The format is very similar to the ones in Fig~\ref{fig:prof_1}.}
+    \label{fig:gama}
+\end{figure*}
+%% ------------------------------------------------------------------------------------ %% 
+
 
 %% ------------------------------------------------------------------------------------ %% 
-\section{F. Comparison of \mden{} profiles using \mstar{} from the GAMA survey}
+\section{Comparison of \mden{} profiles using \mstar{} from the GAMA survey}
     \label{app:gama} 
 
+%% ------------------------------------------------------------------------------------ %% 
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{fig/redbcg_prof_m100D}
+    \caption{
+        \textbf{Left:} comparison of \mstar{} estimated by the GAMA survey and 
+        the \mtot{} using HSC images in this work. 
+        We plot the \logmgama{} against the difference between \logmtot{} and \logmgama{}. 
+        The two vertical lines highlight the mass range $11.4 \leq$\logmgama{}$<11.8$ 
+        that is used for the comparison.
+        }
+    \label{fig:cog}
+\end{figure}
+%% ------------------------------------------------------------------------------------ %% 
+    
     The GAMA survey greatly overlaps with the HSC survey, and it provides carefully 
     measured \mstar{} for large sample of galaxies (\citealt{Taylor2011}) that help 
     produce many interesting results (e.g. \citealt{Bauer2013, Ferreras2017}).
