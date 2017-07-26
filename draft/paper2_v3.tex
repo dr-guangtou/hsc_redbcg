@@ -325,8 +325,8 @@
     reduction processes.  
     Please refer to \citet{hscMassiveI} for more technical details.
     Our main results are presented in \S \ref{sec:result} and discussed in 
-    \S \ref{sec:discussion}. Section
-    \S \ref{sec:summary} presents our summary and conclusions.
+    \S \ref{sec:discussion}. 
+    Section \S \ref{sec:summary} presents our summary and conclusions.
 
     Magnitudes use the AB system (\citealt{Oke1983}), and are corrected for Galactic 
     extinction using calibrations from \citet{Schlafly11}.
@@ -460,45 +460,80 @@
     time span).
     
     We derive $i$-band surface brightness profiles out to 100 kpc after carefully 
-    masking out surrounding neighbors and accounting for the subtraction of the background light. We use the broadband spectral energy distributions (SED) fitting code 
+    masking out surrounding neighbors and accounting for the subtraction of the 
+    background light. 
+    We use the broadband spectral energy distributions (SED) fitting code 
     \texttt{iSEDFit}\footnote{http://www.sos.siena.edu/~jmoustakas/isedfit/} 
-    (\citealt{Moustakas13}) to measure \m2l{} ratios and $k$--corrections using five-band forced \cmodel{} magnitudes from \texttt{hscPipe}. We assume a Chabrier IMF \citep{Chabrier2003}, the Flexible Stellar Population 
+    (\citealt{Moustakas13}) to measure \m2l{} ratios and $k$--corrections using 
+    five-band forced \cmodel{} magnitudes from \texttt{hscPipe}. 
+    We assume a \citet{Chabrier2003} IMF, the Flexible Stellar Population 
     Synthesis models\footnote{http://scholar.harvard.edu/cconroy/sps-models}
-    (FSPS; \texttt{v2.4}; \citealt{FSPS}, \citealt{Conroy2010}), a Calzetti extinction law \citep{Calzetti2000}, and a simple delayed-$\tau$ model for star 
-    formation histories (SFH). Using HSC data, we can measure the mass profiles of massive galaxies to $\sim 100$ kpc and we integrate these profiles within isophotal elliptical apertures at different physical radii. As explained in Paper I, here focus on the two following metric masses:
+    (FSPS; \texttt{v2.4}; \citealt{FSPS}, \citealt{Conroy2010}), the 
+    \citet{Calzetti2000} extinction law, and a simple delayed-$\tau$ model for 
+    star formation histories (SFH). 
+    Using HSC data, we can measure the \mden{} profiles of massive galaxies to 
+    $\sim 100$ kpc and we integrate these profiles within elliptical isophotal
+    apertures at different physical radii. 
+    As explained in Paper~I, here we focus on the two following metric masses:
         
     \begin{itemize}
     
-        \item stellar mass within 10 kpc (hereafter noted \minn{}) which we use as a proxy for the 
-            \textit{in situ} stellar component. This is motivated both by recent observations and simulations 
-            (e.g.~\citealt{vanDokkum2010}, \citealt{RodriguezGomez2016}). The value of 10 kpc that we quote here corresponds to the radius of the major axis of the isophotal ellipse (xxx check).
-        \item stellar mass within 100 kpc (hereafter noted \mtot{}). We use \mtot{} as a proxy of the total stellar mass. In Paper I we showed that \mtot{} recovers more light compared to HSC \cmodel{} photometry with offsets that can be a large as 0.2 dex in magnitude.           
+        \item stellar mass within 10 kpc (hereafter noted \minn{}) which we use 
+            as a proxy for the stellar mass of the \textit{in situ} stellar 
+            component. 
+            This is motivated both by recent observations and simulations 
+            (e.g.~\citealt{vanDokkum2010}, \citealt{RodriguezGomez2016}). 
+            The value of 10 kpc that we quote here corresponds to the radius of the 
+            major axis of the isophotal ellipse.
+            
+        \item stellar mass within 100 kpc (hereafter noted \mtot{}). 
+            We use \mtot{} as a proxy of the ``total'' stellar mass. 
+            In Paper~I we showed that \mtot{} recovers more light compared to 
+            HSC \cmodel{} photometry with offsets that can be a large as 0.2 dex 
+            in magnitude.        
+               
    \end{itemize}
    
-   We use these two simple metric masses to explore the 
-   \mstar{}-dependence of the fraction of accreted stars, and reveal to the diversity of 
-   stellar envelopes among massive galaxies. In practice, we also have the full profiles for each galaxy and can also cast our results in terms of the full stellar mass profiles. However, in many cases we find it more useful to display figures using the more simple \minn{} and \mtot{} quantities. In Figure \ref{fig:m100_m10_color}, we highlight the diversity of galaxies as a function of \minn{} and \mtot{}. Figure \ref{fig:m100_m10_color} shows a random subsample of massive galaxies with very similar \minn{} that have large 
-   range of \mtot{}. 
-   We will use these two apertures masses to guide our comparisons of massive galaxies as a function of environments.  
+   We use these two simple metric masses to explore the \mstar{}-dependence of the 
+   fraction of accreted stars, and reveal to the diversity of stellar envelopes among 
+   massive galaxies. 
+   In practice, we also have the full profiles for each galaxy and can also cast our 
+   results in terms of the full stellar mass profiles. 
+   However, in many cases we find it more useful to display figures using the more 
+   simple \minn{} and \mtot{} quantities. 
+   In Figure \ref{fig:m100_m10_color}, we highlight the diversity of galaxies as a 
+   function of \minn{} and \mtot{}. 
+   Figure \ref{fig:m100_m10_color} shows a random subsample of massive galaxies with 
+   very similar \minn{} that have large range of \mtot{}. 
+   We will use these two apertures masses to guide our comparisons of massive galaxies 
+   as a function of environments.  
     
 %% ------------------------------------------------------------------------------------ %%    
 \subsection{Massive Central Galaxies from Different Environments}
     \label{ssec:cen}
          
     In this work, we focus on massive galaxies with \mtot{} $>10^{11.6}$~\msun{}. 
-    In Paper~I, we demonstrate that this sample is almost mass complete over our full redshift range. In addition to the mass cut above, we also limit our sample to galaxies that live at the centers of their own 
-    dark matter haloes-- so-called ``central'' galaxies. We use the \redm{} \texttt{v5.10} \citep{Rykoff2014, Rozo2015b} cluster catalog to construct a central galaxy sample.
+    In Paper~I, we demonstrate that this sample is almost mass complete over our full 
+    redshift range. 
+    In addition to the mass cut above, we also limit our sample to galaxies that live 
+    at the centers of their own dark matter haloes-- so-called ``central'' galaxies. 
+    We use the \redm{} \texttt{v5.10} \citep{Rykoff2014, Rozo2015b} cluster catalog 
+    to help us construct a central galaxy sample.
     
-    %Central galaxies are important to the study of galaxy-halo connection and follow stellar mass--halo mass relation (SHMR; e.g. \citealt{Leauthaud2012, 
+    %Central galaxies are important to the study of galaxy-halo connection and follow 
+    %stellar mass--halo mass relation (SHMR; e.g. \citealt{Leauthaud2012, 
     %Behroozi2013, Kravtsov2014, Tinker2017}) at high-\mstar{}.
  
     Firstly, we select 68 massive central galaxies from \redm{} clusters 
     with $\lambda \geq 30$, $P_{\mathrm{Cen}} \geq 0.7$, and \logmtot{}$>11.5$ 
-    at $0.3 < z < 0.5$ (63/69 have \logmtot{}$>11.6$). 
+    at $0.3 < z < 0.5$ (63/68 have \logmtot{}$>11.6$). 
     This $\lambda$ limit is chosen to mitigate incompleteness in the cluster catalog
-    at the high end of our redshift window. The $P_{\mathrm{Cen}}$ limit is 
-    selected to exclude low probability central galaxy candidates. 
-    Based on the \mhalo{}-$\lambda$ relation calibrated by \citet{Simet2016}, these corresponds to central galaxies living in halos with \mhalo{}$>10^{14.2}$~\msun{}. This calibration is consistent with other works (e.g. \citealt{Saro2015, Farahi2016, 
+    at the high end of our redshift window. 
+    The $P_{\mathrm{Cen}}$ limit is selected to exclude low probability candidate of 
+    central galaxy. 
+    Based on the \mhalo{}-$\lambda$ relation calibrated by \citet{Simet2016}, these 
+    correspond to central galaxies living in halos with \mhalo{}$>10^{14.2}$~\msun{}. 
+    This calibration is consistent with other works (e.g. \citealt{Saro2015, Farahi2016, 
     Melchior2016, Murata2017}). 
     The median richness of the sample is $\lambda \approx 41$ 
     (\mhalo{}$\approx 2.2 \times 10^{14}$~\msun{}), and there are 
@@ -512,11 +547,13 @@
     We convert their $\lambda$ into $M_{\mathrm{200b}}$ using calibration by 
     \citet{Simet2016}. 
     Then we estimate the $R_{\mathrm{200b}}$ of each cluster using the method in 
-    \citet{Diemer2015}. We further exclude all galaxies within a cylinder around each cluster, with a radius
-    equal to $R_{\mathrm{200b}}$ and a length equal to twice the value of the photometric 
-    redshift uncertainty of the cluster (typically around 0.015 to 0.025). This second sample will be dominated by central galaxies living in haloes with
-    $M_{\mathrm{200b}} < 10^{14}$~\msun{}, and will refer to this sample as \nbcg{}. There are  833 galaxies with  
-\logmtot{}$> 11.6$ in this sample.
+    \citet{Diemer2015}. 
+    We further exclude all galaxies within a cylinder around each cluster, with a radius
+    equal to $R_{\mathrm{200b}}$ and a length equal to twice the value of the 
+    photometric redshift uncertainty of the cluster (typically around 0.015 to 0.025).
+    This second sample will be dominated by central galaxies living in haloes with
+    $M_{\mathrm{200b}} < 10^{14}$~\msun{}, and will refer to this sample as \nbcg{}. \
+    There are 833 galaxies with \logmtot{}$> 11.6$ in this sample.
 
 %    Initially, we select 3453 galaxies this way with \logmtot{}$> 11.2$ at 
 %    $0.3 < z < 0.5$ \alexie{Why do we care about this?}. 
@@ -529,11 +566,14 @@
     
     In Appendix~\ref{app:basic}, we show the distributions of redshift, \mtot{}, and 
     \minn{} for the \rbcg{} and \nbcg{} samples. 
-    We also compare these two samples on the \mtot{} - rest-frame $g-r$ color plane. 
-    Both of them follow the same ``red-sequence'' with only a handful of galaxies displaying bluer colors.
+    We also compare these two samples on the \mtot{}--rest frame $g-r$ color plane. 
+    Both of them follow the same ``red-sequence'' with only a handful of galaxies 
+    displaying bluer colors.
     
     We note that our method fails to extract 1-D profiles for $\sim10$\% of 
-    \rbcg{} and \nbcg{} galaxies due on-going major mergers or projection effects (e.g.\ nearby foreground galaxy or bright stars). However, this small failure rate should not affect any of the results in this paper.
+    \rbcg{} and \nbcg{} galaxies due on-going major mergers or projection effects 
+    (e.g.\ nearby foreground galaxy or bright stars). 
+    However, this small failure rate should not affect any of the results in this paper.
     
 %% ------------------------------------------------------------------------------------ %% 
 
