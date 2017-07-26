@@ -753,8 +753,12 @@
     Massive galaxies from this sample are large enough that the impact of seeing is 
     not a concern.
     
-    The left panel of Fig~\ref{fig:scaling_relation} shows the \mtot{}--$R_{\mathrm{50}}$
-    relations for galaxies in high and low mass dark matter halos. We fit the \logmtot{}-$\log (R_{\mathrm{50}}/\mathrm{kpc})$ relations at $\log(M_{\star,100})>11.6$ using the \texttt{emcee} MCMC sampler (\citealt{Emcee})\footnote{The initial guesses are based on maximum 
+    The left panel of Fig~\ref{fig:scaling_relation} shows the 
+    \mtot{}--$R_{\mathrm{50}}$ relations for galaxies in more and less massive
+    dark matter halos. 
+    We fit the \logmtot{}-$\log (R_{\mathrm{50}}/\mathrm{kpc})$ relations at 
+    $\log(M_{\star,100})>11.6$ using the \texttt{emcee} MCMC sampler 
+    (\citealt{Emcee})\footnote{The initial guesses are based on maximum 
     likelihood estimates, and we assume flat priors for parameters.}.
     
     The best-fit relation for \rbcg{} is:
@@ -773,32 +777,41 @@
         \end{aligned}
     \end{equation}
     
-    \noindent As shown in the left panel of Fig~\ref{fig:scaling_relation}, galaxies in low and high mass haloes live on \mtot{}--$R_{\mathrm{50}}$ relations that have similar slopes but different normalizations. This result is robust against the ranges of \mstar{} over which the fit is performed and against the definitions 
-    of  ``total'' \mstar{} and half-light radius\footnote{Using \mstar{} within 120 or 
-    150 kpc, or using the $R_{\mathrm{50}}$ derived within these apertures does not 
-    change the results.}.
+    \noindent As shown in the left panel of Fig~\ref{fig:scaling_relation}, galaxies 
+    in more and less massive dark matter haloes lie on \mtot{}--$R_{\mathrm{50}}$ 
+    relations that have similar slopes but different normalizations. 
+    This result is robust against the ranges of \mstar{} over which the fit is performed 
+    and against the definitions of  ``total'' \mstar{} and half-light 
+    radius\footnote{Using \mstar{} within 120 or 150 kpc, or using the 
+    $R_{\mathrm{50}}$ derived within these apertures do not change the results.}.
     
     We qualitatively compare our results with \citealt{HCompany13} (HC13; 
     green solid line) who studied $z\leq 0.09$ central ETGs in 
     $12.5 \le$ \logmh{} $< 15$ haloes. 
-    HC13 use the group catalog by \citet{Yang2007} to estimate halo mass. They obtain effective radii from  single-\ser{} model fitting to SDSS 
+    HC13 use the group catalog by \citet{Yang2007} to estimate halo mass. 
+    They obtain effective radii from single-\ser{} model fitting to SDSS 
     images and \mstar{} based on SED fitting using the BC03 (\citealt{BC03}) 
-    synthetic population model. We convert their \mstar{} estimates from a Kroupa IMF to a Chabrier 
-    IMF by applying a constant -0.05 dex shift (see \citealt{Bernardi2016a}). We further add $+0.1$dex to the HSC13 stellar masses to account for a systematic offset between BC03 and our FSPS model (see Paper~1). 
+    synthetic population model. 
+    We convert their \mstar{} estimates from a Kroupa IMF to a Chabrier 
+    IMF by applying a constant -0.05 dex shift (see \citealt{Bernardi2016a}). 
+    We further add $+0.1$dex to the HSC13 stellar masses to account for a systematic 
+    offset between BC03 and our FSPS model (see Paper~1). 
     The distributions of galaxies on the 
     \mtot{}--$R_{\mathrm{50}}$ plane follow the HC13 relation reasonably well 
     (with slightly shallower slopes), even at \logmtot{}$< 11.6$ where our samples 
-    start to become incomplete. 
+    start to become incomplete in stellar mass. 
     In contrast to the present study, HC13 finds no environment dependence in the 
-    mass--size relation for central galaxies in the range $12.5\le$ \logmh{} $<15.0$. However, HC13 use SDSS which is considerably shallower compared the HSC and hence will not be as sensitive to the outer portions of the profile where we see the largest differences. A more detailed comparison is beyond the scope of this work, but we briefly \alexie{we demsontrate what exactly? chat about this test}
-    demonstrate this using the \rbcg{} and \nbcg{} galaxies that overlap with the GAMA
-    survey (please see Appendix~\ref{app:gama} for details).
-    
-    
-    We matched the two samples using the \mstar{} measured using single-\ser{} 2-D
-    model by the GAMA team (\citealt{Kelvin2012}). 
-    At fixed \mgama{}, the \rbcg{} galaxies display much more significant stellar 
-    halo despite they have very similar inner \mden{} profiles.  
+    mass--size relation for central galaxies in the range $12.5\le$ \logmh{} $<15.0$.     
+    However, HC13 use SDSS images that are considerably shallower compared to the HSC 
+    ones and hence will not be as sensitive to the outer portions of the \mden{} 
+    profile where we see the most clear differences. 
+    A more detailed comparison is beyond the scope of this work, but in 
+    Appendix~\ref{app:gama}, we use the \rbcg{} and \nbcg{} galaxies that overlap 
+    with the GAMA survey to briefly demonstrate this point. 
+    We show that, for galaxies with similar \mstar{} derived from single-\ser{} 
+    models using shallower SDSS images (\citealt{Kelvin2012}), the ones in more 
+    massive dark matter halos actually show more prominent outer stellar halos, 
+    hence both of their stellar mass and effective radius are underestimated.  
     This shows again that the deeper HSC images has unique advantage in studying the
     connection between the assembly of massive galaxies and their dark matter haloes. 
 
@@ -813,10 +826,15 @@
 \subsubsection{\mtot{} - \minn{} Relation}
     \label{sssec:m100_m10}
     
-    Now we investigate the relationship \mtot{}, \minn{}, and halo mass. Compared to the mass--size relation, the \mtot{}--\minn{} relation is not plagued by the ambiguity of galaxy ``size'', and also enables a more straightforward comparison with numerical simulations.
+    Now we investigate the relationship among \mtot{}, \minn{}, and \mhalo{}. 
+    Compared to the mass--size relation, the \mtot{}--\minn{} relation is not plagued 
+    by the ambiguity of galaxy ``size'', and also enables a more straightforward 
+    comparison with numerical simulations.
     
     The right panel of Fig \ref{fig:scaling_relation} compares \rbcg{} and \nbcg{}
-    galaxies on the \mtot{}--\minn{} plane. We find that these two samples are offset when considered in this plane a follow distinct best-fit \mtot{}--\minn{} relations. 
+    galaxies on the \mtot{}--\minn{} plane. 
+    We find that there is an offset between the overall distributions of these two
+    samples and they follow distinct best-fit \mtot{}--\minn{} relations. 
     For \rbcg{} galaxies with \logmtot{}$>11.6$ we find:
     
     \begin{equation}
@@ -833,21 +851,32 @@
         \end{aligned}
     \end{equation}
     
-    These results are robust against the exact choice for the \mtot{} range over which the fit is performed. These results are also unchanged if \minn{} is replaced by mass within a 5 or a 15 kpc aperture, or if \mtot{} is replaced with mass within a 120 or a 150 kpc aperture.  
+    These results are robust against the exact choice for the \mtot{} range over which 
+    the fit is performed. 
+    These results also will not be altered when we replace the \minn{} with the stellar 
+    mass within a 5 or a 15 kpc aperture, or if \mtot{} is replaced with stellar mass 
+    within a 120 or a 150 kpc aperture.  
     
 %    The \mtot{}--$M_{\star, 5\ \mathrm{kpc}}$ relation actually suggests clearer 
 %    \mhalo{}-dependence at high-\mtot{} end, but the $M_{\star, 5\ \mathrm{kpc}}$ 
 %    are more vulnerable to the impact from seeing than \minn{}.
      
-    From Figure \ref{fig:scaling_relation} we can draw the same conclusions as in the previous section, namely that: at fixed \mtot{}, central galaxies in more massive haloes tend to have less galaxy mass in the inner regions but display more prominent outer envelopes. The scientific implication of this result is discussed in 
+    From Figure \ref{fig:scaling_relation} we can draw the same conclusions as in 
+    the previous section, namely that: 
+    at fixed \mtot{}, central galaxies in more massive haloes tend to have smaller 
+    fraction of stellar mass in their inner regions and higher \mstar{} in their outer
+    stellar haloes. 
+    Although the HSC images can not resolve the central region of these massive 
+    galaxies, the on average lower \mstar{} within 10 kpc and shallower inner \mden{} 
+    profile for massive central galaxies living in more massive haloes are robust 
+    results and could have interesting physical implications.
+    Meanwhile, at fixed \minn{}--a proxy for the \mstar{} of the ``in situ'' component,
+    central galaxies in more massive haloes tend to be more massive and display more 
+    prominent stellar haloes. 
+    The scientific implication of these results will be discussed in 
     Section~\ref{sec:discussion}.
-
-\alexie{This seems too detailed. This also belongs in the discusison section}
-
-    Meanwhile, we find \rbcg{} galaxy tends to have lower \mstar{} within 10--15 kpc 
-    and shallower inner \mden{} profile than the \nbcg{} one at fixed \mtot{}. 
-    Although the HSC can not resolve the central region of these massive galaxies, 
-    such difference could have interesting physical implications. 
+     
+    \todo{Move to discussion}
     Observations of compact quiescent galaxies at high-$z$ tend to suggest higher 
     \mden{} in the central region than their descendants, hence it is necessary to 
     have certain process to reduce the central \mden{} (e.g. strong adiabatic expansion 
@@ -894,33 +923,52 @@
 \subsection{Ellipticity and Color Profiles}
     \label{ssec:ell_color}
     
-    In Paper~1, we show that the ellipticity of the outer stellar halo increases with \mtot{}, while in contrast, rest--frame color gradients do not display any strong \mtot{}-dependencies. In this paper, we take this analysis one step further to investigate whether or not either of these quantities display a halo mass dependency. We focus on ellipticity and color profiles within 5--60 kpc where we can ignore differences in sky subtraction and seeing across different bands. Galactic extinction and $k$-corrections are applied to both $(g-r)$ and $(g-i)$ color profiles.
+    In Paper~I, we show that the ellipticity of the outer stellar halo increases with
+    \mtot{}, while in contrast, rest--frame color gradients do not display strong 
+    \mtot{}-dependencies. 
+    In this paper, we take this analysis one step further to investigate whether or 
+    not either of these quantities display a halo mass dependency. 
+    We focus on ellipticity and color profiles within 5--60 kpc where we can ignore
+    differences in sky subtraction and seeing across different filters. 
+    Galactic extinction and $k$-corrections are applied to both $(g-r)$ and $(g-i)$ 
+    color profiles.
     
-    Figure \ref{fig:ell_color} shows the average ellipticity, $g-r$, and $g-i$ color profiles for galaxies living in low and high mass haloes both at fixed \mtot{} and at fixed \minn{}. We also compared our results with previous studies that stacked SDSS images (e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}). Figure \ref{fig:ell_color} shows that: 
+    Figure \ref{fig:ell_color} shows the average ellipticity, $g-r$, and $g-i$ color 
+    profiles for galaxies living in more and less massive dark matter haloes both at 
+    fixed \mtot{} and at fixed \minn{}. 
+    We also compared our results with previous studies that are based on stacked SDSS 
+    images (e.g. \citealt{LaBarbera2010, Tal2011, DSouza2014}). 
+    Figure \ref{fig:ell_color} shows that: 
     
     \begin{itemize}
-        \item \alexie{discuss here}. Galaxies in low and high mass haloes display similar ellipticity profiles at fixed \mtot{}. There is hint that suggests the central galaxies from more massive 
+        \item \alexie{discuss here}. Massive central galaxies living in more and 
+            less massive haloes display similar ellipticity profiles at fixed \mtot{}. 
+            There is hint that suggests the central galaxies from more massive 
             haloes become slightly more elongated at $R>50$ kpc than the ones 
             in less massive haloes with similar \mtot{}. 
-            However, the uncertainties in the current profiles make it not 
-            conclusive.              
+            However, the uncertainties in the current ellipticity profiles make it 
+            not conclusive.          
+                
         \item For the \minn{}-matched samples, the \rbcg{} galaxies show higher
             average ellipticity than the \nbcg{} ones at $R > 10$ kpc. 
-            The average ellipticities in the inner region are very similar. 
+            On the other hand, the average ellipticity in the inner region are very 
+            similar. 
             This further suggests that the more elongated outer stellar haloes 
-            of massive haloes relate to the accreted stars.         
-        \item Galaxies in low and high mass dark matter haloes display similar rest--frame color gradients (at $r<60$ kpc) at fixed \mtot{} and at fixed  \minn{}.    
+            of massive haloes may relate to the accreted stars.
+                     
+        \item Massive central galaxies in more and less massive dark matter haloes 
+            display similar rest--frame color gradients (at $r<60$ kpc) at fixed 
+            \mtot{} and at fixed  \minn{}.    
+            
     \end{itemize}
     
-    Besides these conclusions, the fact that we find  smooth ellipticity profile and its shallow gradient supports 
-            the idea of using the flux-weighted average isophotal shape to 
-            extract 1-D profiles of massive galaxies. 
-            
-     The similarity of average rest-frame color profiles between the 
-            \rbcg{} and \nbcg{} samples suggests that \mden{} profiles based on 
-            single average \m2l{} will not bias our comparisons. 
+    Besides these conclusions, the fact that we find smooth ellipticity profile and 
+    its shallow gradient favors the idea of using the flux-weighted average isophotal 
+    shape to extract 1-D \mden{} profiles of massive galaxies. 
+    The similarity of average rest-frame color profiles between the \rbcg{} and \nbcg{}
+    samples suggests that \mden{} profiles based on single average \m2l{} will not bias 
+    our comparisons. 
     
-
 %% ------------------------------------------------------------------------------------ %%    
    
 %% ------------------------------------------------------------------------------------ %% 
