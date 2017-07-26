@@ -439,17 +439,25 @@
     We use imaging data from the HSC internal data release 
     \texttt{S15B}, which is very similar to the Public Data Release 1 
     (\citealt{HSC-DR1} and covers ${\sim} 110$ deg$^2$ in all five-band ($grizy$) to 
-    the full depth in the Wide field. The data are reduced by \texttt{hscPipe 4.0.2}, a derivative of the 
+    the full depth in the Wide field. 
+    The data are reduced by \texttt{hscPipe 4.0.2}, a derivative of the 
     Large Synoptic Survey Telescope (LSST) pipeline (e.g.\ \citealt{Juric2015}; 
     \citealt{Axelrod2010}), modified for HSC (\citealt{HSC-PIPE}).
     The pixel scale of the reduced image is $0.168$\asec{}.
-    We use $i$-band images for extracting surface brightness profiles. HSC $i$-band images are typically 3--4 mag deeper than SDSS (spell out here and reference ?????)  and have superb seeing conditions (mean $i$-band seeing has FWHM$=0.6$\asec{}).
+    We use $i$-band images for extracting surface brightness profiles. 
+    HSC $i$-band images are typically 3--4 mag deeper than SDSS 
+    (Sloan Digital Sky Survey; e.g. \citealt{SDSS-DR7, SDSS-DR8, SDSS-DR12})  
+    and have superb seeing conditions (mean $i$-band seeing has FWHM$=0.6$\asec{}).
     
-    In Paper~I, we select a sample of xxxxx(give number) massive galaxies with spectroscopic 
+    In Paper~I, we select a sample of 25286 bright galaxies with spectroscopic 
     redshifts or reliable ``red-sequence'' photometric redshifts (\citealt{Rykoff2014}) 
-    at $0.3<z<0.5$. Within this redshift range, we have a large enough volume (xxx give the number here) to sample the galaxy mass function above $M-*>11.6$, we can spatially resolve galaxies profiles to $\sim 5$ 
-    kpc ($1.0^{\arcsec}$ corresponds to 4.4 and 6.1 kpc at 
-    $z=0.3$ and 0.5), and we can safely ignore structural evolution over our redshift range (give time span in Gyr xxx).
+    at $0.3<z<0.5$. 
+    Within this redshift range, we have a large enough volume 
+    ($\sim5\times 10^6$ Mpc$^3$) to sample the galaxy stellar mass function above 
+    \logms$>11.6$, we can spatially resolve galaxies profiles to $\sim 5$ kpc 
+    ($1.0^{\arcsec}$ corresponds to 4.4 and 6.1 kpc at $z=0.3$ and 0.5), and we can 
+    safely ignore structural evolution over our redshift range ($\sim$1.5 Gyr of 
+    time span).
     
     We derive $i$-band surface brightness profiles out to 100 kpc after carefully 
     masking out surrounding neighbors and accounting for the subtraction of the background light. We use the broadband spectral energy distributions (SED) fitting code 
