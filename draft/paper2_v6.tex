@@ -23,8 +23,8 @@
 
 % Package Settings
 \hypersetup{colorlinks=true,
-            citecolor=cyan,
-            linkcolor=cyan,
+            citecolor=MidnightBlue,
+            linkcolor=MidnightBlue,
             filecolor=magenta,      
             urlcolor=cyan}
 \urlstyle{same}
@@ -123,7 +123,7 @@
 \newcommand{\plan}[1]{\textcolor{cyan}{#1}}
 \newcommand{\addref}{{\textcolor{red}{REF}}}
 \newcommand{\note}[2]{\textcolor{blue}{\textbf{[Comment (#1): #2]}}}
-\newcommand{\song}[1]{\textcolor{magenta}{\textbf{[Song: #1]}}}
+\newcommand{\song}[1]{\textcolor{cyan}{#1}}
 \newcommand{\alexie}[1]{\textcolor{blue}{\textbf{[Alexie: #1]}}}
 \newcommand{\jenny}[1]{\textcolor{Bittersweet}{\textbf{[Jenny: #1]}}}
 \newcommand{\kevin}[1]{\textcolor{green}{\textbf{[Kevin: #1]}}}
@@ -200,12 +200,12 @@
     and enable us to directly trace stellar mass distributions to 100 kpc without 
     requiring stacking.  
     We conclusively show that at fixed stellar mass, the stellar profiles of massive 
-    galaxies depend on the masses of their dark matter halos. 
-    On average, massive central galaxies with \logmtot{}$>11.6$ in more massive halos 
+    galaxies depend on the masses of their dark matter haloes. 
+    On average, massive central galaxies with \logmtot{}$>11.6$ in more massive haloes 
     at $0.3 < z < 0.5$ have shallower inner stellar mass density profiles 
     (within ${\sim}10$-$20$ kpc) and more prominent outer envelopes. 
     These differences translate into a halo mass dependence of the 
-    mass--size relation: central galaxies in halos with \logmh{}$>14.0$ are 
+    mass--size relation: central galaxies in haloes with \logmh{}$>14.0$ are 
     $\sim 20$\% larger in $R_{\mathrm{50}}$ at fixed \mtot{}.  
     Such dependence is also reflected in the relationship between the stellar mass 
     within 10 and 100 kpc. 
@@ -239,10 +239,10 @@
 \section{Introduction}
     \label{sec:intro}
     
-    A key discovery in the last 
-    decade has been the dramatic structural transformation of massive quiescent 
-    galaxies \citep[e.g.][]{Trujillo2006, vanDokkum2008, Cimatti2008, Damjanov2009, 
-    vanderWel2011, Szomoru2012, Patel2013} from $z \approx 2$ to the present day. 
+    A key discovery in the last decade has been the dramatic structural transformation 
+    of massive quiescent galaxies \citep[e.g.][]{Trujillo2006, vanDokkum2008, 
+    Cimatti2008, Damjanov2009, vanderWel2011, Szomoru2012, Patel2013} from 
+    $z \approx 2$ to the present day. 
     These observations suggest that the progenitors of $z{\sim} 0$ massive early-type 
     galaxies (ETGs) need to increase their effective radii ($R_{\rm e}$) by a factor 
     of 2--4 over a time span of 10 Gyrs (e.g. \citealt{Newman2012, vdWel2014}). 
@@ -265,42 +265,48 @@
     Oh2017}, optical color gradients (e.g. \citealt{LaBarbera2010, LaBarbera2012}), 
     and stellar population gradients \citep[e.g.,][]{Coccato2010, Coccato2011, 
     Greene2015, Barbosa2016}. 
-    Although these observations are generally consistent with the two-phase scenario, 
-    this picture still faces a key puzzle: whether or not sizes and profiles of galaxies 
-    depend on the mass of their host dark matter halos.
- 
-    According to the two-phase formation scenario, the late time growth of massive 
-    ETGs is intrinsically tied to the growth of their host dark matter haloes 
+    \song{
+    These observations are generally consistent with the two-phase formation scenario. 
+    However, it is still not clear whether this promising picture can correctly 
+    predict the connection between the stellar mass distributions in massive galaxies 
+    and their dark matter haloes.
+    }
+    
+    \song{
+    Under the $\Lambda$CDM cosmology, The assembly of massive ETGs is intrinsically 
+    tied to the hierarchal growth of their host dark matter haloes 
     (e.g. \citealt{Leauthaud2012, Behroozi2013, Shankar2013}). 
-    Massive ETGs living at the centers of more massive haloes should be subject to 
-    higher merger rates compared to ETGs with similar stellar mass but living in less 
-    massive dark matter haloes. 
-    A natural prediction of this picture is therefore that the structures of 
-    massive ETGs should depend on their ``environment''\footnote{There are 
-    multiple definitions of ``environment'' in the literature.  
-    In this work, we use ``environment'' and halo mass interchangeably.}.
-    Theoretical models based on the two-phase formation scenario predict an 
-    environmental dependence of the stellar mass--effective radius relation for 
-    ETGs (\mstar{}--$R_{\rm e}$; 
-    e.g., \citealt{Shen2003, Guo2009}): the sizes of massive ETGs in more massive 
-    haloes should be larger than those in less massive haloes at fixed \mstar{} 
+    Hydrodynamic simulations suggest that the fraction of star accreted through 
+    mergers (\textit{ex situ} component) in central galaxy increases with halo 
+    mass (e.g. \citealt{Pillepich2017b}). 
+    Although the major merger rate is not strong function of progenitor halo mass 
+    (e.g. \citealt{Shankar2015}), minor mergers may still play a more important 
+    role in the assembly of central galaxy of more massive dark matter halos 
+    (e.g. \citealt{Guo2011, Yoon2017}). 
+    As minor merger is more efficient at ``puffing up'' the outskirts of massive 
+    galaxies (e.g. \citealt{Oogi2013, Bedorf2013}), this seems to suggest the 
+    structures of massive ETGs and the well-known stellar mass--effective radius 
+    relation (\mstar{}--$R_{\rm e}$; e.g., \citealt{Shen2003, Guo2009}) should depend 
+    on their ``environment''\footnote{There are multiple definitions of 
+    ``environment'' in the literature.  
+    In this work, we use ``environment'' and halo mass interchangeably.}
     (e.g. \citealt{Shankar2013, Shankar2014}). 
-    Yet, solid evidence of this effect at low redshift is still missing 
-    (e.g. \citealt{Nair2010, HCompany13}; but also see \citealt{Yoon2017}).
-    
-    %However, while hints of an environmental dependence in the mass-size relation have 
-    %been spotted at high-$z$ (e.g. \citealt{Papovich2012, Lani2013, Delaye2014}; but 
-    %also see \citealt{Rettura2010}). 
-    
-	% Song: Actually the Illustris paper suggests that, for massive galaxies, 
-	%       even the inner region is dominated by accreted stars. 
+    However, evidence for the environment--dependence of \mstar{}--$R_{\rm e}$
+    at low redshift is still not very solid (\citealt{Nair2010, HCompany13}; 
+    but also see \citealt{Yoon2017}), while the results at higher redshift are 
+    even more confusing (e.g. \citealt{Papovich2012, Lani2013, Delaye2014}; but 
+    also see \citealt{Rettura2010}).
+    }
 	
-    Testing this prediction requires deep imaging of ETGs in order to probe the 
-    accreted component (the stellar halo) which can extend to 100 kpc and 
-    beyond \citep[eg.,][]{hscMassiveI}. 
-    This is observationally challenging as the surface brightness profiles of massive 
-    ETGs decline rapidly with typical values of $\mu > 26.0$ \sb{} in $i$-band at 100 
-    kpc and at $z\sim0.3$. 
+	\song{
+    Therefore, we think it requires deeper images of these massive galaxies to 
+    better probe their outer stellar mass distributions and test these 
+    predictions. 
+    Unfortunately, this is observationally challenging since the stellar haloes 
+    of massive galaxies can extend to $>100$ kpc (e.g.\citealt{Tal2011, DSouza2014}),
+    and their surface brightness profiles decline rapidly with typical values of 
+    $\mu > 26.0$ \sb{} in $i$-band at 100 kpc and at $z\sim0.3$. 
+    }
     In \citet[][Paper I hereafter]{hscMassiveI}, we showed that deep, 
     multi-band imaging from the Subaru Strategic Program (SSP; \citealt{HSC-SSP,
     HSC-DR1}) using Hyper Suprime-Cam (HSC; \citealt{Miyazaki2012}, 
@@ -308,18 +314,14 @@
     mass density (\mden{}) profiles for {\it individual} galaxies with 
     \logms{}$>11.4$ at $0.3 < z < 0.5$ and out to 100 kpc. 
     In Paper I, we characterized the stellar mass profiles of massive ETGs, and 
-    showed that there is a large intrinsic scatter in the \mden{} stellar halos of
+    showed that there is a large intrinsic scatter in the \mden{} stellar haloes of
     massive galaxies on 100 kpc scales. 
     In this paper, we now investigate whether or not the large scatter in the outer 
     profiles of massive galaxies correlate with halo mass. 
-    We conclusively show that the sizes and stellar halos of massive central galaxies 
+    We conclusively show that the sizes and stellar haloes of massive central galaxies 
     depend on dark matter halo mass. 
     In other terms, we reveal the halo mass dependence of the mass-size relation 
     for massive ETGs.   
-    
-%    with the help of HSC images of a large sample 
-%    of massive ETGs and the \redm{} cluster catalog (e.g.\ \citealt{Rykoff2014}; 
-%    \citealt{Rozo2015b}; please see \S \ref{sec:data} for details)
     
     This paper is organized as follows. 
     In \S \ref{sec:data} we briefly introduce the sample selection and the data 
@@ -456,9 +458,12 @@
     Within this redshift range, we have a large enough volume 
     ($\sim5\times 10^6$ Mpc$^3$) to sample the galaxy stellar mass function above 
     \logms$>11.6$, we can spatially resolve galaxies profiles to $\sim 5$ kpc 
-    ($1.0^{\arcsec}$ corresponds to 4.4 and 6.1 kpc at $z=0.3$ and 0.5), and we can 
-    safely ignore structural evolution over our redshift range ($\sim$1.5 Gyr of 
-    time span).
+    ($1.0^{\arcsec}$ corresponds to 4.4 and 6.1 kpc at $z=0.3$ and 0.5). 
+    \song{
+    And massive galaxies should experience little structural evolution and 
+    size growth between $z=0.5$ and 0.3 ($\sim$1.5 Gyr of time span) 
+    based on model prediction (e.g. \citealt{Shankar2015}).
+    }
     
     We derive $i$-band surface brightness profiles out to 100 kpc after carefully 
     masking out surrounding neighbors and accounting for the subtraction of the 
@@ -518,7 +523,7 @@
     redshift range. 
     In addition to the mass cut above, we also limit our sample to galaxies that live 
     at the centers of their own dark matter haloes-- so-called ``central'' galaxies. 
-    We use the \redm{} \texttt{v5.10} \citep{Rykoff2014, Rozo2015b} cluster catalog 
+    We use the \redm{} \texttt{v5.10} \citep{Rykoff2014, Rozo2015b} cluster catalogue 
     to help us construct a central galaxy sample.
     
     %Central galaxies are important to the study of galaxy-halo connection and follow 
@@ -529,14 +534,20 @@
     with richness ($\lambda$) $\geq 30$, and the probability of true central galaxy 
     ($P_{\mathrm{Cen}}$) $\geq 0.7$, and \logmtot{}$>11.5$ 
     at $0.3 < z < 0.5$ (63/68 have \logmtot{}$>11.6$). 
-    This $\lambda$ limit is chosen to mitigate incompleteness in the cluster catalog
+    This $\lambda$ limit is chosen to mitigate incompleteness in the cluster catalogue
     at the high end of our redshift window. 
     The $P_{\mathrm{Cen}}$ limit is selected to exclude low probability candidate of 
     central galaxy. 
-    Based on the \mhalo{}-$\lambda$ relation calibrated by \citet{Simet2016}, these 
-    correspond to central galaxies living in halos with \mhalo{}$>10^{14.2}$~\msun{}. 
-    This calibration is consistent with other works (e.g. \citealt{Saro2015, Farahi2016, 
+    \song{
+    \citet{Simet2017} calibrates the \mhalo{}-$\lambda$ relation for the \redm{} 
+    clusters using the SDSS weak lensing data after carefully addressing many 
+    important systematic uncertainties.
+    Based on this calibration, these correspond to central galaxies living in haloes 
+    with \mhalo{}$>10^{14.2}$~\msun{}. 
+    This calibration is consistent with several other independent calibrations 
+    using different methods (e.g. \citealt{Saro2015, Farahi2016, 
     Melchior2016, Murata2017}). 
+    }
     The median richness of the sample is $\lambda \approx 41$ 
     (\mhalo{}$\approx 2.2 \times 10^{14}$~\msun{}), and there are 
     only 44 central galaxies in clusters with $\lambda>50$ 
@@ -546,20 +557,25 @@
     
     Secondly, we build a complementary sample of central galaxies in lower-mass haloes
     by excluding all galaxies that are in any \redm{} cluster with $\lambda > 20$.
+    \song{
     We convert their $\lambda$ into $M_{\mathrm{200b}}$ using calibration by 
-    \citet{Simet2016}. 
-    Then we estimate the $R_{\mathrm{200b}}$ of each cluster using the method in 
-    \citet{Diemer2015}. 
+    \citet{Simet2017}. 
+    \citet{Diemer2015} systematically investigates the mass density profiles of 
+    dark matter haloes under $\Lambda$CDM cosmology using a suite of dark matter--only
+    simulations.  
+    They provide empirical functions that describe the average density profiles 
+    of dark matters with different halo mass and at different redshifts.  
+    Using the \texttt{Colossus} Python package 
+    (\citealt{Colossus})\footnote{\url{http://www.benediktdiemer.com/code/colossus/}}
+    provided by these authors, we estimate the $R_{\mathrm{200b}}$ of each cluster 
+    given its $M_{\mathrm{200b}}$ and redshift.
+    } 
     We further exclude all galaxies within a cylinder around each cluster, with a radius
     equal to $R_{\mathrm{200b}}$ and a length equal to twice the value of the 
     photometric redshift uncertainty of the cluster (typically around 0.015 to 0.025).
     This second sample will be dominated by central galaxies living in haloes with
     $M_{\mathrm{200b}} < 10^{14}$~\msun{}, and will refer to this sample as \nbcg{}. \
     There are 833 galaxies with \logmtot{}$> 11.6$ in this sample.
-
-%    Initially, we select 3453 galaxies this way with \logmtot{}$> 11.2$ at 
-%    $0.3 < z < 0.5$ \alexie{Why do we care about this?}. 
-%    Among them, 1564 (833) have \logmtot{}$> 11.5$ (11.6).
 
     Satellite contamination should be relative low at the high-\mtot{} end
     (e.g. \citealt{Reid2014, Hoshino2015, Saito2016, vanUitert2016}). 
@@ -591,7 +607,7 @@
     galaxies, and concluded that the general trends are consistent with the predictions 
     of the two-phase formation scenario. 
     In this work, we now investigate the relation between the \mden{} profiles of 
-    massive galaxies, their stellar halos, and dark matter halo mass. 
+    massive galaxies, their stellar haloes, and dark matter halo mass. 
     Here we use \mtot{} as proxy for the ``total'' \mstar{} of massive galaxies and 
     we use \minn{} as a rough proxy for the stellar mass of the \textit{in situ} 
     component.  
@@ -744,7 +760,7 @@
     except for recent result by \citealt{Yoon2017}). 
     
     The previous section clearly showed that the \mden{} profiles of massive central 
-    galaxies depend on the masses of their host dark matter halos. 
+    galaxies depend on the masses of their host dark matter haloes. 
     We now ask whether or not this dependence is also manifest when considered in 
     terms of the more traditionally studied \mstar{}--$R_{\mathrm{e}}$ relation. 
     However, when considering the mass-size relation, there is ambiguity and there are
@@ -763,7 +779,7 @@
     
     The left panel of Fig~\ref{fig:scaling_relation} shows the 
     \mtot{}--$R_{\mathrm{50}}$ relations for galaxies in more and less massive
-    dark matter halos. 
+    dark matter haloes. 
     We fit the \logmtot{}-$\log (R_{\mathrm{50}}/\mathrm{kpc})$ relations at 
     $\log(M_{\star,100})>11.6$ using the \texttt{emcee} MCMC sampler 
     (\citealt{Emcee})\footnote{The initial guesses are based on maximum 
@@ -805,7 +821,7 @@
     We qualitatively compare our results with \citealt{HCompany13} (HC13; 
     green solid line) who studied $z\leq 0.09$ central ETGs in 
     $12.5 \le$ \logmh{} $< 15$ haloes. 
-    HC13 use the group catalog by \citet{Yang2007} to estimate halo mass. 
+    HC13 use the group catalogue by \citet{Yang2007} to estimate halo mass. 
     They obtain effective radii from single-\ser{} model fitting to SDSS 
     images and \mstar{} based on SED fitting using the BC03 (\citealt{BC03}) 
     synthetic population model. 
@@ -821,7 +837,7 @@
     mass--size relation for central galaxies in the range $12.5\le$ \logmh{} $<15.0$.     
     Both the considerably shallower SDSS images and the single-\ser{} model could 
     contribute to this difference, since the most clear environmental differences 
-    are found in the low surface brightness stellar halos that can not be 
+    are found in the low surface brightness stellar haloes that can not be 
     well-modeled with the inner portion of the \mden{} profile using single-\ser{}
     profiles. 
 
@@ -979,39 +995,51 @@
     haloes on average have larger half--light radius and host more prominent outer 
     stellar haloes. 
     
-    These results are broadly consistent with the ``two-phase'' formation theory for 
-    massive central galaxies.
-    According to this scenario, intense dissipative processes at $z > 2$ are 
+    \song{
+    The two--phase formation scenario can qualitatively explain these results. 
+    Under this picture, intense dissipative processes at $z > 2$ are 
     responsible for the formation of \textit{in situ} stars in massive central 
     galaxies. 
-    In the second phase, star-formation is quenched which limits in-situ star 
-    formation and growth becomes dominated by non-dissipative mergers of satellite
-    galaxies. 
+    After the star-formation was rapidly quenched by certain mechanism, the 
+    assembly of massive galaxies in the second phase is dominated by accretion 
+    of satellite galaxies through (mostly) non-dissipative mergers. 
     Dry minor mergers are efficient at depositing \textit{ex situ} stars in the 
     outskirts of massive galaxies (e.g. \citealt{Oogi2013, Bedorf2013}). 
-    Because central galaxies in massive haloes should experience more mergers 
-    compared to those in less massive halos, we expect the stellar mass profiles 
-    (and sizes) of massive central galaxies to exhibit dependencies on host halo 
-    mass.
-   
+    If minor mergers become more frequent in more massive dark matter halos, 
+    they can result in slightly different stellar mass distributions and larger 
+    effective radius for their massive central galaxies.
+    }
+      
     \citet{Shankar2014} studied the environment dependence of galaxy size using 
     a series of hierarchical semi-analytic models. 
     They predict that at fixed stellar mass, the median size of central galaxies 
     should increase strongly with halo mass. 
-    The major-merger rate only increases slightly with halo mass (mass ratio $>1$:3; 
-    e.g. \citealt{Hirschmann2013}). 
-    The minor-merger rate, however, depends strongly on the dynamical friction time. 
-    If the dynamical friction time is short (e.g. \citealt{Newman2012}), the
-    massive central galaxies with $11.5 <$\logms{}$<12.0$ from more massive haloes 
-    (\logmh{}$>14.0$) can have up to four times more minor mergers (1:100--1:3)
-    compared to the ones in less massive halos at similar stellar mass. 
-    This increase in the minor-merger rate as a function of halo mass leads to a 
+    \song{
+    Although the major-merger rate does not strongly depend on halo mass 
+    (mass ratio $>1$:3; e.g. \citealt{Hirschmann2013, Shankar2015}), minor 
+    merger rate could still increase with halo mass if the dynamical friction time 
+    is short (e.g. \citealt{Newman2012}). 
+    Therefore, massive central galaxies with $11.5 <$\logms{}$<12.0$ from more massive 
+    haloes (\logmh{}$>14.0$) can have up to four times more minor mergers (1:100--1:3)
+    compared to the ones in less massive haloes at similar stellar mass. 
+    Such increase in the minor-merger rate as a function of halo mass leads to a 
     halo-mass dependence in the mass-size relation. 
+    }
     The predictions from \citet{Shankar2014} have been confirmed by \citet{Yoon2017} 
     using the semi-analytic model from \citet{Guo2011}.  
-    Our results are broadly consistent with these predictions. 
-    Indeed, we find that the outer profiles of massive galaxies ($r>50$ kpc) are the 
-    regions that display the strongest variations as a function of halo mass. 
+    
+    \song{
+    Our results are broadly consistent with these predictions and also suggest that 
+    the outer stellar haloes ($r>50$ kpc) of massive galaxies show the strongest 
+    variations with halo mass. 
+    At the same time, we should point out that comparison at low redshift alone 
+    can not rule out some other scenarios.  
+    For instance, \citet{Buchan2016} suggests that central galaxies in more massive 
+    haloes could born with more extended structure. 
+    More careful comparisons at higher redshift should help clarify these situations
+    although recent observations of massive central galaxies of $z>2$ proto--clusters 
+    seem to confirm their compact nature (e.g. \citealt{Kubo2017}).
+    }
    
 %% ------------------------------------------------------------------------------------ %% 
 \subsection{Environmental Dependence of the Inner Regions of Massive Galaxies}
@@ -1081,14 +1109,14 @@
     with the GAMA survey to briefly demonstrate this point. 
     We show that, for galaxies with similar \mstar{} derived from single-\ser{} 
     models using shallower SDSS images (\citealt{Kelvin2012}), the ones in more 
-    massive dark matter halos actually show more prominent outer stellar halos, 
+    massive dark matter haloes actually show more prominent outer stellar haloes, 
     hence both of their stellar mass and effective radius are underestimated.  
     This shows again that the deeper HSC images has unique advantage in studying 
     the connection between the assembly of massive galaxies and their dark matter 
     haloes. 
          
     At the same time, \citet{Cerbrian2014} find that ETGs with \logms{}$>11.5$ are 
-    slightly larger in more massive haloes, and they also shows that this trend is 
+    slightly larger in more massive haloes, and they also show that this trend is 
     reversed at lower \mstar{}. 
     \citet{Yoon2017} present a careful study of a large sample of $z\sim0.1$ SDSS ETGs 
     using a non-parametric method and recover a clear environment dependence of 
@@ -1190,7 +1218,7 @@
             possess much more extended stellar haloes than the ones in smaller haloes, 
             despite their median \mden{} profiles at $R < 15$ kpc are very similar. 
             Assuming that \minn{} traces the amount of ``in situ'' stars in massive
-            galaxies, this results is consistent with the picture that more massive 
+            galaxies, this result is consistent with the picture that more massive 
             haloes favor the growth of extended stellar haloes in their central 
             galaxies through more frequent mergers. 
         
@@ -1741,4 +1769,4 @@
 \end{document}
 %% ------------------------------------------------------------------------------------ %% 
 %%%%%%%%%%%%: End of the File %%%%%%%%%%%%
-%% ------------------------------------------------------------------------------------ %% 
+%% ------------------------------------------------------------------------------------ %% 
